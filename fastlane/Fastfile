@@ -10,23 +10,54 @@ platform :ios do
       is_key_content_base64: true
     )
 
-    # xcodebuild needs the API key as a file on disk to manage signing
-    # (create the distribution certificate + provisioning profile).
-    require "base64"
-    require "fileutils"
-    key_dir = File.expand_path("~/.appstoreconnect/private_keys")
-    FileUtils.mkdir_p(key_dir)
-    key_path = File.join(key_dir, "AuthKey_#{ENV['ASC_KEY_ID']}.p8")
-    File.write(key_path, Base64.decode64(ENV["ASC_KEY_CONTENT"]))
+    # Headless signing: automatic signing asks Apple for a *development*
+    # profile, which needs a registered device. Instead, create the
+    # distribution certificate + App Store profile directly and sign
+    # manually — no device involved.
+    keychain_name = "build.keychain"
+    keychain_password = "ci-build-password"
+    create_keychain(
+      name: keychain_name,
+      password: keychain_password,
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: false
+    )
+
+    get_certificates(
+      api_key: api_key,
+      team_id: "NX47Z37H39",
+      keychain_path: File.expand_path("~/Library/Keychains/#{keychain_name}-db"),
+      keychain_password: keychain_password
+    )
+
+    profile_name = "Mehr Iran Dokht App Store"
+    get_provisioning_profile(
+      api_key: api_key,
+      app_identifier: "ca.elnazmoghadam.mehrirandokht",
+      provisioning_name: profile_name,
+      team_id: "NX47Z37H39"
+    )
+
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: "ios/App/App.xcodeproj",
+      team_id: "NX47Z37H39",
+      bundle_identifier: "ca.elnazmoghadam.mehrirandokht",
+      code_sign_identity: "Apple Distribution",
+      profile_name: profile_name
+    )
 
     build_app(
       project: "ios/App/App.xcodeproj",
       scheme: "App",
       export_method: "app-store",
-      xcargs: "-allowProvisioningUpdates DEVELOPMENT_TEAM=NX47Z37H39 " \
-              "-authenticationKeyPath #{key_path} " \
-              "-authenticationKeyID #{ENV['ASC_KEY_ID']} " \
-              "-authenticationKeyIssuerID #{ENV['ASC_ISSUER_ID']}"
+      export_options: {
+        provisioningProfiles: {
+          "ca.elnazmoghadam.mehrirandokht" => profile_name
+        }
+      }
     )
 
     upload_to_testflight(
