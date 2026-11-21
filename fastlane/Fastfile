@@ -33,12 +33,25 @@ platform :ios do
     )
 
     profile_name = "Mehr Iran Dokht App Store"
-    get_provisioning_profile(
+    profile_path = get_provisioning_profile(
       api_key: api_key,
       app_identifier: "ca.elnazmoghadam.mehrirandokht",
       provisioning_name: profile_name,
-      team_id: "NX47Z37H39"
+      team_id: "NX47Z37H39",
+      force: true
     )
+    # Use the name sigh actually created (it may differ), and make sure the
+    # profile file sits in both places Xcode versions look for it.
+    actual_profile_name = lane_context[SharedValues::SIGH_NAME] || profile_name
+    if profile_path && File.exist?(profile_path)
+      require "fileutils"
+      ["~/Library/MobileDevice/Provisioning Profiles",
+       "~/Library/Developer/Xcode/UserData/Provisioning Profiles"].each do |dir|
+        dir = File.expand_path(dir)
+        FileUtils.mkdir_p(dir)
+        FileUtils.cp(profile_path, dir)
+      end
+    end
 
     update_code_signing_settings(
       use_automatic_signing: false,
@@ -46,7 +59,7 @@ platform :ios do
       team_id: "NX47Z37H39",
       bundle_identifier: "ca.elnazmoghadam.mehrirandokht",
       code_sign_identity: "Apple Distribution",
-      profile_name: profile_name
+      profile_name: actual_profile_name
     )
 
     build_app(
@@ -55,7 +68,7 @@ platform :ios do
       export_method: "app-store",
       export_options: {
         provisioningProfiles: {
-          "ca.elnazmoghadam.mehrirandokht" => profile_name
+          "ca.elnazmoghadam.mehrirandokht" => actual_profile_name
         }
       }
     )
