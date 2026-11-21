@@ -33,6 +33,13 @@ jobs:
           ruby-version: "3.2"
           bundler-cache: true
 
+      - name: Revoke old distribution certificates (quota cleanup)
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_CONTENT: ${{ secrets.ASC_KEY_CONTENT }}
+        run: ruby scripts/revoke_distribution_certs.rb
+
       - name: Build and upload to TestFlight
         env:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
