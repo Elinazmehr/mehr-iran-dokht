@@ -1,0 +1,19 @@
+{
+	"appId": "ca.elnazmoghadam.mehrirandokht",
+	"appName": "مهر ایران دخت",
+	"webDir": "www",
+	"backgroundColor": "#0a152c",
+	"ios": {
+		"limitsNavigationsToAppBoundDomains": true,
+		"contentInset": "always"
+	},
+	"server": {
+		"iosScheme": "capacitor"
+	},
+	"packageClassList": [
+		"AppPlugin",
+		"CAPBrowserPlugin",
+		"FilesystemPlugin",
+		"SharePlugin"
+	]
+}

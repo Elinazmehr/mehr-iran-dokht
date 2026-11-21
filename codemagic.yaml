@@ -1,0 +1,66 @@
+# Codemagic — cloud build for the iOS app (no Mac needed)
+#
+# HOW TO USE
+# 1. Create a GitHub repo and push the contents of
+#    ~/workspace/ios-app/mehr-iran-dokht/ to its root (see BUILD-PLAN.md).
+# 2. In Codemagic (codemagic.io), add the repo, then add these as secure
+#    environment variables (Team settings or workflow variables):
+#      APP_STORE_CONNECT_ISSUER_ID        (from the App Store Connect API key)
+#      APP_STORE_CONNECT_KEY_IDENTIFIER   (from the App Store Connect API key)
+#      APP_STORE_CONNECT_PRIVATE_KEY      (the .p8 key contents)
+#      CERTIFICATE_PRIVATE_KEY            (any strong password you invent;
+#                                          Codemagic uses it to store the
+#                                          generated distribution certificate
+#                                          so later builds can reuse it)
+#    The API key is created by Elnaz in App Store Connect (her sign-in only).
+# 3. Run this workflow from the Codemagic dashboard. It builds the .ipa and
+#    uploads it to TestFlight. It does NOT submit to the App Store
+#    (submit_to_app_store: false) — that stays a manual step after testing.
+#
+# WHAT IT DOES
+# - npm ci + `npx cap sync ios` (copies the web app into the Xcode project)
+# - Creates/fetches the App Store distribution certificate + provisioning
+#   profile with the App Store Connect API key
+# - Builds the signed .ipa with Xcode on a cloud Mac
+# - Uploads the build to App Store Connect as a TestFlight build
+
+workflows:
+  ios-app-store:
+    name: iOS App Store (Mehr Iran Dokht)
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      vars:
+        BUNDLE_ID: ca.elnazmoghadam.mehrirandokht
+        XCODE_WORKSPACE: ios/App/App.xcworkspace
+        XCODE_SCHEME: App
+      xcode: latest
+      node: 22
+    scripts:
+      - name: Install npm dependencies
+        script: |
+          npm ci
+      - name: Sync Capacitor web assets into the iOS project
+        script: |
+          npx cap sync ios
+      - name: Set up code signing
+        script: |
+          keychain initialize
+          app-store-connect fetch-signing-files "$BUNDLE_ID" --type IOS_APP_STORE --create
+          keychain add-certificates
+          xcode-project use-profiles
+      - name: Build IPA
+        script: |
+          xcode-project build-ipa \
+            --workspace "$XCODE_WORKSPACE" \
+            --scheme "$XCODE_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        submit_to_testflight: true
+        submit_to_app_store: false
