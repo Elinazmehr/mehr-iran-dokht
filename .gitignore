@@ -1,7 +1,0 @@
-node_modules/
-ios/App/build/
-ios/App/DerivedData/
-build/
-*.log
-.DS_Store
-ios/App/App/public/
