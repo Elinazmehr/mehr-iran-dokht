@@ -550,6 +550,58 @@
         padding: .1rem .85rem; font-size: .82rem; font-weight: 800; line-height: 1.9;
       }
       .mon-map-btn:hover { background: var(--gold-bright); color: #1e3570; }
+      /* ---------- «تازه» badge on the newest additions ---------- */
+      .story-card, .full-story { position: relative; }
+      .new-badge {
+        position: absolute; top: .8rem; inset-inline-end: .8rem; z-index: 5;
+        background: linear-gradient(160deg, var(--court), var(--court-2));
+        color: var(--gold-bright);
+        border: 1.5px solid var(--gold-bright); border-radius: 999px;
+        padding: .02rem .8rem; font-size: .78rem; font-weight: 900; line-height: 1.9;
+        box-shadow: 0 4px 12px rgba(22, 42, 92, .3);
+        font-family: "Vazirmatn", system-ui, sans-serif;
+        pointer-events: none;
+      }
+      html[lang="fa"] .new-badge { font-family: "Noto Nastaliq Urdu", serif; font-size: .74rem; line-height: 2.1; }
+      .new-badge.inline {
+        position: static; box-shadow: none; flex: none;
+        padding: 0 .6rem; font-size: .7rem; line-height: 1.8;
+      }
+      html[lang="fa"] .new-badge.inline { line-height: 2; }
+      /* ---------- Watch: free Persepolis videos, streamed from Wikimedia Commons ---------- */
+      .mon-watch { margin-top: 1rem; border-top: 1px dashed var(--line); padding-top: .9rem; }
+      .mon-watch h4 { margin: 0 0 .7rem; font-size: .98rem; font-weight: 900; color: var(--accent); line-height: 1.7; }
+      .mon-vid { margin-bottom: 1rem; }
+      .mon-vid:last-child { margin-bottom: 0; }
+      .mon-vid > b { display: block; font-size: .93rem; line-height: 1.7; }
+      .mon-vid > p { margin: .15rem 0 .55rem; color: var(--ink-soft); font-size: .88rem; }
+      .vid-facade {
+        position: relative; display: block; width: 100%; aspect-ratio: 16 / 9;
+        border: 1.5px solid var(--gold-bright); border-radius: 14px; overflow: hidden;
+        background: linear-gradient(160deg, var(--court), var(--court-2));
+        cursor: pointer; font: inherit; padding: 0;
+      }
+      .vid-facade .vid-play-ic {
+        position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        width: 58px; height: 58px; border-radius: 999px;
+        background: var(--gold-bright); color: #221a04;
+        display: grid; place-items: center;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, .35);
+      }
+      .vid-facade:hover .vid-play-ic { filter: brightness(1.08); }
+      .vid-facade:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+      .vid-facade .vid-dur {
+        position: absolute; bottom: .55rem; inset-inline-end: .6rem;
+        background: rgba(6, 15, 33, .72); color: #fff;
+        border-radius: 8px; padding: .05rem .5rem;
+        font-size: .78rem; font-weight: 800; font-variant-numeric: tabular-nums;
+      }
+      .vid-slot video {
+        width: 100%; aspect-ratio: 16 / 9; display: block;
+        border-radius: 14px; background: #000; border: 1px solid var(--line);
+      }
+      .mon-vid .vid-credit { color: var(--ink-soft); font-size: .78rem; margin: .4rem 0 0; line-height: 1.9; }
+      .vid-credit a { color: var(--gold); font-weight: 700; }
       .full-story .story-fig figcaption { color: var(--ink-soft); font-size: .83rem; margin-top: .5rem; line-height: 1.7; }
       /* Asho Zoroaster's real portrait: still, centred, in a court gold frame */
       .portrait-fig { text-align: center; }
@@ -1420,6 +1472,7 @@
           <p data-i18n="n6P1">در قاهره، دو برادر که هر دو وزیرند، با هم پیمان می‌بندند که در یک شب ازدواج کنند و اگر یکی را پسر و دیگری را دختر آمد، آن دو را به هم دهند. از این پیمان، نورالدین علی و برادرش راهشان از هم جدا می‌شود و پسر نورالدین، بدرالدین حسن، در بصره بزرگ می‌شود؛ جوانی چنان زیبا که یک شب، دست سرنوشت و جنی بازیگوش او را از بسترش در بصره برمی‌دارد و در قاهره، در حجله‌ی عروسی همان دختری می‌نشاند که از پیش از زادن برای او نامزد شده بود — و سپیده‌دم ناپدید می‌شود. پدر و پسر سال‌ها بعد چگونه هم را بازمی‌یابند؟ این قصه به‌زودی، در شب خودش، همین‌جا گفته می‌شود.</p>
         </article>
         <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="n4Tag">قصه‌ی ششم · به‌ترتیب هزار و یک شب</span>
           <h3 data-i18n="n4Title">حمال و سه بانو</h3>
           <!-- Voice narration: Elnaz's own recording of this tale (The Porter and the Three Ladies) goes here (assets/voice-nights-4.*) once she sends it. -->
@@ -1442,6 +1495,7 @@
           <p data-i18n="n4Note">این متن، گزیده و خلاصه‌ای از قصه‌ی حمال و سه بانو از هزار و یک شب است که به فارسی روان بازنویسی شده، نه متن کامل و اصلی کتاب. در دل این قصه، قصه‌های دیگری هم هست — قصه‌ی هر یک از سه قلندر و قصه‌ی هر یک از بانوان — که خود، شب‌های دیگری از هزار و یک شب‌اند.</p>
         </article>
         <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="n7Tag">قصه‌ی هفتم · به‌ترتیب هزار و یک شب</span>
           <h3 data-i18n="n7Title">خیاط و گوژپشت</h3>
           <!-- Voice narration: Elnaz's own recording of this tale (The Tailor and the Hunchback) goes here (assets/voice-nights-7.*) once she sends it. -->
@@ -1471,8 +1525,8 @@
             <li><span class="ttl" data-i18n="rN3">ماهیگیر و جن</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
             <li><span class="ttl" data-i18n="rN5">سه سیب</span><span class="status soon" data-i18n="statusSoon">در راه</span></li>
             <li><span class="ttl" data-i18n="rN6">نورالدین علی و پسرش بدرالدین حسن</span><span class="status soon" data-i18n="statusSoon">در راه</span></li>
-            <li><span class="ttl" data-i18n="rN4">حمال و سه بانو</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
-            <li><span class="ttl" data-i18n="rN7">خیاط و گوژپشت</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rN4">حمال و سه بانو</span><span class="new-badge inline" data-i18n="newBadge">تازه</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rN7">خیاط و گوژپشت</span><span class="new-badge inline" data-i18n="newBadge">تازه</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
           </ol>
           <p class="roadmap-note" data-i18n="roadNNote">قصه‌ها از شب یکم و به همین ترتیب، یکی‌یکی منتشر می‌شن؛ هرکدام گزیده‌ای از همان قصه به فارسی روان، با نگاره‌ی ویژه‌ی خودش.</p>
         </div>
@@ -1562,6 +1616,7 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-i18n="newBadge">تازه</span>
             <figure class="card-fig"><img draggable="false" src="assets/monument-hissar.jpg" data-i18n-alt="mon24Alt" alt="ویرانه‌های خشتی تپه‌ی حصار در نزدیکی دامغان" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon24Tag">سمنان · از نزدیک به ۴۰۰۰ پیش از میلاد</span>
             <h3 data-i18n="mon24Title">تپه‌ی حصار دامغان</h3>
@@ -1582,6 +1637,7 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-i18n="newBadge">تازه</span>
             <figure class="card-fig"><img draggable="false" src="assets/monument-jiroft.jpg" data-i18n-alt="mon25Alt" alt="بقایای کاوش‌شده‌ی تپه‌ی کنار صندل جنوبی در جیرفت" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon25Tag">کرمان · هزاره‌ی سوم پیش از میلاد</span>
             <h3 data-i18n="mon25Title">تمدن جیرفت و تپه‌های کنار صندل</h3>
@@ -1642,6 +1698,7 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-i18n="newBadge">تازه</span>
             <figure class="card-fig"><img draggable="false" src="assets/monument-zivieh.jpg" data-i18n-alt="mon26Alt" alt="دژ زیویه بر فراز تپه‌اش در نزدیکی سقز، زیر آسمان پرستاره" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon26Tag">کردستان · روزگار ماننایی‌ها و مادها</span>
             <h3 data-i18n="mon26Title">زیویه و گنجینه‌ی نام‌آورش</h3>
@@ -1679,6 +1736,31 @@
             <div class="mon-loc">
               <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon7Loc">مرودشت، فارس</span></span>
               <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Persepolis" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+            <div class="mon-watch">
+              <h4 data-i18n="mon7Watch">تماشا</h4>
+              <div class="mon-vid">
+                <b data-i18n="mon7Vid1Title">بازسازی تخت جمشید در روزگار داریوش</b>
+                <p data-i18n="mon7Vid1Text">این فیلم کوتاه نشان می‌دهد تخت جمشید در روزگار آبادانی و شکوهش، با تالارها و ستون‌های برافراشته، چه جلوه‌ای داشته است.</p>
+                <div class="vid-slot">
+                  <button type="button" class="vid-facade" data-i18n-aria="vidPlay" aria-label="پخش فیلم" data-webm="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b4/Persepolis%2C_capital_of_Persia_%28TerraX%2C_English_redub%29.webm/Persepolis%2C_capital_of_Persia_%28TerraX%2C_English_redub%29.webm.480p.vp9.webm" data-mov="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b4/Persepolis%2C_capital_of_Persia_%28TerraX%2C_English_redub%29.webm/Persepolis%2C_capital_of_Persia_%28TerraX%2C_English_redub%29.webm.360p.mpeg4.mov">
+                    <span class="vid-play-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    <span class="vid-dur" dir="ltr">1:46</span>
+                  </button>
+                </div>
+                <p class="vid-credit" data-i18n="mon7Vid1Credit">ساخته‌ی ZDF/Terra X · مجوز <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Persepolis,_capital_of_Persia_(TerraX,_English_redub).webm" target="_blank" rel="noopener">در ویکی‌مدیا کامنز ببینید</a></p>
+              </div>
+              <div class="mon-vid">
+                <b data-i18n="mon7Vid2Title">گشت‌وگذار در ویرانه‌های تخت جمشید</b>
+                <p data-i18n="mon7Vid2Text">گردشی آرام میان ستون‌ها و پلکان‌های تخت جمشید، همان‌گونه که امروز دیده می‌شود.</p>
+                <div class="vid-slot">
+                  <button type="button" class="vid-facade" data-i18n-aria="vidPlay" aria-label="پخش فیلم" data-webm="https://upload.wikimedia.org/wikipedia/commons/transcoded/3/31/Persepolis%2C_what_a_great_place_to_see.webm/Persepolis%2C_what_a_great_place_to_see.webm.480p.vp9.webm" data-mov="https://upload.wikimedia.org/wikipedia/commons/transcoded/3/31/Persepolis%2C_what_a_great_place_to_see.webm/Persepolis%2C_what_a_great_place_to_see.webm.360p.mpeg4.mov">
+                    <span class="vid-play-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    <span class="vid-dur" dir="ltr">3:45</span>
+                  </button>
+                </div>
+                <p class="vid-credit" data-i18n="mon7Vid2Credit">ساخته‌ی AsuhsWorld · مجوز <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Persepolis,_what_a_great_place_to_see.webm" target="_blank" rel="noopener">در ویکی‌مدیا کامنز ببینید</a></p>
+              </div>
             </div>
           </article>
           <article class="story-card">
@@ -1722,6 +1804,7 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-i18n="newBadge">تازه</span>
             <figure class="card-fig"><img draggable="false" src="assets/monument-karaftu.jpg" data-i18n-alt="mon27Alt" alt="نما از درون غار کرفتو به سوی کوه‌های کردستان" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon27Tag">کردستان · روزگار اشکانی</span>
             <h3 data-i18n="mon27Title">غار کرفتو</h3>
@@ -1772,6 +1855,7 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-i18n="newBadge">تازه</span>
             <figure class="card-fig"><img draggable="false" src="assets/monument-karkheh.jpg" data-i18n-alt="mon28Alt" alt="دیوارهای آجری ویران‌شده‌ی شهر ساسانی ایوان کرخه در نزدیکی شوش" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon28Tag">خوزستان · ساسانی، ساخته‌ی شاپور دوم</span>
             <h3 data-i18n="mon28Title">ایوان کرخه</h3>
@@ -1812,6 +1896,7 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-i18n="newBadge">تازه</span>
             <figure class="card-fig"><img draggable="false" src="assets/monument-niasar.jpg" data-i18n-alt="mon29Alt" alt="چهارطاقی سنگی آتشکده‌ی نیاسر بر فراز بلندی، با کوه‌ها در پس‌زمینه" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon29Tag">اصفهان · ساسانی</span>
             <h3 data-i18n="mon29Title">آتشکده‌ی نیاسر</h3>
@@ -1822,6 +1907,7 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-i18n="newBadge">تازه</span>
             <figure class="card-fig"><img draggable="false" src="assets/monument-espakho.jpg" data-i18n-alt="mon30Alt" alt="بنای سنگی آتشکده‌ی اسپاخو در خراسان شمالی" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon30Tag">خراسان شمالی · ساسانی</span>
             <h3 data-i18n="mon30Title">آتشکده‌ی اسپاخو</h3>
@@ -2222,6 +2308,7 @@
           <p data-i18n="s6P3">اما این بخش کردن، به جای برادری، تخم کین کاشت. سلم و تور بر ایرج رشک بردند که چرا بهترین سرزمین از آنِ اوست و نامه‌ای خشم‌آلود برای پدر فرستادند. ایرج، که دلی پاک داشت، بی‌سلاح و بی‌سپاه نزد برادران رفت تا با مهربانی دلشان را نرم کند؛ اما تور در خشم با خنجر بر او تاخت و او را کشت و سرش را در صندوقی نزد پدر فرستاد. فریدونِ پیر سر بریده‌ی پسر نازنینش را در آغوش گرفت و از اندوه، چشمانش از گریه نابینا شد. او چشم به راه نوه‌اش منوچهر ماند تا کین ایرج را از سلم و تور بستاند — و آن، سرگذشت بعدی ماست.</p>
         </article>
         <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="s7Tag">سرگذشت هفتم · به‌ترتیب شاهنامه</span>
           <h3 data-i18n="s7Title">منوچهر و کین‌خواهی ایرج</h3>
           <!-- Voice narration: Elnaz's own recording of Tale Seven (Manuchehr) goes here (assets/voice-shahnameh-7.*) once she sends it. -->
@@ -2247,6 +2334,7 @@
           <p data-i18n="s7P4">در همین دوره، سامِ نریمان، پهلوان بزرگ ایران و سپهبد منوچهر، پسری یافت؛ اما کودک با مویی سپید چون برف زاده شد. سام، از بیم سرزنش مردمان، فرمان داد نوزاد را به کوهستان البرز ببرند و همان‌جا رها کنند. اما سیمرغ، مرغ شگفت ایران، کودک را یافت، او را به آشیانه‌اش برد و با مهر، در کنار جوجه‌های خودش پرورد. آن کودک سپیدموی، زال بود — و سرگذشت او، سرگذشت بعدی ماست.</p>
         </article>
         <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="s8Tag">سرگذشت هشتم · به‌ترتیب شاهنامه</span>
           <h3 data-i18n="s8Title">زال و رودابه</h3>
           <!-- Voice narration: Elnaz's own recording of Tale Eight (Zal and Rudabeh) goes here (assets/voice-shahnameh-8.*) once she sends it. -->
@@ -2284,8 +2372,8 @@
             <li><span class="ttl" data-i18n="rSh4">جمشید و بنیاد نوروز</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
             <li><span class="ttl" data-i18n="rSh5">ضحاک و کاوه‌ی آهنگر</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
             <li><span class="ttl" data-i18n="rSh6">فریدون و سه پسرش</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
-            <li><span class="ttl" data-i18n="rSh7">منوچهر و کین‌خواهی ایرج</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
-            <li><span class="ttl" data-i18n="rSh8">زال و رودابه</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rSh7">منوچهر و کین‌خواهی ایرج</span><span class="new-badge inline" data-i18n="newBadge">تازه</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rSh8">زال و رودابه</span><span class="new-badge inline" data-i18n="newBadge">تازه</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
             <li><span class="ttl" data-i18n="rSh9">رستم و سهراب</span><span class="status soon" data-i18n="statusSoon">در راه</span></li>
             <li><span class="ttl" data-i18n="rSh10">سیاوش و گذر از آتش</span><span class="status soon" data-i18n="statusSoon">در راه</span></li>
             <li><span class="ttl" data-i18n="rSh11">کیخسرو و نبرد با افراسیاب</span><span class="status soon" data-i18n="statusSoon">در راه</span></li>
@@ -2473,6 +2561,7 @@
           <p data-i18n="a6P3">از آن کتاب بزرگ، تنها «وندیداد» است که کامل به ما رسیده است؛ یسنا و یشت‌ها و ویسپرد و خرده‌اوستا نیز همان بازماندگان گرانبهایی‌اند که در پنج بخش پیش با هم خواندیم. پس اوستایی که امروز در دست ماست، هم کتابی ورجاوند است و هم یادگار پایداری موبدانی که سده‌ها نگذاشتند این سرودها خاموش شوند — و این بخش از سایت، با این شش بخش، همه‌ی اوستای بر جای مانده را از آغاز تا پایان پیمود.</p>
         </article>
         <article class="full-story gold">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="a7Tag">بخش هفتم · نسک‌های آموزشی اوستا</span>
           <h3 data-i18n="a7Title">هیربدستان و نیرنگستان — دو کتاب آموزش موبدان و آیین‌ها</h3>
           <!-- Voice narration: Elnaz's own recording of this part goes here (assets/voice-avesta-7.*) once she sends it. -->
@@ -2498,6 +2587,7 @@
           <p data-i18n="a7P3">از این دو کتاب، امروز تقریباً هیچ نمانده است. در آشوب‌های پس از فروپاشی شاهنشاهی ساسانی، نسخه‌هایشان از میان رفت و چون کتاب‌هایی ویژه‌ی موبدان بودند و مردمان عادی آن‌ها را از بر نداشتند، کسی نبود که سینه‌به‌سینه نگهشان دارد. تنها نامشان و چکیده‌ای کوتاه از آنچه در آن‌ها بوده، در کتاب پهلوی «دینکرد» بر جای مانده است؛ همان چکیده‌ای که به ما می‌گوید این دو نسک چه بودند و چه در خود داشتند. پس هیربدستان و نیرنگستان را امروز تنها از راه همان چکیده می‌شناسیم: دو کتابی که سده‌ها، آموزش موبدان و درستی آیین‌های ایران کهن بر دوش آن‌ها بود.</p>
         </article>
         <article class="full-story gold">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="a8Tag">بخش هشتم · آفرین‌ها و ستایش‌ها</span>
           <h3 data-i18n="a8Title">آفرینگان‌ها — ستایش‌ها و آفرین‌های روزهای فرخنده</h3>
           <!-- Voice narration: Elnaz's own recording of this part goes here (assets/voice-avesta-8.*) once she sends it. -->
@@ -2531,8 +2621,8 @@
             <li><span class="ttl" data-i18n="rAv4">وندیداد — آیین پاکی و پاسداری از آفرینش</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
             <li><span class="ttl" data-i18n="rAv5">خرده‌اوستا — نیایش‌های روزانه</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
             <li><span class="ttl" data-i18n="rAv6">اوستای بزرگ ساسانی — بیست‌ویک نسک و آنچه بر جای ماند</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
-            <li><span class="ttl" data-i18n="rAv7">هیربدستان و نیرنگستان — دو نسک آموزشی</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
-            <li><span class="ttl" data-i18n="rAv8">آفرینگان‌ها — ستایش‌ها و آفرین‌های روزهای فرخنده</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rAv7">هیربدستان و نیرنگستان — دو نسک آموزشی</span><span class="new-badge inline" data-i18n="newBadge">تازه</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rAv8">آفرینگان‌ها — ستایش‌ها و آفرین‌های روزهای فرخنده</span><span class="new-badge inline" data-i18n="newBadge">تازه</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
           </ol>
           <p class="roadmap-note" data-i18n="roadAvNote">اوستا هم از آغاز و به همین ترتیب پیش می‌رود؛ هر بخش با متن و سرودهای خودش و شرحی به فارسی روان.</p>
         </div>
@@ -2707,6 +2797,8 @@
           voiceTitle: "Listen in my own voice",
           voiceText: "I'm recording this part in my own voice and will put it right here, so you can listen to it told by me.",
           voiceSoon: "Coming soon",
+          newBadge: "New",
+          vidPlay: "Play the video",
           voiceTextLive: "I've read this section aloud in my own voice — press play and listen to it read by me.",
           voiceDur1: "2:12",
           voiceDur2: "1:55",
@@ -3125,6 +3217,13 @@
           mon7Title: "Persepolis (Takht-e Jamshid)",
           mon7Text: "Persepolis was the ceremonial capital of the Achaemenid kings; Darius the Great began building it around 515 BCE. Its Apadana hall rose on 72 columns, and on its stairways the peoples of the empire still process in stone, bringing gifts to the king — the stage of the kings' Nowruz.",
           mon7Alt: "Tall stone columns of Persepolis against a blue sky",
+          mon7Watch: "Watch",
+          mon7Vid1Title: "Persepolis rebuilt — in the days of Darius",
+          mon7Vid1Text: "This short film shows how splendid Persepolis looked in its days of glory, with its great halls and columns standing tall.",
+          mon7Vid1Credit: "By ZDF/Terra X · License <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY-SA 4.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Persepolis,_capital_of_Persia_(TerraX,_English_redub).webm\" target=\"_blank\" rel=\"noopener\">Watch on Wikimedia Commons</a>",
+          mon7Vid2Title: "A walk through the ruins of Persepolis",
+          mon7Vid2Text: "A calm walk among the columns and stairways of Persepolis, just as the site looks today.",
+          mon7Vid2Credit: "By AsuhsWorld · License <a href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\" rel=\"noopener\">CC BY 3.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Persepolis,_what_a_great_place_to_see.webm\" target=\"_blank\" rel=\"noopener\">Watch on Wikimedia Commons</a>",
           mon7Loc: "Marvdasht, Fars Province",
           mon8Tag: "Fars · Achaemenid and Sasanian",
           mon8Title: "Naqsh-e Rostam and the Ka'ba-ye Zartosht",
@@ -3403,6 +3502,8 @@
           voiceTitle: "Écoutez avec ma propre voix",
           voiceText: "J'enregistre cette partie avec ma propre voix et je la mettrai ici même, pour que vous puissiez l'écouter racontée par moi.",
           voiceSoon: "Bientôt",
+          newBadge: "Nouveau",
+          vidPlay: "Lire la vidéo",
           voiceTextLive: "J'ai lu cette section à voix haute avec ma propre voix — appuyez sur le bouton de lecture et écoutez-la lue par moi.",
           voiceDur1: "2:12",
           voiceDur2: "1:55",
@@ -3821,6 +3922,13 @@
           mon7Title: "Persépolis (Takht-e Jamshid)",
           mon7Text: "Persépolis était la capitale cérémonielle des rois achéménides ; Darius le Grand commença à la bâtir vers 515 av. J.-C. Sa salle de l'Apadana reposait sur 72 colonnes, et sur ses escaliers les peuples de l'empire défilent encore dans la pierre, apportant leurs présents au roi — la scène du Norouz des rois.",
           mon7Alt: "Les hautes colonnes de pierre de Persépolis sous un ciel bleu",
+          mon7Watch: "Regarder",
+          mon7Vid1Title: "Persépolis reconstruite — au temps de Darius",
+          mon7Vid1Text: "Ce court film montre la splendeur de Persépolis au temps de sa gloire, avec ses grandes salles et ses colonnes dressées.",
+          mon7Vid1Credit: "Par ZDF/Terra X · Licence <a href=\"https://creativecommons.org/licenses/by-sa/4.0/\" target=\"_blank\" rel=\"noopener\">CC BY-SA 4.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Persepolis,_capital_of_Persia_(TerraX,_English_redub).webm\" target=\"_blank\" rel=\"noopener\">Voir sur Wikimedia Commons</a>",
+          mon7Vid2Title: "Promenade dans les ruines de Persépolis",
+          mon7Vid2Text: "Une promenade tranquille parmi les colonnes et les escaliers de Persépolis, tels qu'on les voit aujourd'hui.",
+          mon7Vid2Credit: "Par AsuhsWorld · Licence <a href=\"https://creativecommons.org/licenses/by/3.0/\" target=\"_blank\" rel=\"noopener\">CC BY 3.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Persepolis,_what_a_great_place_to_see.webm\" target=\"_blank\" rel=\"noopener\">Voir sur Wikimedia Commons</a>",
           mon7Loc: "Marvdasht, province du Fars",
           mon8Tag: "Fars · achéménide et sassanide",
           mon8Title: "Naqsh-e Rostam et la Ka'ba-ye Zartosht",
@@ -5189,6 +5297,28 @@
             Browser.open({ url: href });
           }
         }, true);
+      })();
+    </script>
+    <script>
+      /* Click-to-play for the free Wikimedia Commons videos: nothing is fetched until a visitor taps play */
+      (function () {
+        var facades = document.querySelectorAll(".vid-facade");
+        for (var i = 0; i < facades.length; i++) {
+          facades[i].addEventListener("click", function () {
+            var btn = this;
+            var video = document.createElement("video");
+            video.setAttribute("controls", "");
+            video.setAttribute("playsinline", "");
+            video.setAttribute("preload", "metadata");
+            var webm = btn.getAttribute("data-webm");
+            var mov = btn.getAttribute("data-mov");
+            if (webm) { var s1 = document.createElement("source"); s1.src = webm; s1.type = "video/webm"; video.appendChild(s1); }
+            if (mov) { var s2 = document.createElement("source"); s2.src = mov; s2.type = "video/quicktime"; video.appendChild(s2); }
+            btn.replaceWith(video);
+            var p = video.play();
+            if (p && p.catch) p.catch(function () {});
+          });
+        }
       })();
     </script>
   </body>
