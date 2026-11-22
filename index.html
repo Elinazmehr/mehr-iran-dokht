@@ -353,6 +353,7 @@
       main > [data-view="calendar"], main > [data-view="nights"],
       main > [data-view="festivals"],
       main > [data-view="monuments"], main > [data-view="support"],
+      main > [data-view="films"],
       main > [data-view="contact"], main > [data-view="privacy"] {
         margin-top: 1.6rem;
       }
@@ -597,6 +598,10 @@
         font-size: .78rem; font-weight: 800; font-variant-numeric: tabular-nums;
       }
       .vid-slot video {
+        width: 100%; aspect-ratio: 16 / 9; display: block;
+        border-radius: 14px; background: #000; border: 1px solid var(--line);
+      }
+      .vid-slot iframe {
         width: 100%; aspect-ratio: 16 / 9; display: block;
         border-radius: 14px; background: #000; border: 1px solid var(--line);
       }
@@ -1145,6 +1150,7 @@
         <a href="#nights" data-view-link="nights" data-i18n="navNights">هزار و یک شب</a>
         <a href="#festivals" data-view-link="festivals" data-i18n="navFestivals">جشن‌های کهن</a>
         <a href="#monuments" data-view-link="monuments" data-i18n="navMonuments">یادگارهای باستانی ایران</a>
+        <a href="#films" data-view-link="films" data-i18n="navFilms">فیلم‌ها</a>
         <a href="#ideas" data-view-link="ideas" data-i18n="navIdeas">اندیشه‌های در راه</a>
         <a href="#app" data-view-link="app" data-i18n="navApp">اپلیکیشن</a>
         <a href="#home" data-view-link="home" data-i18n="navHome">خانه</a>
@@ -1939,6 +1945,108 @@
           </article>
         </div>
         <p class="heritage-note" data-i18n="monNote">این فهرست را کم‌کم گسترده‌ترش می‌کنم؛ اگر جای باستانی‌ای را دوست داری و این‌جا نمی‌بینیش، بهم بگو تا بیفزایمش.</p>
+      </section>
+
+      <section class="heritage" id="films" data-view="films" data-i18n-aria="filmsAria" aria-label="فیلم‌ها">
+        <div class="heritage-head">
+          <span class="kicker" data-i18n="filmKicker">سینمای آزاد ایران کهن</span>
+          <h2 data-i18n="filmTitle">فیلم‌ها — <em>ایران کهن، بر پرده</em></h2>
+          <p data-i18n="filmIntro">همه‌ی فیلم‌های این بخش آزاد و بدون کپی‌رایت‌اند؛ آن‌ها را این‌جا گرد آورده‌ام تا همه بتوانند آزادانه تماشایشان کنند. برای پخش هر فیلم، کافی است روی آن بزنی؛ هیچ فیلمی پیش از آن بارگیری نمی‌شود.</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <span class="tag" data-i18n="film1Tag">۱۹۲۵</span>
+            <h3 data-i18n="film1Title">علفزار (Grass)</h3>
+            <p data-i18n="film1Text">مستند صامت کوچ بختیاری‌ها از رود کارون و زردکوه؛ از نخستین فیلم‌های مردم‌نگاری جهان.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot">
+                  <button type="button" class="vid-facade" data-i18n-aria="vidPlay" aria-label="پخش فیلم" data-embed="https://archive.org/embed/grass-1925">
+                    <span class="vid-play-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                  </button>
+                </div>
+                <p class="vid-credit" data-i18n="film1Credit">مالکیت عمومی (Public Domain) · <a href="https://archive.org/details/grass-1925" target="_blank" rel="noopener">در اینترنت آرکایو ببینید</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film2Tag">۱۹۲۷</span>
+            <h3 data-i18n="film2Title">تهرانِ کهن</h3>
+            <p data-i18n="film2Text">چشم‌اندازی از تهران قاجاری، کوچه‌ها و حیاط‌های شهر قدیم، از مجموعه‌ی «بایگانی سیاره»ی آلبر کان.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot">
+                  <button type="button" class="vid-facade" data-i18n-aria="vidPlay" aria-label="پخش فیلم" data-embed="https://archive.org/embed/AI13172">
+                    <span class="vid-play-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                  </button>
+                </div>
+                <p class="vid-credit" data-i18n="film2Credit">مالکیت عمومی (Public Domain) · <a href="https://archive.org/details/AI13172" target="_blank" rel="noopener">در اینترنت آرکایو ببینید</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film3Tag">۱۹۲۷</span>
+            <h3 data-i18n="film3Title">تهران، آب‌پاشی میدان در آستانه‌ی نوروز</h3>
+            <p data-i18n="film3Text">فیلم کوتاهی از میدان توپخانه و آب‌پاشی خیابان‌ها در آستانه‌ی نوروز.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot">
+                  <button type="button" class="vid-facade" data-i18n-aria="vidPlay" aria-label="پخش فیلم" data-embed="https://archive.org/embed/Ai13174">
+                    <span class="vid-play-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                  </button>
+                </div>
+                <p class="vid-credit" data-i18n="film3Credit">مالکیت عمومی (Public Domain) · <a href="https://archive.org/details/Ai13174" target="_blank" rel="noopener">در اینترنت آرکایو ببینید</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film4Tag">۱۹۴۳</span>
+            <h3 data-i18n="film4Title">روزولت در ایران</h3>
+            <p data-i18n="film4Text">فیلم خبری آمریکایی از روزگار کریدور ایران و بازدید روزولت از نیروهای آمریکایی در ایران (بخش نخست فیلم).</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot">
+                  <button type="button" class="vid-facade" data-i18n-aria="vidPlay" aria-label="پخش فیلم" data-embed="https://archive.org/embed/gov.archives.arc.38988">
+                    <span class="vid-play-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                  </button>
+                </div>
+                <p class="vid-credit" data-i18n="film4Credit">مالکیت عمومی (اثر دولت فدرال آمریکا) · <a href="https://archive.org/details/gov.archives.arc.38988" target="_blank" rel="noopener">در اینترنت آرکایو ببینید</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film5Tag">تخت جمشید</span>
+            <h3 data-i18n="film5Title">بازسازی تخت جمشید</h3>
+            <p data-i18n="film5Text">تخت جمشید در روزگار داریوش چگونه بوده است؟ این بازسازی کوتاه، تالارها و ستون‌های برافراشته‌ی آن روزگار را نشان می‌دهد.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot">
+                  <button type="button" class="vid-facade" data-i18n-aria="vidPlay" aria-label="پخش فیلم" data-webm="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b4/Persepolis%2C_capital_of_Persia_%28TerraX%2C_English_redub%29.webm/Persepolis%2C_capital_of_Persia_%28TerraX%2C_English_redub%29.webm.480p.vp9.webm" data-mov="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b4/Persepolis%2C_capital_of_Persia_%28TerraX%2C_English_redub%29.webm/Persepolis%2C_capital_of_Persia_%28TerraX%2C_English_redub%29.webm.360p.mpeg4.mov">
+                    <span class="vid-play-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    <span class="vid-dur" dir="ltr">1:46</span>
+                  </button>
+                </div>
+                <p class="vid-credit" data-i18n="mon7Vid1Credit">ساخته‌ی ZDF/Terra X · مجوز <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Persepolis,_capital_of_Persia_(TerraX,_English_redub).webm" target="_blank" rel="noopener">در ویکی‌مدیا کامنز ببینید</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film6Tag">تخت جمشید</span>
+            <h3 data-i18n="film6Title">گشت‌وگذار در تخت جمشید</h3>
+            <p data-i18n="film6Text">قدم‌زدن میان ویرانه‌های تخت جمشید، میان ستون‌ها و پلکان‌هایی که امروز بر جای مانده‌اند.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot">
+                  <button type="button" class="vid-facade" data-i18n-aria="vidPlay" aria-label="پخش فیلم" data-webm="https://upload.wikimedia.org/wikipedia/commons/transcoded/3/31/Persepolis%2C_what_a_great_place_to_see.webm/Persepolis%2C_what_a_great_place_to_see.webm.480p.vp9.webm" data-mov="https://upload.wikimedia.org/wikipedia/commons/transcoded/3/31/Persepolis%2C_what_a_great_place_to_see.webm/Persepolis%2C_what_a_great_place_to_see.webm.360p.mpeg4.mov">
+                    <span class="vid-play-ic" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+                    <span class="vid-dur" dir="ltr">3:45</span>
+                  </button>
+                </div>
+                <p class="vid-credit" data-i18n="mon7Vid2Credit">ساخته‌ی AsuhsWorld · مجوز <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Persepolis,_what_a_great_place_to_see.webm" target="_blank" rel="noopener">در ویکی‌مدیا کامنز ببینید</a></p>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="heritage" id="history" data-view="history" data-i18n-aria="histAria" aria-label="ایران از ابتدا">
@@ -3100,6 +3208,7 @@
           navCalendar: "Imperial Calendar",
           navFestivals: "Ancient Festivals",
           navMonuments: "Ancient Monuments",
+          navFilms: "Films",
           calKicker: "Iran's ancient calendar",
           calTitle: "The Imperial Calendar of Iran — <em>a calendar of more than 2,500 years</em>",
           calIntro: "This calendar counts its years from the coronation of Cyrus the Great, founder of the Persian Empire, in 559 BCE — which is why its year number has passed two thousand five hundred. The Imperial year, like the Solar year, begins with Nowruz, the first day of spring, and its months are the same twelve familiar months, from Farvardin to Esfand; only the year number differs, always 1,180 years ahead of the Solar Hijri year: the Solar year 1405 is the Imperial year 2585.",
@@ -3182,6 +3291,32 @@
           monTitle: "Ancient Monuments of Iran — <em>from the oldest cities to the fire temples</em>",
           monIntro: "Iran is one of the oldest homes of civilization in the world — from five-thousand-year-old cities to palaces and fire temples still standing at the foot of mountains and beside rivers. In this section you can see Iran's most important ancient monuments in the order of their age, each with its place and a short story. Many of them are also on UNESCO's World Heritage List.",
           monNote: "I will keep completing this list little by little; if there is an ancient place you love and cannot find here, tell me and I will add it.",
+          filmsAria: "Films",
+          filmKicker: "Free cinema of ancient Iran",
+          filmTitle: "Films — <em>ancient Iran, on screen</em>",
+          filmIntro: "All the films in this section are free and carry no copyright; I have gathered them here so that everyone can watch them freely. To play a film, just tap it — nothing is loaded before that.",
+          film1Tag: "1925",
+          film1Title: "Grass",
+          film1Text: "A silent documentary of the Bakhtiari migration across the Karun River and the Zardkuh mountains — one of the world's first ethnographic films.",
+          film1Credit: "Public domain · <a href=\"https://archive.org/details/grass-1925\" target=\"_blank\" rel=\"noopener\">Watch on the Internet Archive</a>",
+          film2Tag: "1927",
+          film2Title: "Old Tehran",
+          film2Text: "A view of Qajar-era Tehran — the lanes and courtyards of the old city — from Albert Kahn's “Archives of the Planet” collection.",
+          film2Credit: "Public domain · <a href=\"https://archive.org/details/AI13172\" target=\"_blank\" rel=\"noopener\">Watch on the Internet Archive</a>",
+          film3Tag: "1927",
+          film3Title: "Tehran: Watering the Square on the Eve of Nowruz",
+          film3Text: "A short film of Tupkhaneh Square and the watering of the streets on the eve of Nowruz.",
+          film3Credit: "Public domain · <a href=\"https://archive.org/details/Ai13174\" target=\"_blank\" rel=\"noopener\">Watch on the Internet Archive</a>",
+          film4Tag: "1943",
+          film4Title: "Roosevelt in Iran",
+          film4Text: "An American newsreel from the days of the Persian Corridor, and Roosevelt's visit to the American forces in Iran (the first part of the film).",
+          film4Credit: "Public domain (a work of the U.S. federal government) · <a href=\"https://archive.org/details/gov.archives.arc.38988\" target=\"_blank\" rel=\"noopener\">Watch on the Internet Archive</a>",
+          film5Tag: "Persepolis",
+          film5Title: "Persepolis Rebuilt",
+          film5Text: "What did Persepolis look like in the days of Darius? This short reconstruction shows its halls and its columns standing tall once more.",
+          film6Tag: "Persepolis",
+          film6Title: "A Walk Through Persepolis",
+          film6Text: "A walk among the ruins of Persepolis, between the columns and stairways that stand there today.",
           monMapBtn: "Show on the map",
           mon1Tag: "Kashan · from about 5000 BCE",
           mon1Title: "The Sialk Mounds",
@@ -3805,6 +3940,7 @@
           navCalendar: "Calendrier impérial",
           navFestivals: "Fêtes anciennes",
           navMonuments: "Monuments anciens",
+          navFilms: "Films",
           calKicker: "Le calendrier ancien de l'Iran",
           calTitle: "Le calendrier impérial de l'Iran — <em>un calendrier de plus de 2 500 ans</em>",
           calIntro: "Ce calendrier compte ses années depuis le couronnement de Cyrus le Grand, fondateur de l'Empire perse, en 559 av. J.-C. — c'est pourquoi son numéro d'année a dépassé deux mille cinq cents. L'année impériale, comme l'année solaire, commence à Norouz, le premier jour du printemps, et ses mois sont les mêmes douze mois familiers, de Farvardin à Esfand ; seul le numéro de l'année diffère, toujours de 1 180 ans en avance sur l'année solaire de l'Hégire : l'année solaire 1405 est l'année impériale 2585.",
@@ -3887,6 +4023,32 @@
           monTitle: "Monuments anciens de l'Iran — <em>des plus vieilles villes aux temples du feu</em>",
           monIntro: "L'Iran est l'un des plus anciens foyers de civilisation au monde : des villes vieilles de cinq mille ans aux palais et temples du feu encore debout au pied des montagnes et au bord des rivières. Dans cette section, vous verrez les plus importants monuments anciens de l'Iran dans l'ordre de leur âge, chacun avec son lieu et une courte histoire. Beaucoup figurent aussi sur la liste du patrimoine mondial de l'UNESCO.",
           monNote: "Je compléterai cette liste peu à peu ; s'il y a un lieu ancien que vous aimez et qui n'y est pas, dites-le-moi et je l'ajouterai.",
+          filmsAria: "Films",
+          filmKicker: "Le cinéma libre de l'Iran ancien",
+          filmTitle: "Films — <em>l'Iran ancien, à l'écran</em>",
+          filmIntro: "Tous les films de cette section sont libres et sans droit d'auteur ; je les ai rassemblés ici pour que tout le monde puisse les regarder librement. Pour lancer un film, touchez-le simplement — rien n'est chargé avant cela.",
+          film1Tag: "1925",
+          film1Title: "Grass (L'Herbe)",
+          film1Text: "Documentaire muet de la migration des Bakhtiaris à travers le fleuve Karoun et les monts Zardkouh — l'un des premiers films ethnographiques du monde.",
+          film1Credit: "Domaine public · <a href=\"https://archive.org/details/grass-1925\" target=\"_blank\" rel=\"noopener\">Voir sur Internet Archive</a>",
+          film2Tag: "1927",
+          film2Title: "Le Téhéran d'autrefois",
+          film2Text: "Un regard sur le Téhéran de l'époque qajare, les ruelles et les cours de la vieille ville, tiré des « Archives de la Planète » d'Albert Kahn.",
+          film2Credit: "Domaine public · <a href=\"https://archive.org/details/AI13172\" target=\"_blank\" rel=\"noopener\">Voir sur Internet Archive</a>",
+          film3Tag: "1927",
+          film3Title: "Téhéran : l'arrosage de la place à la veille de Norouz",
+          film3Text: "Un court film de la place Tupkhaneh et de l'arrosage des rues à la veille de Norouz.",
+          film3Credit: "Domaine public · <a href=\"https://archive.org/details/Ai13174\" target=\"_blank\" rel=\"noopener\">Voir sur Internet Archive</a>",
+          film4Tag: "1943",
+          film4Title: "Roosevelt en Iran",
+          film4Text: "Un film d'actualités américain de l'époque du corridor persan, et de la visite de Roosevelt aux forces américaines en Iran (première partie du film).",
+          film4Credit: "Domaine public (œuvre du gouvernement fédéral américain) · <a href=\"https://archive.org/details/gov.archives.arc.38988\" target=\"_blank\" rel=\"noopener\">Voir sur Internet Archive</a>",
+          film5Tag: "Persépolis",
+          film5Title: "Persépolis reconstruite",
+          film5Text: "À quoi ressemblait Persépolis au temps de Darius ? Cette courte reconstruction montre ses salles et ses colonnes dressées de nouveau.",
+          film6Tag: "Persépolis",
+          film6Title: "Promenade à Persépolis",
+          film6Text: "Une promenade parmi les ruines de Persépolis, entre les colonnes et les escaliers qui s'y dressent encore aujourd'hui.",
           monMapBtn: "Voir sur la carte",
           mon1Tag: "Kashan · dès environ 5000 av. J.-C.",
           mon1Title: "Les collines de Sialk",
@@ -4725,7 +4887,7 @@
     <script>
       /* ---------- Separate pages: show one section at a time ---------- */
       (function () {
-        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "ideas", "app", "home", "support", "contact", "privacy"];
+        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "films", "ideas", "app", "home", "support", "contact", "privacy"];
         var panels = document.querySelectorAll("[data-view]");
         var navLinks = document.querySelectorAll("[data-view-link]");
         var current = "home";
@@ -5300,12 +5462,23 @@
       })();
     </script>
     <script>
-      /* Click-to-play for the free Wikimedia Commons videos: nothing is fetched until a visitor taps play */
+      /* Click-to-play for the free videos: nothing is fetched until a visitor taps play.
+         Wikimedia Commons films swap in a <video>; Internet Archive films (data-embed) swap in the Archive player iframe. */
       (function () {
         var facades = document.querySelectorAll(".vid-facade");
         for (var i = 0; i < facades.length; i++) {
           facades[i].addEventListener("click", function () {
             var btn = this;
+            var embed = btn.getAttribute("data-embed");
+            if (embed) {
+              var frame = document.createElement("iframe");
+              frame.src = embed;
+              frame.setAttribute("allowfullscreen", "");
+              frame.setAttribute("allow", "autoplay; fullscreen");
+              frame.setAttribute("title", btn.getAttribute("aria-label") || "Video");
+              btn.replaceWith(frame);
+              return;
+            }
             var video = document.createElement("video");
             video.setAttribute("controls", "");
             video.setAttribute("playsinline", "");
