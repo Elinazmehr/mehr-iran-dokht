@@ -569,6 +569,13 @@
         padding: 0 .6rem; font-size: .7rem; line-height: 1.8;
       }
       html[lang="fa"] .new-badge.inline { line-height: 2; }
+      /* ---------- «تازه» badge beside the Products nav link + section title ---------- */
+      .site-nav a.has-new { display: inline-flex; align-items: center; gap: .45rem; }
+      .ideas-head { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .7rem; margin-bottom: .4rem; }
+      .ideas-head h2 { margin-bottom: 0; }
+      .new-badge.attn { animation: badgePulse 2.2s ease-in-out infinite; }
+      @keyframes badgePulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+      @media (prefers-reduced-motion: reduce) { .new-badge.attn { animation: none; } }
       /* ---------- Watch: free Persepolis videos, streamed from Wikimedia Commons ---------- */
       .mon-watch { margin-top: 1rem; border-top: 1px dashed var(--line); padding-top: .9rem; }
       .mon-watch h4 { margin: 0 0 .7rem; font-size: .98rem; font-weight: 900; color: var(--accent); line-height: 1.7; }
@@ -1166,7 +1173,7 @@
         <a href="#festivals" data-view-link="festivals" data-i18n="navFestivals">جشن‌های کهن</a>
         <a href="#monuments" data-view-link="monuments" data-i18n="navMonuments">یادگارهای باستانی ایران</a>
         <a href="#films" data-view-link="films" data-i18n="navFilms">فیلم‌ها</a>
-        <a href="#ideas" data-view-link="ideas" data-i18n="navIdeas">محصولات</a>
+        <a href="#ideas" class="has-new" data-view-link="ideas"><span data-i18n="navIdeas">محصولات</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#app" data-view-link="app" data-i18n="navApp">اپلیکیشن</a>
         <a href="#home" data-view-link="home" data-i18n="navHome">خانه</a>
         <a href="#support" data-view-link="support" data-i18n="navSupport">حمایت مالی</a>
@@ -1200,7 +1207,10 @@
 
       <section class="ideas" id="ideas" data-view="home" data-i18n-aria="ideasAria" aria-label="محصولات">
         <div class="ideas-box">
-          <h2 data-i18n="ideasTitle">محصولات — <em>نشان‌های ایران کهن</em></h2>
+          <div class="ideas-head">
+            <h2 data-i18n="ideasTitle">محصولات — <em>نشان‌های ایران کهن</em></h2>
+            <span class="new-badge inline attn" data-i18n="newBadge">تازه</span>
+          </div>
           <p data-i18n="ideasText">نخستین محصولات مهر ایران دخت، بج‌های فلزی ایران کهن‌اند؛ دو بج نخست را از ایران آورده‌ام و همین حالا موجود و آماده‌ی سفارش‌اند و پنج بج دیگر هم به‌زودی ساخته می‌شوند. برای سفارش، کافی است از راه صفحه‌ی «پیوند با من» بهم پیام بدهی.</p>
           <div class="product-grid">
             <article class="product-card">
