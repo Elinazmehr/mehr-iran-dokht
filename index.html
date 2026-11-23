@@ -2355,17 +2355,21 @@
         <article class="full-story">
           <span class="tag" data-i18n="s3Tag">سرگذشت سوم · به‌ترتیب شاهنامه</span>
           <h3 data-i18n="s3Title">طهمورثِ دیوبند و آموختنِ نبشتن</h3>
-          <!-- Voice narration: Elnaz's own recording of Tale Three (Tahmuras) goes here (assets/voice-shahnameh-3.*) once she sends it. -->
-          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
-            <span class="voice-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-            </span>
+          <!-- Voice narration: Elnaz's own recording of Tale Three (Tahmuras) — recorded by her, added 2026-11-22. -->
+          <div class="voice-box live" id="voiceTahmuras" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <button type="button" class="voice-play" id="voicePlay3" aria-label="پخش خوانش سرگذشت طهمورث با صدای الناز" aria-pressed="false">
+              <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
-              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
               <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+              <span class="voice-progress" id="voiceProg3" aria-hidden="true"><i id="voiceFill3"></i></span>
+              <span class="voice-time" id="voiceTime3" dir="ltr">0:00 / 0:58</span>
             </div>
-            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+            <span class="voice-badge voice-badge-live" data-i18n="voiceDur3">۰:۵۸</span>
+            <audio id="voiceAudio3" src="assets/voice-shahnameh-3.m4a" preload="metadata"></audio>
           </div>
           <figure class="card-fig story-fig living-fig" data-motion="zoom"><span class="living-frame"><img draggable="false" src="assets/shahnameh-tahmuras.webp" data-i18n-alt="s3ImgAlt" alt="نگاره‌ی مینیاتور ایرانی از طهمورث بر تخت، با دیوانِ در بند پیش رویش و دیوی که بر لوحی نبشتن به او می‌آموزد، از سرگذشت سوم شاهنامه" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="s3ImgCap">طهمورث و دیوانِ در بند — دیوی بر لوحی می‌نویسد و هنر نبشتن را به شاه می‌آموزد.</figcaption></figure>
           <p data-i18n="s3P1">پس از هوشنگ، پسرش طهمورث بر تخت نشست و سی سال پادشاهی کرد؛ شاهنامه او را «دیوبند» می‌خواند. با راهنمایی دستور خردمندش، شهرسپ، راه پاکی و داد پیش گرفت و رام کردن جانوران سودمند — یوز و باز و شاهین — و رشتن پشم و بافتن جامه از کارهای روزگار اوست:</p>
@@ -3092,6 +3096,7 @@
           voiceTextLive: "I've read this section aloud in my own voice — press play and listen to it read by me.",
           voiceDur1: "2:12",
           voiceDur2: "1:55",
+          voiceDur3: "0:58",
           voiceDur4: "1:43",
           voiceDur5: "1:47",
           livingBadge: "Living painting · in motion",
@@ -3896,6 +3901,7 @@
           voiceTextLive: "J'ai lu cette section à voix haute avec ma propre voix — appuyez sur le bouton de lecture et écoutez-la lue par moi.",
           voiceDur1: "2:12",
           voiceDur2: "1:55",
+          voiceDur3: "0:58",
           voiceDur4: "1:43",
           voiceDur5: "1:47",
           livingBadge: "Miniature vivante · en mouvement",
@@ -5719,6 +5725,17 @@
             fa: { play: "پخش خوانش داستان هوشنگ با صدای الناز", pause: "ایست خوانش داستان هوشنگ" },
             en: { play: "Play Elnaz's narration of the tale of Hushang", pause: "Pause the narration of the tale of Hushang" },
             fr: { play: "Écouter la narration du conte de Hushang par Elnaz", pause: "Mettre en pause la narration du conte de Hushang" }
+          }
+        });
+        /* Tale Three (Tahmuras) */
+        initVoice({
+          box: "voiceTahmuras", btn: "voicePlay3", audio: "voiceAudio3",
+          prog: "voiceProg3", fill: "voiceFill3", time: "voiceTime3",
+          fallbackDur: 58,
+          labels: {
+            fa: { play: "پخش خوانش داستان طهمورث با صدای الناز", pause: "ایست خوانش داستان طهمورث" },
+            en: { play: "Play Elnaz's narration of the tale of Tahmuras", pause: "Pause the narration of the tale of Tahmuras" },
+            fr: { play: "Écouter la narration du conte de Tahmuras par Elnaz", pause: "Mettre en pause la narration du conte de Tahmuras" }
           }
         });
         /* Tale Four (Jamshid) */
