@@ -244,6 +244,38 @@
       }
       .cal-cell.today { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
       .cal-cell.today.fest::after { background: var(--accent-ink); }
+      /* Gahambar days: a soft gold wash; Nabor days: a small open gold ring */
+      .cal-cell.gah { background: color-mix(in srgb, var(--gold-bright) 24%, var(--surface-2)); }
+      .cal-cell.gah.today { background: var(--accent); color: var(--accent-ink); }
+      .cal-cell.nabor::before {
+        content: ""; position: absolute; top: 5px; inset-inline-end: 5px;
+        width: 6px; height: 6px; border-radius: 999px;
+        border: 1.5px solid var(--gold); background: transparent;
+      }
+      .cal-cell.today.nabor::before { border-color: var(--accent-ink); }
+      .cal-legend { display: flex; gap: .6rem 1.2rem; flex-wrap: wrap; margin: -.2rem 0 .9rem; font-size: .85rem; color: var(--ink-soft); }
+      .cal-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+      .cal-legend i { flex: none; display: inline-block; }
+      .lg-fest { width: 8px; height: 8px; border-radius: 999px; background: var(--gold); }
+      .lg-gah { width: 15px; height: 15px; border-radius: 5px; background: color-mix(in srgb, var(--gold-bright) 30%, var(--surface-2)); border: 1px solid var(--gold); }
+      .lg-nabor { width: 8px; height: 8px; border-radius: 999px; border: 2px solid var(--gold); }
+      .cal-fests .fest-main { flex: 1; min-width: 190px; }
+      .cal-fest-desc { display: block; color: var(--ink-soft); font-size: .85rem; margin-top: .1rem; line-height: 1.8; }
+      /* Standalone-calendar link row + install guide (also reused ideas) */
+      .cal-solo {
+        display: flex; align-items: center; gap: .9rem; flex-wrap: wrap;
+        background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--gold-bright);
+        border-radius: 18px; padding: 1rem 1.3rem; margin-bottom: .8rem;
+      }
+      .cal-solo p { margin: 0; color: var(--ink-soft); font-size: .9rem; flex: 1; min-width: 200px; }
+      .cal-guide {
+        background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
+        padding: 1.3rem 1.4rem; margin-top: .8rem;
+      }
+      .cal-guide h3 { margin: 0; font-size: 1.08rem; font-weight: 900; line-height: 1.6; }
+      .cal-guide .device-grid { margin-top: .9rem; }
+      .fest-card.wide { grid-column: 1 / -1; }
+      .fest-lead { color: var(--ink-soft); font-size: .92rem; margin: .2rem 0 .2rem; }
       .cal-fests { list-style: none; margin: .9rem 0 0; padding: 0; }
       .cal-fests li { padding: .3rem 0; font-size: .92rem; border-bottom: 1px dashed var(--line); }
       .cal-fests li:last-child { border-bottom: none; }
@@ -1379,6 +1411,10 @@
             <span id="calTodayEquiv">برابر با ۲۸ آبان ۱۴۰۵ خورشیدی · ۱۹ نوامبر ۲۰۲۶ میلادی</span>
           </div>
         </div>
+        <div class="cal-solo">
+          <a class="btn btn-accent" href="assets/calendar.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg><span data-i18n="calSoloBtn">گاهشمار جدا</span></a>
+          <p data-i18n="calSoloHint">گاهشمار را در صفحه‌ای جدا و تمام‌صفحه باز کن؛ می‌توانی آن را جدا به صفحه‌ی اصلی گوشی‌ات بیفزایی تا همیشه یک اشاره با تو فاصله داشته باشد.</p>
+        </div>
         <div class="cal-upcoming">
           <h3 data-i18n="upTitle">جشن‌های نزدیک</h3>
           <div id="calUpcomingList"></div>
@@ -1387,6 +1423,11 @@
         <div class="cal-box">
           <h3 data-i18n="calMonthsTitle">دوازده ماه سال شاهنشاهی</h3>
           <p class="cal-hint" data-i18n="calTapHint">برای دیدن روزهای هر ماه و جشن‌های آن ماه، روی اسم ماه بزن.</p>
+          <div class="cal-legend" aria-hidden="true">
+            <span><i class="lg-fest"></i><span data-i18n="legFest">جشن و مناسبت</span></span>
+            <span><i class="lg-gah"></i><span data-i18n="legGah">گاهنبار</span></span>
+            <span><i class="lg-nabor"></i><span data-i18n="legNabor">روز نبر</span></span>
+          </div>
           <div class="cal-months">
             <button type="button" class="cal-month" data-cal-month="1" aria-expanded="false" aria-controls="calDaysPanel" data-i18n="calM1">فروردین<small>۳۱ روز</small></button>
             <button type="button" class="cal-month" data-cal-month="2" aria-expanded="false" aria-controls="calDaysPanel" data-i18n="calM2">اردیبهشت<small>۳۱ روز</small></button>
@@ -1420,6 +1461,27 @@
                 <label><input type="radio" name="perRepeat" value="yearly" /> <span data-i18n="perYearly">هر سال</span></label>
               </div>
               <button type="button" class="per-add" id="perAddBtn" data-i18n="perAdd">افزودن</button>
+            </div>
+          </div>
+        </div>
+        <div class="cal-guide">
+          <h3 data-i18n="soloGuideTitle">گاهشمار را روی گوشی‌ات بگذار</h3>
+          <div class="device-grid">
+            <div class="device-card">
+              <h3 data-i18n="soloIosTitle">آیفون (سافاری)</h3>
+              <ol>
+                <li data-i18n="soloIos1">صفحه‌ی «گاهشمار جدا» را در سافاری باز کن</li>
+                <li data-i18n="soloIos2">دکمه‌ی اشتراک‌گذاری را بزن</li>
+                <li data-i18n="soloIos3">«افزودن به صفحه اصلی» را انتخاب کن</li>
+              </ol>
+            </div>
+            <div class="device-card">
+              <h3 data-i18n="soloAndTitle">اندروید (کروم)</h3>
+              <ol>
+                <li data-i18n="soloAnd1">صفحه‌ی «گاهشمار جدا» را در کروم باز کن</li>
+                <li data-i18n="soloAnd2">منوی سه‌نقطه را بزن</li>
+                <li data-i18n="soloAnd3">«افزودن به صفحه اصلی» را انتخاب کن</li>
+              </ol>
             </div>
           </div>
         </div>
@@ -1659,7 +1721,7 @@
         <div class="heritage-head">
           <span class="kicker" data-i18n="festKicker">جشن‌های ایران کهن</span>
           <h2 data-i18n="festTitle">گاهشمار جشن‌های کهن ایرانی — <em>سال ۱۴۰۵، برابر با ۲۵۸۵ شاهنشاهی</em></h2>
-          <p data-i18n="festIntro">در ایران کهن، هر ماه از سال جشنی داشت؛ بیشتر جشن‌ها روزی برگزار می‌شدند که نام روز و ماه یکی می‌شد. این گاهشمار، جشن‌های سال ۱۴۰۵ خورشیدی — برابر با سال ۲۵۸۵ شاهنشاهی — را ماه‌به‌ماه و به ترتیب نشان می‌دهد؛ از نوروز در فروردین تا چهارشنبه‌سوری در اسفند.</p>
+          <p data-i18n="festIntro">در ایران کهن، هر ماه از سال جشنی داشت؛ بیشتر جشن‌ها روزی برگزار می‌شدند که نام روز و ماه یکی می‌شد. این گاهشمار، جشن‌ها و مناسبت‌های آیینی زرتشتی سال ۱۴۰۵ خورشیدی — برابر با سال ۲۵۸۵ شاهنشاهی — را ماه‌به‌ماه و به ترتیب نشان می‌دهد؛ از نوروز در فروردین تا چهارشنبه‌سوری در اسفند، همراه با شش گاهنبار سال و روزهای نبر هر ماه.</p>
         </div>
         <div class="fest-grid">
           <article class="fest-card">
@@ -1671,6 +1733,7 @@
           <article class="fest-card">
             <h3><span data-i18n="festM2">اردیبهشت</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
             <div class="fest-item"><b data-i18n="f2aName">اردیبهشتگان · سوم اردیبهشت</b><p data-i18n="f2aText">اردیبهشت ایزد راستی و پاکی و نگهبان آتش است. در این جشن، مردم با پوشش سپید به آتشکده‌ها می‌روند و راستی و درستی را گرامی می‌دارند.</p></div>
+            <div class="fest-item"><b data-i18n="g1Name">گاهنبار میدیوزرم‌گاه · یازدهم تا پانزدهم اردیبهشت</b><p data-i18n="g1Text">نخستین گاهنبار سال، در میانه‌ی بهار؛ جشن سپاس برای آفرینش آسمان. گاهنبارها پنج روزه‌اند و با نیایش، خواندن اوستا و سفره‌ی همگانی برگزار می‌شوند و خوراکشان میان همه پخش می‌شود.</p></div>
           </article>
           <article class="fest-card">
             <h3><span data-i18n="festM3">خرداد</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
@@ -1679,6 +1742,7 @@
           <article class="fest-card">
             <h3><span data-i18n="festM4">تیر</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
             <div class="fest-item"><b data-i18n="f4aName">تیرگان · سیزدهم تیر</b><p data-i18n="f4aText">جشن باران و ایزد تیشتر که بر دیو خشکسالی پیروز می‌شود. تیرگان را با یاد آرش کمانگیر هم پیوند می‌دهند؛ پهلوانی که جانش را بر سر یک تیر گذاشت تا مرز ایران را نشانه کند. آب پاشیدن بر یکدیگر از آیین‌های شاد این جشن است.</p></div>
+            <div class="fest-item"><b data-i18n="g2Name">گاهنبار میدیوشهم‌گاه · یازدهم تا پانزدهم تیر</b><p data-i18n="g2Text">دومین گاهنبار، در میانه‌ی تابستان؛ جشن سپاس برای آفرینش آب، که با نیایش و سفره‌ی گاهنباری در آتشکده‌ها و خانه‌ها برگزار می‌شود.</p></div>
           </article>
           <article class="fest-card">
             <h3><span data-i18n="festM5">امرداد</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
@@ -1687,10 +1751,12 @@
           <article class="fest-card">
             <h3><span data-i18n="festM6">شهریور</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
             <div class="fest-item"><b data-i18n="f6aName">شهریورگان · چهارم شهریور</b><p data-i18n="f6aText">شهریور ایزد نگهبان فلزها و نماد شهریاری دادگر و آسمانی است. شهریورگان را جشن داد و دادگری و پاسداشت کوشش و کار می‌دانند.</p></div>
+            <div class="fest-item"><b data-i18n="g3Name">گاهنبار پیتی‌شهم‌گاه · بیست‌وششم تا سی‌ام شهریور</b><p data-i18n="g3Text">سومین گاهنبار، در پایان تابستان و هنگام گردآوری فرآورده‌ها؛ جشن سپاس برای آفرینش زمین و برداشت کشتزار.</p></div>
           </article>
           <article class="fest-card">
             <h3><span data-i18n="festM7">مهر</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
             <div class="fest-item"><b data-i18n="f7aName">مهرگان · شانزدهم مهر</b><p data-i18n="f7aText">پس از نوروز، بزرگ‌ترین جشن ایران کهن است؛ جشن مهر، ایزد پیمان و نور و دوستی، و هنگام سپاسگزاری برای برداشت فرآورده‌های کشتزار. در مهرگان مردم به یکدیگر مهر می‌ورزند و پیمان‌هایشان را تازه می‌کنند.</p></div>
+            <div class="fest-item"><b data-i18n="g4Name">گاهنبار ایاثرم‌گاه · بیست‌وششم تا سی‌ام مهر</b><p data-i18n="g4Text">چهارمین گاهنبار، در میانه‌ی پاییز و هنگام بازگشت گله‌ها از چراگاه؛ جشن سپاس برای آفرینش گیاهان و رستنی‌ها.</p></div>
           </article>
           <article class="fest-card">
             <h3><span data-i18n="festM8">آبان</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
@@ -1704,19 +1770,34 @@
             <h3><span data-i18n="festM10">دی</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
             <div class="fest-item"><b data-i18n="f10aName">شب یلدا (چله) · شبِ پیش از یکم دی</b><p data-i18n="f10aText">بلندترین شب سال که خانواده‌ها گرد هم می‌آیند، انار و هندوانه می‌خورند و حافظ می‌خوانند تا تاریکی بلندترین شب با گرمای دورهمی کوتاه شود و روشنایی از فردا کم‌کم بر شب پیروز شود.</p></div>
             <div class="fest-item"><b data-i18n="f10bName">دیگان و خرم‌روز · یکم دی</b><p data-i18n="f10bText">یکم دی، خرم‌روز، نخستین جشن دیگان است؛ روزهای یکم، هشتم، پانزدهم و بیست‌وسوم ماه دی، نام روز و ماه یکی می‌شود و این روزها را با شادی و نیایش جشن می‌گیرند و زمستان را آغاز می‌کنند.</p></div>
+            <div class="fest-item"><b data-i18n="f10cName">دیگان · هشتم دی</b><p data-i18n="f10cText">دومین جشن دیگان؛ روز دی‌به‌آذر از ماه دی که باز نام روز و ماه یکی می‌شود و با نیایش و شادی گرامی داشته می‌شود.</p></div>
+            <div class="fest-item"><b data-i18n="g5Name">گاهنبار میدیارم‌گاه · دهم تا چهاردهم دی</b><p data-i18n="g5Text">پنجمین گاهنبار، در میانه‌ی زمستان؛ جشن سپاس برای آفرینش جانوران سودمند، که با نیایش و سفره‌ی همگانی برگزار می‌شود.</p></div>
+            <div class="fest-item"><b data-i18n="f10fName">درگذشت اشو زرتشت · یازدهم دی</b><p data-i18n="f10fText">یازدهم دی، روز خور از ماه دی، روز درگذشت اشو زرتشت است. زرتشتیان این روز را با نیایش و رفتن به آتشکده و آرامگاه، در سکوت و احترام به یاد پیامبرشان می‌گذرانند.</p></div>
+            <div class="fest-item"><b data-i18n="f10dName">دیگان · پانزدهم دی</b><p data-i18n="f10dText">سومین جشن دیگان؛ روز دی‌به‌مهر از ماه دی، از روزهای هم‌نام روز و ماه در زمستان.</p></div>
+            <div class="fest-item"><b data-i18n="f10eName">دیگان · بیست‌وسوم دی</b><p data-i18n="f10eText">چهارمین و واپسین جشن دیگان؛ روز دی‌به‌دین از ماه دی که ماه دی را با شادی و نیایش به پایان می‌برد.</p></div>
           </article>
           <article class="fest-card">
             <h3><span data-i18n="festM11">بهمن</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
             <div class="fest-item"><b data-i18n="f11aName">بهمنگان · دوم بهمن</b><p data-i18n="f11aText">بهمن یا وهومن، ایزد اندیشه‌ی نیک است. بهمنگان جشن اندیشه و خرد نیک و روز پاسداشت جانوران سودمند است؛ در این روز از کشتن جانوران و خوردن گوشت پرهیز می‌کردند.</p></div>
-            <div class="fest-item"><b data-i18n="f11bName">سده · دهم بهمن</b><p data-i18n="f11bText">جشن بزرگ آتش و یاد پیدایش آن به دست هوشنگ در سرگذشت‌های شاهنامه؛ پنجاه روز مانده به نوروز، بر فراز بلندی‌ها آتش می‌افروزند و گرد آن شادی می‌کنند.</p></div>
+            <div class="fest-item"><b data-i18n="f11bName">سده · دهم بهمن</b><p data-i18n="f11bText">جشن بزرگ آتش و یاد پیدایش آن به دست هوشنگ در سرگذشت‌های شاهنامه؛ پنجاه روز مانده به نوروز، بر فراز بلندی‌ها آتش می‌افروزند و گرد آن شادی می‌کنند. آتش سده را هنگام غروب روز نهم بهمن، در آستانه‌ی روز مهر، می‌افروزند.</p></div>
           </article>
           <article class="fest-card">
             <h3><span data-i18n="festM12">اسفند</span><span class="fest-year" data-i18n="festYear">۱۴۰۵ · ۲۵۸۵ شاهنشاهی</span></h3>
             <div class="fest-item"><b data-i18n="f12aName">اسفندگان (سپندارمذگان) · پنجم اسفند</b><p data-i18n="f12aText">جشن سپندارمذ، ایزدبانوی زمین و فروتنی و مهر. در ایران کهن این روز، روز گرامیداشت زمین و زنان بود و به جشن مهر و مهربانی شناخته می‌شود.</p></div>
+            <div class="fest-item"><b data-i18n="g6Name">گاهنبار همسپثمیدیم‌گاه · پنج روز پایانی اسفند</b><p data-i18n="g6Text">ششمین و واپسین گاهنبار، در پنج روز پایانی سال؛ جشن سپاس برای آفرینش انسان و هنگام یاد فروهرهای درگذشتگان، در آستانه‌ی نوروز.</p></div>
             <div class="fest-item"><b data-i18n="f12bName">چهارشنبه‌سوری · واپسین شب چهارشنبه‌ی سال</b><p data-i18n="f12bText">در شامگاه واپسین سه‌شنبه‌ی سال، آتش می‌افروزند و از روی آن می‌پرند و می‌خوانند: «زردی من از تو، سرخی تو از من»؛ یعنی بیماری و اندوه را به آتش می‌سپارند و گرما و تندرستی از او می‌گیرند و آماده‌ی نوروز می‌شوند.</p></div>
           </article>
         </div>
+          <article class="fest-card wide">
+            <h3><span data-i18n="naborTitle">روزهای نبر — چهار روز در هر ماه</span></h3>
+            <p class="fest-lead" data-i18n="naborIntro">در آیین زرتشتی، در هر ماه چهار روز «نبر» است؛ یعنی روزهایی که گوشت نمی‌خورند و هیچ جانوری را نمی‌کشند، از مهر به جانوران و پاسداشت زندگی. این چهار روز در گاهشمار، روی روزهای دوم، دوازدهم، چهاردهم و بیست‌ویکم هر ماه نشسته‌اند.</p>
+            <div class="fest-item"><b data-i18n="nb2Name">روز نبر (روز بهمن) · دوم هر ماه</b><p data-i18n="nb2Text">روز بهمن، دوم هر ماه، روز نبر است؛ بهمن ایزد اندیشه‌ی نیک و نگهبان جانوران سودمند است و در این روز از خوردن گوشت و کشتن جانوران پرهیز می‌شود.</p></div>
+            <div class="fest-item"><b data-i18n="nb12Name">روز نبر (روز ماه) · دوازدهم هر ماه</b><p data-i18n="nb12Text">روز ماه، دوازدهم هر ماه، روز نبر است؛ روزی برای آرامش و پرهیز از گوشت و کشتار، به پاسداشت جانوران.</p></div>
+            <div class="fest-item"><b data-i18n="nb14Name">روز نبر (روز گوشت) · چهاردهم هر ماه</b><p data-i18n="nb14Text">روز گوشت، چهاردهم هر ماه، روز نبر است؛ این روز به روان جانوران (گئوش اوروان) ویژه است و در آن گوشت نمی‌خورند و جانوری نمی‌کشند.</p></div>
+            <div class="fest-item"><b data-i18n="nb21Name">روز نبر (روز رام) · بیست‌ویکم هر ماه</b><p data-i18n="nb21Text">روز رام، بیست‌ویکم هر ماه، روز نبر است؛ رام ایزد آشتی و شادی است و این روز هم با پرهیز از گوشت و کشتن جانوران گرامی داشته می‌شود.</p></div>
+          </article>
         <p class="heritage-note" data-i18n="festNote">بیشتر این جشن‌ها «روز و ماه هم‌نام» هستند؛ یعنی روزی از ماه که نامش با نام همان ماه یکی می‌شود، مانند روز امرداد از ماه امرداد.</p>
+        <p class="heritage-note" data-i18n="festNote2">در گاهشمار شاهنشاهی همین سایت، همه‌ی این روزها — جشن‌های ماهانه، شش گاهنبار، روزهای نبر و مناسبت‌های ویژه — روی روزهای هر ماه نشسته‌اند؛ روی نام هر ماه بزن تا روزهایش را با توضیح کوتاهشان ببینی.</p>
         <p class="heritage-note" data-i18n="remNote">با زدن دکمه‌ی «یادآوری»، یک پرونده‌ی کوچکِ تقویم بارگیری می‌شود؛ آن را روی گوشی‌ات باز کن و «افزودن به تقویم» را بزن تا آن روز در تقویم گوشی‌ات بنشیند و یک روز پیش از آن به تو یادآوری شود. این تارنما خودش پیام و آگاهی نمی‌فرستد؛ یادآوری از سوی تقویم گوشی خودت می‌آید.</p>
       </section>
 
@@ -3500,7 +3581,7 @@
           calNote: "In the Solar year 1350 — the Imperial year 2530 — Iran celebrated the 2,500th anniversary of the founding of the Persian Empire, and from the start of the Solar year 1355 (Imperial 2535) this calendar was for a few years the country's official calendar. Many Iranians still keep the Imperial year alive alongside the Solar calendar, in memory of that ancient history.",
           festKicker: "Festivals of ancient Iran",
           festTitle: "Calendar of Ancient Iranian Festivals — <em>the year 1405, equal to 2585 Imperial</em>",
-          festIntro: "In ancient Iran, every month of the year had its own festival; most were held on the day whose name matched the name of the month. This calendar shows the festivals of the year 1405 Solar Hijri — equal to the Imperial year 2585 — month by month and in order, from Nowruz in Farvardin to Chaharshanbe Suri in Esfand.",
+          festIntro: "In ancient Iran, every month of the year had its own festival; most were held on the day whose name matched the name of the month. This calendar shows the festivals and Zoroastrian observances of the year 1405 Solar Hijri — equal to the Imperial year 2585 — month by month and in order, from Nowruz in Farvardin to Chaharshanbe Suri in Esfand, together with the six Gahambars of the year and the Nabor days of every month.",
           festYear: "1405 · 2585 Imperial",
           festM1: "Farvardin",
           festM2: "Ordibehesht",
@@ -3543,11 +3624,56 @@
           f11aName: "Bahmangan · 2 Bahman",
           f11aText: "Bahman, or Vohu Manah, is the deity of good thought. Bahmangan is a festival of good thought and wisdom and a day for caring for useful animals; on this day people refrained from killing animals and eating meat.",
           f11bName: "Sadeh · 10 Bahman",
-          f11bText: "The great festival of fire, remembering its discovery by Hushang, as told in the Shahnameh; fifty days before Nowruz, fires are lit on the heights and people celebrate around them.",
+          f11bText: "The great festival of fire, remembering its discovery by Hushang, as told in the Shahnameh; fifty days before Nowruz, fires are lit on the heights and people celebrate around them. The Sadeh fire is lit at sunset on the 9th of Bahman, on the eve of the day of Mehr.",
           f12aName: "Esfandegan (Sepandarmazgan) · 5 Esfand",
           f12aText: "The festival of Sepandarmaz, goddess of the earth, humility, and love. In ancient Iran this day honored the earth and women, and it is known as a celebration of love and kindness.",
           f12bName: "Chaharshanbe Suri · the last Wednesday night of the year",
           f12bText: "At sunset on the last Tuesday of the year, fires are lit and people jump over them, singing “My yellowness to you, your redness to me” — giving sickness and sorrow to the fire and taking warmth and health from it, as they get ready for Nowruz.",
+          f10cName: "Deygan · 8 Dey",
+          f10cText: "The second Deygan festival: the day of Dey-be-Azar in the month of Dey, when the name of the day and the month are one again, honored with prayer and joy.",
+          f10dName: "Deygan · 15 Dey",
+          f10dText: "The third Deygan festival: the day of Dey-be-Mehr in the month of Dey, one of winter's same-name day-and-month feasts.",
+          f10eName: "Deygan · 23 Dey",
+          f10eText: "The fourth and last Deygan festival: the day of Dey-be-Din in the month of Dey, closing the month with joy and prayer.",
+          f10fName: "Passing of Ashu Zoroaster · 11 Dey",
+          f10fText: "The 11th of Dey, the day of Khor in the month of Dey, is the day of the passing of Ashu Zoroaster. Zoroastrians mark this day with prayer and visits to the fire temple and the cemetery, in silence and respect for their prophet.",
+          g1Name: "Gahambar Maidyozarem · 11–15 Ordibehesht",
+          g1Text: "The first Gahambar of the year, in mid-spring: a thanksgiving for the creation of the sky. Gahambars last five days and are held with prayer, recitation of the Avesta, and a shared table whose food is given to everyone.",
+          g2Name: "Gahambar Maidyoshahem · 11–15 Tir",
+          g2Text: "The second Gahambar, in mid-summer: a thanksgiving for the creation of water, held with prayer and the Gahambar table in fire temples and homes.",
+          g3Name: "Gahambar Paitishahem · 26–30 Shahrivar",
+          g3Text: "The third Gahambar, at the end of summer and harvest time: a thanksgiving for the creation of the earth and the gathering of the crops.",
+          g4Name: "Gahambar Ayathrem · 26–30 Mehr",
+          g4Text: "The fourth Gahambar, in mid-autumn, when the herds return from pasture: a thanksgiving for the creation of plants and growing things.",
+          g5Name: "Gahambar Maidyarem · 10–14 Dey",
+          g5Text: "The fifth Gahambar, in mid-winter: a thanksgiving for the creation of the useful animals, held with prayer and a shared table.",
+          g6Name: "Gahambar Hamaspathmaidyem · the last five days of Esfand",
+          g6Text: "The sixth and last Gahambar, in the five final days of the year: a thanksgiving for the creation of humankind, and the time of remembering the fravashis of the departed, on the threshold of Nowruz.",
+          naborTitle: "The Nabor Days — Four Days in Every Month",
+          naborIntro: "In the Zoroastrian tradition, every month has four “Nabor” days — days on which no meat is eaten and no animal is killed, out of kindness to animals and respect for life. In the calendar, these four days sit on the 2nd, 12th, 14th, and 21st of every month.",
+          nb2Name: "Nabor Day (Bahman Day) · the 2nd of every month",
+          nb2Text: "Bahman day, the 2nd of every month, is a Nabor day. Bahman is the deity of good thought and the guardian of useful animals, and on this day people refrain from eating meat and killing animals.",
+          nb12Name: "Nabor Day (Mah Day) · the 12th of every month",
+          nb12Text: "Mah day, the 12th of every month, is a Nabor day — a day of calm and of refraining from meat and slaughter, in honor of animals.",
+          nb14Name: "Nabor Day (Gosht Day) · the 14th of every month",
+          nb14Text: "Gosht day, the 14th of every month, is a Nabor day. This day belongs to the soul of the animals (Geush Urvan), and on it no meat is eaten and no animal is killed.",
+          nb21Name: "Nabor Day (Ram Day) · the 21st of every month",
+          nb21Text: "Ram day, the 21st of every month, is a Nabor day. Ram is the deity of peace and joy, and this day too is honored by refraining from meat and from killing animals.",
+          festNote2: "In this site's Imperial Calendar, all of these days — the monthly festivals, the six Gahambars, the Nabor days, and the special observances — sit on the days of each month; tap a month's name to see its days with a short note on each.",
+          calSoloBtn: "Standalone Calendar",
+          calSoloHint: "Open the calendar on its own full-screen page; you can add it separately to your phone's home screen, so it is always one tap away.",
+          legFest: "Festival / observance",
+          legGah: "Gahambar",
+          legNabor: "Nabor day",
+          soloGuideTitle: "Put the calendar on your phone",
+          soloIosTitle: "iPhone (Safari)",
+          soloIos1: "Open the “Standalone Calendar” page in Safari",
+          soloIos2: "Tap the Share button",
+          soloIos3: "Choose “Add to Home Screen”",
+          soloAndTitle: "Android (Chrome)",
+          soloAnd1: "Open the “Standalone Calendar” page in Chrome",
+          soloAnd2: "Tap the three-dot menu",
+          soloAnd3: "Choose “Add to Home screen”",
           festNote: "Most of these festivals are “same-name day and month” feasts: they fall on the day of the month whose name matches the month itself — for example, the day of Amordad in the month of Amordad.",
           remBtn: "Reminder",
           upTitle: "Upcoming festivals",
@@ -4307,7 +4433,7 @@
           calNote: "En l'année solaire 1350 — l'année impériale 2530 — l'Iran a célébré le 2 500e anniversaire de la fondation de l'Empire perse, et à partir du début de l'année solaire 1355 (impériale 2535), ce calendrier fut pendant quelques années le calendrier officiel du pays. Beaucoup d'Iraniens gardent encore l'année impériale vivante à côté du calendrier solaire, en mémoire de cette histoire ancienne.",
           festKicker: "Les fêtes de l'Iran ancien",
           festTitle: "Calendrier des fêtes iraniennes anciennes — <em>l'année 1405, égale à 2585 impériale</em>",
-          festIntro: "Dans l'Iran ancien, chaque mois de l'année avait sa fête ; la plupart se tenaient le jour dont le nom était le même que celui du mois. Ce calendrier montre les fêtes de l'année 1405 de l'Hégire solaire — égale à l'année impériale 2585 — mois par mois et dans l'ordre, de Norouz en Farvardin à Chaharshanbe Suri en Esfand.",
+          festIntro: "Dans l'Iran ancien, chaque mois de l'année avait sa fête ; la plupart se tenaient le jour dont le nom était le même que celui du mois. Ce calendrier montre les fêtes et les observances zoroastriennes de l'année 1405 de l'Hégire solaire — égale à l'année impériale 2585 — mois par mois et dans l'ordre, de Norouz en Farvardin à Chaharshanbe Suri en Esfand, avec les six Gahambars de l'année et les jours Nabor de chaque mois.",
           festYear: "1405 · 2585 impériale",
           festM1: "Farvardin",
           festM2: "Ordibehesht",
@@ -4350,11 +4476,56 @@
           f11aName: "Bahmangan · 2 Bahman",
           f11aText: "Bahman, ou Vohu Manah, est la divinité de la bonne pensée. Bahmangan est une fête de la bonne pensée et de la sagesse et un jour pour prendre soin des animaux utiles ; ce jour-là, on s'abstenait de tuer les animaux et de manger de la viande.",
           f11bName: "Sadeh · 10 Bahman",
-          f11bText: "La grande fête du feu, en souvenir de sa découverte par Hushang dans le Shahnameh ; cinquante jours avant Norouz, des feux sont allumés sur les hauteurs et l'on célèbre tout autour.",
+          f11bText: "La grande fête du feu, en souvenir de sa découverte par Hushang dans le Shahnameh ; cinquante jours avant Norouz, des feux sont allumés sur les hauteurs et l'on célèbre tout autour. Le feu de Sadeh est allumé au coucher du soleil le 9 Bahman, à la veille du jour de Mehr.",
           f12aName: "Esfandegan (Sepandarmazgan) · 5 Esfand",
           f12aText: "La fête de Sepandarmaz, déesse de la terre, de l'humilité et de l'amour. Dans l'Iran ancien, ce jour honorait la terre et les femmes, et il est connu comme une célébration de l'amour et de la bienveillance.",
           f12bName: "Chaharshanbe Suri · la dernière nuit de mercredi de l'année",
           f12bText: "Au coucher du soleil du dernier mardi de l'année, on allume des feux et l'on saute par-dessus en chantant « Mon jaune pour toi, ton rouge pour moi » : on donne la maladie et la tristesse au feu et l'on en reçoit chaleur et santé, en se préparant pour Norouz.",
+          f10cName: "Deygan · 8 Dey",
+          f10cText: "La deuxième fête de Deygan : le jour de Dey-be-Azar dans le mois de Dey, où le nom du jour et celui du mois sont de nouveau un, honoré par la prière et la joie.",
+          f10dName: "Deygan · 15 Dey",
+          f10dText: "La troisième fête de Deygan : le jour de Dey-be-Mehr dans le mois de Dey, l'une des fêtes hivernales du jour et du mois homonymes.",
+          f10eName: "Deygan · 23 Dey",
+          f10eText: "La quatrième et dernière fête de Deygan : le jour de Dey-be-Din dans le mois de Dey, qui clôt le mois dans la joie et la prière.",
+          f10fName: "Décès d'Ashu Zoroastre · 11 Dey",
+          f10fText: "Le 11 Dey, jour de Khor dans le mois de Dey, est le jour du décès d'Ashu Zoroastre. Les zoroastriens marquent ce jour par la prière et la visite du temple du feu et du cimetière, dans le silence et le respect de leur prophète.",
+          g1Name: "Gahambar Maidyozarem · 11–15 Ordibehesht",
+          g1Text: "Le premier Gahambar de l'année, au milieu du printemps : une action de grâce pour la création du ciel. Les Gahambars durent cinq jours et se tiennent avec la prière, la récitation de l'Avesta et une table partagée dont la nourriture est offerte à tous.",
+          g2Name: "Gahambar Maidyoshahem · 11–15 Tir",
+          g2Text: "Le deuxième Gahambar, au milieu de l'été : une action de grâce pour la création de l'eau, tenue avec la prière et la table du Gahambar dans les temples du feu et les maisons.",
+          g3Name: "Gahambar Paitishahem · 26–30 Shahrivar",
+          g3Text: "Le troisième Gahambar, à la fin de l'été et au temps des récoltes : une action de grâce pour la création de la terre et la moisson des champs.",
+          g4Name: "Gahambar Ayathrem · 26–30 Mehr",
+          g4Text: "Le quatrième Gahambar, au milieu de l'automne, quand les troupeaux reviennent du pâturage : une action de grâce pour la création des plantes et de tout ce qui pousse.",
+          g5Name: "Gahambar Maidyarem · 10–14 Dey",
+          g5Text: "Le cinquième Gahambar, au milieu de l'hiver : une action de grâce pour la création des animaux utiles, tenue avec la prière et une table partagée.",
+          g6Name: "Gahambar Hamaspathmaidyem · les cinq derniers jours d'Esfand",
+          g6Text: "Le sixième et dernier Gahambar, dans les cinq derniers jours de l'année : une action de grâce pour la création de l'humanité, et le temps du souvenir des fravashis des disparus, au seuil de Norouz.",
+          naborTitle: "Les jours Nabor — quatre jours chaque mois",
+          naborIntro: "Dans la tradition zoroastrienne, chaque mois compte quatre jours « Nabor » — des jours où l'on ne mange pas de viande et où l'on ne tue aucun animal, par bienveillance envers les animaux et respect de la vie. Dans le calendrier, ces quatre jours sont les 2, 12, 14 et 21 de chaque mois.",
+          nb2Name: "Jour Nabor (jour de Bahman) · le 2 de chaque mois",
+          nb2Text: "Le jour de Bahman, le 2 de chaque mois, est un jour Nabor. Bahman est la divinité de la bonne pensée et le gardien des animaux utiles ; ce jour-là, on s'abstient de manger de la viande et de tuer les animaux.",
+          nb12Name: "Jour Nabor (jour de Mah) · le 12 de chaque mois",
+          nb12Text: "Le jour de Mah, le 12 de chaque mois, est un jour Nabor — un jour de calme et d'abstention de viande et d'abattage, en l'honneur des animaux.",
+          nb14Name: "Jour Nabor (jour de Gosht) · le 14 de chaque mois",
+          nb14Text: "Le jour de Gosht, le 14 de chaque mois, est un jour Nabor. Ce jour appartient à l'âme des animaux (Geush Urvan) ; on n'y mange pas de viande et l'on n'y tue aucun animal.",
+          nb21Name: "Jour Nabor (jour de Ram) · le 21 de chaque mois",
+          nb21Text: "Le jour de Ram, le 21 de chaque mois, est un jour Nabor. Ram est la divinité de la paix et de la joie, et ce jour aussi est honoré par l'abstention de viande et de tuer les animaux.",
+          festNote2: "Dans le calendrier impérial de ce site, tous ces jours — les fêtes mensuelles, les six Gahambars, les jours Nabor et les observances spéciales — figurent sur les jours de chaque mois ; touchez le nom d'un mois pour voir ses jours avec une courte note sur chacun.",
+          calSoloBtn: "Calendrier séparé",
+          calSoloHint: "Ouvrez le calendrier sur sa propre page plein écran ; vous pouvez l'ajouter séparément à l'écran d'accueil de votre téléphone, pour l'avoir toujours à une touche.",
+          legFest: "Fête / observance",
+          legGah: "Gahambar",
+          legNabor: "Jour Nabor",
+          soloGuideTitle: "Mettez le calendrier sur votre téléphone",
+          soloIosTitle: "iPhone (Safari)",
+          soloIos1: "Ouvrez la page « Calendrier séparé » dans Safari",
+          soloIos2: "Touchez le bouton Partager",
+          soloIos3: "Choisissez « Ajouter à l'écran d'accueil »",
+          soloAndTitle: "Android (Chrome)",
+          soloAnd1: "Ouvrez la page « Calendrier séparé » dans Chrome",
+          soloAnd2: "Touchez le menu à trois points",
+          soloAnd3: "Choisissez « Ajouter à l'écran d'accueil »",
           festNote: "La plupart de ces fêtes sont des fêtes « du jour et du mois homonymes » : elles tombent le jour du mois dont le nom est le même que celui du mois — par exemple, le jour d'Amordad dans le mois d'Amordad.",
           remBtn: "Rappel",
           upTitle: "Fêtes à venir",
@@ -4732,11 +4903,53 @@
         6: [[4, "f6aName"]],
         7: [[16, "f7aName"]],
         8: [[10, "f8aName"]],
-        9: [[9, "f9aName"]],
-        10: [[1, "f10bName"]],
+        9: [[9, "f9aName"], [30, "f10aName"]],
+        10: [[1, "f10bName"], [8, "f10cName"], [11, "f10fName"], [15, "f10dName"], [23, "f10eName"]],
         11: [[2, "f11aName"], [10, "f11bName"]],
         12: [[5, "f12aName"]]
       };
+      /* The six Gahambars: key -> [month, first day, last day]; a 0 day means
+         "counted from the end of Esfand" (Hamaspathmaidyem = the year's last five days) */
+      var GAHANBAR = {
+        g1Name: [2, 11, 15], g2Name: [4, 11, 15], g3Name: [6, 26, 30],
+        g4Name: [7, 26, 30], g5Name: [10, 10, 14], g6Name: [12, 0, 0]
+      };
+      /* Nabor days: the 2nd, 12th, 14th and 21st of every month */
+      var NABOR_KEYS = { 2: "nb2Name", 12: "nb12Name", 14: "nb14Name", 21: "nb21Name" };
+      function gahRange(key) {
+        var g = GAHANBAR[key];
+        var len = monthLength(g[0]);
+        var first = g[1] === 0 ? len - 4 : g[1];
+        var last = g[2] === 0 ? len : g[2];
+        return [g[0], first, last];
+      }
+      /* Every observance of a month: day -> [{key, kind}], kind: fest | gah | nabor.
+         A day can carry several at once (Tirgan inside a Gahambar, Bahmangan on a Nabor day…). */
+      function dayEvents(m) {
+        var map = {};
+        function push(d, key, kind) {
+          if (!map[d]) map[d] = [];
+          map[d].push({ key: key, kind: kind });
+        }
+        var list = FEST_DAYS[m] || [];
+        for (var i = 0; i < list.length; i++) push(list[i][0], list[i][1], "fest");
+        for (var gk in GAHANBAR) {
+          if (!GAHANBAR.hasOwnProperty(gk)) continue;
+          var r = gahRange(gk);
+          if (r[0] !== m) continue;
+          for (var gd = r[1]; gd <= r[2]; gd++) push(gd, gk, "gah");
+        }
+        for (var nd in NABOR_KEYS) {
+          if (NABOR_KEYS.hasOwnProperty(nd)) push(parseInt(nd, 10), NABOR_KEYS[nd], "nabor");
+        }
+        if (m === 12) {
+          var len = monthLength(12);
+          for (var d = len; d >= 1; d--) {
+            if (gregOf(12, d).getDay() === 3) { push(d, "f12bName", "fest"); break; }
+          }
+        }
+        return map;
+      }
       var MONTH_LEN = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
       var selectedMonth = 0;
       var CAL_BASE = null;
@@ -4789,14 +5002,13 @@
         return v.replace(/<[^>]*>/g, "");
       }
       function festMap(m, lang) {
+        var ev = dayEvents(m);
         var map = {};
-        var list = FEST_DAYS[m] || [];
-        for (var i = 0; i < list.length; i++) map[list[i][0]] = dictText(list[i][1], lang);
-        if (m === 12) {
-          var len = monthLength(12);
-          for (var d = len; d >= 1; d--) {
-            if (gregOf(12, d).getDay() === 3) { map[d] = dictText("f12bName", lang); break; }
-          }
+        for (var d in ev) {
+          if (!ev.hasOwnProperty(d)) continue;
+          var names = [];
+          for (var i = 0; i < ev[d].length; i++) names.push(dictText(ev[d][i].key, lang));
+          map[d] = names;
         }
         return map;
       }
@@ -4843,29 +5055,56 @@
           wh += "<span>" + wfmt.format(wd) + "</span>";
         }
         weekRow.innerHTML = wh;
+        var ev = dayEvents(m);
         var fests = festMap(m, lang);
         var len = monthLength(m);
         var html = "";
         for (var e = 0; e < startOff; e++) html += '<span class="cal-cell blank"></span>';
         for (var d = 1; d <= len; d++) {
           var cls = "cal-cell";
-          if (fests[d]) cls += " fest";
+          var dayEv = ev[d] || [];
+          var hasFest = false, hasGah = false, hasNabor = false;
+          for (var q = 0; q < dayEv.length; q++) {
+            if (dayEv[q].kind === "fest") hasFest = true;
+            else if (dayEv[q].kind === "gah") hasGah = true;
+            else if (dayEv[q].kind === "nabor") hasNabor = true;
+          }
+          if (hasFest) cls += " fest";
+          if (hasGah) cls += " gah";
+          if (hasNabor) cls += " nabor";
           if (m === base.today.m && d === base.today.d) cls += " today";
-          var ttl = fests[d] ? ' title="' + fests[d].replace(/"/g, "") + '"' : "";
+          var ttl = fests[d] ? ' title="' + fests[d].join(" — ").replace(/"/g, "") + '"' : "";
           html += '<button type="button" class="' + cls + '" data-cal-day="' + d + '"' + ttl + ">" + num(d) + "</button>";
         }
         grid.innerHTML = html;
-        var dayNums = Object.keys(fests).sort(function (a, b) { return a - b; });
-        var keyByDay = {};
-        var fl2 = FEST_DAYS[m] || [];
-        for (var k2 = 0; k2 < fl2.length; k2++) keyByDay[fl2[k2][0]] = fl2[k2][1];
-        if (m === 12) { for (var dk in fests) { if (fests.hasOwnProperty(dk) && !keyByDay[dk]) keyByDay[dk] = "f12bName"; } }
+        /* One list line per observance; a Gahambar appears once, as a five-day range */
+        var entries = [];
+        var seenGah = {};
+        var dayNums = Object.keys(ev).sort(function (a, b) { return a - b; });
+        for (var dn = 0; dn < dayNums.length; dn++) {
+          var dd2 = parseInt(dayNums[dn], 10);
+          var evs = ev[dd2];
+          for (var x = 0; x < evs.length; x++) {
+            if (evs[x].kind === "gah") {
+              if (seenGah[evs[x].key]) continue;
+              seenGah[evs[x].key] = true;
+              entries.push({ day: dd2, range: gahRange(evs[x].key), key: evs[x].key });
+            } else {
+              entries.push({ day: dd2, range: null, key: evs[x].key });
+            }
+          }
+        }
         var fh = "";
-        for (var f = 0; f < dayNums.length; f++) {
-          var nm = fests[dayNums[f]].split("·")[0].replace(/\s+$/, "");
-          var fkey = keyByDay[dayNums[f]];
-          fh += "<li><span><b>" + num(parseInt(dayNums[f], 10)) + " " + mName + "</b> — " + nm + "</span>" +
-            (fkey ? '<button type="button" class="rem-btn" data-fest-rem="' + fkey + '">' + remLabel(lang) + "</button>" : "") + "</li>";
+        for (var f = 0; f < entries.length; f++) {
+          var ent = entries[f];
+          var nm = festNameOnly(ent.key, lang);
+          var desc = dictText(ent.key.replace(/Name$/, "Text"), lang);
+          var dayLabel = ent.range
+            ? num(ent.range[1]) + " – " + num(ent.range[2]) + " " + mName
+            : num(ent.day) + " " + mName;
+          fh += '<li><div class="fest-main"><span><b>' + dayLabel + "</b> — " + nm + "</span>" +
+            (desc ? '<span class="cal-fest-desc">' + desc + "</span>" : "") + "</div>" +
+            ((typeof FEST_INFO !== "undefined" && FEST_INFO[ent.key]) ? '<button type="button" class="rem-btn" data-fest-rem="' + ent.key + '">' + remLabel(lang) + "</button>" : "") + "</li>";
         }
         festEl.innerHTML = fh;
         var pbEl = document.getElementById("calPersonal");
@@ -4961,11 +5200,12 @@
       /* name key -> [month, day] in calendar order; day 0 = Chaharshanbe Suri (computed) */
       var FEST_INFO = {
         f1aName: [1, 1], f1bName: [1, 6], f1cName: [1, 19],
-        f2aName: [2, 3], f3aName: [3, 6], f4aName: [4, 13],
-        f5aName: [5, 7], f6aName: [6, 4], f7aName: [7, 16],
+        f2aName: [2, 3], g1Name: [2, 11], f3aName: [3, 6], f4aName: [4, 13], g2Name: [4, 11],
+        f5aName: [5, 7], f6aName: [6, 4], g3Name: [6, 26], f7aName: [7, 16], g4Name: [7, 26],
         f8aName: [8, 10], f9aName: [9, 9], f10aName: [9, 30],
-        f10bName: [10, 1], f11aName: [11, 2], f11bName: [11, 10],
-        f12aName: [12, 5], f12bName: [12, 0]
+        f10bName: [10, 1], f10cName: [10, 8], g5Name: [10, 10], f10fName: [10, 11], f10dName: [10, 15], f10eName: [10, 23],
+        f11aName: [11, 2], f11bName: [11, 10],
+        f12aName: [12, 5], g6Name: [12, -1], f12bName: [12, 0]
       };
       function festNameOnly(nameKey, lang) {
         var t = dictText(nameKey, lang);
@@ -4977,7 +5217,7 @@
         if (!CAL_MONTHS[lang]) lang = "fa";
         var info = FEST_INFO[nameKey];
         if (!info) return;
-        var d = info[1] === 0 ? suriDay1405() : info[1];
+        var d = info[1] === 0 ? suriDay1405() : info[1] === -1 ? 25 : info[1];
         var date = dateOverride || greg1405(info[0], d);
         var textKey = nameKey.replace(/Name$/, "Text");
         downloadIcs(festNameOnly(nameKey, lang), dictText(textKey, "fa"), date, false);
@@ -5019,6 +5259,8 @@
             dd = 29;
             var len12 = monthLength(12);
             for (var sd = len12; sd >= 1; sd--) { if (gregOf(12, sd).getDay() === 3) { dd = sd; break; } }
+          } else if (dd === -1) {
+            dd = monthLength(12) - 4;
           }
           var date = gregOf(info[0], dd);
           if (date.getTime() < todayStart.getTime()) {
@@ -5065,9 +5307,9 @@
         var gfmt = new Intl.DateTimeFormat(lang === "fa" ? "fa-IR-u-ca-gregory" : loc, { day: "numeric", month: "long", year: "numeric" });
         head.textContent = (PER_HEAD[lang] || PER_HEAD.fa) + " — " + num(day) + " " + CAL_MONTHS[lang][selectedMonth - 1] + " " + num(base.today.y) + " · " + gfmt.format(g);
         var titleInput = document.getElementById("perTitleInput");
-        var fests = festMap(selectedMonth, lang);
-        if (titleInput && fests[day] && !titleInput.value) {
-          titleInput.value = fests[day].split("·")[0].replace(/\s+$/, "");
+        var dayEv2 = dayEvents(selectedMonth)[day] || [];
+        if (titleInput && dayEv2.length && !titleInput.value) {
+          titleInput.value = festNameOnly(dayEv2[0].key, lang);
         }
         box.hidden = false;
         var cells = document.querySelectorAll("#calGrid [data-cal-day]");
