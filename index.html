@@ -163,6 +163,86 @@
       .ideas h2 { margin: 0 0 .4rem; font-size: 1.4rem; font-weight: 900; line-height: 1.5; }
       .ideas h2 em { font-style: normal; color: var(--accent); }
       .ideas p { color: var(--ink-soft); margin: 0 0 1.2rem; font-size: .98rem; max-width: 44rem; }
+
+      /* ---------- Shop banner & category circles ---------- */
+      .shop-banner {
+        background: linear-gradient(155deg, var(--court) 0%, var(--court-2) 100%);
+        border: 1.5px solid var(--gold-bright);
+        border-radius: 26px;
+        padding: .55rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow);
+      }
+      .shop-banner-frame {
+        border: 1px solid color-mix(in srgb, var(--gold-bright) 60%, transparent);
+        border-radius: 20px;
+        padding: 2rem 1.3rem 2.2rem;
+        text-align: center;
+      }
+      .shop-orn { display: flex; align-items: center; justify-content: center; gap: .55rem; margin-bottom: 1.1rem; }
+      .shop-orn::before, .shop-orn::after {
+        content: ""; width: 58px; height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold-bright));
+      }
+      .shop-orn::after { background: linear-gradient(90deg, var(--gold-bright), transparent); }
+      .shop-orn i { width: 8px; height: 8px; flex: none; background: var(--gold-bright); transform: rotate(45deg); }
+      .shop-orn i.big { width: 12px; height: 12px; }
+      .shop-banner .shop-banner-title {
+        margin: 0 0 .35rem; max-width: none; color: var(--gold-bright);
+        font-size: clamp(1.65rem, 4.6vw, 2.35rem); font-weight: 900; line-height: 1.4;
+      }
+      .shop-banner .shop-banner-sub {
+        margin: 0 auto 1.5rem; max-width: none; color: var(--court-soft); font-size: 1.05rem;
+      }
+      .shop-banner-btn {
+        display: inline-flex; align-items: center; justify-content: center;
+        min-height: 3rem; padding: .35rem 2.1rem;
+        background: linear-gradient(180deg, color-mix(in srgb, var(--gold-bright) 78%, #ffffff), var(--gold-bright));
+        color: #221a04; border: 1px solid var(--gold);
+        border-radius: 999px; font-size: 1.02rem; font-weight: 900; text-decoration: none;
+        box-shadow: 0 8px 22px rgba(10, 18, 44, .35);
+      }
+      .shop-banner-btn:hover { filter: brightness(1.06); }
+      .shop-cats {
+        display: flex; flex-wrap: wrap; justify-content: center;
+        gap: 1.3rem 1.7rem; margin: 0 0 1.6rem;
+      }
+      .shop-cat {
+        display: flex; flex-direction: column; align-items: center; gap: .6rem;
+        width: clamp(118px, 20vw, 148px); text-decoration: none;
+      }
+      .cat-ring {
+        display: block; width: 100%; aspect-ratio: 1; border-radius: 50%; overflow: hidden;
+        background: var(--court);
+        border: 3px solid var(--gold-bright);
+        outline: 1.5px solid var(--gold); outline-offset: 3px;
+        box-shadow: var(--shadow);
+      }
+      .cat-ring img { width: 100%; height: 100%; object-fit: cover; }
+      .cat-ring.emblem img { object-fit: contain; padding: 11%; }
+      .cat-name { font-weight: 800; font-size: .98rem; line-height: 1.5; text-align: center; color: var(--ink); }
+      .shop-cat:hover .cat-name { color: var(--accent); }
+      #shopProducts { scroll-margin-top: 1rem; }
+
+      /* ---------- Books list ---------- */
+      .books-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+      .book-card {
+        background: var(--surface); border: 1.5px solid var(--gold); border-radius: 20px;
+        overflow: hidden; text-decoration: none; color: var(--ink);
+        display: flex; flex-direction: column; box-shadow: var(--shadow);
+      }
+      .book-cover { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--court); }
+      .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .book-body { padding: 1.05rem 1.2rem 1.25rem; display: flex; flex-direction: column; gap: .3rem; flex: 1; }
+      .book-name { font-size: 1.3rem; font-weight: 900; line-height: 1.5; color: var(--ink); }
+      .book-sub { color: var(--ink-soft); font-size: .95rem; line-height: 1.75; flex: 1; }
+      .book-open {
+        color: var(--accent); font-weight: 800; font-size: .95rem;
+        display: inline-flex; align-items: center; gap: .4rem; margin-top: .55rem;
+      }
+      .book-open svg { flex: none; }
+      .book-card:hover .book-name { color: var(--accent); }
+      @media (max-width: 700px) { .books-grid { grid-template-columns: 1fr; } }
       .idea-tags { display: flex; gap: .55rem; flex-wrap: wrap; }
       .idea-tags span {
         background: var(--surface-2); border: 1px solid var(--line);
@@ -380,7 +460,7 @@
       main > [data-view="calendar"], main > [data-view="nights"],
       main > [data-view="festivals"],
       main > [data-view="monuments"], main > [data-view="support"],
-      main > [data-view="films"],
+      main > [data-view="films"], main > [data-view="books"],
       main > [data-view="contact"], main > [data-view="privacy"] {
         margin-top: 1.6rem;
       }
@@ -1247,13 +1327,39 @@
       </section>
 
       <section class="ideas" id="ideas" data-view="home" data-i18n-aria="ideasAria" aria-label="محصولات">
+        <div class="shop-banner">
+          <div class="shop-banner-frame">
+            <span class="shop-orn" aria-hidden="true"><i></i><i class="big"></i><i></i></span>
+            <p class="shop-banner-title" data-i18n="shopBannerTitle">فروشگاه مهر ایران دخت</p>
+            <p class="shop-banner-sub" data-i18n="shopBannerSub">یادگارهایی از ایران کهن، ساخته‌شده با مهر</p>
+            <a class="shop-banner-btn" href="#shopProducts" data-i18n="shopBannerBtn">مشاهده‌ی محصولات</a>
+          </div>
+        </div>
+        <nav class="shop-cats" data-i18n-aria="shopCatsAria" aria-label="دسته‌بندی‌های فروشگاه">
+          <a class="shop-cat" href="#ideas" data-view-link="ideas">
+            <span class="cat-ring"><img draggable="false" src="assets/pin-shahbaz.jpg" data-i18n-alt="catPinsAlt" alt="بج فلزی طلایی شهباز، از محصولات فروشگاه" loading="lazy" /></span>
+            <span class="cat-name" data-i18n="catPins">بج‌های فلزی</span>
+          </a>
+          <a class="shop-cat" href="#books" data-view-link="books">
+            <span class="cat-ring"><img draggable="false" src="assets/shahnameh-ferdowsi.webp" data-i18n-alt="catBooksAlt" alt="نگاره‌ی مینیاتور ایرانی از فردوسی، سراینده‌ی شاهنامه" loading="lazy" /></span>
+            <span class="cat-name" data-i18n="catBooks">کتاب‌های کهن</span>
+          </a>
+          <a class="shop-cat" href="#calendar" data-view-link="calendar">
+            <span class="cat-ring emblem"><img draggable="false" src="assets/lion-sun.png" data-i18n-alt="catCalAlt" alt="نشان تاریخی شیر و خورشید، نشان شاهنشاهی ایران" loading="lazy" /></span>
+            <span class="cat-name" data-i18n="catCalendar">گاهشمار شاهنشاهی</span>
+          </a>
+          <a class="shop-cat" href="#monuments" data-view-link="monuments">
+            <span class="cat-ring"><img draggable="false" src="assets/monument-persepolis.jpg" data-i18n-alt="catMonAlt" alt="ستون‌های بلند سنگی تخت جمشید در برابر آسمان آبی" loading="lazy" /></span>
+            <span class="cat-name" data-i18n="catMonuments">بناهای باستانی</span>
+          </a>
+        </nav>
         <div class="ideas-box">
           <div class="ideas-head">
             <h2 data-i18n="ideasTitle">محصولات — <em>نشان‌های ایران کهن</em></h2>
             <span class="new-badge inline attn" data-i18n="newBadge">تازه</span>
           </div>
           <p data-i18n="ideasText">نخستین محصولات مهر ایران دخت، بج‌های فلزی ایران کهن‌اند؛ دو بج نخست را از ایران آورده‌ام و همین حالا موجود و آماده‌ی سفارش‌اند و پنج بج دیگر هم به‌زودی ساخته می‌شوند. زیر هر محصول نوشته شده که در ایران موجود است یا در خارج از ایران، تا هر جا که هستی بدانی کدام محصول را می‌توانی بخری. خرید با دکمه‌ی «خرید با PayPal» زیر هر محصول انجام می‌شود: دکمه را بزن و در صفحه‌ی PayPal مبلغ ۷ دلار کانادا را پرداخت کن؛ بعد از پرداخت، از راه صفحه‌ی «پیوند با من» نام بج و نشانی‌ات را برایم بفرست تا سفارشت را برایت ارسال کنم.</p>
-          <div class="product-grid">
+          <div class="product-grid" id="shopProducts">
             <article class="product-card">
               <img draggable="false" src="assets/pin-shahbaz.jpg" data-i18n-alt="prod1Alt" alt="بج فلزی طلایی شهباز روی میز چوبی قدیمی؛ بج چهارگوش طلایی با نقش عقاب بال‌گشوده‌ی درفش شهبازی هخامنشی و حاشیه‌ی مثلثی" loading="lazy" />
               <div class="product-body">
@@ -1336,6 +1442,40 @@
             </article>
           </div>
           <p class="buy-note"><b data-i18n="buyNoteLabel">نکته‌ی خرید:</b> <span data-i18n="buyNote">پرداخت در صفحه‌ی رسمی PayPal انجام می‌شود و مبلغ ۷ دلار کانادا از پیش نوشته شده است. پس از پرداخت، از راه صفحه‌ی «پیوند با من» نام بج، نام خودت و نشانی پستی‌ات را بفرست تا سفارشت را برایت ارسال کنم.</span></p>
+        </div>
+      </section>
+
+      <section class="heritage" id="books" data-view="books" data-i18n-aria="booksAria" aria-label="کتاب‌های کهن">
+        <div class="heritage-head">
+          <span class="kicker" data-i18n="booksKicker">کتاب‌های کهن و اسطوره‌ای ایران</span>
+          <h2 data-i18n="booksTitle">کتاب‌های کهن — <em>سه گنجینه‌ی ایران</em></h2>
+          <p data-i18n="booksIntro">هر سه کتاب را از آغاز و به‌ترتیب، با صدای خودم برایتان می‌خوانم و روایت می‌کنم. روی هر کتاب بزن تا باز شود.</p>
+        </div>
+        <div class="books-grid">
+          <a class="book-card" href="#shahnameh" data-view-link="shahnameh">
+            <span class="book-cover"><img draggable="false" src="assets/shahnameh-ferdowsi.webp" data-i18n-alt="ferdowsiAlt" alt="نگاره‌ی مینیاتور ایرانی از فردوسی، سراینده‌ی شاهنامه، که در ایوانی باغی سرگرم نوشتن شاهنامه است و یارانش به او گوش سپرده‌اند" loading="lazy" /></span>
+            <span class="book-body">
+              <span class="book-name" data-i18n="navShahnameh">شاهنامه</span>
+              <span class="book-sub" data-i18n="bookShSub">سرگذشت شاهان و پهلوانان ایران، سروده‌ی فردوسی</span>
+              <span class="book-open"><span data-i18n="bookOpen">گشودن کتاب</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></span>
+            </span>
+          </a>
+          <a class="book-card" href="#avesta" data-view-link="avesta">
+            <span class="book-cover"><img draggable="false" src="assets/avesta-fire.webp" data-i18n-alt="avFireAlt" alt="نگاره‌ای از آتشکده‌ی زرتشتی با آتش ورجاوند در آتشدان برنجی، سروها و رود روان در پای کوه البرز، با حال‌وهوای اوستا" loading="lazy" /></span>
+            <span class="book-body">
+              <span class="book-name" data-i18n="navAvesta">اوستا</span>
+              <span class="book-sub" data-i18n="bookAvSub">سرودهای ورجاوند زرتشت و ایران کهن</span>
+              <span class="book-open"><span data-i18n="bookOpen">گشودن کتاب</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></span>
+            </span>
+          </a>
+          <a class="book-card" href="#nights" data-view-link="nights">
+            <span class="book-cover"><img draggable="false" src="assets/nights-hero.webp" data-i18n-alt="nHeroAlt" alt="نگاره‌ی مینیاتور ایرانی از شهرزاد قصه‌گو که شب‌هنگام در تالار کاخ برای شهریار پادشاه قصه می‌گوید و خواهرش دنیازاد کنار اوست، با چراغ‌های آویخته و ماه از پنجره‌ی کاخ" loading="lazy" /></span>
+            <span class="book-body">
+              <span class="book-name" data-i18n="navNights">هزار و یک شب</span>
+              <span class="book-sub" data-i18n="bookNSub">قصه‌هایی که شهرزاد، شب‌به‌شب، برای شهریار گفت</span>
+              <span class="book-open"><span data-i18n="bookOpen">گشودن کتاب</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></span>
+            </span>
+          </a>
         </div>
       </section>
 
@@ -3187,6 +3327,26 @@
           ideasAria: "Products",
           ideasTitle: "Products — <em>emblems of ancient Iran</em>",
           ideasText: "Mehr Iran Dokht's first products are metal pins of ancient Iran; I brought the first two from Iran — they are in stock and ready to order now — and five more pins are coming soon. Under each product it says whether it is available in Iran or outside Iran, so wherever you are, you know which products you can buy. Buy with the “Buy with PayPal” button under each product: tap it and pay CA$7 on the PayPal page; after paying, send me the pin's name and your address through the Contact page so I can send your order.",
+          shopBannerTitle: "Mehr Iran Dokht Shop",
+          shopBannerSub: "Keepsakes of ancient Iran, made with love",
+          shopBannerBtn: "Shop Now",
+          shopCatsAria: "Shop categories",
+          catPins: "Metal Pins",
+          catBooks: "Ancient Books",
+          catCalendar: "Imperial Calendar",
+          catMonuments: "Ancient Monuments",
+          catPinsAlt: "The golden Shahbaz pin, one of the shop's products",
+          catBooksAlt: "Persian miniature painting of Ferdowsi, poet of the Shahnameh",
+          catCalAlt: "The historic Lion and Sun emblem, emblem of imperial Iran",
+          catMonAlt: "The tall stone columns of Persepolis against a blue sky",
+          booksAria: "Ancient books",
+          booksKicker: "Ancient, mythic books of Iran",
+          booksTitle: "Ancient Books — <em>three treasures of Iran</em>",
+          booksIntro: "I read and narrate all three books for you from the very beginning, in order, in my own voice. Tap any book to open it.",
+          bookShSub: "The tales of Iran's kings and heroes, composed by Ferdowsi",
+          bookAvSub: "The sacred hymns of Zoroaster and ancient Iran",
+          bookNSub: "The tales Shahrazad told Shahriar, night after night",
+          bookOpen: "Open the book",
           prod1Title: "Golden metal pin — “Shahbaz, the Shahbaz Standard”",
           prod1Text: "The Shahbaz, a golden eagle with outspread wings, was the imperial standard of the Achaemenids: an emblem raised on a tall pole ahead of the king and the army of Iran, symbolizing royal farr and glory, power and victory. It is among the oldest symbols of the Iranian land, seen on ancient works and coins. This golden metal pin shows that ancient Shahbaz in a square frame with a triangular border.",
           prod1Alt: "Golden metal Shahbaz pin on an old wooden table; a square gold pin engraved with the outspread-winged eagle of the Achaemenid Shahbaz standard, with a triangular border",
@@ -4053,6 +4213,26 @@
           ideasAria: "Produits",
           ideasTitle: "Produits — <em>les emblèmes de l'Iran antique</em>",
           ideasText: "Les premiers produits d'Mehr Iran Dokht sont des broches en métal de l'Iran antique ; j'ai rapporté les deux premières d'Iran — elles sont en stock et prêtes à commander — et cinq autres broches arrivent bientôt. Sous chaque produit, il est indiqué s'il est disponible en Iran ou hors d'Iran, pour que, où que vous soyez, vous sachiez quels produits vous pouvez acheter. Achetez avec le bouton « Acheter avec PayPal » sous chaque produit : touchez-le et payez 7 $ CA sur la page PayPal ; après le paiement, envoyez-moi le nom de la broche et votre adresse via la page Contact pour que je puisse envoyer votre commande.",
+          shopBannerTitle: "Boutique Mehr Iran Dokht",
+          shopBannerSub: "Des souvenirs de l'Iran antique, faits avec amour",
+          shopBannerBtn: "Voir les produits",
+          shopCatsAria: "Catégories de la boutique",
+          catPins: "Broches en métal",
+          catBooks: "Livres anciens",
+          catCalendar: "Calendrier impérial",
+          catMonuments: "Monuments antiques",
+          catPinsAlt: "La broche dorée Shahbaz, l'un des produits de la boutique",
+          catBooksAlt: "Peinture miniature persane de Ferdowsi, poète du Shahnameh",
+          catCalAlt: "L'emblème historique du Lion et du Soleil, emblème de l'Iran impérial",
+          catMonAlt: "Les hautes colonnes de pierre de Persépolis sous un ciel bleu",
+          booksAria: "Livres anciens",
+          booksKicker: "Livres anciens et mythiques de l'Iran",
+          booksTitle: "Livres anciens — <em>trois trésors de l'Iran</em>",
+          booksIntro: "Je vous lis et raconte ces trois livres depuis le tout début, dans l'ordre, de ma propre voix. Touchez un livre pour l'ouvrir.",
+          bookShSub: "Les récits des rois et des héros de l'Iran, composés par Ferdowsi",
+          bookAvSub: "Les hymnes sacrés de Zoroastre et de l'Iran antique",
+          bookNSub: "Les contes que Shahrazad raconta à Shahriar, nuit après nuit",
+          bookOpen: "Ouvrir le livre",
           prod1Title: "Broche en métal doré — « Shahbaz, l'étendard Shahbaz »",
           prod1Text: "Le Shahbaz, un aigle doré aux ailes déployées, était l'étendard impérial des Achéménides : un emblème dressé sur une longue hampe devant le roi et l'armée de l'Iran, symbole de la gloire royale (farr), de la puissance et de la victoire. C'est l'un des plus anciens symboles de la terre d'Iran, que l'on voit sur les œuvres et les monnaies antiques. Cette broche en métal doré présente cet antique Shahbaz dans un cadre carré à bordure triangulaire.",
           prod1Alt: "Broche Shahbaz en métal doré sur une vieille table en bois ; une broche carrée dorée gravée de l'aigle aux ailes déployées de l'étendard Shahbaz achéménide, à bordure triangulaire",
@@ -5537,7 +5717,7 @@
     <script>
       /* ---------- Separate pages: show one section at a time ---------- */
       (function () {
-        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "films", "ideas", "app", "home", "support", "contact", "privacy"];
+        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
         var panels = document.querySelectorAll("[data-view]");
         var navLinks = document.querySelectorAll("[data-view-link]");
         var current = "home";
