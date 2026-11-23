@@ -1509,19 +1509,24 @@
           <button type="button" class="living-toggle" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><span data-i18n="livingPause">ایستِ حرکت</span></button>
         </div>
         <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="n1Tag">شب یکم · داستان چارچوب کتاب، به‌ترتیب</span>
           <h3 data-i18n="n1Title">شهرزاد و شهریار</h3>
-          <!-- Voice narration: Elnaz's own recording of Night One (Shahrazad and Shahriar) goes here (assets/voice-nights-1.*) once she sends it. -->
-          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
-            <span class="voice-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-            </span>
+          <!-- Voice narration: Elnaz's own recording of Night One (Shahrazad and Shahriar) — recorded by her, added 2026-11-23. -->
+          <div class="voice-box live" id="voiceShahrazad" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <button type="button" class="voice-play" id="voicePlay8" aria-label="پخش خوانش شهرزاد و شهریار با صدای الناز" aria-pressed="false">
+              <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
-              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
               <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+              <span class="voice-progress" id="voiceProg8" aria-hidden="true"><i id="voiceFill8"></i></span>
+              <span class="voice-time" id="voiceTime8" dir="ltr">0:00 / 3:08</span>
             </div>
-            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+            <span class="voice-badge voice-badge-live" data-i18n="voiceDur8">۳:۰۸</span>
+            <audio id="voiceAudio8" src="assets/voice-nights-1.m4a" preload="metadata"></audio>
           </div>
           <figure class="card-fig story-fig living-fig" data-motion="zoom"><span class="living-frame"><img draggable="false" src="assets/nights-shahrazad.webp" data-i18n-alt="n1ImgAlt" alt="نگاره‌ی مینیاتور ایرانی از شهرزاد که دست بر سینه، شجاعانه با پدرش وزیر سخن می‌گوید و از او می‌خواهد نزد شهریار پادشاه برود، از داستان یکم هزار و یک شب" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="n1ImgCap">شهرزاد پیش پدرش وزیر — خودش داوطلب می‌شود نزد شهریار برود تا کشتار دختران شهر پایان یابد.</figcaption></figure>
           <p data-i18n="n1P1">در روزگاران کهن، پادشاهی بود به نام شهریار. شهریار روزی دانست که همسرش به او خیانت کرده است؛ دلش از خشم و اندوه پر شد و از آن پس به همه‌ی زنان بدگمان شد. پادشاه سوگند خورد که هر شب با دختری از شهر ازدواج کند و سپیده‌دم او را بکشد، تا دیگر هیچ زنی فرصت خیانت پیدا نکند. سه سال این کار ادامه یافت و شهر پر از سوگ و ترس شد؛ خانواده‌ها دخترانشان را پنهان می‌کردند یا از شهر می‌گریختند.</p>
@@ -3200,6 +3205,7 @@
           voiceDur5: "1:47",
           voiceDur6: "4:15",
           voiceDur7: "2:56",
+          voiceDur8: "3:08",
           livingBadge: "Living painting · in motion",
           livingTitle: "The paintings are no longer still — they live and move",
           livingText: "The camera slowly drifts and draws closer, light slides across the scene, and where there is fire the flame flickers and sparks rise — like a living miniature. If your eyes tire, pause the motion with the button here.",
@@ -4054,6 +4060,7 @@
           voiceDur5: "1:47",
           voiceDur6: "4:15",
           voiceDur7: "2:56",
+          voiceDur8: "3:08",
           livingBadge: "Miniature vivante · en mouvement",
           livingTitle: "Les miniatures ne sont plus fixes — elles vivent et bougent",
           livingText: "La caméra glisse lentement et se rapproche, la lumière traverse la scène, et là où il y a du feu, la flamme vacille et des étincelles s'élèvent — comme une miniature vivante. Si vos yeux se fatiguent, mettez le mouvement en pause avec le bouton ici.",
@@ -6064,6 +6071,17 @@
             fa: { play: "پخش خوانش سرگذشت فریدون و سه پسرش با صدای الناز", pause: "ایست خوانش سرگذشت فریدون و سه پسرش" },
             en: { play: "Play Elnaz's narration of the tale of Fereydun and his three sons", pause: "Pause the narration of the tale of Fereydun and his three sons" },
             fr: { play: "Écouter la narration du conte de Fereydun et ses trois fils par Elnaz", pause: "Mettre en pause la narration du conte de Fereydun et ses trois fils" }
+          }
+        });
+        /* Night One (Shahrazad and Shahriar) */
+        initVoice({
+          box: "voiceShahrazad", btn: "voicePlay8", audio: "voiceAudio8",
+          prog: "voiceProg8", fill: "voiceFill8", time: "voiceTime8",
+          fallbackDur: 188,
+          labels: {
+            fa: { play: "پخش خوانش شهرزاد و شهریار با صدای الناز", pause: "ایست خوانش شهرزاد و شهریار" },
+            en: { play: "Play Elnaz's narration of Shahrazad and Shahriar", pause: "Pause the narration of Shahrazad and Shahriar" },
+            fr: { play: "Écouter la narration de Shéhérazade et Shahriar par Elnaz", pause: "Mettre en pause la narration de Shéhérazade et Shahriar" }
           }
         });
         /* Avesta Part One (Yasna & the Gathas) */
