@@ -459,7 +459,8 @@
       main > [data-view="history"], main > [data-view="app"],
       main > [data-view="calendar"], main > [data-view="nights"],
       main > [data-view="festivals"],
-      main > [data-view="monuments"], main > [data-view="support"],
+      main > [data-view="monuments"], main > [data-view="peoples"],
+      main > [data-view="support"],
       main > [data-view="films"], main > [data-view="books"],
       main > [data-view="contact"], main > [data-view="privacy"] {
         margin-top: 1.6rem;
@@ -658,6 +659,11 @@
         padding: .1rem .85rem; font-size: .82rem; font-weight: 800; line-height: 1.9;
       }
       .mon-map-btn:hover { background: var(--gold-bright); color: #1e3570; }
+      /* ---------- Peoples of Iran: region & language fact rows ---------- */
+      .ppl-facts { margin: 0 0 .6rem; display: grid; gap: .3rem; font-size: .9rem; }
+      .ppl-facts > div { display: flex; flex-wrap: wrap; gap: .2rem .55rem; align-items: baseline; }
+      .ppl-facts b { color: var(--gold); font-weight: 800; flex: none; }
+      .ppl-facts span { color: var(--ink); font-weight: 700; }
       /* ---------- «تازه» badge on the newest additions ---------- */
       .story-card, .full-story { position: relative; }
       .new-badge {
@@ -1288,6 +1294,7 @@
         <a href="#nights" data-view-link="nights" data-i18n="navNights">هزار و یک شب</a>
         <a href="#festivals" data-view-link="festivals" data-i18n="navFestivals">جشن‌های کهن</a>
         <a href="#monuments" data-view-link="monuments" data-i18n="navMonuments">یادگارهای باستانی ایران</a>
+        <a href="#peoples" class="has-new" data-view-link="peoples"><span data-i18n="navPeoples">اقوام ایرانی</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#films" data-view-link="films" data-i18n="navFilms">فیلم‌ها</a>
         <a href="#ideas" class="has-new" data-view-link="ideas"><span data-i18n="navIdeas">محصولات</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#app" data-view-link="app" data-i18n="navApp">اپلیکیشن</a>
@@ -2333,6 +2340,217 @@
           </article>
         </div>
         <p class="heritage-note" data-i18n="monNote">این فهرست را کم‌کم گسترده‌ترش می‌کنم؛ اگر جای باستانی‌ای را دوست داری و این‌جا نمی‌بینیش، بهم بگو تا بیفزایمش.</p>
+      </section>
+
+      <section class="heritage" id="peoples" data-view="peoples" aria-label="Peoples of Iran">
+        <div class="heritage-head">
+          <span class="kicker" data-i18n="pplKicker">ایران، خانه‌ی همه‌ی قوم‌هایش</span>
+          <h2 data-i18n="pplTitle">اقوام ایرانی — <em>هر قوم، یک رنگ از ایران</em></h2>
+          <p data-i18n="pplIntro">ایران فقط یک زبان و یک فرهنگ نیست؛ خانه‌ی قوم‌های گوناگونی است که هر کدام زبان، پوشش، موسیقی و خوراک خودشان را دارند و همه با هم «ایران» را می‌سازند. در این بخش با قوم‌های ایران آشنا می‌شوی: کجا زندگی می‌کنند، به چه زبانی سخن می‌گویند و چه چیزی فرهنگشان را ویژه می‌کند.</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-persian.jpg" data-i18n-alt="ppl1Alt" alt="سقف کاشی‌کاری‌شده‌ی آرامگاه حافظ در شیراز، با نقش‌های رنگین" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl1Tag">مرکز، جنوب و سراسر ایران</span>
+            <h3 data-i18n="ppl1Name">فارس‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl1Region">استان فارس و بیشتر شهرهای ایران، به‌ویژه مرکز و جنوب کشور</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl1Lang">فارسی</span></div>
+            </div>
+            <p data-i18n="ppl1Text">فارس‌ها بزرگ‌ترین گروه قومی ایران‌اند و زبان فارسی، زبان مادریشان، زبان رسمی کشور و زبان آموزش و رسانه است. ادب فارسی با شاعرانی چون فردوسی، سعدی و حافظ از گنجینه‌های بزرگ جهان است و شعرخوانی هنوز در خانه‌های ایرانی زنده است. در روستاهای فارس، زنان هنوز دامن‌های چین‌دار و رنگین و روسری‌های گلدار می‌پوشند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-azeri.jpg" data-i18n-alt="ppl2Alt" alt="عمارت ائل‌گلی (شاه‌گلی) تبریز در میان دریاچه‌اش" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl2Tag">شمال‌غرب ایران</span>
+            <h3 data-i18n="ppl2Name">آذری‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl2Region">آذربایجان شرقی و غربی، اردبیل و زنجان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl2Lang">ترکی آذری</span></div>
+            </div>
+            <p data-i18n="ppl2Text">آذری‌ها از پرشمارترین قوم‌های ایران‌اند و تبریز، شهر بزرگشان، روزگاری پایتخت ایران و از کانون‌های بازرگانی جاده‌ی ابریشم بود. موسیقی عاشیق‌ها با ساز و آواز، فرش‌های نام‌آور تبریز و خوراک‌هایی چون کوفته‌ی تبریزی از نشانه‌های فرهنگشان است. در جشن‌ها، زنان لباس‌های رنگین با دامن‌های چین‌دار و سربندهای گلدار می‌پوشند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-kurd.jpg" data-i18n-alt="ppl3Alt" alt="رقص گروهی کردها با لباس‌های سنتی رنگین در عروسی‌ای در سنندج" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl3Tag">غرب و شمال‌غرب ایران</span>
+            <h3 data-i18n="ppl3Name">کردها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl3Region">کردستان، کرمانشاه، ایلام، آذربایجان غربی و شمال خراسان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl3Lang">کردی (کرمانجی، سورانی و گویش‌های دیگر)</span></div>
+            </div>
+            <p data-i18n="ppl3Text">کردها مردمانی کوه‌نشین در زاگرس‌اند و نوروز را با آتش‌افروزی بر بلندی‌ها و رقص گروهی دست‌در‌دست جشن می‌گیرند؛ رقصی شاد که زن و مرد کنار هم در آن می‌رقصند. زنان کرد لباس‌های پولک‌دوزی و پرزرق‌وبرق با رنگ‌های شاد می‌پوشند و مردان شلوار گشاد کردی و شال کمر می‌بندند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-lur.jpg" data-i18n-alt="ppl4Alt" alt="قلعه‌ی فلک‌الافلاک خرم‌آباد بر فراز تپه" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl4Tag">زاگرس میانی</span>
+            <h3 data-i18n="ppl4Name">لرها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl4Region">لرستان، کهگیلویه و بویراحمد و بخش‌هایی از خوزستان و ایلام</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl4Lang">لری</span></div>
+            </div>
+            <p data-i18n="ppl4Text">لرها در دل زاگرس زندگی می‌کنند و به مهمان‌نوازی و دلیری نام‌آورند. موسیقی لری با کمانچه و سرنا و رقص چوب‌بازی از نشانه‌های جشن‌هایشان است. زنان لر روسری گلدار «گُلوَنی» بر سر می‌گذارند و دامن‌های چین‌دار و رنگی می‌پوشند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-bakhtiari.jpg" data-i18n-alt="ppl5Alt" alt="زنان بختیاری با لباس‌های رنگین سنتی در عروسی ایل، کنار رود" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl5Tag">زاگرس جنوبی</span>
+            <h3 data-i18n="ppl5Name">بختیاری‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl5Region">چهارمحال و بختیاری، خوزستان و لرستان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl5Lang">لری بختیاری</span></div>
+            </div>
+            <p data-i18n="ppl5Text">بختیاری‌ها نام‌آورترین کوچ‌نشینان ایران‌اند؛ هر سال با ایل و دام از گرمسیر خوزستان به سردسیر چهارمحال کوچ می‌کنند و از گذرگاه‌های سخت کوهستانی می‌گذرند. مردان کلاه نمدی و «چوقا»ی راه‌راه می‌پوشند و زنان لچک و مینای رنگین بر سر دارند. قالی بختیاری با نقش‌های باغی‌اش در جهان شناخته شده است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-qashqai.jpg" data-i18n-alt="ppl6Alt" alt="خانواده‌ای از ایل قشقایی با لباس سنتی در دشت فارس" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl6Tag">جنوب و مرکز ایران</span>
+            <h3 data-i18n="ppl6Name">قشقایی‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl6Region">فارس، کهگیلویه و بویراحمد و اصفهان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl6Lang">ترکی قشقایی</span></div>
+            </div>
+            <p data-i18n="ppl6Text">قشقایی‌ها ایلی کوچ‌رو در جنوب ایران‌اند که میان قشلاق‌های گرم فارس و ییلاق‌های خنک کوهستانی رفت‌وآمد می‌کنند. قالی و گلیم قشقایی با رنگ‌های زنده و نقش‌های ذهنی بافندگانش از نام‌آورترین دست‌بافته‌های ایران است. مردان کلاه نمدی دوگوش می‌پوشند و زنان دامن‌های چندلایه‌ی رنگین و روسری‌های سکه‌دوزی دارند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-baluch.jpg" data-i18n-alt="ppl7Alt" alt="پیراهن زنانه‌ی بلوچی با سوزن‌دوزی‌های رنگین" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl7Tag">جنوب‌شرق ایران</span>
+            <h3 data-i18n="ppl7Name">بلوچ‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl7Region">سیستان و بلوچستان و بخش‌هایی از کرمان و هرمزگان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl7Lang">بلوچی</span></div>
+            </div>
+            <p data-i18n="ppl7Text">بلوچ‌ها در سرزمین گرم و خشک جنوب‌شرق ایران زندگی می‌کنند و به مهمان‌نوازی و پایبندی به آیین‌هایشان شناخته می‌شوند. سوزن‌دوزی ظریف زنان بلوچ، با نقش‌های هندسی و رنگ‌های گرم، از زیباترین هنرهای ایران است و بر پیراهن و روسری زنان می‌نشیند. موسیقی بلوچی با بنجو و رباب و دهلک در جشن‌ها نواخته می‌شود.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-turkmen.jpg" data-i18n-alt="ppl8Alt" alt="مسابقه‌ی اسب‌دوانی با اسب‌های ترکمن (آخال‌تکه)" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl8Tag">شمال‌شرق ایران</span>
+            <h3 data-i18n="ppl8Name">ترکمن‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl8Region">گلستان (ترکمن‌صحرا) و خراسان شمالی</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl8Lang">ترکمنی</span></div>
+            </div>
+            <p data-i18n="ppl8Text">ترکمن‌ها در دشت‌های پهناور شمال‌شرق ایران زندگی می‌کنند و اسب ترکمن، از کهن‌ترین و زیباترین نژادهای اسب جهان، افتخارشان است؛ مسابقه‌های اسب‌دوانی هنوز در گنبد کاووس رونق دارد. قالی ترکمن با نقش‌های هندسی و رنگ سرخ تیره‌اش در جهان نام‌آور است. مردان کلاه پوستی بلند «تلپک» بر سر می‌گذارند و زنان روسری‌های بلند گلدار می‌پوشند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-gilak.jpg" data-i18n-alt="ppl9Alt" alt="روستای پلکانی ماسوله در دل کوه‌های سبز گیلان" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl9Tag">کرانه‌ی خزر</span>
+            <h3 data-i18n="ppl9Name">گیلک‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl9Region">گیلان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl9Lang">گیلکی</span></div>
+            </div>
+            <p data-i18n="ppl9Text">گیلک‌ها در سرزمین سبز و پرباران کرانه‌ی دریای خزر زندگی می‌کنند؛ سرزمین شالیزارهای برنج، جنگل و باران. خوراک‌های گیلانی مثل میرزاقاسمی و باقلا قاتق در همه‌ی ایران دوست‌داشتنی‌اند و رشت «شهر خلاق خوراک» یونسکو است. زنان گیلک در جشن‌ها دامن‌های چین‌دار رنگین «شلیته» و جلیقه‌های گلدوزی‌شده می‌پوشند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-mazandarani.jpg" data-i18n-alt="ppl10Alt" alt="روستای فیلبند مازندران بر فراز دریای ابرها" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl10Tag">کرانه‌ی خزر و البرز</span>
+            <h3 data-i18n="ppl10Name">مازندرانی‌ها (طبری‌ها)</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl10Region">مازندران و گلستان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl10Lang">مازندرانی (طبری)</span></div>
+            </div>
+            <p data-i18n="ppl10Text">مازندرانی‌ها، که به نام کهن سرزمینشان «طبری» هم خوانده می‌شوند، میان جنگل‌های هیرکانی و دریای خزر زندگی می‌کنند. کشتی سنتی «لوچو» و جشن کهن «تیرماه سیزده‌شو» از آیین‌های زنده‌ی این دیار است. موسیقی مازندرانی با لله‌وا (نی چوپانی) و آوازهای «امیری» در جشن‌ها و شالیزارها شنیده می‌شود.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-talysh.jpg" data-i18n-alt="ppl11Alt" alt="ییلاق سوباتان تالش؛ دشتی سبز با کلبه‌های چوبی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl11Tag">شمال‌غرب، میان جنگل و کوه</span>
+            <h3 data-i18n="ppl11Name">تالش‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl11Region">غرب گیلان و جنوب اردبیل، از آستارا تا فومنات</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl11Lang">تالشی</span></div>
+            </div>
+            <p data-i18n="ppl11Text">تالش‌ها در نوار سبز میان دریای خزر و کوه‌های بلند تالش زندگی می‌کنند؛ مردمانی دامدار و کشاورز که تابستان‌ها به ییلاق‌های کوهستانی می‌روند. زبان تالشی از زبان‌های کهن ایرانی و خویشاوند فارسی کهن است. جوراب‌های پشمی رنگین و دست‌بافت زنان تالش از سوغات‌های شناخته‌شده‌ی این دیار است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-arab.jpg" data-i18n-alt="ppl12Alt" alt="قایقی در تالاب شادگان خوزستان، میان نیزارها" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl12Tag">جنوب و جنوب‌غرب ایران</span>
+            <h3 data-i18n="ppl12Name">عرب‌های ایران</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl12Region">خوزستان و کرانه‌های هرمزگان و بوشهر</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl12Lang">عربی (گویش خوزستانی) و فارسی</span></div>
+            </div>
+            <p data-i18n="ppl12Text">عرب‌های ایران بیشتر در خوزستان و در کنار رودها و نخلستان‌ها زندگی می‌کنند و فرهنگشان با آب و نخل و قهوه گره خورده است. «مضیف»، مهمان‌خانه‌ی ساخته از نی، نماد مهمان‌نوازی‌شان است و قهوه‌ی عربی با دله‌ی طلایی در آن پذیرایی می‌شود. مردان دشداشه و عبا و چفیه می‌پوشند و خوراک‌های تند و دریایی جنوب از سفره‌شان جدا نیست.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-armenian.jpg" data-i18n-alt="ppl13Alt" alt="نگاره‌های دیواری رنگین کلیسای وانک اصفهان" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl13Tag">اصفهان، تهران و آذربایجان</span>
+            <h3 data-i18n="ppl13Name">ارمنی‌های ایران</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl13Region">اصفهان (محله‌ی جلفا)، تهران، تبریز و ارومیه</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl13Lang">ارمنی و فارسی</span></div>
+            </div>
+            <p data-i18n="ppl13Text">ارمنی‌ها از کهن‌ترین جامعه‌های مسیحی ایران‌اند؛ در روزگار شاه عباس صفوی گروه بزرگی از آنان به اصفهان کوچیدند و محله‌ی جلفا را ساختند. کلیسای وانک اصفهان با نگاره‌های دیواری شگفتش از دیدنی‌ترین جاهای ایران است. ارمنی‌های ایران در هنر، موسیقی، بازرگانی و صنعت این سرزمین نقشی پررنگ داشته‌اند و کریسمس و عید پاک را در کلیساهای کهنشان جشن می‌گیرند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-assyrian.jpg" data-i18n-alt="ppl14Alt" alt="کلیسای کهن ننه مریم (مریم مقدس) در ارومیه" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl14Tag">شمال‌غرب ایران</span>
+            <h3 data-i18n="ppl14Name">آشوری‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl14Region">ارومیه و آذربایجان غربی و تهران</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl14Lang">آشوری (آرامی نو) و فارسی</span></div>
+            </div>
+            <p data-i18n="ppl14Text">آشوری‌ها جامعه‌ای مسیحی و کهن در شمال‌غرب ایران‌اند و زبانشان، آرامی نو، از خاندان زبان عیسی مسیح است و هنوز در خانه‌ها و کلیساها سخن گفته می‌شود. پیرامون ارومیه ده‌ها کلیسای کهن آشوری برپاست. در جشن‌ها، زنان و مردان آشوری لباس‌های سنتی رنگین با کمربندهای پهن می‌پوشند و رقص‌های گروهی اجرا می‌کنند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-georgian.jpg" data-i18n-alt="ppl15Alt" alt="نمای شهر فریدونشهر در میان کوه‌ها" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl15Tag">مرکز و شمال ایران</span>
+            <h3 data-i18n="ppl15Name">گرجی‌های ایران</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl15Region">فریدن و فریدونشهر در اصفهان، و بخش‌هایی از گلستان و مازندران</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl15Lang">گرجی و فارسی</span></div>
+            </div>
+            <p data-i18n="ppl15Text">گرجی‌های ایران نوادگان گرجی‌هایی هستند که در روزگار صفوی به ایران آمدند و در فریدن اصفهان جا گرفتند؛ فریدونشهر هنوز بزرگ‌ترین شهر گرجی‌نشین ایران است و زبان گرجی در خانه‌ها و خیابان‌هایش شنیده می‌شود. آنان کشاورز و دامدارند و به سخت‌کوشی شناخته می‌شوند. کلیساهای کوچک و آیین‌های مسیحی ارتدوکس بخشی از زندگی فرهنگی‌شان است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-mandaean.jpg" data-i18n-alt="ppl16Alt" alt="آیین غسل مندایی‌ها با جامه‌های سپید در آب رودخانه" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl16Tag">کرانه‌ی رودهای خوزستان</span>
+            <h3 data-i18n="ppl16Name">مندایی‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl16Region">خوزستان، کنار کارون و کرخه، به‌ویژه اهواز</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl16Lang">مندایی (زبان آیینی)؛ در زندگی روزانه فارسی و عربی</span></div>
+            </div>
+            <p data-i18n="ppl16Text">مندایی‌ها پیرو آیینی کهن و یکتاپرست‌اند که آب روان و نور در آن جایگاهی بزرگ دارد؛ غسل در رودخانه از بنیادی‌ترین آیین‌هایشان است و برای همین همیشه کنار رودها زندگی کرده‌اند. آنان زرگر و نقره‌کارانی چیره‌دست‌اند و طلافروشی‌های اهواز نسل‌هاست در دست مندایی‌هاست. زبان آیینی‌شان، مندایی، از زبان‌های کهن آرامی است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-south.jpg" data-i18n-alt="ppl17Alt" alt="لنج چوبی سنتی در ساحل جزیره‌ی هرمز" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl17Tag">کرانه‌ی خلیج فارس و دریای عمان</span>
+            <h3 data-i18n="ppl17Name">جنوبی‌ها (مردم جنوب)</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl17Region">هرمزگان، بوشهر و کرانه‌های خوزستان و سیستان و بلوچستان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl17Lang">فارسی با گویش‌های جنوبی (بندری و بوشهری)؛ در جاهایی عربی و بلوچی</span></div>
+            </div>
+            <p data-i18n="ppl17Text">مردم جنوب ایران در کرانه‌های گرم خلیج فارس و دریای عمان زندگی می‌کنند؛ مردمانی دریانورد و بازرگان که زندگی‌شان با دریا، لنج‌سازی، ماهیگیری و نخل گره خورده است. موسیقی بندری با نی‌انبان و سازهای کوبه‌ای دل هر شنونده‌ای را می‌رباید و زنان جنوب چادرهای رنگین و برقع‌های سنتی دارند. خون‌گرمی و مهمان‌نوازی، نشانه‌ی همیشگی جنوبی‌هاست.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-yazdi.jpg" data-i18n-alt="ppl18Alt" alt="باغ دولت‌آباد یزد و بادگیر بلندش در انتهای حوض" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl18Tag">مرکز ایران، دل کویر</span>
+            <h3 data-i18n="ppl18Name">یزدی‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl18Region">استان یزد و شهرهای کویری مرکز ایران</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl18Lang">فارسی با گویش یزدی؛ زرتشتیان یزد به گویش دری زرتشتی (بهدینی) هم سخن می‌گویند</span></div>
+            </div>
+            <p data-i18n="ppl18Text">یزدی‌ها در دل کویر مرکز ایران زندگی می‌کنند و با قنات و بادگیر، قرن‌هاست گرمای کویر را رام کرده‌اند؛ بادگیر بلند باغ دولت‌آباد نام‌آورترینشان است. یزد از کهن‌ترین شهرهای جهان و از کانون‌های آیین زرتشتی است و آتش ورهرام بیش از هزار و پانصد سال است که در آتشکده‌ی یزد می‌سوزد. قطاب و باقلوای یزد و ترمه‌اش در همه‌ی ایران شناخته شده‌اند و یزدی‌ها به سخت‌کوشی، قناعت و درست‌کاری نام‌آورند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-kermani.jpg" data-i18n-alt="ppl19Alt" alt="باغ شازده‌ی ماهان کرمان؛ باغی پلکانی و سبز" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl19Tag">جنوب‌شرق ایران</span>
+            <h3 data-i18n="ppl19Name">کرمانی‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl19Region">استان کرمان، از بم و جیرفت تا رفسنجان و سیرجان</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl19Lang">فارسی با گویش کرمانی</span></div>
+            </div>
+            <p data-i18n="ppl19Text">کرمانی‌ها در بزرگ‌ترین استان ایران زندگی می‌کنند؛ سرزمینی از باغ‌های پسته‌ی رفسنجان تا نخلستان‌های بم و کویر لوت. ارگ بم، بزرگ‌ترین بنای خشتی جهان، و باغ شازده‌ی ماهان، بهشتی سبز در دل کویر، از نشانه‌های این دیارند. قالی و زیره و پسته‌ی کرمان در جهان نام‌آور است و تمدن کهن جیرفت ریشه‌های این سرزمین را به هزاران سال پیش می‌رساند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/people-khorasani.jpg" data-i18n-alt="ppl20Alt" alt="آرامگاه فردوسی در توس، خراسان" loading="lazy" /></figure>
+            <span class="tag" data-i18n="ppl20Tag">شمال‌شرق ایران</span>
+            <h3 data-i18n="ppl20Name">خراسانی‌ها</h3>
+            <div class="ppl-facts">
+              <div><b data-i18n="pplRegionLabel">منطقه‌ی سکونت</b><span data-i18n="ppl20Region">خراسان رضوی، خراسان شمالی و خراسان جنوبی؛ مشهد، نیشابور، توس، بیرجند و بجنورد</span></div>
+              <div><b data-i18n="pplLangLabel">زبان</b><span data-i18n="ppl20Lang">فارسی با گویش‌های خراسانی؛ در شمال خراسان ترکی خراسانی و کرمانجی هم رواج دارد</span></div>
+            </div>
+            <p data-i18n="ppl20Text">خراسانی‌ها در سرزمین پهناور شمال‌شرق ایران زندگی می‌کنند؛ دیار فردوسی بزرگ و آرامگاهش در توس، و مشهد با حرم امام رضا که هر سال میلیون‌ها زائر را به سوی خود می‌خواند. نیشابور خاک خیام و عطار است و زعفران خراسان در جهان همتا ندارد. موسیقی مقامی خراسان با دوتار و آواز بخشی‌های شمال خراسان از گنجینه‌های فرهنگی این سرزمین است.</p>
+          </article>
+        </div>
+        <p class="heritage-note" data-i18n="pplNote">این‌ها شناخته‌شده‌ترین قوم‌های ایران‌اند؛ در کنارشان گروه‌های کوچک‌تری هم در این سرزمین زندگی می‌کنند و همه با هم گنجینه‌ی فرهنگی ایران را می‌سازند.</p>
       </section>
 
       <section class="heritage" id="films" data-view="films" data-i18n-aria="filmsAria" aria-label="فیلم‌ها">
@@ -3784,6 +4002,7 @@
           navCalendar: "Imperial Calendar",
           navFestivals: "Ancient Festivals",
           navMonuments: "Ancient Monuments",
+          navPeoples: "Peoples of Iran",
           navFilms: "Films",
           calKicker: "Iran's ancient calendar",
           calTitle: "The Imperial Calendar of Iran — <em>a calendar of more than 2,500 years</em>",
@@ -4080,6 +4299,132 @@
           mon30Text: "Near Maneh and Samalqan, a lone stone building stands in the plain: the fire temple of Espakho, among the oldest stone buildings of north-eastern Iran. Its thick walls are built of stone and gypsum, and its domed hall and iwan can still be seen — a keepsake of Sasanian times in the land of Khorasan.",
           mon30Alt: "The stone building of the Espakho fire temple in North Khorasan",
           mon30Loc: "Maneh and Samalqan, North Khorasan Province",
+          pplKicker: "Iran, home to all its peoples",
+          pplTitle: "Peoples of Iran — <em>every people, a colour of Iran</em>",
+          pplIntro: "Iran is not one language and one culture; it is home to many peoples, each with its own language, dress, music and food — and together they make Iran. In this section you will meet the peoples of Iran: where they live, what language they speak, and what makes their culture special.",
+          pplNote: "These are the best-known peoples of Iran; smaller communities also live in this land, and together they all make up Iran's cultural treasure.",
+          pplRegionLabel: "Where they live",
+          pplLangLabel: "Language",
+          ppl1Tag: "Central, southern and all of Iran",
+          ppl1Name: "Persians",
+          ppl1Region: "Fars Province and most cities of Iran, especially the centre and south",
+          ppl1Lang: "Persian",
+          ppl1Text: "The Persians are Iran's largest ethnic group, and Persian — their mother tongue — is the country's official language and the language of schools and media. Persian literature, with poets such as Ferdowsi, Saadi and Hafez, is one of the world's great treasures, and poetry reading is still alive in Iranian homes. In the villages of Fars, women still wear colourful pleated skirts and floral headscarves.",
+          ppl2Tag: "North-western Iran",
+          ppl2Name: "Azeris",
+          ppl2Region: "East and West Azerbaijan, Ardabil and Zanjan",
+          ppl2Lang: "Azerbaijani Turkish",
+          ppl2Text: "The Azeris are among Iran's most numerous peoples, and their great city, Tabriz, was once Iran's capital and a trading hub of the Silk Road. Ashiq music sung with the saz, the famous carpets of Tabriz and dishes such as Tabrizi koofteh are marks of their culture. At celebrations, women wear colourful dresses with pleated skirts and floral headbands.",
+          ppl3Tag: "Western and north-western Iran",
+          ppl3Name: "Kurds",
+          ppl3Region: "Kurdistan, Kermanshah, Ilam, West Azerbaijan and northern Khorasan",
+          ppl3Lang: "Kurdish (Kurmanji, Sorani and other dialects)",
+          ppl3Text: "The Kurds are a mountain people of the Zagros who celebrate Nowruz with bonfires on the heights and a joyful group dance, hand in hand, in which women and men dance side by side. Kurdish women wear bright, sequined, richly coloured dresses, and the men wear wide Kurdish trousers with a waist sash.",
+          ppl4Tag: "The central Zagros",
+          ppl4Name: "Lurs",
+          ppl4Region: "Lorestan, Kohgiluyeh and Boyer-Ahmad, and parts of Khuzestan and Ilam",
+          ppl4Lang: "Luri",
+          ppl4Text: "The Lurs live in the heart of the Zagros and are known for hospitality and bravery. Luri music with the kamancheh and sorna, and the stick dance, are part of their celebrations. Lur women wear a floral headscarf called golvani and colourful pleated skirts.",
+          ppl5Tag: "The southern Zagros",
+          ppl5Name: "Bakhtiari",
+          ppl5Region: "Chaharmahal and Bakhtiari, Khuzestan and Lorestan",
+          ppl5Lang: "Bakhtiari Luri",
+          ppl5Text: "The Bakhtiari are Iran's most famous nomads: every year they migrate with their tribe and flocks from warm Khuzestan to the cool highlands of Chaharmahal, crossing hard mountain passes. The men wear felt hats and a striped woollen vest called a chogha, and the women wear colourful lachak headpieces. Bakhtiari carpets, with their garden designs, are known around the world.",
+          ppl6Tag: "Southern and central Iran",
+          ppl6Name: "Qashqai",
+          ppl6Region: "Fars, Kohgiluyeh and Boyer-Ahmad, and Isfahan",
+          ppl6Lang: "Qashqai Turkish",
+          ppl6Text: "The Qashqai are a nomadic confederacy of southern Iran who move between the warm winter pastures of Fars and the cool summer highlands. Qashqai carpets and kilims, with their vivid colours and freely imagined designs, are among Iran's most famous weavings. The men wear two-eared felt hats, and the women wear layered, colourful skirts and coin-decorated scarves.",
+          ppl7Tag: "South-eastern Iran",
+          ppl7Name: "Baluch",
+          ppl7Region: "Sistan and Baluchestan, and parts of Kerman and Hormozgan",
+          ppl7Lang: "Baluchi",
+          ppl7Text: "The Baluch live in the hot, dry land of south-eastern Iran and are known for hospitality and loyalty to their traditions. The fine needlework of Baluch women, with geometric designs in warm colours, is among Iran's most beautiful arts and adorns their dresses and scarves. Baluchi music with the benju, rabab and doholak is played at celebrations.",
+          ppl8Tag: "North-eastern Iran",
+          ppl8Name: "Turkmens",
+          ppl8Region: "Golestan (the Turkmen Sahra) and North Khorasan",
+          ppl8Lang: "Turkmen",
+          ppl8Text: "The Turkmens live on the broad plains of north-eastern Iran, and the Turkmen horse — one of the world's oldest and most beautiful breeds — is their pride; horse racing still thrives at Gonbad-e Kavus. Turkmen carpets, with geometric designs in deep red, are world-famous. The men wear tall sheepskin hats called telpek, and the women wear long floral scarves.",
+          ppl9Tag: "The Caspian shore",
+          ppl9Name: "Gilaks",
+          ppl9Region: "Gilan",
+          ppl9Lang: "Gilaki",
+          ppl9Text: "The Gilaks live in the green, rainy land along the Caspian Sea — a land of rice paddies, forest and rain. Gilan's dishes, such as mirza qasemi and baghala ghatogh, are loved all over Iran, and Rasht is a UNESCO Creative City of Gastronomy. At celebrations, Gilak women wear colourful pleated skirts called shaliteh and embroidered vests.",
+          ppl10Tag: "The Caspian shore and the Alborz",
+          ppl10Name: "Mazandaranis (Tabari)",
+          ppl10Region: "Mazandaran and Golestan",
+          ppl10Lang: "Mazandarani (Tabari)",
+          ppl10Text: "The Mazandaranis — also called Tabari, after the old name of their land — live between the Hyrcanian forests and the Caspian Sea. The traditional wrestling called lucho and the ancient festival of Tir Mah Sizdah Sho are living customs of this region. Mazandarani music, with the laleva shepherd's flute and Amiri songs, is heard at celebrations and in the rice fields.",
+          ppl11Tag: "The north-west, between forest and mountain",
+          ppl11Name: "Talysh",
+          ppl11Region: "Western Gilan and southern Ardabil, from Astara to Fumanat",
+          ppl11Lang: "Talysh",
+          ppl11Text: "The Talysh live in the green strip between the Caspian Sea and the high Talysh mountains — farmers and herders who spend summers in mountain pastures. The Talysh language is an old Iranian language, a relative of ancient Persian. The colourful hand-knitted woollen socks of Talysh women are a well-known souvenir of the region.",
+          ppl12Tag: "Southern and south-western Iran",
+          ppl12Name: "Arabs of Iran",
+          ppl12Region: "Khuzestan and the shores of Hormozgan and Bushehr",
+          ppl12Lang: "Arabic (Khuzestani dialect) and Persian",
+          ppl12Text: "Iran's Arabs live mostly in Khuzestan, beside rivers and palm groves, and their culture is bound to water, palms and coffee. The mudhif, a guesthouse built of reeds, is the symbol of their hospitality, and Arabic coffee is served there from a golden dallah pot. The men wear the dishdasha robe, cloak and keffiyeh, and the spicy and seafood dishes of the south are never far from their table.",
+          ppl13Tag: "Isfahan, Tehran and Azerbaijan",
+          ppl13Name: "Armenians of Iran",
+          ppl13Region: "Isfahan (the Jolfa quarter), Tehran, Tabriz and Urmia",
+          ppl13Lang: "Armenian and Persian",
+          ppl13Text: "The Armenians are one of Iran's oldest Christian communities; in the time of Shah Abbas the Great, a large group of them moved to Isfahan and built the Jolfa quarter. The Vank Cathedral in Isfahan, with its astonishing wall paintings, is among Iran's most beautiful sights. Iranian Armenians have played a great part in the art, music, trade and industry of this land, and they celebrate Christmas and Easter in their old churches.",
+          ppl14Tag: "North-western Iran",
+          ppl14Name: "Assyrians",
+          ppl14Region: "Urmia and West Azerbaijan, and Tehran",
+          ppl14Lang: "Assyrian (Neo-Aramaic) and Persian",
+          ppl14Text: "The Assyrians are an ancient Christian community of north-western Iran, and their language — Neo-Aramaic — is of the same family as the language of Jesus, still spoken in homes and churches. Dozens of old Assyrian churches stand around Urmia. At celebrations, Assyrian women and men wear colourful traditional dress with wide belts and perform group dances.",
+          ppl15Tag: "Central and northern Iran",
+          ppl15Name: "Georgians of Iran",
+          ppl15Region: "Fereydan and Fereydunshahr in Isfahan, and parts of Golestan and Mazandaran",
+          ppl15Lang: "Georgian and Persian",
+          ppl15Text: "Iran's Georgians are the descendants of Georgians who came to Iran in Safavid times and settled in Fereydan, Isfahan; Fereydunshahr is still Iran's largest Georgian town, and Georgian is heard in its homes and streets. They are farmers and herders known for hard work. Small churches and Orthodox Christian customs are part of their cultural life.",
+          ppl16Tag: "The riverbanks of Khuzestan",
+          ppl16Name: "Mandaeans",
+          ppl16Region: "Khuzestan, beside the Karun and Karkheh rivers, especially Ahvaz",
+          ppl16Lang: "Mandaic (the ritual language); Persian and Arabic in daily life",
+          ppl16Text: "The Mandaeans follow an ancient monotheistic faith in which running water and light hold a great place; baptism in the river is among their most fundamental rites, and so they have always lived beside rivers. They are master goldsmiths and silversmiths, and Ahvaz's gold trade has been in Mandaean hands for generations. Their ritual language, Mandaic, is an ancient Aramaic tongue.",
+          ppl1Alt: "The tiled ceiling of the Tomb of Hafez in Shiraz, with its colourful patterns",
+          ppl2Alt: "The El Gölü (Shah Goli) pavilion in Tabriz, in the middle of its pool",
+          ppl3Alt: "Kurds dancing in a group in colourful traditional dress at a wedding in Sanandaj",
+          ppl4Alt: "Falak-ol-Aflak Castle in Khorramabad, on its hilltop",
+          ppl5Alt: "Bakhtiari women in colourful traditional dress at a tribal wedding, beside a river",
+          ppl6Alt: "A Qashqai nomad family in traditional dress on the plain of Fars",
+          ppl7Alt: "A Baluchi women's dress with colourful needlework",
+          ppl8Alt: "A horse race with Turkmen (Akhal-Teke) horses",
+          ppl9Alt: "The stepped village of Masuleh in the green mountains of Gilan",
+          ppl10Alt: "The village of Filband in Mazandaran, above a sea of clouds",
+          ppl11Alt: "The Subatan summer pasture of Talesh — a green plain with wooden huts",
+          ppl12Alt: "A boat in the Shadegan wetland of Khuzestan, among the reeds",
+          ppl13Alt: "The colourful wall paintings of Vank Cathedral in Isfahan",
+          ppl14Alt: "The ancient Church of Saint Mary (Naneh Maryam) in Urmia",
+          ppl15Alt: "A view of Fereydunshahr among the mountains",
+          ppl16Alt: "A Mandaean baptism rite in white garments, in river water",
+          ppl17Tag: "The shores of the Persian Gulf and the Sea of Oman",
+          ppl17Name: "Southerners (the people of the South)",
+          ppl17Region: "Hormozgan, Bushehr, and the coasts of Khuzestan and Sistan and Baluchestan",
+          ppl17Lang: "Persian with southern dialects (Bandari and Bushehri); Arabic and Baluchi in some places",
+          ppl17Text: "The people of southern Iran live along the warm shores of the Persian Gulf and the Sea of Oman — seafarers and merchants whose lives are bound to the sea, to lenj boat-building, fishing and palm trees. Bandari music, with the ney-anban bagpipe and percussion, steals every listener's heart, and southern women wear colourful chadors and traditional burqa veils. Warmth and hospitality are the eternal marks of the southerners.",
+          ppl17Alt: "A traditional wooden lenj boat on the shore of Hormoz Island",
+          ppl18Tag: "Central Iran, the heart of the desert",
+          ppl18Name: "Yazdis",
+          ppl18Region: "Yazd Province and the desert cities of central Iran",
+          ppl18Lang: "Persian with the Yazdi dialect; Yazd's Zoroastrians also speak the Dari Zoroastrian (Behdini) dialect",
+          ppl18Text: "The Yazdis live in the heart of Iran's central desert, and with qanats and windcatchers they have tamed the desert heat for centuries; the tall windcatcher of Dowlat Abad Garden is the most famous of them. Yazd is among the world's oldest cities and a centre of the Zoroastrian faith, and the Varahram fire has burned in Yazd's fire temple for more than fifteen hundred years. Yazd's qottab and baklava and its termeh fabric are known all over Iran, and the Yazdis are famed for hard work, frugality and honesty.",
+          ppl18Alt: "Dowlat Abad Garden in Yazd, with its tall windcatcher at the end of the pool",
+          ppl19Tag: "South-eastern Iran",
+          ppl19Name: "Kermanis",
+          ppl19Region: "Kerman Province, from Bam and Jiroft to Rafsanjan and Sirjan",
+          ppl19Lang: "Persian with the Kermani dialect",
+          ppl19Text: "The Kermanis live in Iran's largest province — a land from the pistachio gardens of Rafsanjan to the palm groves of Bam and the Lut Desert. The Arg-e Bam, the world's largest adobe building, and the Shazdeh Garden of Mahan, a green paradise in the heart of the desert, are marks of this land. Kerman's carpets, cumin and pistachios are world-famous, and the ancient civilization of Jiroft carries this land's roots back thousands of years.",
+          ppl19Alt: "The Shazdeh Garden of Mahan, Kerman — a green terraced garden",
+          ppl20Tag: "North-eastern Iran",
+          ppl20Name: "Khorasanis",
+          ppl20Region: "Razavi Khorasan, North Khorasan and South Khorasan; Mashhad, Nishapur, Tus, Birjand and Bojnord",
+          ppl20Lang: "Persian with Khorasani dialects; Khorasani Turkish and Kurmanji are also spoken in northern Khorasan",
+          ppl20Text: "The Khorasanis live in the vast land of north-eastern Iran — the homeland of the great Ferdowsi and his tomb at Tus, and of Mashhad, whose shrine of Imam Reza draws millions of pilgrims every year. Nishapur is the soil of Khayyam and Attar, and Khorasan's saffron has no equal in the world. The maqam music of Khorasan with the dotar, and the songs of the bakhshi minstrels of the north, are among this land's cultural treasures.",
+          ppl20Alt: "The Tomb of Ferdowsi at Tus, Khorasan",
           navHistory: "Iran from the Beginning",
           histAria: "Iran from the beginning",
           histKicker: "The history of ancient Iran",
@@ -4670,6 +5015,7 @@
           navCalendar: "Calendrier impérial",
           navFestivals: "Fêtes anciennes",
           navMonuments: "Monuments anciens",
+          navPeoples: "Peuples d'Iran",
           navFilms: "Films",
           calKicker: "Le calendrier ancien de l'Iran",
           calTitle: "Le calendrier impérial de l'Iran — <em>un calendrier de plus de 2 500 ans</em>",
@@ -4966,6 +5312,132 @@
           mon30Text: "Près de Maneh et Samalqan, un bâtiment de pierre solitaire se dresse dans la plaine : le temple du feu d'Espakho, parmi les plus anciens bâtiments de pierre du nord-est de l'Iran. Ses murs épais sont faits de pierre et de plâtre, et sa salle voûtée et son iwan se voient encore — un souvenir du temps des Sassanides au pays du Khorasan.",
           mon30Alt: "Le bâtiment de pierre du temple du feu d'Espakho, au Khorasan du Nord",
           mon30Loc: "Maneh et Samalqan, province du Khorasan du Nord",
+          pplKicker: "L'Iran, patrie de tous ses peuples",
+          pplTitle: "Peuples d'Iran — <em>chaque peuple, une couleur de l'Iran</em>",
+          pplIntro: "L'Iran n'est pas une seule langue ni une seule culture : c'est la patrie de nombreux peuples, chacun avec sa langue, ses habits, sa musique et sa cuisine — et ensemble, ils font l'Iran. Dans cette partie, vous découvrirez les peuples d'Iran : où ils vivent, quelle langue ils parlent et ce qui rend leur culture unique.",
+          pplNote: "Ce sont les peuples les plus connus d'Iran ; de plus petites communautés vivent aussi sur cette terre, et toutes ensemble, elles forment le trésor culturel de l'Iran.",
+          pplRegionLabel: "Région",
+          pplLangLabel: "Langue",
+          ppl1Tag: "Centre, sud et tout l'Iran",
+          ppl1Name: "Persans",
+          ppl1Region: "Province du Fars et la plupart des villes d'Iran, surtout le centre et le sud",
+          ppl1Lang: "Persan",
+          ppl1Text: "Les Persans sont le plus grand groupe ethnique d'Iran, et le persan — leur langue maternelle — est la langue officielle du pays, celle de l'école et des médias. La littérature persane, avec des poètes comme Ferdowsi, Saadi et Hafez, est l'un des grands trésors du monde, et la lecture de poésie vit encore dans les maisons iraniennes. Dans les villages du Fars, les femmes portent encore des jupes plissées colorées et des foulards à fleurs.",
+          ppl2Tag: "Nord-ouest de l'Iran",
+          ppl2Name: "Azéris",
+          ppl2Region: "Azerbaïdjan oriental et occidental, Ardabil et Zanjan",
+          ppl2Lang: "Turc azéri",
+          ppl2Text: "Les Azéris sont l'un des peuples les plus nombreux d'Iran, et leur grande ville, Tabriz, fut autrefois capitale de l'Iran et un carrefour commercial de la route de la soie. La musique des ashigs accompagnée du saz, les célèbres tapis de Tabriz et des plats comme le koofteh de Tabriz sont des marques de leur culture. Lors des fêtes, les femmes portent des robes colorées avec des jupes plissées et des bandeaux à fleurs.",
+          ppl3Tag: "Ouest et nord-ouest de l'Iran",
+          ppl3Name: "Kurdes",
+          ppl3Region: "Kurdistan, Kermanshah, Ilam, Azerbaïdjan occidental et nord du Khorasan",
+          ppl3Lang: "Kurde (kurmanji, sorani et autres dialectes)",
+          ppl3Text: "Les Kurdes sont un peuple de montagne du Zagros qui célèbre Norouz avec des feux sur les hauteurs et une danse de groupe joyeuse, main dans la main, où femmes et hommes dansent côte à côte. Les femmes kurdes portent des robes éclatantes, pailletées et richement colorées, et les hommes un large pantalon kurde avec une ceinture-écharpe.",
+          ppl4Tag: "Le Zagros central",
+          ppl4Name: "Lors",
+          ppl4Region: "Lorestan, Kohgiluyeh-et-Boyer-Ahmad, et des parties du Khuzestan et de l'Ilam",
+          ppl4Lang: "Lori",
+          ppl4Text: "Les Lors vivent au cœur du Zagros et sont connus pour leur hospitalité et leur bravoure. La musique lorie au kamancheh et au sorna, et la danse du bâton, font partie de leurs fêtes. Les femmes lories portent un foulard à fleurs appelé golvani et des jupes plissées colorées.",
+          ppl5Tag: "Le Zagros du sud",
+          ppl5Name: "Bakhtiaris",
+          ppl5Region: "Tchaharmahal-et-Bakhtiari, Khuzestan et Lorestan",
+          ppl5Lang: "Lori bakhtiari",
+          ppl5Text: "Les Bakhtiaris sont les nomades les plus célèbres d'Iran : chaque année, ils migrent avec leur tribu et leurs troupeaux du Khuzestan chaud vers les hauts plateaux frais du Tchaharmahal, en franchissant des cols difficiles. Les hommes portent un chapeau de feutre et un gilet de laine rayé appelé chogha, et les femmes des coiffes colorées, le lachak. Le tapis bakhtiari, aux motifs de jardin, est connu dans le monde entier.",
+          ppl6Tag: "Sud et centre de l'Iran",
+          ppl6Name: "Qashqaïs",
+          ppl6Region: "Fars, Kohgiluyeh-et-Boyer-Ahmad et Ispahan",
+          ppl6Lang: "Turc qashqaï",
+          ppl6Text: "Les Qashqaïs sont une confédération nomade du sud de l'Iran qui se déplace entre les pâturages chauds d'hiver du Fars et les hauts plateaux frais d'été. Les tapis et kilims qashqaïs, aux couleurs vives et aux motifs librement imaginés, comptent parmi les tissages les plus célèbres d'Iran. Les hommes portent un chapeau de feutre à deux oreilles, et les femmes des jupes colorées à plusieurs couches et des foulards décorés de pièces.",
+          ppl7Tag: "Sud-est de l'Iran",
+          ppl7Name: "Baloutches",
+          ppl7Region: "Sistan-et-Baloutchistan, et des parties de Kerman et d'Hormozgan",
+          ppl7Lang: "Baloutche",
+          ppl7Text: "Les Baloutches vivent dans la terre chaude et sèche du sud-est de l'Iran et sont connus pour leur hospitalité et leur fidélité à leurs traditions. La broderie fine des femmes baloutches, aux motifs géométriques et aux couleurs chaudes, est l'un des plus beaux arts d'Iran et orne leurs robes et leurs foulards. La musique baloutche, au benju, au rabab et au doholak, se joue lors des fêtes.",
+          ppl8Tag: "Nord-est de l'Iran",
+          ppl8Name: "Turkmènes",
+          ppl8Region: "Golestan (la plaine turkmène) et Khorasan du Nord",
+          ppl8Lang: "Turkmène",
+          ppl8Text: "Les Turkmènes vivent dans les vastes plaines du nord-est de l'Iran, et le cheval turkmène — l'une des races les plus anciennes et les plus belles du monde — est leur fierté ; les courses de chevaux animent encore Gonbad-e Kavus. Le tapis turkmène, aux motifs géométriques et au rouge profond, est célèbre dans le monde entier. Les hommes portent un grand chapeau de peau de mouton appelé telpek, et les femmes de longs foulards à fleurs.",
+          ppl9Tag: "La rive de la Caspienne",
+          ppl9Name: "Gilaks",
+          ppl9Region: "Gilan",
+          ppl9Lang: "Gilaki",
+          ppl9Text: "Les Gilaks vivent dans la terre verte et pluvieuse du bord de la mer Caspienne — un pays de rizières, de forêts et de pluie. Les plats du Gilan, comme le mirza qasemi et le baghala ghatogh, sont aimés dans tout l'Iran, et Rasht est une ville créative de la gastronomie de l'UNESCO. Lors des fêtes, les femmes gilaks portent des jupes plissées colorées appelées shaliteh et des gilets brodés.",
+          ppl10Tag: "La rive de la Caspienne et l'Alborz",
+          ppl10Name: "Mazandaranis (Tabaris)",
+          ppl10Region: "Mazandaran et Golestan",
+          ppl10Lang: "Mazandarani (tabari)",
+          ppl10Text: "Les Mazandaranis — aussi appelés Tabaris, du nom ancien de leur terre — vivent entre les forêts hyrcaniennes et la mer Caspienne. La lutte traditionnelle appelée lucho et la fête ancienne de Tir Mah Sizdah Sho sont des coutumes vivantes de cette région. La musique du Mazandaran, avec la flûte de berger laleva et les chants amiri, s'entend lors des fêtes et dans les rizières.",
+          ppl11Tag: "Le nord-ouest, entre forêt et montagne",
+          ppl11Name: "Talyshs",
+          ppl11Region: "Ouest du Gilan et sud d'Ardabil, d'Astara à Fumanat",
+          ppl11Lang: "Talysh",
+          ppl11Text: "Les Talyshs vivent dans la bande verte entre la mer Caspienne et les hautes montagnes du Talysh — agriculteurs et éleveurs qui passent l'été dans les pâturages de montagne. La langue talysh est une langue iranienne ancienne, parente du vieux perse. Les chaussettes de laine colorées tricotées à la main par les femmes talyshs sont un souvenir bien connu de la région.",
+          ppl12Tag: "Sud et sud-ouest de l'Iran",
+          ppl12Name: "Arabes d'Iran",
+          ppl12Region: "Khuzestan et les rives d'Hormozgan et de Bushehr",
+          ppl12Lang: "Arabe (dialecte du Khuzestan) et persan",
+          ppl12Text: "Les Arabes d'Iran vivent surtout au Khuzestan, près des fleuves et des palmeraies, et leur culture est liée à l'eau, aux palmiers et au café. Le mudhif, maison d'hôtes construite en roseaux, est le symbole de leur hospitalité, et le café arabe y est servi dans une cafetière dorée, la dallah. Les hommes portent la dishdasha, le manteau et le keffieh, et les plats épicés et de la mer du sud ne sont jamais loin de leur table.",
+          ppl13Tag: "Ispahan, Téhéran et Azerbaïdjan",
+          ppl13Name: "Arméniens d'Iran",
+          ppl13Region: "Ispahan (le quartier de Jolfa), Téhéran, Tabriz et Ourmia",
+          ppl13Lang: "Arménien et persan",
+          ppl13Text: "Les Arméniens sont l'une des plus anciennes communautés chrétiennes d'Iran ; au temps de Shah Abbas le Grand, un grand nombre d'entre eux s'installèrent à Ispahan et y bâtirent le quartier de Jolfa. La cathédrale Vank d'Ispahan, avec ses étonnantes peintures murales, est l'un des plus beaux sites d'Iran. Les Arméniens d'Iran ont joué un grand rôle dans l'art, la musique, le commerce et l'industrie de ce pays, et ils célèbrent Noël et Pâques dans leurs vieilles églises.",
+          ppl14Tag: "Nord-ouest de l'Iran",
+          ppl14Name: "Assyriens",
+          ppl14Region: "Ourmia et Azerbaïdjan occidental, et Téhéran",
+          ppl14Lang: "Assyrien (néo-araméen) et persan",
+          ppl14Text: "Les Assyriens sont une communauté chrétienne ancienne du nord-ouest de l'Iran, et leur langue — le néo-araméen — est de la même famille que la langue de Jésus, encore parlée dans les maisons et les églises. Des dizaines de vieilles églises assyriennes se dressent autour d'Ourmia. Lors des fêtes, les femmes et les hommes assyriens portent des habits traditionnels colorés avec de larges ceintures et dansent en groupe.",
+          ppl15Tag: "Centre et nord de l'Iran",
+          ppl15Name: "Géorgiens d'Iran",
+          ppl15Region: "Fereydan et Fereydunshahr, à Ispahan, et des parties du Golestan et du Mazandaran",
+          ppl15Lang: "Géorgien et persan",
+          ppl15Text: "Les Géorgiens d'Iran sont les descendants de Géorgiens venus en Iran à l'époque safavide et installés dans le Fereydan, près d'Ispahan ; Fereydunshahr reste la plus grande ville géorgienne d'Iran, et le géorgien s'entend dans ses maisons et ses rues. Ce sont des agriculteurs et des éleveurs connus pour leur ardeur au travail. De petites églises et les coutumes chrétiennes orthodoxes font partie de leur vie culturelle.",
+          ppl16Tag: "Les rives des fleuves du Khuzestan",
+          ppl16Name: "Mandéens",
+          ppl16Region: "Khuzestan, près des fleuves Karun et Karkheh, surtout Ahvaz",
+          ppl16Lang: "Mandéen (langue rituelle) ; persan et arabe au quotidien",
+          ppl16Text: "Les Mandéens suivent une foi monothéiste ancienne où l'eau vive et la lumière tiennent une grande place ; le baptême dans le fleuve est l'un de leurs rites les plus fondamentaux, et c'est pourquoi ils ont toujours vécu près des fleuves. Ce sont des orfèvres et des argentiers de grand talent, et le commerce de l'or d'Ahvaz est entre leurs mains depuis des générations. Leur langue rituelle, le mandéen, est une langue araméenne ancienne.",
+          ppl1Alt: "Le plafond en mosaïque du tombeau de Hafez à Chiraz, avec ses motifs colorés",
+          ppl2Alt: "Le pavillon El Gölü (Shah Goli) à Tabriz, au milieu de son bassin",
+          ppl3Alt: "Danse de groupe kurde en costumes traditionnels colorés, lors d'un mariage à Sanandaj",
+          ppl4Alt: "La forteresse Falak-ol-Aflak à Khorramabad, sur sa colline",
+          ppl5Alt: "Femmes bakhtiaris en costumes traditionnels colorés, lors d'un mariage tribal au bord d'une rivière",
+          ppl6Alt: "Une famille nomade qashqai en costume traditionnel, dans la plaine du Fars",
+          ppl7Alt: "Une robe de femme baloutche aux broderies colorées",
+          ppl8Alt: "Une course de chevaux turkmènes (akhal-teke)",
+          ppl9Alt: "Le village en terrasses de Masuleh, dans les montagnes vertes du Gilan",
+          ppl10Alt: "Le village de Filband, au Mazandaran, au-dessus d'une mer de nuages",
+          ppl11Alt: "Le pâturage d'été de Subatan, à Talesh — une plaine verte aux cabanes de bois",
+          ppl12Alt: "Un bateau dans le marais de Shadegan, au Khuzestan, parmi les roseaux",
+          ppl13Alt: "Les peintures murales colorées de la cathédrale Vank à Ispahan",
+          ppl14Alt: "L'ancienne église Sainte-Marie (Naneh Maryam) à Ourmia",
+          ppl15Alt: "Vue de Fereydunshahr, au milieu des montagnes",
+          ppl16Alt: "Un rite de baptême mandéen en vêtements blancs, dans l'eau du fleuve",
+          ppl17Tag: "Les rives du golfe Persique et de la mer d'Oman",
+          ppl17Name: "Gens du Sud",
+          ppl17Region: "Hormozgan, Bushehr et les côtes du Khuzestan et du Sistan-et-Baloutchistan",
+          ppl17Lang: "Persan avec les dialectes du Sud (bandari et bushehri) ; arabe et baloutchi par endroits",
+          ppl17Text: "Les gens du sud de l'Iran vivent sur les rives chaudes du golfe Persique et de la mer d'Oman — marins et marchands dont la vie est liée à la mer, à la construction des lenj, à la pêche et aux palmiers. La musique bandari, avec sa cornemuse ney-anban et ses percussions, ravit tous les cœurs, et les femmes du Sud portent des tchadors colorés et des voiles burqa traditionnels. La chaleur et l'hospitalité sont les marques éternelles des gens du Sud.",
+          ppl17Alt: "Un lenj traditionnel en bois, sur la côte de l'île d'Hormoz",
+          ppl18Tag: "Le centre de l'Iran, au cœur du désert",
+          ppl18Name: "Yazdis",
+          ppl18Region: "La province de Yazd et les villes désertiques du centre de l'Iran",
+          ppl18Lang: "Persan avec le dialecte de Yazd ; les zoroastriens de Yazd parlent aussi le dari zoroastrien (behdini)",
+          ppl18Text: "Les Yazdis vivent au cœur du désert central de l'Iran et, grâce aux qanats et aux tours à vent, ils ont apprivoisé la chaleur du désert depuis des siècles ; la grande tour à vent du jardin Dowlat Abad est la plus célèbre. Yazd est l'une des plus vieilles villes du monde et un centre de la foi zoroastrienne, et le feu Varahram brûle dans son temple du feu depuis plus de mille cinq cents ans. Le qottab, le baklava et le termeh de Yazd sont connus dans tout l'Iran, et les Yazdis sont réputés pour leur ardeur au travail, leur frugalité et leur honnêteté.",
+          ppl18Alt: "Le jardin Dowlat Abad à Yazd et sa haute tour à vent au bout du bassin",
+          ppl19Tag: "Le sud-est de l'Iran",
+          ppl19Name: "Kermanis",
+          ppl19Region: "La province de Kerman, de Bam et Jiroft à Rafsanjan et Sirjan",
+          ppl19Lang: "Persan avec le dialecte de Kerman",
+          ppl19Text: "Les Kermanis vivent dans la plus grande province d'Iran — une terre qui va des pistacheraies de Rafsanjan aux palmeraies de Bam et au désert de Lut. L'Arg-e Bam, le plus grand bâtiment en pisé du monde, et le jardin Shazdeh de Mahan, un paradis vert au cœur du désert, sont les emblèmes de cette terre. Les tapis, le cumin et les pistaches de Kerman sont célèbres dans le monde entier, et l'antique civilisation de Jiroft fait remonter les racines de cette terre à des milliers d'années.",
+          ppl19Alt: "Le jardin Shazdeh de Mahan, à Kerman — un jardin vert en terrasses",
+          ppl20Tag: "Le nord-est de l'Iran",
+          ppl20Name: "Khorassanis",
+          ppl20Region: "Khorassan Razavi, Khorassan du Nord et Khorassan du Sud ; Mashhad, Nishapur, Tus, Birjand et Bojnord",
+          ppl20Lang: "Persan avec les dialectes du Khorassan ; le turc khorassani et le kurmandji se parlent aussi dans le nord du Khorassan",
+          ppl20Text: "Les Khorassanis vivent dans la vaste terre du nord-est de l'Iran — la patrie du grand Ferdowsi et de son tombeau à Tus, et de Mashhad, dont le sanctuaire de l'imam Reza attire chaque année des millions de pèlerins. Nishapur est la terre de Khayyam et d'Attar, et le safran du Khorassan n'a pas d'égal au monde. La musique maqam du Khorassan, avec le dotar, et les chants des bardes bakhshi du nord comptent parmi les trésors culturels de cette terre.",
+          ppl20Alt: "Le tombeau de Ferdowsi à Tus, au Khorassan",
           navHistory: "L'Iran depuis le début",
           histAria: "L'Iran depuis le début",
           histKicker: "L'histoire de l'Iran ancien",
@@ -5717,7 +6189,7 @@
     <script>
       /* ---------- Separate pages: show one section at a time ---------- */
       (function () {
-        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
+        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "peoples", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
         var panels = document.querySelectorAll("[data-view]");
         var navLinks = document.querySelectorAll("[data-view-link]");
         var current = "home";
