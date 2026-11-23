@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1e3570" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0a152c" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="گاهشمار شاهنشاهی" />
+    <meta name="description" content="گاهشمار شاهنشاهی ایران — با جشن‌های کهن، مناسبت‌های آیینی زرتشتی، گاهنبارها و روزهای نبر؛ صفحه‌ای جدا برای گوشی." />
+    <link rel="manifest" href="calendar.webmanifest" />
+    <link rel="apple-touch-icon" href="icon-180.png" />
+    <link rel="icon" type="image/png" href="icon-192.png" />
+    <title>گاهشمار شاهنشاهی — مهر ایران دخت</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+    <style>
+      * { box-sizing: border-box; }
+      [hidden] { display: none !important; }
+      :root {
+        --bg: #e9f5f5; --surface: #ffffff; --surface-2: #dbe7f6;
+        --ink: #16264a; --ink-soft: #4a5b80; --line: #b3c3e2;
+        --accent: #2545b0; --accent-ink: #ffffff; --accent-soft: #dfe7fb;
+        --royal: #2545b0; --royal-ink: #ffffff;
+        --gold: #8f6b14; --gold-bright: #c9a227;
+        --court: #1e3570; --court-2: #162a5c; --court-ink: #ffffff; --court-soft: #c7d3f0;
+        --shadow: 0 10px 30px rgba(30, 53, 112, .16);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0d1b33; --surface: #16264a; --surface-2: #1e3462;
+          --ink: #eef3ff; --ink-soft: #aebddf; --line: #2e4470;
+          --accent: #9db1f7; --accent-ink: #101c3f; --accent-soft: #24365e;
+          --royal: #9db1f7; --royal-ink: #101c3f;
+          --gold: #e0b95c; --gold-bright: #e8c96e;
+          --court: #0a152c; --court-2: #060f21; --court-ink: #eef3ff; --court-soft: #aebddf;
+          --shadow: 0 10px 30px rgba(0, 0, 0, .5);
+        }
+      }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: "Amiri", Georgia, serif; background: var(--bg); color: var(--ink); line-height: 1.9; min-height: 100vh; }
+      html[lang="en"] body, html[lang="fr"] body { font-family: "Cormorant Garamond", "Amiri", Georgia, serif; }
+      header { background: var(--court); border-bottom: 3px solid var(--gold-bright); box-shadow: 0 6px 22px rgba(22, 42, 92, .22); }
+      .header-in { max-width: 880px; margin: 0 auto; padding: .8rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+      .brand { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
+      .brand-mark { width: 42px; height: 42px; border-radius: 12px; flex: none; overflow: hidden; border: 1.5px solid var(--gold-bright); background: var(--court-2); }
+      .brand-mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .brand b { font-size: 1.15rem; font-weight: 700; display: block; line-height: 1.3; color: var(--gold-bright); }
+      .brand small { color: var(--court-soft); font-size: .8rem; display: block; line-height: 1.3; }
+      .lang-switch { display: flex; gap: .35rem; align-items: center; }
+      .lang-switch button { font-family: inherit; cursor: pointer; border: 1.5px solid color-mix(in srgb, var(--court-ink) 45%, transparent); background: transparent; color: var(--court-ink); border-radius: 999px; padding: .3rem .85rem; font-size: .9rem; font-weight: 700; line-height: 1.6; }
+      .lang-switch button[aria-pressed="true"] { background: var(--gold-bright); border-color: var(--gold-bright); color: #221a04; }
+      main { max-width: 880px; margin: 0 auto; padding: 1.6rem 1rem 2.5rem; }
+      .kicker { display: inline-block; background: var(--accent-soft); color: var(--accent); border: 1px solid color-mix(in srgb, var(--gold-bright) 65%, transparent); border-radius: 999px; padding: .2rem .9rem; font-size: .9rem; font-weight: 700; margin-bottom: .8rem; }
+      h1 { font-size: clamp(1.7rem, 5.5vw, 2.4rem); font-weight: 700; line-height: 1.4; margin: 0 0 .6rem; }
+      h1 em { font-style: normal; color: var(--accent); }
+      .lead { color: var(--ink-soft); margin: 0 0 1.4rem; max-width: 44rem; }
+      .btn { border-radius: 999px; padding: 0 1.4rem; min-height: 3rem; font-size: 1rem; font-weight: 700; display: inline-flex; align-items: center; gap: .5rem; text-decoration: none; background: var(--royal); color: var(--royal-ink); border: 1.5px solid var(--gold-bright); box-shadow: 0 8px 20px rgba(30, 53, 112, .25); }
+      .cal-today { background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--gold-bright); border-radius: 18px; padding: 1.4rem 1.6rem; margin-bottom: .8rem; display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+      .cal-day { width: 92px; height: 92px; border-radius: 20px; flex: none; background: var(--royal); color: var(--royal-ink); box-shadow: inset 0 0 0 2px var(--gold-bright); display: grid; place-items: center; font-size: 2.6rem; font-weight: 700; line-height: 1; }
+      .cal-today-meta { flex: 1; min-width: 200px; }
+      .cal-today-meta .cal-label { display: block; color: var(--gold); font-size: .88rem; font-weight: 700; margin-bottom: .15rem; }
+      .cal-today-meta b { display: block; font-size: 1.3rem; font-weight: 700; line-height: 1.6; }
+      .cal-today-meta span { color: var(--ink-soft); font-size: .92rem; display: block; }
+      .cal-upcoming, .cal-box, .cal-guide { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.3rem 1.4rem; }
+      .cal-upcoming { margin-bottom: .8rem; }
+      .cal-upcoming h3, .cal-box h3, .cal-guide h3 { margin: 0 0 .6rem; font-size: 1.08rem; font-weight: 700; line-height: 1.6; color: var(--accent); }
+      .cal-box h3, .cal-guide h3 { color: var(--ink); }
+      .up-item { display: flex; align-items: center; gap: .7rem; flex-wrap: wrap; padding: .45rem 0; border-bottom: 1px dashed var(--line); }
+      .up-item:last-of-type { border-bottom: none; }
+      .up-item b { font-size: .95rem; line-height: 1.6; }
+      .up-item span { color: var(--ink-soft); font-size: .86rem; }
+      .up-item .rem-btn { margin-inline-start: auto; }
+      .cal-rem-note { color: var(--ink-soft); font-size: .85rem; margin: .7rem 0 0; }
+      .cal-hint { color: var(--ink-soft); font-size: .88rem; margin: -.2rem 0 .7rem; }
+      .cal-legend { display: flex; gap: .6rem 1.2rem; flex-wrap: wrap; margin: 0 0 .9rem; font-size: .85rem; color: var(--ink-soft); }
+      .cal-legend span { display: inline-flex; align-items: center; gap: .4rem; }
+      .cal-legend i { flex: none; display: inline-block; }
+      .lg-fest { width: 8px; height: 8px; border-radius: 999px; background: var(--gold); }
+      .lg-gah { width: 15px; height: 15px; border-radius: 5px; background: color-mix(in srgb, var(--gold-bright) 30%, var(--surface-2)); border: 1px solid var(--gold); }
+      .lg-nabor { width: 8px; height: 8px; border-radius: 999px; border: 2px solid var(--gold); }
+      .cal-months { display: grid; grid-template-columns: repeat(4, 1fr); gap: .55rem; }
+      .cal-month { background: var(--surface-2); border: 1px solid var(--line); border-radius: 12px; padding: .55rem .7rem; font-size: .95rem; font-weight: 700; text-align: center; line-height: 1.7; font-family: inherit; color: inherit; cursor: pointer; width: 100%; }
+      .cal-month small { display: block; color: var(--ink-soft); font-weight: 500; font-size: .78rem; }
+      .cal-month.now { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+      .cal-month.now small { color: var(--accent); }
+      .cal-month:hover { border-color: var(--accent); }
+      .cal-month.sel { background: var(--surface); border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+      .cal-month.sel small { color: var(--accent); }
+      .cal-days { margin-top: 1.1rem; border-top: 1px dashed var(--line); padding-top: 1rem; }
+      .cal-days-head h4 { margin: 0; font-size: 1.12rem; font-weight: 700; line-height: 1.7; color: var(--accent); }
+      .cal-days-head span { color: var(--ink-soft); font-size: .88rem; display: block; }
+      .cal-week, .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: .35rem; }
+      .cal-week { margin-top: .8rem; }
+      .cal-week span { text-align: center; font-size: .8rem; font-weight: 700; color: var(--gold); padding: .15rem 0; line-height: 1.7; }
+      .cal-grid { margin-top: .35rem; }
+      .cal-cell { position: relative; text-align: center; border-radius: 10px; background: var(--surface-2); border: 1px solid transparent; padding: .3rem 0 .5rem; font-size: .95rem; font-weight: 700; line-height: 1.8; font-family: inherit; cursor: pointer; width: 100%; color: inherit; }
+      .cal-cell.blank { background: transparent; cursor: default; }
+      .cal-cell.fest { color: var(--accent); border-color: var(--gold); }
+      .cal-cell.fest::after { content: ""; position: absolute; bottom: 5px; left: 50%; transform: translateX(-50%); width: 5px; height: 5px; border-radius: 999px; background: var(--gold); }
+      .cal-cell.gah { background: color-mix(in srgb, var(--gold-bright) 24%, var(--surface-2)); }
+      .cal-cell.nabor::before { content: ""; position: absolute; top: 5px; inset-inline-end: 5px; width: 6px; height: 6px; border-radius: 999px; border: 1.5px solid var(--gold); background: transparent; }
+      .cal-cell.today { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+      .cal-cell.today.fest::after { background: var(--accent-ink); }
+      .cal-cell.gah.today { background: var(--accent); color: var(--accent-ink); }
+      .cal-cell.today.nabor::before { border-color: var(--accent-ink); }
+      .cal-cell:hover { border-color: var(--gold-bright); }
+      .cal-cell.sel-day { box-shadow: inset 0 0 0 2px var(--accent); }
+      .cal-fests { list-style: none; margin: .9rem 0 0; padding: 0; }
+      .cal-fests li { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; padding: .4rem 0; font-size: .92rem; border-bottom: 1px dashed var(--line); }
+      .cal-fests li:last-child { border-bottom: none; }
+      .cal-fests b { color: var(--accent); }
+      .cal-fests .fest-main { flex: 1; min-width: 190px; }
+      .cal-fest-desc { display: block; color: var(--ink-soft); font-size: .85rem; margin-top: .1rem; line-height: 1.8; }
+      .rem-btn { font-family: inherit; cursor: pointer; background: var(--surface); color: var(--gold); border: 1.5px solid var(--gold-bright); border-radius: 999px; padding: .1rem .85rem; font-size: .82rem; font-weight: 700; line-height: 1.9; flex: none; }
+      .rem-btn:hover { background: var(--gold-bright); color: #1e3570; }
+      .cal-personal { margin-top: 1rem; border: 1px solid var(--gold-bright); border-radius: 14px; background: var(--surface-2); padding: 1rem 1.1rem; }
+      .cal-personal h5 { margin: 0 0 .4rem; font-size: 1rem; font-weight: 700; color: var(--accent); line-height: 1.7; }
+      .cal-personal label { display: block; font-size: .86rem; font-weight: 700; margin: .55rem 0 .2rem; }
+      .cal-personal input[type="text"] { font-family: inherit; width: 100%; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--ink); padding: .35rem .7rem; font-size: .95rem; }
+      .cal-personal .per-repeat { display: flex; gap: 1.2rem; flex-wrap: wrap; margin-top: .65rem; }
+      .cal-personal .per-repeat label { display: flex; align-items: center; gap: .35rem; margin: 0; font-weight: 500; cursor: pointer; }
+      .per-add { font-family: inherit; cursor: pointer; margin-top: .85rem; background: var(--accent); color: var(--accent-ink); border: none; border-radius: 999px; padding: .25rem 1.5rem; font-size: .92rem; font-weight: 700; line-height: 1.9; }
+      .all-title { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 .8rem; line-height: 1.5; }
+      .fest-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; }
+      .fest-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 1.2rem 1.3rem; }
+      .fest-card.wide { grid-column: 1 / -1; }
+      .fest-card h3 { margin: 0 0 .4rem; font-size: 1.12rem; font-weight: 700; line-height: 1.6; }
+      .fest-item { padding: .55rem 0; border-bottom: 1px dashed var(--line); }
+      .fest-item:last-child { border-bottom: none; padding-bottom: 0; }
+      .fest-item b { display: block; font-size: .97rem; line-height: 1.6; color: var(--accent); }
+      .fest-item p { margin: .1rem 0 0; color: var(--ink-soft); font-size: .9rem; }
+      .fest-item .rem-btn { margin-top: .45rem; }
+      .fest-lead { color: var(--ink-soft); font-size: .92rem; margin: .2rem 0; }
+      .cal-guide { margin-top: .8rem; }
+      .device-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: .9rem; }
+      .device-card { border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem; background: var(--bg); }
+      .device-card h4 { margin: 0 0 .5rem; font-size: .98rem; font-weight: 700; line-height: 1.6; }
+      .device-card ol { margin: 0; padding-inline-start: 1.25rem; color: var(--ink-soft); font-size: .9rem; }
+      .device-card ol li { padding: .12rem 0; }
+      .back-row { margin-top: 1.6rem; text-align: center; }
+      footer { margin-top: 2.5rem; background: var(--court); border-top: 3px solid var(--gold-bright); }
+      .foot-in { max-width: 880px; margin: 0 auto; padding: 1.2rem 1rem 1.4rem; text-align: center; color: var(--court-soft); font-size: .88rem; }
+      .foot-in b { color: var(--gold-bright); display: block; font-size: 1rem; margin-bottom: .2rem; }
+      @media (max-width: 760px) {
+        .fest-grid, .device-grid { grid-template-columns: 1fr; }
+        .cal-months { grid-template-columns: repeat(3, 1fr); }
+        .cal-today { padding: 1.2rem; }
+      }
+      @media (max-width: 480px) { .cal-months { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-in">
+        <a class="brand" href="../index.html">
+          <span class="brand-mark"><img src="icon-192.png" alt="" /></span>
+          <span><b data-t="brand">مهر ایران دخت</b><small data-t="brandSub">گاهشمار شاهنشاهی و مناسبت‌های زرتشتی</small></span>
+        </a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" data-lang-btn="fa" aria-pressed="true">فارسی</button>
+          <button type="button" data-lang-btn="en" aria-pressed="false">EN</button>
+          <button type="button" data-lang-btn="fr" aria-pressed="false">FR</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <span class="kicker" data-t="kicker">گاهشمار کهن ایران</span>
+      <h1 data-t="title">گاهشمار شاهنشاهی ایران — <em>با مناسبت‌های آیینی زرتشتی</em></h1>
+      <p class="lead" data-t="intro">این گاهشمار، سال‌ها را از تاج‌گذاری کوروش بزرگ در سال ۵۵۹ پیش از میلاد می‌شمارد؛ سالش با نوروز آغاز می‌شود و همیشه ۱۱۸۰ سال از سال خورشیدی پیش‌تر است: سال ۱۴۰۵ خورشیدی، همان ۲۵۸۵ شاهنشاهی است. جشن‌های کهن، شش گاهنبار، روزهای نبر و مناسبت‌های ویژه‌ی زرتشتی، همه روی روزهای این گاهشمار نشسته‌اند.</p>
+
+      <div class="cal-today">
+        <span class="cal-day" id="calDayNum" aria-hidden="true">۱</span>
+        <div class="cal-today-meta">
+          <span class="cal-label" data-t="todayLabel">امروز در گاهشمار شاهنشاهی</span>
+          <b id="calTodayMain"></b>
+          <span id="calTodayEquiv"></span>
+        </div>
+      </div>
+
+      <div class="cal-upcoming">
+        <h3 data-t="upTitle">جشن‌های نزدیک</h3>
+        <div id="calUpcomingList"></div>
+        <p class="cal-rem-note" data-t="remNote">با زدن دکمه‌ی «یادآوری»، یک پرونده‌ی کوچکِ تقویم بارگیری می‌شود؛ آن را روی گوشی‌ات باز کن و «افزودن به تقویم» را بزن تا آن روز در تقویم گوشی‌ات بنشیند و یک روز پیش از آن به تو یادآوری شود.</p>
+      </div>
+
+      <div class="cal-box">
+        <h3 data-t="monthsTitle">دوازده ماه سال شاهنشاهی</h3>
+        <p class="cal-hint" data-t="tapHint">برای دیدن روزهای هر ماه و جشن‌های آن ماه، روی اسم ماه بزن.</p>
+        <div class="cal-legend" aria-hidden="true">
+          <span><i class="lg-fest"></i><span data-t="legFest">جشن و مناسبت</span></span>
+          <span><i class="lg-gah"></i><span data-t="legGah">گاهنبار</span></span>
+          <span><i class="lg-nabor"></i><span data-t="legNabor">روز نبر</span></span>
+        </div>
+        <div class="cal-months" id="calMonths"></div>
+        <div class="cal-days" id="calDaysPanel" hidden>
+          <div class="cal-days-head">
+            <h4 id="calDaysTitle"></h4>
+            <span id="calDaysSub"></span>
+          </div>
+          <div class="cal-week" id="calWeekRow" aria-hidden="true"></div>
+          <div class="cal-grid" id="calGrid"></div>
+          <ul class="cal-fests" id="calFests"></ul>
+          <div class="cal-personal" id="calPersonal" hidden>
+            <h5 id="calPersonalHead"></h5>
+            <label for="perTitleInput" data-t="perTitle">عنوان</label>
+            <input type="text" id="perTitleInput" maxlength="80" autocomplete="off" />
+            <label for="perNoteInput" data-t="perNote">یادداشت (دلخواه)</label>
+            <input type="text" id="perNoteInput" maxlength="200" autocomplete="off" />
+            <div class="per-repeat" role="radiogroup">
+              <label><input type="radio" name="perRepeat" value="once" checked /> <span data-t="perOnce">یک‌بار</span></label>
+              <label><input type="radio" name="perRepeat" value="yearly" /> <span data-t="perYearly">هر سال</span></label>
+            </div>
+            <button type="button" class="per-add" id="perAddBtn" data-t="perAdd">افزودن</button>
+          </div>
+        </div>
+      </div>
+
+      <h2 class="all-title" data-t="allTitle">همه‌ی جشن‌ها و مناسبت‌های سال</h2>
+      <div class="fest-grid" id="festGrid"></div>
+
+      <div class="cal-guide">
+        <h3 data-t="soloGuideTitle">گاهشمار را روی گوشی‌ات بگذار</h3>
+        <div class="device-grid">
+          <div class="device-card">
+            <h4 data-t="soloIosTitle">آیفون (سافاری)</h4>
+            <ol>
+              <li data-t="soloIos1">همین صفحه را در سافاری باز کن</li>
+              <li data-t="soloIos2">دکمه‌ی اشتراک‌گذاری را بزن</li>
+              <li data-t="soloIos3">«افزودن به صفحه اصلی» را انتخاب کن</li>
+            </ol>
+          </div>
+          <div class="device-card">
+            <h4 data-t="soloAndTitle">اندروید (کروم)</h4>
+            <ol>
+              <li data-t="soloAnd1">همین صفحه را در کروم باز کن</li>
+              <li data-t="soloAnd2">منوی سه‌نقطه را بزن</li>
+              <li data-t="soloAnd3">«افزودن به صفحه اصلی» را انتخاب کن</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="back-row">
+        <a class="btn" href="../index.html#calendar"><span data-t="backBtn">بازگشت به سایت مهر ایران دخت</span></a>
+      </div>
+    </main>
+    <footer>
+      <div class="foot-in"><b data-t="brand">مهر ایران دخت</b><span data-t="footLine">گاهشمار شاهنشاهی ایران — جشن‌های کهن و مناسبت‌های زرتشتی</span></div>
+    </footer>
+    <script>
+      var MONTHS = {
+        fa: ["فروردین", "اردیبهشت", "خرداد", "تیر", "امرداد", "شهریور", "مهر", "آبان", "آذر", "دی", "بهمن", "اسفند"],
+        en: ["Farvardin", "Ordibehesht", "Khordad", "Tir", "Amordad", "Shahrivar", "Mehr", "Aban", "Azar", "Dey", "Bahman", "Esfand"],
+        fr: ["Farvardin", "Ordibehesht", "Khordad", "Tir", "Amordad", "Shahrivar", "Mehr", "Aban", "Azar", "Dey", "Bahman", "Esfand"]
+      };
+      var STR = {
+        fa: {
+          brand: "مهر ایران دخت", brandSub: "گاهشمار شاهنشاهی و مناسبت‌های زرتشتی",
+          kicker: "گاهشمار کهن ایران",
+          title: "گاهشمار شاهنشاهی ایران — <em>با مناسبت‌های آیینی زرتشتی</em>",
+          intro: "این گاهشمار، سال‌ها را از تاج‌گذاری کوروش بزرگ در سال ۵۵۹ پیش از میلاد می‌شمارد؛ سالش با نوروز آغاز می‌شود و همیشه ۱۱۸۰ سال از سال خورشیدی پیش‌تر است: سال ۱۴۰۵ خورشیدی، همان ۲۵۸۵ شاهنشاهی است. جشن‌های کهن، شش گاهنبار، روزهای نبر و مناسبت‌های ویژه‌ی زرتشتی، همه روی روزهای این گاهشمار نشسته‌اند.",
+          todayLabel: "امروز در گاهشمار شاهنشاهی", upTitle: "جشن‌های نزدیک",
+          remNote: "با زدن دکمه‌ی «یادآوری»، یک پرونده‌ی کوچکِ تقویم بارگیری می‌شود؛ آن را روی گوشی‌ات باز کن و «افزودن به تقویم» را بزن تا آن روز در تقویم گوشی‌ات بنشیند و یک روز پیش از آن به تو یادآوری شود.",
+          monthsTitle: "دوازده ماه سال شاهنشاهی",
+          tapHint: "برای دیدن روزهای هر ماه و جشن‌های آن ماه، روی اسم ماه بزن.",
+          legFest: "جشن و مناسبت", legGah: "گاهنبار", legNabor: "روز نبر",
+          perTitle: "عنوان", perNote: "یادداشت (دلخواه)", perOnce: "یک‌بار", perYearly: "هر سال", perAdd: "افزودن",
+          perHead: "یادآوری شخصی", perPh: "تولد، سالگرد، یا هر چیز دیگر…",
+          allTitle: "همه‌ی جشن‌ها و مناسبت‌های سال",
+          soloGuideTitle: "گاهشمار را روی گوشی‌ات بگذار",
+          soloIosTitle: "آیفون (سافاری)", soloIos1: "همین صفحه را در سافاری باز کن", soloIos2: "دکمه‌ی اشتراک‌گذاری را بزن", soloIos3: "«افزودن به صفحه اصلی» را انتخاب کن",
+          soloAndTitle: "اندروید (کروم)", soloAnd1: "همین صفحه را در کروم باز کن", soloAnd2: "منوی سه‌نقطه را بزن", soloAnd3: "«افزودن به صفحه اصلی» را انتخاب کن",
+          backBtn: "بازگشت به سایت مهر ایران دخت",
+          footLine: "گاهشمار شاهنشاهی ایران — جشن‌های کهن و مناسبت‌های زرتشتی",
+          reminder: "یادآوری", impSuffix: " شاهنشاهی", daysWord: "روز", esfandSmall: "۲۹ روز · کبیسه ۳۰ روز",
+          f1aName: "نوروز · یکم فروردین", f1aText: "بزرگ‌ترین و کهن‌ترین جشن ایرانیان و آغاز سال نو؛ روزی که بهار از راه می‌رسد و زمین دوباره زنده می‌شود. خانه‌تکانی، سفره‌ی هفت‌سین و دید و بازدید، از آیین‌های دوست‌داشتنی نوروزند.",
+          f1bName: "زادروز زرتشت · ششم فروردین", f1bText: "ششمین روز سال، زادروز اشو زرتشت، پیامبر ایران کهن، است و زرتشتیان این روز را با نیایش و شادی جشن می‌گیرند.",
+          f1cName: "فروردینگان · نوزدهم فروردین", f1cText: "روزی برای یاد کردن از فروهرها، روان نیاکان و درگذشتگان؛ مردم به آرامگاه‌ها می‌روند و برای شادی روان رفتگانشان نیایش می‌کنند.",
+          f2aName: "اردیبهشتگان · سوم اردیبهشت", f2aText: "اردیبهشت ایزد راستی و پاکی و نگهبان آتش است. در این جشن، مردم با پوشش سپید به آتشکده‌ها می‌روند و راستی و درستی را گرامی می‌دارند.",
+          f3aName: "خردادگان · ششم خرداد", f3aText: "خرداد ایزد رسایی و تندرستی و نگهبان آب‌هاست. خردادگان جشن رسیدن به رسایی و آرزوی سالی پر از تندرستی و فراوانی است.",
+          f4aName: "تیرگان · سیزدهم تیر", f4aText: "جشن باران و ایزد تیشتر که بر دیو خشکسالی پیروز می‌شود. تیرگان را با یاد آرش کمانگیر هم پیوند می‌دهند؛ پهلوانی که جانش را بر سر یک تیر گذاشت تا مرز ایران را نشانه کند. آب پاشیدن بر یکدیگر از آیین‌های شاد این جشن است.",
+          f5aName: "امردادگان · هفتم امرداد", f5aText: "امرداد ایزد جاودانگی و نگهبان گیاهان و رستنی‌هاست. نام این ماه یعنی «بی‌مرگی»؛ و جشنش در دل تابستان، جشن زندگی، سرسبزی و ماندگاری است.",
+          f6aName: "شهریورگان · چهارم شهریور", f6aText: "شهریور ایزد نگهبان فلزها و نماد شهریاری دادگر و آسمانی است. شهریورگان را جشن داد و دادگری و پاسداشت کوشش و کار می‌دانند.",
+          f7aName: "مهرگان · شانزدهم مهر", f7aText: "پس از نوروز، بزرگ‌ترین جشن ایران کهن است؛ جشن مهر، ایزد پیمان و نور و دوستی، و هنگام سپاسگزاری برای برداشت فرآورده‌های کشتزار. در مهرگان مردم به یکدیگر مهر می‌ورزند و پیمان‌هایشان را تازه می‌کنند.",
+          f8aName: "آبانگان · دهم آبان", f8aText: "جشن آب‌ها و آناهیتا، ایزدبانوی آب‌های روان و پاکی. در آبانگان، آب و چشمه و رود گرامی داشته می‌شود و برای فراوانی و باروری نیایش می‌کنند.",
+          f9aName: "آذرگان · نهم آذر", f9aText: "آذر ایزد آتش است و آذرگان جشن آتش؛ در آستانه‌ی زمستان، آتش افروخته می‌شود و گرما و روشنایی آن در خانه‌ها و آتشکده‌ها گرامی داشته می‌شود.",
+          f10aName: "شب یلدا (چله) · شبِ پیش از یکم دی", f10aText: "بلندترین شب سال که خانواده‌ها گرد هم می‌آیند، انار و هندوانه می‌خورند و حافظ می‌خوانند تا تاریکی بلندترین شب با گرمای دورهمی کوتاه شود و روشنایی از فردا کم‌کم بر شب پیروز شود.",
+          f10bName: "دیگان و خرم‌روز · یکم دی", f10bText: "یکم دی، خرم‌روز، نخستین جشن دیگان است؛ روزهای یکم، هشتم، پانزدهم و بیست‌وسوم ماه دی، نام روز و ماه یکی می‌شود و این روزها را با شادی و نیایش جشن می‌گیرند و زمستان را آغاز می‌کنند.",
+          f10cName: "دیگان · هشتم دی", f10cText: "دومین جشن دیگان؛ روز دی‌به‌آذر از ماه دی که باز نام روز و ماه یکی می‌شود و با نیایش و شادی گرامی داشته می‌شود.",
+          f10dName: "دیگان · پانزدهم دی", f10dText: "سومین جشن دیگان؛ روز دی‌به‌مهر از ماه دی، از روزهای هم‌نام روز و ماه در زمستان.",
+          f10eName: "دیگان · بیست‌وسوم دی", f10eText: "چهارمین و واپسین جشن دیگان؛ روز دی‌به‌دین از ماه دی که ماه دی را با شادی و نیایش به پایان می‌برد.",
+          f10fName: "درگذشت اشو زرتشت · یازدهم دی", f10fText: "یازدهم دی، روز خور از ماه دی، روز درگذشت اشو زرتشت است. زرتشتیان این روز را با نیایش و رفتن به آتشکده و آرامگاه، در سکوت و احترام به یاد پیامبرشان می‌گذرانند.",
+          f11aName: "بهمنگان · دوم بهمن", f11aText: "بهمن یا وهومن، ایزد اندیشه‌ی نیک است. بهمنگان جشن اندیشه و خرد نیک و روز پاسداشت جانوران سودمند است؛ در این روز از کشتن جانوران و خوردن گوشت پرهیز می‌کردند.",
+          f11bName: "سده · دهم بهمن", f11bText: "جشن بزرگ آتش و یاد پیدایش آن به دست هوشنگ در سرگذشت‌های شاهنامه؛ پنجاه روز مانده به نوروز، بر فراز بلندی‌ها آتش می‌افروزند و گرد آن شادی می‌کنند. آتش سده را هنگام غروب روز نهم بهمن، در آستانه‌ی روز مهر، می‌افروزند.",
+          f12aName: "اسفندگان (سپندارمذگان) · پنجم اسفند", f12aText: "جشن سپندارمذ، ایزدبانوی زمین و فروتنی و مهر. در ایران کهن این روز، روز گرامیداشت زمین و زنان بود و به جشن مهر و مهربانی شناخته می‌شود.",
+          f12bName: "چهارشنبه‌سوری · واپسین شب چهارشنبه‌ی سال", f12bText: "در شامگاه واپسین سه‌شنبه‌ی سال، آتش می‌افروزند و از روی آن می‌پرند و می‌خوانند: «زردی من از تو، سرخی تو از من»؛ یعنی بیماری و اندوه را به آتش می‌سپارند و گرما و تندرستی از او می‌گیرند و آماده‌ی نوروز می‌شوند.",
+          g1Name: "گاهنبار میدیوزرم‌گاه · یازدهم تا پانزدهم اردیبهشت", g1Text: "نخستین گاهنبار سال، در میانه‌ی بهار؛ جشن سپاس برای آفرینش آسمان. گاهنبارها پنج روزه‌اند و با نیایش، خواندن اوستا و سفره‌ی همگانی برگزار می‌شوند و خوراکشان میان همه پخش می‌شود.",
+          g2Name: "گاهنبار میدیوشهم‌گاه · یازدهم تا پانزدهم تیر", g2Text: "دومین گاهنبار، در میانه‌ی تابستان؛ جشن سپاس برای آفرینش آب، که با نیایش و سفره‌ی گاهنباری در آتشکده‌ها و خانه‌ها برگزار می‌شود.",
+          g3Name: "گاهنبار پیتی‌شهم‌گاه · بیست‌وششم تا سی‌ام شهریور", g3Text: "سومین گاهنبار، در پایان تابستان و هنگام گردآوری فرآورده‌ها؛ جشن سپاس برای آفرینش زمین و برداشت کشتزار.",
+          g4Name: "گاهنبار ایاثرم‌گاه · بیست‌وششم تا سی‌ام مهر", g4Text: "چهارمین گاهنبار، در میانه‌ی پاییز و هنگام بازگشت گله‌ها از چراگاه؛ جشن سپاس برای آفرینش گیاهان و رستنی‌ها.",
+          g5Name: "گاهنبار میدیارم‌گاه · دهم تا چهاردهم دی", g5Text: "پنجمین گاهنبار، در میانه‌ی زمستان؛ جشن سپاس برای آفرینش جانوران سودمند، که با نیایش و سفره‌ی همگانی برگزار می‌شود.",
+          g6Name: "گاهنبار همسپثمیدیم‌گاه · پنج روز پایانی اسفند", g6Text: "ششمین و واپسین گاهنبار، در پنج روز پایانی سال؛ جشن سپاس برای آفرینش انسان و هنگام یاد فروهرهای درگذشتگان، در آستانه‌ی نوروز.",
+          naborTitle: "روزهای نبر — چهار روز در هر ماه",
+          naborIntro: "در آیین زرتشتی، در هر ماه چهار روز «نبر» است؛ یعنی روزهایی که گوشت نمی‌خورند و هیچ جانوری را نمی‌کشند، از مهر به جانوران و پاسداشت زندگی. این چهار روز در گاهشمار، روی روزهای دوم، دوازدهم، چهاردهم و بیست‌ویکم هر ماه نشسته‌اند.",
+          nb2Name: "روز نبر (روز بهمن) · دوم هر ماه", nb2Text: "روز بهمن، دوم هر ماه، روز نبر است؛ بهمن ایزد اندیشه‌ی نیک و نگهبان جانوران سودمند است و در این روز از خوردن گوشت و کشتن جانوران پرهیز می‌شود.",
+          nb12Name: "روز نبر (روز ماه) · دوازدهم هر ماه", nb12Text: "روز ماه، دوازدهم هر ماه، روز نبر است؛ روزی برای آرامش و پرهیز از گوشت و کشتار، به پاسداشت جانوران.",
+          nb14Name: "روز نبر (روز گوشت) · چهاردهم هر ماه", nb14Text: "روز گوشت، چهاردهم هر ماه، روز نبر است؛ این روز به روان جانوران (گئوش اوروان) ویژه است و در آن گوشت نمی‌خورند و جانوری نمی‌کشند.",
+          nb21Name: "روز نبر (روز رام) · بیست‌ویکم هر ماه", nb21Text: "روز رام، بیست‌ویکم هر ماه، روز نبر است؛ رام ایزد آشتی و شادی است و این روز هم با پرهیز از گوشت و کشتن جانوران گرامی داشته می‌شود."
+        },
+        en: {
+          brand: "Mehr Iran Dokht", brandSub: "The Imperial Calendar and Zoroastrian observances",
+          kicker: "Iran's ancient calendar",
+          title: "The Imperial Calendar of Iran — <em>with Zoroastrian observances</em>",
+          intro: "This calendar counts its years from the coronation of Cyrus the Great in 559 BCE; its year begins with Nowruz and is always 1,180 years ahead of the Solar Hijri year: the Solar year 1405 is the Imperial year 2585. The ancient festivals, the six Gahambars, the Nabor days, and the special Zoroastrian observances all sit on the days of this calendar.",
+          todayLabel: "Today in the Imperial Calendar", upTitle: "Upcoming festivals",
+          remNote: "Tapping “Reminder” downloads a small calendar file. Open it on your phone and choose “Add to Calendar”, and that day will sit in your phone's calendar, which will remind you one day before it.",
+          monthsTitle: "The twelve months of the Imperial year",
+          tapHint: "Tap a month to see its days and its festivals.",
+          legFest: "Festival / observance", legGah: "Gahambar", legNabor: "Nabor day",
+          perTitle: "Title", perNote: "Note (optional)", perOnce: "Once", perYearly: "Every year", perAdd: "Add",
+          perHead: "Your own reminder", perPh: "Birthday, anniversary, or anything else…",
+          allTitle: "All the festivals and observances of the year",
+          soloGuideTitle: "Put the calendar on your phone",
+          soloIosTitle: "iPhone (Safari)", soloIos1: "Open this page in Safari", soloIos2: "Tap the Share button", soloIos3: "Choose “Add to Home Screen”",
+          soloAndTitle: "Android (Chrome)", soloAnd1: "Open this page in Chrome", soloAnd2: "Tap the three-dot menu", soloAnd3: "Choose “Add to Home screen”",
+          backBtn: "Back to the Mehr Iran Dokht website",
+          footLine: "The Imperial Calendar of Iran — ancient festivals and Zoroastrian observances",
+          reminder: "Reminder", impSuffix: " Imperial", daysWord: "days", esfandSmall: "29 days · 30 in a leap year",
+          f1aName: "Nowruz · 1 Farvardin", f1aText: "The greatest and most ancient festival of the Iranians, and the start of the new year — the day spring arrives and nature comes back to life. Spring cleaning, the Haft-Sin table, and visiting family and friends are among Nowruz's beloved customs.",
+          f1bName: "Birthday of Zoroaster · 6 Farvardin", f1bText: "The sixth day of the year is the birthday of Ashu Zoroaster, the prophet of ancient Iran, and Zoroastrians celebrate this day with prayer and joy.",
+          f1cName: "Farvardingan · 19 Farvardin", f1cText: "A day to remember the fravashis — the spirits of ancestors and the departed; people visit cemeteries and pray for the happiness of the souls of those who have passed.",
+          f2aName: "Ordibeheshtgan · 3 Ordibehesht", f2aText: "Ordibehesht is the deity of truth and purity and the guardian of fire. At this festival, people dressed in white go to the fire temples and honor truth and righteousness.",
+          f3aName: "Khordadgan · 6 Khordad", f3aText: "Khordad is the deity of wholeness and health and the guardian of the waters. Khordadgan is a celebration of reaching wholeness, with wishes for a year full of health and abundance.",
+          f4aName: "Tirgan · 13 Tir", f4aText: "The festival of rain and of Tishtrya, the deity who defeats the demon of drought. Tirgan is also linked with the memory of Arash the Archer, the hero who gave his life to a single arrow to mark Iran's border. Splashing water on one another is one of this festival's joyful customs.",
+          f5aName: "Amordadgan · 7 Amordad", f5aText: "Amordad is the deity of immortality and the guardian of plants and growing things. The name of this month means “immortality,” and its festival, in the heart of summer, celebrates life, greenness, and endurance.",
+          f6aName: "Shahrivargan · 4 Shahrivar", f6aText: "Shahrivar is the deity who guards the metals and the symbol of just, heavenly kingship. Shahrivargan is known as a festival of justice and fairness, honoring effort and work.",
+          f7aName: "Mehregan · 16 Mehr", f7aText: "After Nowruz, the greatest festival of ancient Iran: the festival of Mehr, deity of covenant, light, and friendship, and a time of thanksgiving for the harvest. At Mehregan people show kindness to one another and renew their promises.",
+          f8aName: "Abangan · 10 Aban", f8aText: "The festival of the waters and of Anahita, goddess of flowing waters and purity. At Abangan, water, springs, and rivers are honored, and prayers are offered for abundance and fertility.",
+          f9aName: "Azargan · 9 Azar", f9aText: "Azar is the deity of fire, and Azargan is the festival of fire; on the threshold of winter, fires are lit and their warmth and light are honored in homes and fire temples.",
+          f10aName: "Yalda Night (Chelleh) · the night before 1 Dey", f10aText: "The longest night of the year, when families gather together, eat pomegranates and watermelon, and read Hafez, so that the darkness of the longest night is shortened by the warmth of being together — and from tomorrow, light slowly begins to win over the night.",
+          f10bName: "Deygan and Khorramruz · 1 Dey", f10bText: "The first of Dey, Khorramruz, is the first Deygan festival; on the 1st, 8th, 15th, and 23rd of Dey, the name of the day and the month are one, and these days are celebrated with joy and prayer as winter begins.",
+          f10cName: "Deygan · 8 Dey", f10cText: "The second Deygan festival: the day of Dey-be-Azar in the month of Dey, when the name of the day and the month are one again, honored with prayer and joy.",
+          f10dName: "Deygan · 15 Dey", f10dText: "The third Deygan festival: the day of Dey-be-Mehr in the month of Dey, one of winter's same-name day-and-month feasts.",
+          f10eName: "Deygan · 23 Dey", f10eText: "The fourth and last Deygan festival: the day of Dey-be-Din in the month of Dey, closing the month with joy and prayer.",
+          f10fName: "Passing of Ashu Zoroaster · 11 Dey", f10fText: "The 11th of Dey, the day of Khor in the month of Dey, is the day of the passing of Ashu Zoroaster. Zoroastrians mark this day with prayer and visits to the fire temple and the cemetery, in silence and respect for their prophet.",
+          f11aName: "Bahmangan · 2 Bahman", f11aText: "Bahman, or Vohu Manah, is the deity of good thought. Bahmangan is a festival of good thought and wisdom and a day for caring for useful animals; on this day people refrained from killing animals and eating meat.",
+          f11bName: "Sadeh · 10 Bahman", f11bText: "The great festival of fire, remembering its discovery by Hushang, as told in the Shahnameh; fifty days before Nowruz, fires are lit on the heights and people celebrate around them. The Sadeh fire is lit at sunset on the 9th of Bahman, on the eve of the day of Mehr.",
+          f12aName: "Esfandegan (Sepandarmazgan) · 5 Esfand", f12aText: "The festival of Sepandarmaz, goddess of the earth, humility, and love. In ancient Iran this day honored the earth and women, and it is known as a celebration of love and kindness.",
+          f12bName: "Chaharshanbe Suri · the last Wednesday night of the year", f12bText: "At sunset on the last Tuesday of the year, fires are lit and people jump over them, singing “My yellowness to you, your redness to me” — giving sickness and sorrow to the fire and taking warmth and health from it, as they get ready for Nowruz.",
+          g1Name: "Gahambar Maidyozarem · 11–15 Ordibehesht", g1Text: "The first Gahambar of the year, in mid-spring: a thanksgiving for the creation of the sky. Gahambars last five days and are held with prayer, recitation of the Avesta, and a shared table whose food is given to everyone.",
+          g2Name: "Gahambar Maidyoshahem · 11–15 Tir", g2Text: "The second Gahambar, in mid-summer: a thanksgiving for the creation of water, held with prayer and the Gahambar table in fire temples and homes.",
+          g3Name: "Gahambar Paitishahem · 26–30 Shahrivar", g3Text: "The third Gahambar, at the end of summer and harvest time: a thanksgiving for the creation of the earth and the gathering of the crops.",
+          g4Name: "Gahambar Ayathrem · 26–30 Mehr", g4Text: "The fourth Gahambar, in mid-autumn, when the herds return from pasture: a thanksgiving for the creation of plants and growing things.",
+          g5Name: "Gahambar Maidyarem · 10–14 Dey", g5Text: "The fifth Gahambar, in mid-winter: a thanksgiving for the creation of the useful animals, held with prayer and a shared table.",
+          g6Name: "Gahambar Hamaspathmaidyem · the last five days of Esfand", g6Text: "The sixth and last Gahambar, in the five final days of the year: a thanksgiving for the creation of humankind, and the time of remembering the fravashis of the departed, on the threshold of Nowruz.",
+          naborTitle: "The Nabor Days — Four Days in Every Month",
+          naborIntro: "In the Zoroastrian tradition, every month has four “Nabor” days — days on which no meat is eaten and no animal is killed, out of kindness to animals and respect for life. In the calendar, these four days sit on the 2nd, 12th, 14th, and 21st of every month.",
+          nb2Name: "Nabor Day (Bahman Day) · the 2nd of every month", nb2Text: "Bahman day, the 2nd of every month, is a Nabor day. Bahman is the deity of good thought and the guardian of useful animals, and on this day people refrain from eating meat and killing animals.",
+          nb12Name: "Nabor Day (Mah Day) · the 12th of every month", nb12Text: "Mah day, the 12th of every month, is a Nabor day — a day of calm and of refraining from meat and slaughter, in honor of animals.",
+          nb14Name: "Nabor Day (Gosht Day) · the 14th of every month", nb14Text: "Gosht day, the 14th of every month, is a Nabor day. This day belongs to the soul of the animals (Geush Urvan), and on it no meat is eaten and no animal is killed.",
+          nb21Name: "Nabor Day (Ram Day) · the 21st of every month", nb21Text: "Ram day, the 21st of every month, is a Nabor day. Ram is the deity of peace and joy, and this day too is honored by refraining from meat and from killing animals."
+        },
+        fr: {
+          brand: "Mehr Iran Dokht", brandSub: "Le calendrier impérial et les observances zoroastriennes",
+          kicker: "Le calendrier de l'Iran ancien",
+          title: "Le calendrier impérial de l'Iran — <em>avec les observances zoroastriennes</em>",
+          intro: "Ce calendrier compte ses années depuis le couronnement de Cyrus le Grand en 559 av. J.-C. ; son année commence à Norouz et compte toujours 1 180 ans d'avance sur l'année solaire de l'Hégire : l'année solaire 1405 est l'année impériale 2585. Les fêtes anciennes, les six Gahambars, les jours Nabor et les observances zoroastriennes spéciales figurent tous sur les jours de ce calendrier.",
+          todayLabel: "Aujourd'hui dans le calendrier impérial", upTitle: "Fêtes à venir",
+          remNote: "En touchant « Rappel », un petit fichier de calendrier se télécharge. Ouvrez-le sur votre téléphone et choisissez « Ajouter au calendrier » : ce jour entrera dans le calendrier de votre téléphone, qui vous le rappellera un jour avant.",
+          monthsTitle: "Les douze mois de l'année impériale",
+          tapHint: "Touchez un mois pour voir ses jours et ses fêtes.",
+          legFest: "Fête / observance", legGah: "Gahambar", legNabor: "Jour Nabor",
+          perTitle: "Titre", perNote: "Note (facultatif)", perOnce: "Une fois", perYearly: "Chaque année", perAdd: "Ajouter",
+          perHead: "Votre rappel personnel", perPh: "Anniversaire, date spéciale, ou autre chose…",
+          allTitle: "Toutes les fêtes et observances de l'année",
+          soloGuideTitle: "Mettez le calendrier sur votre téléphone",
+          soloIosTitle: "iPhone (Safari)", soloIos1: "Ouvrez cette page dans Safari", soloIos2: "Touchez le bouton Partager", soloIos3: "Choisissez « Ajouter à l'écran d'accueil »",
+          soloAndTitle: "Android (Chrome)", soloAnd1: "Ouvrez cette page dans Chrome", soloAnd2: "Touchez le menu à trois points", soloAnd3: "Choisissez « Ajouter à l'écran d'accueil »",
+          backBtn: "Retour au site Mehr Iran Dokht",
+          footLine: "Le calendrier impérial de l'Iran — fêtes anciennes et observances zoroastriennes",
+          reminder: "Rappel", impSuffix: " impérial", daysWord: "jours", esfandSmall: "29 jours · 30 les années bissextiles",
+          f1aName: "Norouz · 1er Farvardin", f1aText: "La plus grande et la plus ancienne fête des Iraniens, et le début de la nouvelle année — le jour où le printemps arrive et où la nature revient à la vie. Le grand ménage, la table du Haft-Sin et les visites à la famille et aux amis font partie des coutumes aimées de Norouz.",
+          f1bName: "Naissance de Zoroastre · 6 Farvardin", f1bText: "Le sixième jour de l'année est la naissance d'Ashu Zoroastre, le prophète de l'Iran ancien, et les zoroastriens célèbrent ce jour par la prière et la joie.",
+          f1cName: "Farvardingan · 19 Farvardin", f1cText: "Un jour pour se souvenir des fravashis, les esprits des ancêtres et des disparus ; les gens se rendent dans les cimetières et prient pour le bonheur des âmes de ceux qui sont partis.",
+          f2aName: "Ordibeheshtgan · 3 Ordibehesht", f2aText: "Ordibehesht est la divinité de la vérité et de la pureté et la gardienne du feu. Lors de cette fête, les gens vêtus de blanc se rendent dans les temples du feu et honorent la vérité et la droiture.",
+          f3aName: "Khordadgan · 6 Khordad", f3aText: "Khordad est la divinité de la plénitude et de la santé et la gardienne des eaux. Khordadgan est une fête de l'accomplissement, avec des souhaits d'une année pleine de santé et d'abondance.",
+          f4aName: "Tirgan · 13 Tir", f4aText: "La fête de la pluie et de Tishtrya, la divinité qui vainc le démon de la sécheresse. Tirgan est aussi lié au souvenir d'Arash l'archer, le héros qui donna sa vie pour une seule flèche afin de marquer la frontière de l'Iran. S'asperger d'eau les uns les autres est l'une des coutumes joyeuses de cette fête.",
+          f5aName: "Amordadgan · 7 Amordad", f5aText: "Amordad est la divinité de l'immortalité et la gardienne des plantes et de tout ce qui pousse. Le nom de ce mois signifie « immortalité », et sa fête, au cœur de l'été, célèbre la vie, la verdure et la durée.",
+          f6aName: "Shahrivargan · 4 Shahrivar", f6aText: "Shahrivar est la divinité qui garde les métaux et le symbole d'une royauté juste et céleste. Shahrivargan est connue comme une fête de la justice et de l'équité, qui honore l'effort et le travail.",
+          f7aName: "Mehregan · 16 Mehr", f7aText: "Après Norouz, la plus grande fête de l'Iran ancien : la fête de Mehr, divinité de l'alliance, de la lumière et de l'amitié, et le temps de l'action de grâce pour la récolte. À Mehregan, les gens se témoignent de la bienveillance et renouvellent leurs promesses.",
+          f8aName: "Abangan · 10 Aban", f8aText: "La fête des eaux et d'Anahita, déesse des eaux vives et de la pureté. À Abangan, l'eau, les sources et les rivières sont honorées, et l'on prie pour l'abondance et la fertilité.",
+          f9aName: "Azargan · 9 Azar", f9aText: "Azar est la divinité du feu, et Azargan est la fête du feu ; au seuil de l'hiver, des feux sont allumés et leur chaleur et leur lumière sont honorées dans les maisons et les temples du feu.",
+          f10aName: "Nuit de Yalda (Chelleh) · la nuit avant le 1er Dey", f10aText: "La nuit la plus longue de l'année, où les familles se rassemblent, mangent des grenades et de la pastèque et lisent Hafez, pour que l'obscurité de la plus longue nuit soit raccourcie par la chaleur d'être ensemble — et que dès le lendemain, la lumière commence doucement à l'emporter sur la nuit.",
+          f10bName: "Deygan et Khorramruz · 1er Dey", f10bText: "Le premier jour de Dey, Khorramruz, est la première fête de Deygan ; les 1er, 8, 15 et 23 Dey, le nom du jour et celui du mois sont un, et ces jours sont célébrés par la joie et la prière, au commencement de l'hiver.",
+          f10cName: "Deygan · 8 Dey", f10cText: "La deuxième fête de Deygan : le jour de Dey-be-Azar dans le mois de Dey, où le nom du jour et celui du mois sont de nouveau un, honoré par la prière et la joie.",
+          f10dName: "Deygan · 15 Dey", f10dText: "La troisième fête de Deygan : le jour de Dey-be-Mehr dans le mois de Dey, l'une des fêtes hivernales du jour et du mois homonymes.",
+          f10eName: "Deygan · 23 Dey", f10eText: "La quatrième et dernière fête de Deygan : le jour de Dey-be-Din dans le mois de Dey, qui clôt le mois dans la joie et la prière.",
+          f10fName: "Décès d'Ashu Zoroastre · 11 Dey", f10fText: "Le 11 Dey, jour de Khor dans le mois de Dey, est le jour du décès d'Ashu Zoroastre. Les zoroastriens marquent ce jour par la prière et la visite du temple du feu et du cimetière, dans le silence et le respect de leur prophète.",
+          f11aName: "Bahmangan · 2 Bahman", f11aText: "Bahman, ou Vohu Manah, est la divinité de la bonne pensée. Bahmangan est une fête de la bonne pensée et de la sagesse et un jour pour prendre soin des animaux utiles ; ce jour-là, on s'abstenait de tuer les animaux et de manger de la viande.",
+          f11bName: "Sadeh · 10 Bahman", f11bText: "La grande fête du feu, en souvenir de sa découverte par Hushang dans le Shahnameh ; cinquante jours avant Norouz, des feux sont allumés sur les hauteurs et l'on célèbre tout autour. Le feu de Sadeh est allumé au coucher du soleil le 9 Bahman, à la veille du jour de Mehr.",
+          f12aName: "Esfandegan (Sepandarmazgan) · 5 Esfand", f12aText: "La fête de Sepandarmaz, déesse de la terre, de l'humilité et de l'amour. Dans l'Iran ancien, ce jour honorait la terre et les femmes, et il est connu comme une célébration de l'amour et de la bienveillance.",
+          f12bName: "Chaharshanbe Suri · la dernière nuit de mercredi de l'année", f12bText: "Au coucher du soleil du dernier mardi de l'année, on allume des feux et l'on saute par-dessus en chantant « Mon jaune pour toi, ton rouge pour moi » : on donne la maladie et la tristesse au feu et l'on en reçoit chaleur et santé, en se préparant pour Norouz.",
+          g1Name: "Gahambar Maidyozarem · 11–15 Ordibehesht", g1Text: "Le premier Gahambar de l'année, au milieu du printemps : une action de grâce pour la création du ciel. Les Gahambars durent cinq jours et se tiennent avec la prière, la récitation de l'Avesta et une table partagée dont la nourriture est offerte à tous.",
+          g2Name: "Gahambar Maidyoshahem · 11–15 Tir", g2Text: "Le deuxième Gahambar, au milieu de l'été : une action de grâce pour la création de l'eau, tenue avec la prière et la table du Gahambar dans les temples du feu et les maisons.",
+          g3Name: "Gahambar Paitishahem · 26–30 Shahrivar", g3Text: "Le troisième Gahambar, à la fin de l'été et au temps des récoltes : une action de grâce pour la création de la terre et la moisson des champs.",
+          g4Name: "Gahambar Ayathrem · 26–30 Mehr", g4Text: "Le quatrième Gahambar, au milieu de l'automne, quand les troupeaux reviennent du pâturage : une action de grâce pour la création des plantes et de tout ce qui pousse.",
+          g5Name: "Gahambar Maidyarem · 10–14 Dey", g5Text: "Le cinquième Gahambar, au milieu de l'hiver : une action de grâce pour la création des animaux utiles, tenue avec la prière et une table partagée.",
+          g6Name: "Gahambar Hamaspathmaidyem · les cinq derniers jours d'Esfand", g6Text: "Le sixième et dernier Gahambar, dans les cinq derniers jours de l'année : une action de grâce pour la création de l'humanité, et le temps du souvenir des fravashis des disparus, au seuil de Norouz.",
+          naborTitle: "Les jours Nabor — quatre jours chaque mois",
+          naborIntro: "Dans la tradition zoroastrienne, chaque mois compte quatre jours « Nabor » — des jours où l'on ne mange pas de viande et où l'on ne tue aucun animal, par bienveillance envers les animaux et respect de la vie. Dans le calendrier, ces quatre jours sont les 2, 12, 14 et 21 de chaque mois.",
+          nb2Name: "Jour Nabor (jour de Bahman) · le 2 de chaque mois", nb2Text: "Le jour de Bahman, le 2 de chaque mois, est un jour Nabor. Bahman est la divinité de la bonne pensée et le gardien des animaux utiles ; ce jour-là, on s'abstient de manger de la viande et de tuer les animaux.",
+          nb12Name: "Jour Nabor (jour de Mah) · le 12 de chaque mois", nb12Text: "Le jour de Mah, le 12 de chaque mois, est un jour Nabor — un jour de calme et d'abstention de viande et d'abattage, en l'honneur des animaux.",
+          nb14Name: "Jour Nabor (jour de Gosht) · le 14 de chaque mois", nb14Text: "Le jour de Gosht, le 14 de chaque mois, est un jour Nabor. Ce jour appartient à l'âme des animaux (Geush Urvan) ; on n'y mange pas de viande et l'on n'y tue aucun animal.",
+          nb21Name: "Jour Nabor (jour de Ram) · le 21 de chaque mois", nb21Text: "Le jour de Ram, le 21 de chaque mois, est un jour Nabor. Ram est la divinité de la paix et de la joie, et ce jour aussi est honoré par l'abstention de viande et de tuer les animaux."
+        }
+      };
+      var FEST_DAYS = {
+        1: [[1, "f1aName"], [6, "f1bName"], [19, "f1cName"]],
+        2: [[3, "f2aName"]],
+        3: [[6, "f3aName"]],
+        4: [[13, "f4aName"]],
+        5: [[7, "f5aName"]],
+        6: [[4, "f6aName"]],
+        7: [[16, "f7aName"]],
+        8: [[10, "f8aName"]],
+        9: [[9, "f9aName"], [30, "f10aName"]],
+        10: [[1, "f10bName"], [8, "f10cName"], [11, "f10fName"], [15, "f10dName"], [23, "f10eName"]],
+        11: [[2, "f11aName"], [10, "f11bName"]],
+        12: [[5, "f12aName"]]
+      };
+      var GAHANBAR = {
+        g1Name: [2, 11, 15], g2Name: [4, 11, 15], g3Name: [6, 26, 30],
+        g4Name: [7, 26, 30], g5Name: [10, 10, 14], g6Name: [12, 0, 0]
+      };
+      var NABOR_KEYS = { 2: "nb2Name", 12: "nb12Name", 14: "nb14Name", 21: "nb21Name" };
+      var FEST_INFO = {
+        f1aName: [1, 1], f1bName: [1, 6], f1cName: [1, 19],
+        f2aName: [2, 3], g1Name: [2, 11], f3aName: [3, 6], f4aName: [4, 13], g2Name: [4, 11],
+        f5aName: [5, 7], f6aName: [6, 4], g3Name: [6, 26], f7aName: [7, 16], g4Name: [7, 26],
+        f8aName: [8, 10], f9aName: [9, 9], f10aName: [9, 30],
+        f10bName: [10, 1], f10cName: [10, 8], g5Name: [10, 10], f10fName: [10, 11], f10dName: [10, 15], f10eName: [10, 23],
+        f11aName: [11, 2], f11bName: [11, 10],
+        f12aName: [12, 5], g6Name: [12, -1], f12bName: [12, 0]
+      };
+      var MONTH_LEN = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
+      var lang = "fa";
+      try { var sv = localStorage.getItem("shop-lang"); if (sv === "en" || sv === "fr") lang = sv; } catch (e) {}
+      function T(key) { return (STR[lang] && STR[lang][key]) || STR.fa[key] || ""; }
+      function num(n) { return lang === "fa" ? Number(n).toLocaleString("fa-IR", { useGrouping: false }) : String(n); }
+      function loc() { return lang === "fa" ? "fa-IR" : lang === "fr" ? "fr-FR" : "en-US"; }
+      function nameOnly(key) { return T(key).split("·")[0].replace(/\s+$/, ""); }
+      function textOf(key) { return T(key.replace(/Name$/, "Text")); }
+
+      var CAL_BASE = null;
+      function persianParts(date) {
+        var parts = new Intl.DateTimeFormat("en-u-ca-persian", { year: "numeric", month: "numeric", day: "numeric" }).formatToParts(date);
+        var r = { y: 0, m: 0, d: 0 };
+        for (var i = 0; i < parts.length; i++) {
+          if (parts[i].type === "year") r.y = parseInt(parts[i].value, 10);
+          if (parts[i].type === "month") r.m = parseInt(parts[i].value, 10);
+          if (parts[i].type === "day") r.d = parseInt(parts[i].value, 10);
+        }
+        return r;
+      }
+      function daysBeforeMonth(m) { var s = 0; for (var i = 0; i < m - 1; i++) s += MONTH_LEN[i]; return s; }
+      function calBase() {
+        if (CAL_BASE) return CAL_BASE;
+        var now = new Date();
+        var t = persianParts(now);
+        var nowruz = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        nowruz.setDate(nowruz.getDate() - (daysBeforeMonth(t.m) + t.d - 1));
+        var probe = new Date(nowruz.getTime());
+        var days = 0, p = { y: 0, m: 0, d: 0 };
+        do {
+          probe.setDate(probe.getDate() + 1);
+          days++;
+          p = persianParts(probe);
+        } while (!(p.y === t.y + 1 && p.m === 1 && p.d === 1) && days < 400);
+        CAL_BASE = { today: t, nowruz: nowruz, leap: days === 366, iy: t.y + 1180 };
+        return CAL_BASE;
+      }
+      function monthLength(m) { if (m === 12 && calBase().leap) return 30; return MONTH_LEN[m - 1]; }
+      function gregOf(m, d) {
+        var g = new Date(calBase().nowruz.getTime());
+        g.setDate(g.getDate() + daysBeforeMonth(m) + d - 1);
+        return g;
+      }
+      function gahRange(key) {
+        var g = GAHANBAR[key];
+        var len = monthLength(g[0]);
+        return [g[0], g[1] === 0 ? len - 4 : g[1], g[2] === 0 ? len : g[2]];
+      }
+      function dayEvents(m) {
+        var map = {};
+        function push(d, key, kind) { if (!map[d]) map[d] = []; map[d].push({ key: key, kind: kind }); }
+        var list = FEST_DAYS[m] || [];
+        for (var i = 0; i < list.length; i++) push(list[i][0], list[i][1], "fest");
+        for (var gk in GAHANBAR) {
+          if (!GAHANBAR.hasOwnProperty(gk)) continue;
+          var r = gahRange(gk);
+          if (r[0] !== m) continue;
+          for (var gd = r[1]; gd <= r[2]; gd++) push(gd, gk, "gah");
+        }
+        for (var nd in NABOR_KEYS) if (NABOR_KEYS.hasOwnProperty(nd)) push(parseInt(nd, 10), NABOR_KEYS[nd], "nabor");
+        if (m === 12) {
+          var len = monthLength(12);
+          for (var d = len; d >= 1; d--) { if (gregOf(12, d).getDay() === 3) { push(d, "f12bName", "fest"); break; } }
+        }
+        return map;
+      }
+      function monthEntries(m) {
+        var ev = dayEvents(m);
+        var entries = [];
+        var seenGah = {};
+        var dayNums = Object.keys(ev).sort(function (a, b) { return a - b; });
+        for (var i = 0; i < dayNums.length; i++) {
+          var d = parseInt(dayNums[i], 10);
+          var evs = ev[d];
+          for (var x = 0; x < evs.length; x++) {
+            if (evs[x].kind === "nabor") continue;
+            if (evs[x].kind === "gah") {
+              if (seenGah[evs[x].key]) continue;
+              seenGah[evs[x].key] = true;
+              entries.push({ day: d, range: gahRange(evs[x].key), key: evs[x].key });
+            } else entries.push({ day: d, range: null, key: evs[x].key });
+          }
+        }
+        return entries;
+      }
+
+      /* ---------- Reminders (.ics) ---------- */
+      function icsEsc(s) { return String(s == null ? "" : s).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n"); }
+      function icsFold(line) { var out = ""; while (line.length > 60) { out += line.slice(0, 60) + "\r\n "; line = line.slice(60); } return out + line; }
+      function icsPad(n) { return (n < 10 ? "0" : "") + n; }
+      function icsDate(d) { return d.getFullYear() + icsPad(d.getMonth() + 1) + icsPad(d.getDate()); }
+      function icsStamp() { var n = new Date(); return n.getUTCFullYear() + icsPad(n.getUTCMonth() + 1) + icsPad(n.getUTCDate()) + "T" + icsPad(n.getUTCHours()) + icsPad(n.getUTCMinutes()) + icsPad(n.getUTCSeconds()) + "Z"; }
+      function buildIcs(title, desc, date, yearly) {
+        var end = new Date(date.getTime());
+        end.setDate(end.getDate() + 1);
+        var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Mehr Iran Dokht//Reminders//FA", "CALSCALE:GREGORIAN", "BEGIN:VEVENT",
+          "UID:" + Date.now() + "-" + Math.floor(Math.random() * 1000000000) + "@mehrirandokht",
+          "DTSTAMP:" + icsStamp(), "DTSTART;VALUE=DATE:" + icsDate(date), "DTEND;VALUE=DATE:" + icsDate(end),
+          "SUMMARY:" + icsEsc(title)];
+        if (desc) lines.push("DESCRIPTION:" + icsEsc(desc));
+        if (yearly) lines.push("RRULE:FREQ=YEARLY");
+        lines.push("BEGIN:VALARM", "ACTION:DISPLAY", "TRIGGER:-P1D", "DESCRIPTION:" + icsEsc(title), "END:VALARM", "END:VEVENT", "END:VCALENDAR");
+        var folded = [];
+        for (var i = 0; i < lines.length; i++) folded.push(icsFold(lines[i]));
+        return folded.join("\r\n") + "\r\n";
+      }
+      function downloadIcs(title, desc, date, yearly) {
+        var icsText = buildIcs(title, desc, date, yearly);
+        if (window.Capacitor && Capacitor.isNativePlatform && Capacitor.isNativePlatform()) {
+          var Filesystem = Capacitor.registerPlugin("Filesystem");
+          var Share = Capacitor.registerPlugin("Share");
+          Filesystem.writeFile({ path: "reminder.ics", data: icsText, directory: "CACHE", encoding: "utf8" })
+            .then(function (f) { return Share.share({ title: title, url: f.uri, dialogTitle: "افزودن به تقویم" }); })
+            .catch(function () {});
+          return;
+        }
+        var blob = new Blob([icsText], { type: "text/calendar;charset=utf-8" });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url;
+        a.download = "reminder-" + icsDate(date) + ".ics";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+      }
+      function festDate(key) {
+        var info = FEST_INFO[key];
+        if (!info) return null;
+        var d = info[1];
+        if (d === 0) {
+          var len = monthLength(12);
+          d = len;
+          for (var sd = len; sd >= 1; sd--) { if (gregOf(12, sd).getDay() === 3) { d = sd; break; } }
+        } else if (d === -1) d = monthLength(12) - 4;
+        return gregOf(info[0], d);
+      }
+      function festRemind(key, dateOverride) {
+        var date = dateOverride || festDate(key);
+        if (!date) return;
+        downloadIcs(nameOnly(key), STR.fa[key.replace(/Name$/, "Text")] || textOf(key), date, false);
+      }
+
+      /* ---------- Rendering ---------- */
+      var selectedMonth = 0;
+      var selectedDay = 0;
+      function renderToday() {
+        var base = calBase();
+        var t = base.today;
+        document.getElementById("calDayNum").textContent = num(t.d);
+        var now = new Date();
+        var weekday = new Intl.DateTimeFormat(loc(), { weekday: "long" }).format(now);
+        var mName = MONTHS[lang][t.m - 1];
+        var main = document.getElementById("calTodayMain");
+        if (lang === "fa") main.textContent = weekday + "، " + num(t.d) + " " + mName + " " + num(base.iy) + " شاهنشاهی";
+        else if (lang === "fr") main.textContent = weekday + " " + num(t.d) + " " + mName + " " + num(base.iy) + " impérial";
+        else main.textContent = weekday + ", " + num(t.d) + " " + mName + " " + num(base.iy) + " Imperial";
+        var greg = new Intl.DateTimeFormat(lang === "fa" ? "fa-IR-u-ca-gregory" : loc(), { day: "numeric", month: "long", year: "numeric" }).format(now);
+        var eq = document.getElementById("calTodayEquiv");
+        if (lang === "fa") eq.textContent = "برابر با " + num(t.d) + " " + mName + " " + num(t.y) + " خورشیدی · " + greg + " میلادی";
+        else if (lang === "fr") eq.textContent = "Soit le " + num(t.d) + " " + mName + " " + num(t.y) + " solaire · " + greg + " grégorien";
+        else eq.textContent = "The same day is " + num(t.d) + " " + mName + " " + num(t.y) + " Solar Hijri · " + greg + " Gregorian";
+      }
+      function renderMonths() {
+        var base = calBase();
+        var html = "";
+        for (var m = 1; m <= 12; m++) {
+          var small = m === 12 ? T("esfandSmall") : num(MONTH_LEN[m - 1]) + " " + T("daysWord");
+          var cls = "cal-month" + (m === base.today.m ? " now" : "") + (m === selectedMonth ? " sel" : "");
+          html += '<button type="button" class="' + cls + '" data-cal-month="' + m + '" aria-expanded="' + (m === selectedMonth ? "true" : "false") + '">' + MONTHS[lang][m - 1] + "<small>" + small + "</small></button>";
+        }
+        document.getElementById("calMonths").innerHTML = html;
+      }
+      function renderDays() {
+        var panel = document.getElementById("calDaysPanel");
+        var grid = document.getElementById("calGrid");
+        var weekRow = document.getElementById("calWeekRow");
+        var titleEl = document.getElementById("calDaysTitle");
+        var subEl = document.getElementById("calDaysSub");
+        var festEl = document.getElementById("calFests");
+        if (!selectedMonth) { panel.hidden = true; return; }
+        var base = calBase();
+        var m = selectedMonth;
+        var mName = MONTHS[lang][m - 1];
+        titleEl.textContent = mName + " " + num(base.iy) + T("impSuffix");
+        var first = gregOf(m, 1);
+        var last = gregOf(m, monthLength(m));
+        var gLoc = lang === "fa" ? "fa-IR-u-ca-gregory" : loc();
+        var fFirst = new Intl.DateTimeFormat(gLoc, { day: "numeric", month: "long" }).format(first);
+        var fLast = new Intl.DateTimeFormat(gLoc, { day: "numeric", month: "long", year: "numeric" }).format(last);
+        if (lang === "fa") subEl.textContent = mName + " " + num(base.today.y) + " خورشیدی · از " + fFirst + " تا " + fLast + " میلادی";
+        else if (lang === "fr") subEl.textContent = mName + " " + base.today.y + " solaire · du " + fFirst + " au " + fLast + " grégorien";
+        else subEl.textContent = mName + " " + base.today.y + " Solar · " + fFirst + " – " + fLast + " Gregorian";
+        var startOff = (first.getDay() + 1) % 7;
+        var sat = new Date(first.getTime());
+        sat.setDate(sat.getDate() - startOff);
+        var wfmt = new Intl.DateTimeFormat(loc(), { weekday: "short" });
+        var wh = "";
+        for (var w = 0; w < 7; w++) { var wd = new Date(sat.getTime()); wd.setDate(wd.getDate() + w); wh += "<span>" + wfmt.format(wd) + "</span>"; }
+        weekRow.innerHTML = wh;
+        var ev = dayEvents(m);
+        var len = monthLength(m);
+        var html = "";
+        for (var e = 0; e < startOff; e++) html += '<span class="cal-cell blank"></span>';
+        for (var d = 1; d <= len; d++) {
+          var cls = "cal-cell";
+          var dayEv = ev[d] || [];
+          var names = [];
+          for (var q = 0; q < dayEv.length; q++) {
+            if (dayEv[q].kind === "fest") cls += " fest";
+            else if (dayEv[q].kind === "gah") { if (cls.indexOf(" gah") === -1) cls += " gah"; }
+            else if (dayEv[q].kind === "nabor") cls += " nabor";
+            names.push(T(dayEv[q].key));
+          }
+          cls = cls.replace(/ fest fest/g, " fest").replace(/ nabor nabor/g, " nabor");
+          if (m === base.today.m && d === base.today.d) cls += " today";
+          var ttl = names.length ? ' title="' + names.join(" — ").replace(/"/g, "") + '"' : "";
+          html += '<button type="button" class="' + cls + '" data-cal-day="' + d + '"' + ttl + ">" + num(d) + "</button>";
+        }
+        grid.innerHTML = html;
+        var entries = [];
+        var seenGah = {};
+        var dayNums = Object.keys(ev).sort(function (a, b) { return a - b; });
+        for (var dn = 0; dn < dayNums.length; dn++) {
+          var dd2 = parseInt(dayNums[dn], 10);
+          var evs = ev[dd2];
+          for (var x = 0; x < evs.length; x++) {
+            if (evs[x].kind === "gah") {
+              if (seenGah[evs[x].key]) continue;
+              seenGah[evs[x].key] = true;
+              entries.push({ day: dd2, range: gahRange(evs[x].key), key: evs[x].key });
+            } else entries.push({ day: dd2, range: null, key: evs[x].key });
+          }
+        }
+        var fh = "";
+        for (var f = 0; f < entries.length; f++) {
+          var ent = entries[f];
+          var dayLabel = ent.range ? num(ent.range[1]) + " – " + num(ent.range[2]) + " " + mName : num(ent.day) + " " + mName;
+          fh += '<li><div class="fest-main"><span><b>' + dayLabel + "</b> — " + nameOnly(ent.key) + "</span>" +
+            '<span class="cal-fest-desc">' + textOf(ent.key) + "</span></div>" +
+            (FEST_INFO[ent.key] ? '<button type="button" class="rem-btn" data-fest-rem="' + ent.key + '">' + T("reminder") + "</button>" : "") + "</li>";
+        }
+        festEl.innerHTML = fh;
+        document.getElementById("calPersonal").hidden = true;
+        panel.hidden = false;
+      }
+      var UP_LIST = [];
+      function renderUpcoming() {
+        var box = document.getElementById("calUpcomingList");
+        var base = calBase();
+        var todayStart = new Date();
+        todayStart.setHours(0, 0, 0, 0);
+        var yearDays = base.leap ? 366 : 365;
+        var all = [];
+        for (var key in FEST_INFO) {
+          if (!FEST_INFO.hasOwnProperty(key)) continue;
+          var info = FEST_INFO[key];
+          var d = info[1];
+          if (d === 0) { var len = monthLength(12); d = len; for (var sd = len; sd >= 1; sd--) { if (gregOf(12, sd).getDay() === 3) { d = sd; break; } } }
+          else if (d === -1) d = monthLength(12) - 4;
+          var date = gregOf(info[0], d);
+          if (date.getTime() < todayStart.getTime()) { date = new Date(date.getTime()); date.setDate(date.getDate() + yearDays); }
+          all.push({ key: key, m: info[0], d: d, date: date });
+        }
+        all.sort(function (a, b) { return a.date - b.date; });
+        UP_LIST = all.slice(0, 3);
+        var gfmt = new Intl.DateTimeFormat(lang === "fa" ? "fa-IR-u-ca-gregory" : loc(), { day: "numeric", month: "long", year: "numeric" });
+        var html = "";
+        for (var i = 0; i < UP_LIST.length; i++) {
+          var it = UP_LIST[i];
+          html += '<div class="up-item"><b>' + nameOnly(it.key) + "</b><span>" + num(it.d) + " " + MONTHS[lang][it.m - 1] + " · " + gfmt.format(it.date) + "</span>" +
+            '<button type="button" class="rem-btn" data-up-idx="' + i + '">' + T("reminder") + "</button></div>";
+        }
+        box.innerHTML = html;
+      }
+      function renderAllFests() {
+        var grid = document.getElementById("festGrid");
+        var html = "";
+        for (var m = 1; m <= 12; m++) {
+          var entries = monthEntries(m);
+          if (!entries.length) continue;
+          html += '<article class="fest-card"><h3>' + MONTHS[lang][m - 1] + "</h3>";
+          for (var i = 0; i < entries.length; i++) {
+            var key = entries[i].key;
+            html += '<div class="fest-item"><b>' + T(key) + "</b><p>" + textOf(key) + "</p>" +
+              (FEST_INFO[key] ? '<button type="button" class="rem-btn" data-fest-key="' + key + '">' + T("reminder") + "</button>" : "") + "</div>";
+          }
+          html += "</article>";
+        }
+        html += '<article class="fest-card wide"><h3>' + T("naborTitle") + '</h3><p class="fest-lead">' + T("naborIntro") + "</p>";
+        var nbKeys = ["nb2Name", "nb12Name", "nb14Name", "nb21Name"];
+        for (var n = 0; n < nbKeys.length; n++) {
+          html += '<div class="fest-item"><b>' + T(nbKeys[n]) + "</b><p>" + textOf(nbKeys[n]) + "</p></div>";
+        }
+        html += "</article>";
+        grid.innerHTML = html;
+      }
+      function applyStatic() {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === "fa" ? "rtl" : "ltr";
+        document.title = lang === "fa" ? "گاهشمار شاهنشاهی — مهر ایران دخت" : lang === "fr" ? "Calendrier impérial — Mehr Iran Dokht" : "Imperial Calendar — Mehr Iran Dokht";
+        var els = document.querySelectorAll("[data-t]");
+        for (var i = 0; i < els.length; i++) {
+          var v = T(els[i].getAttribute("data-t"));
+          if (v) els[i].innerHTML = v;
+        }
+        var btns = document.querySelectorAll("[data-lang-btn]");
+        for (var b = 0; b < btns.length; b++) btns[b].setAttribute("aria-pressed", btns[b].getAttribute("data-lang-btn") === lang ? "true" : "false");
+        var ph = document.getElementById("perTitleInput");
+        if (ph) ph.setAttribute("placeholder", T("perPh"));
+      }
+      function renderAll() { applyStatic(); renderToday(); renderMonths(); renderDays(); renderUpcoming(); renderAllFests(); }
+      function openPersonal(day) {
+        selectedDay = day;
+        var box = document.getElementById("calPersonal");
+        var head = document.getElementById("calPersonalHead");
+        if (!box || !head || !selectedMonth) return;
+        var base = calBase();
+        var g = gregOf(selectedMonth, day);
+        var gfmt = new Intl.DateTimeFormat(lang === "fa" ? "fa-IR-u-ca-gregory" : loc(), { day: "numeric", month: "long", year: "numeric" });
+        head.textContent = T("perHead") + " — " + num(day) + " " + MONTHS[lang][selectedMonth - 1] + " " + num(base.today.y) + " · " + gfmt.format(g);
+        var titleInput = document.getElementById("perTitleInput");
+        var dayEv = dayEvents(selectedMonth)[day] || [];
+        if (titleInput && dayEv.length && !titleInput.value) titleInput.value = nameOnly(dayEv[0].key);
+        box.hidden = false;
+        var cells = document.querySelectorAll("#calGrid [data-cal-day]");
+        for (var i = 0; i < cells.length; i++) cells[i].classList.toggle("sel-day", parseInt(cells[i].getAttribute("data-cal-day"), 10) === day);
+        if (box.scrollIntoView) box.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+      function findBtn(el, root, attr) {
+        var t = el;
+        while (t && t !== root && !(t.getAttribute && t.getAttribute(attr))) t = t.parentNode;
+        return t && t.getAttribute && t.getAttribute(attr) ? t : null;
+      }
+      document.getElementById("calMonths").addEventListener("click", function (e) {
+        var t = findBtn(e.target, this, "data-cal-month");
+        if (!t) return;
+        var mm = parseInt(t.getAttribute("data-cal-month"), 10);
+        selectedMonth = selectedMonth === mm ? 0 : mm;
+        renderMonths();
+        renderDays();
+      });
+      document.getElementById("calGrid").addEventListener("click", function (e) {
+        var t = findBtn(e.target, this, "data-cal-day");
+        if (t) openPersonal(parseInt(t.getAttribute("data-cal-day"), 10));
+      });
+      document.getElementById("calFests").addEventListener("click", function (e) {
+        var t = findBtn(e.target, this, "data-fest-rem");
+        if (t) festRemind(t.getAttribute("data-fest-rem"));
+      });
+      document.getElementById("calUpcomingList").addEventListener("click", function (e) {
+        var t = findBtn(e.target, this, "data-up-idx");
+        if (t) { var it = UP_LIST[parseInt(t.getAttribute("data-up-idx"), 10)]; if (it) festRemind(it.key, it.date); }
+      });
+      document.getElementById("festGrid").addEventListener("click", function (e) {
+        var t = findBtn(e.target, this, "data-fest-key");
+        if (t) festRemind(t.getAttribute("data-fest-key"));
+      });
+      document.getElementById("perAddBtn").addEventListener("click", function () {
+        if (!selectedMonth || !selectedDay) return;
+        var titleInput = document.getElementById("perTitleInput");
+        var noteInput = document.getElementById("perNoteInput");
+        var title = titleInput ? titleInput.value.replace(/^\s+|\s+$/g, "") : "";
+        if (!title) title = T("perHead");
+        var note = noteInput ? noteInput.value.replace(/^\s+|\s+$/g, "") : "";
+        var yearly = false;
+        var radios = document.querySelectorAll('input[name="perRepeat"]');
+        for (var i = 0; i < radios.length; i++) if (radios[i].checked && radios[i].value === "yearly") yearly = true;
+        downloadIcs(title, note, gregOf(selectedMonth, selectedDay), yearly);
+      });
+      var langBtns = document.querySelectorAll("[data-lang-btn]");
+      for (var lb = 0; lb < langBtns.length; lb++) {
+        langBtns[lb].addEventListener("click", function () {
+          lang = this.getAttribute("data-lang-btn");
+          try { localStorage.setItem("shop-lang", lang); } catch (e) {}
+          renderAll();
+        });
+      }
+      selectedMonth = calBase().today.m;
+      renderAll();
+    </script>
+  </body>
+</html>
