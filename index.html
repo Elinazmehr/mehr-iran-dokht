@@ -18,6 +18,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+    <!-- OneSignal web push: real phone notifications for new sections (App ID set at init, end of body) -->
+    <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+    <script>window.OneSignalDeferred = window.OneSignalDeferred || [];</script>
     <style>
       /* Every Persian text on this site — headings and body alike — is set in Amiri,
          the classic book Naskh face Elnaz chose. No Nastaliq face is loaded at all:
@@ -715,6 +718,27 @@
       }
       .install-btn:hover { filter: brightness(1.07); }
       .install-msg { color: var(--accent); font-size: .9rem; font-weight: 700; margin: .7rem 0 0; }
+      /* Notification bell: gold on royal (darbari) blue, like the «تازه» badges */
+      .notify-btn {
+        font-family: inherit; cursor: pointer;
+        background: var(--court); color: var(--gold-bright);
+        border: 1.5px solid var(--gold-bright);
+        border-radius: 999px; padding: 0 1.5rem; min-height: 3rem;
+        font-size: 1rem; font-weight: 800;
+        display: inline-flex; align-items: center; gap: .5rem;
+      }
+      .notify-btn:hover { background: var(--court-2); }
+      .notify-btn.on { background: var(--gold-bright); color: #16264a; border-color: var(--gold-bright); }
+      .notify-msg { color: var(--accent); font-size: .9rem; font-weight: 700; margin: .7rem 0 0; }
+      .coming .notify-msg { text-align: center; margin-inline: auto; max-width: 34rem; }
+      .notify-box {
+        border: 1px solid var(--gold-bright); border-radius: 16px;
+        padding: 1rem 1.1rem; background: var(--bg); margin-top: 1.2rem;
+      }
+      .notify-box h3 { margin: 0 0 .5rem; font-size: .98rem; font-weight: 900; line-height: 1.6; display: flex; align-items: center; gap: .5rem; }
+      .notify-box h3 svg { color: var(--gold); flex: none; }
+      .notify-box p { color: var(--ink-soft); font-size: .88rem; margin: 0 0 .8rem; }
+      .notify-box .notify-msg { color: var(--accent); margin: .7rem 0 0; }
       .device-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: 1.2rem; }
       .device-card {
         border: 1px solid var(--line); border-radius: 16px; padding: 1rem 1.1rem; background: var(--bg);
@@ -1213,7 +1237,12 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.7C6.4 17 3 13.6 3 9.9 3 7.2 5 5 7.7 5c1.7 0 3.3.9 4.3 2.4C13 5.9 14.6 5 16.3 5 19 5 21 7.2 21 9.9c0 3.7-3.4 7.1-9 10.8z"/></svg>
               <span data-i18n="ctaSupport">حمایت از سایت</span>
             </a>
+            <button type="button" class="notify-btn" data-notify-btn>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+              <span data-i18n="notifyBtn">فعال کردن آگاه‌سازی</span>
+            </button>
           </div>
+          <p class="notify-msg" data-notify-msg hidden></p>
         </div>
       </section>
 
@@ -1378,6 +1407,15 @@
                 </div>
               </div>
               <p class="app-note" data-i18n="appNote">هر وقت سایت به‌روز شود — داستان تازه، کالای تازه — اپلیکیشن هم خودکار همان نسخه‌ی تازه را نشان می‌دهد؛ نیازی به به‌روزرسانی از فروشگاه نیست.</p>
+              <div class="notify-box">
+                <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span data-i18n="notifyTitle">آگاه‌سازی بخش‌های تازه</span></h3>
+                <p data-i18n="notifyIntro">زنگ آگاه‌سازی را فعال کن تا هر وقت بخش تازه‌ای — داستان یا صدای تازه، کالای تازه — به سایت اضافه شد، روی گوشی‌ات آگاه شوی؛ حتی وقتی سایت بسته است. روی آیفون، نخست اپ را با گام‌های همین صفحه نصب کن و بعد زنگ را از داخل خود اپ بزن.</p>
+                <button type="button" class="notify-btn" data-notify-btn>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                  <span data-i18n="notifyBtn">فعال کردن آگاه‌سازی</span>
+                </button>
+                <p class="notify-msg" data-notify-msg hidden></p>
+              </div>
             </div>
           </div>
         </div>
@@ -1421,7 +1459,7 @@
         <div class="cal-upcoming">
           <h3 data-i18n="upTitle">جشن‌های نزدیک</h3>
           <div id="calUpcomingList"></div>
-          <p class="cal-rem-note" data-i18n="remNote">با زدن دکمه‌ی «یادآوری»، یک پرونده‌ی کوچکِ تقویم بارگیری می‌شود؛ آن را روی گوشی‌ات باز کن و «افزودن به تقویم» را بزن تا آن روز در تقویم گوشی‌ات بنشیند و یک روز پیش از آن به تو یادآوری شود. این تارنما خودش پیام و آگاهی نمی‌فرستد؛ یادآوری از سوی تقویم گوشی خودت می‌آید.</p>
+          <p class="cal-rem-note" data-i18n="remNote">با زدن دکمه‌ی «یادآوری»، یک پرونده‌ی کوچکِ تقویم بارگیری می‌شود؛ آن را روی گوشی‌ات باز کن و «افزودن به تقویم» را بزن تا آن روز در تقویم گوشی‌ات بنشیند و یک روز پیش از آن به تو یادآوری شود. این یادآوری از سوی تقویم گوشی خودت می‌آید؛ برای آگاه شدن از بخش‌های تازه‌ی خود سایت هم زنگ آگاه‌سازی را در صفحه‌ی خانه یا بخش اپلیکیشن فعال کن.</p>
         </div>
         <div class="cal-box">
           <h3 data-i18n="calMonthsTitle">دوازده ماه سال شاهنشاهی</h3>
@@ -1536,19 +1574,24 @@
           <p data-i18n="n1Note">این متن، گزیده و خلاصه‌ای از داستان چارچوب هزار و یک شب است که به فارسی روان بازنویسی شده، نه متن کامل و اصلی کتاب. قصه‌های این بخش هم یکی‌یکی و به همان ترتیبی می‌آیند که در کتاب آمده‌اند.</p>
         </article>
         <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="n2Tag">قصه‌ی دوم · به‌ترتیب هزار و یک شب</span>
           <h3 data-i18n="n2Title">تاجر و عفریت</h3>
-          <!-- Voice narration: Elnaz's own recording of this tale (The Merchant and the Efreet) goes here (assets/voice-nights-2.*) once she sends it. -->
-          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
-            <span class="voice-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-            </span>
+          <!-- Voice narration: Elnaz's own recording of Night Two (The Merchant and the Efreet) — recorded by her, added 2026-11-23. -->
+          <div class="voice-box live" id="voiceMerchant" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <button type="button" class="voice-play" id="voicePlay9" aria-label="پخش خوانش تاجر و عفریت با صدای الناز" aria-pressed="false">
+              <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
-              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
               <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+              <span class="voice-progress" id="voiceProg9" aria-hidden="true"><i id="voiceFill9"></i></span>
+              <span class="voice-time" id="voiceTime9" dir="ltr">0:00 / 3:46</span>
             </div>
-            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+            <span class="voice-badge voice-badge-live" data-i18n="voiceDur9">۳:۴۶</span>
+            <audio id="voiceAudio9" src="assets/voice-nights-2.m4a" preload="metadata"></audio>
           </div>
           <figure class="card-fig story-fig living-fig" data-motion="fire"><span class="living-frame"><img draggable="false" src="assets/nights-merchant.webp" data-i18n-alt="n2ImgAlt" alt="نگاره‌ی مینیاتور ایرانی از تاجر که زیر درخت شکوفه‌دار کنار جوی آب نشسته و عفریتی بزرگ با شمشیری برهنه از میان دود پیش رویش پدیدار شده است، از قصه‌ی تاجر و عفریت" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="n2ImgCap">تاجر و عفریت — هسته‌های خرما کنار جوی آب، و عفریت خشمگین با شمشیر برهنه.</figcaption></figure>
           <p data-i18n="n2P1">نخستین قصه‌ای که شهرزاد برای شهریار گفت، قصه‌ی بازرگانی توانگر است که برای دادوستد به سفری دور رفته بود. روزی در راه، کنار چشمه‌ای زیر درختی نشست تا نفسی تازه کند؛ کیسه‌اش را گشود، پاره‌ای نان و چند دانه خرما خورد و هسته‌های خرما را به این‌سو و آن‌سو انداخت. هنوز برنخاسته بود که زمین لرزید و عفریتی غول‌پیکر با شمشیری برهنه از میان گرد و غبار پدیدار شد و بانگ زد: برخیز و آماده‌ی مرگ باش؛ تو پسرم را کشته‌ای! بازرگان شگفت‌زده گفت: من که کسی را ندیده‌ام! عفریت گفت: پسرم نادیدنی از این‌جا می‌گذشت و یکی از هسته‌هایی که انداختی به سینه‌اش خورد و او را کشت؛ خون در برابر خون.</p>
@@ -1806,7 +1849,7 @@
           </article>
         <p class="heritage-note" data-i18n="festNote">بیشتر این جشن‌ها «روز و ماه هم‌نام» هستند؛ یعنی روزی از ماه که نامش با نام همان ماه یکی می‌شود، مانند روز امرداد از ماه امرداد.</p>
         <p class="heritage-note" data-i18n="festNote2">در گاهشمار شاهنشاهی همین سایت، همه‌ی این روزها — جشن‌های ماهانه، شش گاهنبار، روزهای نبر و مناسبت‌های ویژه — روی روزهای هر ماه نشسته‌اند؛ روی نام هر ماه بزن تا روزهایش را با توضیح کوتاهشان ببینی.</p>
-        <p class="heritage-note" data-i18n="remNote">با زدن دکمه‌ی «یادآوری»، یک پرونده‌ی کوچکِ تقویم بارگیری می‌شود؛ آن را روی گوشی‌ات باز کن و «افزودن به تقویم» را بزن تا آن روز در تقویم گوشی‌ات بنشیند و یک روز پیش از آن به تو یادآوری شود. این تارنما خودش پیام و آگاهی نمی‌فرستد؛ یادآوری از سوی تقویم گوشی خودت می‌آید.</p>
+        <p class="heritage-note" data-i18n="remNote">با زدن دکمه‌ی «یادآوری»، یک پرونده‌ی کوچکِ تقویم بارگیری می‌شود؛ آن را روی گوشی‌ات باز کن و «افزودن به تقویم» را بزن تا آن روز در تقویم گوشی‌ات بنشیند و یک روز پیش از آن به تو یادآوری شود. این یادآوری از سوی تقویم گوشی خودت می‌آید؛ برای آگاه شدن از بخش‌های تازه‌ی خود سایت هم زنگ آگاه‌سازی را در صفحه‌ی خانه یا بخش اپلیکیشن فعال کن.</p>
       </section>
 
       <section class="heritage" id="monuments" data-view="monuments" aria-label="Ancient monuments of Iran">
@@ -3122,6 +3165,16 @@
           appMsgManual: "Your browser did not show the install window; follow the steps for your phone below — it takes under a minute.",
           appMsgAccepted: "Done! Mehr Iran Dokht is being added to your home screen.",
           appMsgDismissed: "No problem — whenever you like, you can install it with the steps below.",
+          notifyBtn: "Turn on notifications",
+          notifyBtnOn: "Notifications are on",
+          notifyTitle: "News of new sections",
+          notifyIntro: "Turn on the notification bell and whenever a new section — a fresh tale or narration, a new product — is added to the site, you will be notified on your phone, even when the site is closed. On iPhone, first install the app with the steps on this page, then tap the bell from inside the app itself.",
+          notifyMsgOn: "Done! Notifications are on — new sections will now reach your phone.",
+          notifyMsgOff: "Notifications are off now; you can turn them back on any time.",
+          notifyMsgDenied: "Notifications are blocked in your browser. Allow notifications for this site in your browser settings, then tap the bell again.",
+          notifyMsgInstall: "On iPhone, notifications work only inside the installed app: first add the site to your home screen with the steps on this page, then open the app and tap the bell there.",
+          notifyMsgUnsupported: "This browser cannot show notifications. Open the site in Safari or Chrome and tap the bell again.",
+          notifyMsgWorking: "One moment…",
           storeTitle: "And the App Store? <em>Can it go there too?</em>",
           storeIntro: "Yes — it is possible, and the door is not closed; there are simply two different paths, and it is good to know both, so that when you introduce Mehr Iran Dokht you can say with confidence that it has both a website and an app:",
           storeNowTag: "Ready right now",
@@ -3206,6 +3259,7 @@
           voiceDur6: "4:15",
           voiceDur7: "2:56",
           voiceDur8: "3:08",
+          voiceDur9: "3:46",
           livingBadge: "Living painting · in motion",
           livingTitle: "The paintings are no longer still — they live and move",
           livingText: "The camera slowly drifts and draws closer, light slides across the scene, and where there is fire the flame flickers and sparks rise — like a living miniature. If your eyes tire, pause the motion with the button here.",
@@ -3688,7 +3742,7 @@
           festNote: "Most of these festivals are “same-name day and month” feasts: they fall on the day of the month whose name matches the month itself — for example, the day of Amordad in the month of Amordad.",
           remBtn: "Reminder",
           upTitle: "Upcoming festivals",
-          remNote: "Tapping “Reminder” downloads a small calendar file. Open it on your phone and choose “Add to Calendar”, and that day will sit in your phone's calendar, which will remind you one day before it. This website itself cannot send messages or notifications — the reminder comes from your own phone's calendar.",
+          remNote: "Tapping “Reminder” downloads a small calendar file. Open it on your phone and choose “Add to Calendar”, and that day will sit in your phone's calendar, which will remind you one day before it. That reminder comes from your own phone's calendar; to hear about new sections on the site itself, turn on the notification bell on the home page or in the App section.",
           perTitle: "Title",
           perNote: "Note (optional)",
           perOnce: "Once",
@@ -3977,6 +4031,16 @@
           appMsgManual: "Votre navigateur n'a pas affiché la fenêtre d'installation ; suivez les étapes pour votre téléphone ci-dessous — cela prend moins d'une minute.",
           appMsgAccepted: "C'est fait ! Mehr Iran Dokht s'ajoute à votre écran d'accueil.",
           appMsgDismissed: "Pas de souci — quand vous le voudrez, vous pourrez l'installer avec les étapes ci-dessous.",
+          notifyBtn: "Activer les notifications",
+          notifyBtnOn: "Notifications activées",
+          notifyTitle: "Les nouveautés du site",
+          notifyIntro: "Activez la cloche de notification : chaque fois qu'une nouvelle section — un conte ou une narration fraîche, un nouveau produit — arrive sur le site, vous serez prévenu sur votre téléphone, même quand le site est fermé. Sur iPhone, installez d'abord l'application avec les étapes de cette page, puis touchez la cloche depuis l'application elle-même.",
+          notifyMsgOn: "C'est fait ! Les notifications sont activées — les nouveautés arriveront sur votre téléphone.",
+          notifyMsgOff: "Les notifications sont désactivées ; vous pouvez les réactiver quand vous le voudrez.",
+          notifyMsgDenied: "Les notifications sont bloquées dans votre navigateur. Autorisez-les pour ce site dans les réglages du navigateur, puis touchez à nouveau la cloche.",
+          notifyMsgInstall: "Sur iPhone, les notifications ne fonctionnent que dans l'application installée : ajoutez d'abord le site à l'écran d'accueil avec les étapes de cette page, puis ouvrez l'application et touchez la cloche.",
+          notifyMsgUnsupported: "Ce navigateur ne peut pas afficher de notifications. Ouvrez le site dans Safari ou Chrome et touchez à nouveau la cloche.",
+          notifyMsgWorking: "Un instant…",
           storeTitle: "Et l'App Store ? <em>Peut-elle y aller aussi ?</em>",
           storeIntro: "Oui, c'est possible, et la porte n'est pas fermée ; il y a simplement deux chemins différents, et il est bon de connaître les deux, pour pouvoir dire en toute confiance, quand vous présentez Mehr Iran Dokht, qu'elle a à la fois un site web et une application :",
           storeNowTag: "Prête dès maintenant",
@@ -4061,6 +4125,7 @@
           voiceDur6: "4:15",
           voiceDur7: "2:56",
           voiceDur8: "3:08",
+          voiceDur9: "3:46",
           livingBadge: "Miniature vivante · en mouvement",
           livingTitle: "Les miniatures ne sont plus fixes — elles vivent et bougent",
           livingText: "La caméra glisse lentement et se rapproche, la lumière traverse la scène, et là où il y a du feu, la flamme vacille et des étincelles s'élèvent — comme une miniature vivante. Si vos yeux se fatiguent, mettez le mouvement en pause avec le bouton ici.",
@@ -4543,7 +4608,7 @@
           festNote: "La plupart de ces fêtes sont des fêtes « du jour et du mois homonymes » : elles tombent le jour du mois dont le nom est le même que celui du mois — par exemple, le jour d'Amordad dans le mois d'Amordad.",
           remBtn: "Rappel",
           upTitle: "Fêtes à venir",
-          remNote: "En touchant « Rappel », un petit fichier de calendrier se télécharge. Ouvrez-le sur votre téléphone et choisissez « Ajouter au calendrier » : ce jour entrera dans le calendrier de votre téléphone, qui vous le rappellera un jour avant. Ce site ne peut envoyer ni messages ni notifications — le rappel vient du calendrier de votre téléphone.",
+          remNote: "En touchant « Rappel », un petit fichier de calendrier se télécharge. Ouvrez-le sur votre téléphone et choisissez « Ajouter au calendrier » : ce jour entrera dans le calendrier de votre téléphone, qui vous le rappellera un jour avant. Ce rappel vient du calendrier de votre téléphone ; pour être prévenu des nouveautés du site lui-même, activez la cloche de notification sur la page d'accueil ou dans la section Application.",
           perTitle: "Titre",
           perNote: "Note (facultatif)",
           perOnce: "Une fois",
@@ -6084,6 +6149,17 @@
             fr: { play: "Écouter la narration de Shéhérazade et Shahriar par Elnaz", pause: "Mettre en pause la narration de Shéhérazade et Shahriar" }
           }
         });
+        /* Night Two (The Merchant and the Efreet) */
+        initVoice({
+          box: "voiceMerchant", btn: "voicePlay9", audio: "voiceAudio9",
+          prog: "voiceProg9", fill: "voiceFill9", time: "voiceTime9",
+          fallbackDur: 226,
+          labels: {
+            fa: { play: "پخش خوانش تاجر و عفریت با صدای الناز", pause: "ایست خوانش تاجر و عفریت" },
+            en: { play: "Play Elnaz's narration of The Merchant and the Efreet", pause: "Pause the narration of The Merchant and the Efreet" },
+            fr: { play: "Écouter la narration du Marchand et l'Éfrit par Elnaz", pause: "Mettre en pause la narration du Marchand et l'Éfrit" }
+          }
+        });
         /* Avesta Part One (Yasna & the Gathas) */
         initVoice({
           box: "voiceYasna", btn: "voicePlay5", audio: "voiceAudio5",
@@ -6150,6 +6226,165 @@
             if (p && p.catch) p.catch(function () {});
           });
         }
+      })();
+    </script>
+    <script>
+      /* ---------- Real phone notifications (OneSignal web push) ----------
+         The gold bell: a visitor taps it, grants permission once, and from then
+         on every new section can be pushed to their phone — even with the site
+         closed. On iPhone, web push works only inside the installed app
+         (Add to Home Screen), so there the bell first explains that step.
+         Sending itself happens from the OneSignal dashboard; this page only
+         subscribes visitors. If the SDK cannot load or the browser cannot do
+         push, the bell explains that in the page's own language. */
+      (function () {
+        var APP_ID = "d0c2ef58-bff2-4bce-ba22-a1ca559f0405";
+        var btns = document.querySelectorAll("[data-notify-btn]");
+        if (!btns.length) return;
+        var msgs = document.querySelectorAll("[data-notify-msg]");
+
+        var NOTIFY_FA = {
+          notifyBtn: "فعال کردن آگاه‌سازی",
+          notifyBtnOn: "آگاه‌سازی فعال است",
+          notifyMsgOn: "تمام شد! آگاه‌سازی فعال است؛ بخش‌های تازه روی گوشی‌ات می‌آیند.",
+          notifyMsgOff: "آگاه‌سازی خاموش شد؛ هر وقت خواستی دوباره روشنش کن.",
+          notifyMsgDenied: "آگاه‌سازی در مرورگرت بسته است؛ از تنظیمات مرورگر، اجازه‌ی آگاه‌سازی این سایت را باز کن و دوباره زنگ را بزن.",
+          notifyMsgInstall: "روی آیفون، آگاه‌سازی فقط در اپ نصب‌شده کار می‌کند: نخست سایت را با گام‌های بخش اپلیکیشن به صفحه‌ی اصلی گوشی‌ات بیفزا، بعد اپ را باز کن و زنگ را از داخل خود اپ بزن.",
+          notifyMsgUnsupported: "این مرورگر آگاه‌سازی را پشتیبانی نمی‌کند؛ سایت را در سافاری یا کروم باز کن و دوباره زنگ را بزن.",
+          notifyMsgWorking: "چشمکی صبر کن…"
+        };
+        function nText(key) {
+          var lang = document.documentElement.lang || "fa";
+          if (lang === "fa") {
+            if (NOTIFY_FA[key]) return NOTIFY_FA[key];
+            if (typeof FA_TEXT !== "undefined" && FA_TEXT[key]) return FA_TEXT[key].replace(/<[^>]*>/g, "");
+            return "";
+          }
+          if (typeof I18N !== "undefined" && I18N[lang] && I18N[lang][key]) return I18N[lang][key].replace(/<[^>]*>/g, "");
+          return "";
+        }
+        function showMsg(key) {
+          var t = nText(key);
+          for (var i = 0; i < msgs.length; i++) {
+            msgs[i].textContent = t;
+            msgs[i].hidden = !t;
+          }
+        }
+        function isStandaloneNow() {
+          try {
+            if (window.matchMedia && window.matchMedia("(display-mode: standalone)").matches) return true;
+          } catch (e) {}
+          return window.navigator.standalone === true;
+        }
+        function isIos() { return /iphone|ipad|ipod/i.test(window.navigator.userAgent || ""); }
+        function pushSupported() {
+          return "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
+        }
+
+        var os = null;          /* the OneSignal object, once the SDK is ready */
+        var osFailed = false;   /* SDK blocked, failed to init, or wrong domain */
+        var subscribed = false;
+        var pendingTap = false; /* visitor tapped before the SDK was ready */
+
+        function refreshNotifyUI() {
+          for (var i = 0; i < btns.length; i++) {
+            btns[i].classList.toggle("on", subscribed);
+            var label = btns[i].querySelector("[data-i18n]");
+            if (label) label.textContent = nText(subscribed ? "notifyBtnOn" : "notifyBtn");
+          }
+        }
+        function syncFromSdk() {
+          if (!os) return;
+          try {
+            subscribed = !!(os.User && os.User.PushSubscription && os.User.PushSubscription.optedIn);
+          } catch (e) {}
+          refreshNotifyUI();
+        }
+
+        function askPermission() {
+          if (!os) return;
+          try {
+            var p = os.Notifications.requestPermission();
+            if (p && p.then) {
+              p.then(function () { syncFromSdk(); }, function () { syncFromSdk(); });
+            }
+          } catch (e) {}
+          /* Some browsers resolve through the native permission instead. */
+          setTimeout(syncFromSdk, 1200);
+        }
+
+        function onBellTap() {
+          if (isIos() && !isStandaloneNow()) { showMsg("notifyMsgInstall"); return; }
+          if (!pushSupported()) { showMsg("notifyMsgUnsupported"); return; }
+          if (osFailed) { showMsg("notifyMsgUnsupported"); return; }
+          if (!os) { pendingTap = true; showMsg("notifyMsgWorking"); return; }
+          var perm = "default";
+          try { perm = os.Notifications.permissionNative || (window.Notification && Notification.permission) || "default"; } catch (e) {}
+          if (subscribed) {
+            try { os.User.PushSubscription.optOut(); } catch (e) {}
+            subscribed = false;
+            refreshNotifyUI();
+            showMsg("notifyMsgOff");
+            setTimeout(syncFromSdk, 800);
+            return;
+          }
+          if (perm === "denied") { showMsg("notifyMsgDenied"); return; }
+          showMsg("notifyMsgWorking");
+          askPermission();
+        }
+        for (var b = 0; b < btns.length; b++) btns[b].addEventListener("click", onBellTap);
+
+        /* If the SDK never becomes ready, later taps should explain, not hang. */
+        setTimeout(function () { if (!os) osFailed = true; }, 9000);
+
+        window.OneSignalDeferred = window.OneSignalDeferred || [];
+        window.OneSignalDeferred.push(function (OneSignal) {
+          os = OneSignal;
+          /* The worker ships inside assets/ (the only folder served with this
+             page), so its scope is that folder; push delivery and notification
+             clicks are handled by the OneSignal worker itself. */
+          var dir = (window.location.pathname || "/").replace(/[^\/]*$/, "");
+          var initDone = false;
+          try {
+            var initResult = OneSignal.init({
+              appId: "d0c2ef58-bff2-4bce-ba22-a1ca559f0405",
+              notifyButton: { enable: false },
+              allowLocalhostAsSecureOrigin: true,
+              serviceWorkerPath: dir + "assets/OneSignalSDKWorker.js",
+              serviceWorkerParam: { scope: dir + "assets/" }
+            });
+            if (initResult && initResult.then) {
+              initResult.then(function () { initDone = true; afterInit(); }, function () { osFailed = true; os = null; });
+            } else { initDone = true; afterInit(); }
+          } catch (e) { osFailed = true; os = null; }
+
+          function afterInit() {
+            if (!initDone) return;
+            osFailed = false;
+            try {
+              if (OneSignal.Notifications && typeof OneSignal.Notifications.isPushSupported === "function" && !OneSignal.Notifications.isPushSupported()) {
+                osFailed = true;
+              }
+            } catch (e) {}
+            syncFromSdk();
+            try {
+              OneSignal.User.PushSubscription.addEventListener("change", function () {
+                syncFromSdk();
+                if (subscribed) showMsg("notifyMsgOn");
+              });
+            } catch (e) {}
+            try {
+              OneSignal.Notifications.addEventListener("permissionChange", function () { syncFromSdk(); });
+            } catch (e) {}
+            if (pendingTap) { pendingTap = false; onBellTap(); }
+          }
+        });
+
+        var notifyLangBtns = document.querySelectorAll("[data-lang-btn]");
+        for (var lb = 0; lb < notifyLangBtns.length; lb++) {
+          notifyLangBtns[lb].addEventListener("click", function () { refreshNotifyUI(); });
+        }
+        refreshNotifyUI();
       })();
     </script>
   </body>
