@@ -17,19 +17,11 @@
     <title>مهر ایران دخت — به‌زودی</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800;900&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
     <style>
-      /* IranNastaliq (web version 1.0) is self-hosted in assets/, but it is NOT used for
-         Persian text: in iPhone Safari it renders Persian letters un-joined. Persian is set
-         in Noto Nastaliq Urdu instead, which joins correctly on every browser. */
-      @font-face {
-        font-family: "IranNastaliq";
-        src: url("assets/IranNastaliq.woff2") format("woff2"),
-             url("assets/IranNastaliq.woff") format("woff");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
+      /* Every Persian text on this site — headings and body alike — is set in Amiri,
+         the classic book Naskh face Elnaz chose. No Nastaliq face is loaded at all:
+         its letters render un-joined on some devices, so it was removed completely. */
       * { box-sizing: border-box; }
       [hidden] { display: none !important; }
       :root {
@@ -78,7 +70,7 @@
       html { scroll-behavior: smooth; }
       body {
         margin: 0;
-        font-family: "Vazirmatn", system-ui, sans-serif;
+        font-family: "Amiri", Georgia, serif;
         background-color: var(--bg);
         color: var(--ink);
         line-height: 1.8;
@@ -560,10 +552,9 @@
         border: 1.5px solid var(--gold-bright); border-radius: 999px;
         padding: .02rem .8rem; font-size: .78rem; font-weight: 900; line-height: 1.9;
         box-shadow: 0 4px 12px rgba(22, 42, 92, .3);
-        font-family: "Vazirmatn", system-ui, sans-serif;
+        font-family: "Amiri", Georgia, serif;
         pointer-events: none;
       }
-      html[lang="fa"] .new-badge { font-family: "Noto Nastaliq Urdu", serif; font-size: .74rem; line-height: 2.1; }
       .new-badge.inline {
         position: static; box-shadow: none; flex: none;
         padding: 0 .6rem; font-size: .7rem; line-height: 1.8;
@@ -747,33 +738,17 @@
         .ideas-box { padding: 1.3rem; }
       }
 
-      /* ---------- Typography: Nastaliq for Persian, elegant serif for Latin headings ---------- */
+      /* ---------- Typography: Amiri for ALL Persian text — bold headings, regular body.
+         No Nastaliq anywhere (its letters render un-joined); Latin headings keep Cormorant. ---------- */
       html[lang="fa"] body {
-        font-family: "Noto Nastaliq Urdu", "Vazirmatn", serif;
-        line-height: 2.1;
+        font-family: "Amiri", Georgia, serif;
+        line-height: 1.9;
         letter-spacing: normal;
         word-spacing: normal;
       }
-      html[lang="fa"] .coming h1 { font-size: clamp(1.55rem, 5vw, 2.45rem); line-height: 2.05; }
-      html[lang="fa"] .heritage-head h2 { font-size: 1.35rem; line-height: 1.95; }
-      html[lang="fa"] .ideas h2 { font-size: 1.22rem; line-height: 1.95; }
-      html[lang="fa"] .full-story h3 { font-size: 1.12rem; line-height: 1.95; }
-      html[lang="fa"] .story-card h3 { line-height: 1.95; }
-      html[lang="fa"] .fest-card h3 { font-size: 1.02rem; line-height: 1.95; }
-      html[lang="fa"] .cal-box h3, html[lang="fa"] .roadmap h3 { line-height: 1.95; }
-      html[lang="fa"] .verse { line-height: 2.55; }
-      html[lang="fa"] .brand b { font-size: 1.05rem; line-height: 1.9; }
-      html[lang="fa"] .brand small { line-height: 1.9; }
-      html[lang="fa"] .cal-today-meta b { font-size: 1.12rem; line-height: 1.95; }
-      html[lang="fa"] .kicker, html[lang="fa"] .soon-pill, html[lang="fa"] .lang-switch button,
-      html[lang="fa"] .site-nav a, html[lang="fa"] .btn, html[lang="fa"] .idea-tags span,
-      html[lang="fa"] .story-card .tag, html[lang="fa"] .full-story .tag,
-      html[lang="fa"] .status, html[lang="fa"] .voice-badge, html[lang="fa"] .fest-card h3 .fest-year,
-      html[lang="fa"] .app-status, html[lang="fa"] .install-btn, html[lang="fa"] .store-card .tag {
-        line-height: 2;
+      html[lang="fa"] h1, html[lang="fa"] h2, html[lang="fa"] h3, html[lang="fa"] h4 {
+        font-weight: 700;
       }
-      html[lang="fa"] .store-box h3 { font-size: 1.12rem; line-height: 1.95; }
-      html[lang="fa"] .device-card h3 { line-height: 1.95; }
       /* ---------- Darbari format: royal-blue & gold court styling ---------- */
       /* Header becomes a deep royal-blue court band with a gold rule */
       header {
@@ -851,7 +826,7 @@
         background: var(--court-2);
       }
       .coming-in { margin-inline: auto; text-align: center; }
-      /* Greeting inside the hero: court Nastaliq in gold on royal blue */
+      /* Greeting inside the hero: gold on royal blue, in a court pill */
       .hero-greeting {
         display: inline-block; margin: 0 0 1.1rem;
         background: linear-gradient(160deg, var(--court), var(--court-2));
@@ -953,9 +928,8 @@
         background: color-mix(in srgb, var(--surface) 88%, transparent); color: var(--accent);
         border: 1px solid var(--line); border-radius: 999px; padding: .12rem .7rem .12rem .55rem;
         font-size: .76rem; font-weight: 800; line-height: 1.9; pointer-events: none;
-        font-family: "Vazirmatn", system-ui, sans-serif;
+        font-family: "Amiri", Georgia, serif;
       }
-      html[lang="fa"] .living-badge { font-family: "Noto Nastaliq Urdu", serif; font-size: .72rem; }
       .living-badge::before {
         content: ""; width: 8px; height: 8px; border-radius: 999px; background: var(--gold); flex: none;
         animation: livingPulse 1.9s ease-in-out infinite;
@@ -1136,7 +1110,7 @@
         .bpage.enter-next, .bpage.enter-prev { animation: none !important; }
       }
 
-      .verse[dir="ltr"] { font-family: "Cormorant Garamond", "Vazirmatn", Georgia, serif; }
+      .verse[dir="ltr"] { font-family: "Cormorant Garamond", "Amiri", Georgia, serif; }
       html[lang="en"] .coming h1, html[lang="fr"] .coming h1,
       html[lang="en"] .heritage-head h2, html[lang="fr"] .heritage-head h2,
       html[lang="en"] .ideas h2, html[lang="fr"] .ideas h2,
