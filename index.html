@@ -677,6 +677,10 @@
       .product-ph::after { content: ""; position: absolute; inset: 10px; border: 1.5px solid color-mix(in srgb, var(--gold-bright) 65%, transparent); border-radius: 10px; pointer-events: none; }
       .product-ph-name { color: var(--gold-bright); font-size: 1.45rem; font-weight: 700; line-height: 2; text-align: center; padding: 0 .6rem; }
       .product-soon { position: absolute; top: 1.05rem; inset-inline-start: 1.05rem; z-index: 1; background: var(--gold-bright); color: #101c3f; font-size: .8rem; font-weight: 900; line-height: 1.6; border-radius: 999px; padding: .15rem .8rem; }
+      /* Pre-order (Shahbaz card only): the «پیش‌فروش» badge reuses the darbari .new-badge
+         (gold on royal blue); the note sits under the PayPal button */
+      .product-card { position: relative; }
+      .preorder-note { flex: none !important; border-top: 1px dashed var(--line); padding-top: .6rem; color: var(--ink-soft); font-size: .86rem; }
       @media (max-width: 700px) { .product-grid { grid-template-columns: 1fr; } }
 
       /* ---------- App (installable) ---------- */
@@ -1255,6 +1259,7 @@
           <p data-i18n="ideasText">نخستین محصولات مهر ایران دخت، بج‌های فلزی ایران کهن‌اند؛ دو بج نخست را از ایران آورده‌ام و همین حالا موجود و آماده‌ی سفارش‌اند و پنج بج دیگر هم به‌زودی ساخته می‌شوند. زیر هر محصول نوشته شده که در ایران موجود است یا در خارج از ایران، تا هر جا که هستی بدانی کدام محصول را می‌توانی بخری. خرید با دکمه‌ی «خرید با PayPal» زیر هر محصول انجام می‌شود: دکمه را بزن و در صفحه‌ی PayPal مبلغ ۷ دلار کانادا را پرداخت کن؛ بعد از پرداخت، از راه صفحه‌ی «پیوند با من» نام بج و نشانی‌ات را برایم بفرست تا سفارشت را برایت ارسال کنم.</p>
           <div class="product-grid">
             <article class="product-card">
+              <span class="new-badge" data-i18n="preorderBadge">پیش‌فروش</span>
               <img draggable="false" src="assets/pin-shahbaz.jpg" data-i18n-alt="prod1Alt" alt="بج فلزی طلایی شهباز روی میز چوبی قدیمی؛ بج چهارگوش طلایی با نقش عقاب بال‌گشوده‌ی درفش شهبازی هخامنشی و حاشیه‌ی مثلثی" loading="lazy" />
               <div class="product-body">
                 <h3 data-i18n="prod1Title">بج فلزی طلایی «شهباز — درفش شهبازی»</h3>
@@ -1265,6 +1270,7 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg>
                   <span data-i18n="orderBtn">خرید با PayPal</span>
                 </a>
+                <p class="preorder-note" data-i18n="preorderNote">این بج پیش‌فروش است. تولید پس از رسیدن به ۵۰ پیش‌سفارش آغاز می‌شود و ارسال حدود ۳ تا ۴ هفته پس از تولید انجام می‌گردد. اگر پیش‌فروش به حد تولید نرسد، مبلغ پرداختی به‌طور کامل بازگردانده می‌شود.</p>
               </div>
             </article>
             <article class="product-card">
@@ -3197,6 +3203,8 @@
           prodAvailIn: "Available in Iran",
           prodAvailOut: "Available outside Iran",
           orderBtn: "Buy with PayPal",
+          preorderBadge: "Pre-order",
+          preorderNote: "This pin is a pre-order. Production begins once 50 pre-orders are reached, and shipping takes place about 3 to 4 weeks after production. If the pre-order does not reach the production goal, payments are fully refunded.",
           buyNoteLabel: "Buying note:",
           buyNote: "Payment is made on PayPal's official page, with CA$7 already filled in. After paying, send the pin's name, your name and your mailing address through the Contact page so I can send your order.",
           prodSoon: "Coming soon",
@@ -4063,6 +4071,8 @@
           prodAvailIn: "Disponible en Iran",
           prodAvailOut: "Disponible hors d'Iran",
           orderBtn: "Acheter avec PayPal",
+          preorderBadge: "Précommande",
+          preorderNote: "Cet insigne est en précommande. La production commence dès 50 précommandes atteintes, et l'envoi a lieu environ 3 à 4 semaines après la production. Si la précommande n'atteint pas l'objectif de production, les paiements sont intégralement remboursés.",
           buyNoteLabel: "Note d'achat : ",
           buyNote: "Le paiement se fait sur la page officielle de PayPal, avec 7 $ CA déjà inscrits. Après le paiement, envoyez le nom de la broche, votre nom et votre adresse postale via la page Contact pour que je puisse envoyer votre commande.",
           prodSoon: "Bientôt",
