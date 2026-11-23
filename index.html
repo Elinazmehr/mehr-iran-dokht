@@ -2458,17 +2458,21 @@
         <article class="full-story">
           <span class="tag" data-i18n="s6Tag">سرگذشت ششم · به‌ترتیب شاهنامه</span>
           <h3 data-i18n="s6Title">فریدون و سه پسرش — بخش کردن جهان</h3>
-          <!-- Voice narration: Elnaz's own recording of Tale Six (Fereydun and his three sons) goes here (assets/voice-shahnameh-6.*) once she sends it. -->
-          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
-            <span class="voice-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-            </span>
+          <!-- Voice narration: Elnaz's own recording of Tale Six (Fereydun and his three sons) — recorded by her, added 2026-11-22. -->
+          <div class="voice-box live" id="voiceFereydun" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <button type="button" class="voice-play" id="voicePlay7" aria-label="پخش خوانش سرگذشت فریدون و سه پسرش با صدای الناز" aria-pressed="false">
+              <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
-              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
               <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+              <span class="voice-progress" id="voiceProg7" aria-hidden="true"><i id="voiceFill7"></i></span>
+              <span class="voice-time" id="voiceTime7" dir="ltr">0:00 / 2:56</span>
             </div>
-            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+            <span class="voice-badge voice-badge-live" data-i18n="voiceDur7">۲:۵۶</span>
+            <audio id="voiceAudio7" src="assets/voice-shahnameh-6.m4a" preload="metadata"></audio>
           </div>
           <figure class="card-fig story-fig living-fig" data-motion="pan"><span class="living-frame"><img draggable="false" src="assets/shahnameh-fereydun.webp" data-i18n-alt="s6ImgAlt" alt="نگاره‌ی مینیاتور ایرانی از فریدونِ سپیدموی بر تخت زرین که جهان را میان سه پسرش سلم و تور و ایرج بخش می‌کند و طومار سهم ایرج را به او می‌سپارد و کوه دماوند از طاق کاخ پیداست، از سرگذشت ششم شاهنامه" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="s6ImgCap">فریدون جهان را میان سه پسرش بخش می‌کند — و سهم ایرج، کوچک‌ترین پسر، ایران است.</figcaption></figure>
           <p data-i18n="s6P1">فریدون از نژاد جمشید بود. پدرش آبتین را ضحاک کشته بود و مادرش فرانک، از بیم مأموران ضحاک، نوزاد را به البرز برد و او را به گاوی نام‌آور به نام «برمایه» سپرد که سه سال شیرش داد. چون فریدون شانزده‌ساله شد، از مادر سرگذشت خاندانش را پرسید و دانست که کیست و چه کینی بر گردن دارد. همان جوان بود که در سرگذشت پیش، با کاوه‌ی آهنگر برخاست و ضحاک را در دماوند به بند کشید. شاهنامه درباره‌ی او می‌گوید:</p>
@@ -3106,6 +3110,7 @@
           voiceDur4: "1:43",
           voiceDur5: "1:47",
           voiceDur6: "4:15",
+          voiceDur7: "2:56",
           livingBadge: "Living painting · in motion",
           livingTitle: "The paintings are no longer still — they live and move",
           livingText: "The camera slowly drifts and draws closer, light slides across the scene, and where there is fire the flame flickers and sparks rise — like a living miniature. If your eyes tire, pause the motion with the button here.",
@@ -3912,6 +3917,7 @@
           voiceDur4: "1:43",
           voiceDur5: "1:47",
           voiceDur6: "4:15",
+          voiceDur7: "2:56",
           livingBadge: "Miniature vivante · en mouvement",
           livingTitle: "Les miniatures ne sont plus fixes — elles vivent et bougent",
           livingText: "La caméra glisse lentement et se rapproche, la lumière traverse la scène, et là où il y a du feu, la flamme vacille et des étincelles s'élèvent — comme une miniature vivante. Si vos yeux se fatiguent, mettez le mouvement en pause avec le bouton ici.",
@@ -5795,6 +5801,17 @@
             fa: { play: "پخش خوانش سرگذشت ضحاک و کاوه‌ی آهنگر با صدای الناز", pause: "ایست خوانش سرگذشت ضحاک و کاوه‌ی آهنگر" },
             en: { play: "Play Elnaz's narration of the tale of Zahhak and Kaveh", pause: "Pause the narration of the tale of Zahhak and Kaveh" },
             fr: { play: "Écouter la narration du conte de Zahhak et Kaveh par Elnaz", pause: "Mettre en pause la narration du conte de Zahhak et Kaveh" }
+          }
+        });
+        /* Tale Six (Fereydun and his three sons) */
+        initVoice({
+          box: "voiceFereydun", btn: "voicePlay7", audio: "voiceAudio7",
+          prog: "voiceProg7", fill: "voiceFill7", time: "voiceTime7",
+          fallbackDur: 176,
+          labels: {
+            fa: { play: "پخش خوانش سرگذشت فریدون و سه پسرش با صدای الناز", pause: "ایست خوانش سرگذشت فریدون و سه پسرش" },
+            en: { play: "Play Elnaz's narration of the tale of Fereydun and his three sons", pause: "Pause the narration of the tale of Fereydun and his three sons" },
+            fr: { play: "Écouter la narration du conte de Fereydun et ses trois fils par Elnaz", pause: "Mettre en pause la narration du conte de Fereydun et ses trois fils" }
           }
         });
         /* Avesta Part One (Yasna & the Gathas) */
