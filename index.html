@@ -231,8 +231,8 @@
         overflow: hidden; text-decoration: none; color: var(--ink);
         display: flex; flex-direction: column; box-shadow: var(--shadow);
       }
-      .book-cover { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--court); }
-      .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .book-card .book-cover { display: block; aspect-ratio: 4 / 3; overflow: hidden; background: var(--court); }
+      .book-card .book-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
       .book-body { padding: 1.05rem 1.2rem 1.25rem; display: flex; flex-direction: column; gap: .3rem; flex: 1; }
       .book-name { font-size: 1.3rem; font-weight: 900; line-height: 1.5; color: var(--ink); }
       .book-sub { color: var(--ink-soft); font-size: .95rem; line-height: 1.75; flex: 1; }
@@ -2977,19 +2977,24 @@
           <p data-i18n="s6P3">اما این بخش کردن، به جای برادری، تخم کین کاشت. سلم و تور بر ایرج رشک بردند که چرا بهترین سرزمین از آنِ اوست و نامه‌ای خشم‌آلود برای پدر فرستادند. ایرج، که دلی پاک داشت، بی‌سلاح و بی‌سپاه نزد برادران رفت تا با مهربانی دلشان را نرم کند؛ اما تور در خشم با خنجر بر او تاخت و او را کشت و سرش را در صندوقی نزد پدر فرستاد. فریدونِ پیر سر بریده‌ی پسر نازنینش را در آغوش گرفت و از اندوه، چشمانش از گریه نابینا شد. او چشم به راه نوه‌اش منوچهر ماند تا کین ایرج را از سلم و تور بستاند — و آن، سرگذشت بعدی ماست.</p>
         </article>
         <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="s7Tag">سرگذشت هفتم · به‌ترتیب شاهنامه</span>
           <h3 data-i18n="s7Title">منوچهر و کین‌خواهی ایرج</h3>
-          <!-- Voice narration: Elnaz's own recording of Tale Seven (Manuchehr) goes here (assets/voice-shahnameh-7.*) once she sends it. -->
-          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
-            <span class="voice-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-            </span>
+          <!-- Voice narration: Elnaz's own recording of Tale Seven (Manuchehr) — recorded by her, added 2026-11-23. -->
+          <div class="voice-box live" id="voiceManuchehr" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <button type="button" class="voice-play" id="voicePlay10" aria-label="پخش خوانش سرگذشت منوچهر و کین‌خواهی ایرج با صدای الناز" aria-pressed="false">
+              <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
-              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
               <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+              <span class="voice-progress" id="voiceProg10" aria-hidden="true"><i id="voiceFill10"></i></span>
+              <span class="voice-time" id="voiceTime10" dir="ltr">0:00 / 2:48</span>
             </div>
-            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+            <span class="voice-badge voice-badge-live" data-i18n="voiceDur10">۲:۴۸</span>
+            <audio id="voiceAudio10" src="assets/voice-shahnameh-7.m4a" preload="metadata"></audio>
           </div>
           <figure class="card-fig story-fig living-fig" data-motion="pan"><span class="living-frame"><img draggable="false" src="assets/shahnameh-manuchehr.webp" data-i18n-alt="s7ImgAlt" alt="نگاره‌ی مینیاتور ایرانی از منوچهر، شاه جوان، بر تخت زرین در ایوان کاخ که فرستاده خبر پیروزی در نبرد کین‌خواهی ایرج را برایش آورده و سپاهیان و درفش شیر و خورشید گرد اویند و کوه دماوند از طاق کاخ پیداست، از سرگذشت هفتم شاهنامه" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="s7ImgCap">منوچهر بر تخت — شاه جوانی که کین پدربزرگش ایرج را از سلم و تور ستاند و صد و بیست سال به داد پادشاهی کرد.</figcaption></figure>
           <p data-i18n="s7P1">پس از فریدون، تخت به نوه‌اش منوچهر رسید؛ پسری از دختر ایرج که فریدون او را با دلی پر امید پرورده بود تا روزی کین پدر را بستاند. منوچهر جوانی دلیر و دادگر بود. نخست بر سر مزار فریدون سوگ گرفت و آن‌گاه کمر به کین‌خواهی ایرج بست: سپاهی بزرگ آراست، قارنِ پهلوان را سپهبد سپاه کرد و خود به سوی توران و سرزمین سلم به راه افتاد:</p>
@@ -3638,6 +3643,7 @@
           voiceDur7: "2:56",
           voiceDur8: "3:08",
           voiceDur9: "3:46",
+          voiceDur10: "2:48",
           livingBadge: "Living painting · in motion",
           livingTitle: "The paintings are no longer still — they live and move",
           livingText: "The camera slowly drifts and draws closer, light slides across the scene, and where there is fire the flame flickers and sparks rise — like a living miniature. If your eyes tire, pause the motion with the button here.",
@@ -4651,6 +4657,7 @@
           voiceDur7: "2:56",
           voiceDur8: "3:08",
           voiceDur9: "3:46",
+          voiceDur10: "2:48",
           livingBadge: "Miniature vivante · en mouvement",
           livingTitle: "Les miniatures ne sont plus fixes — elles vivent et bougent",
           livingText: "La caméra glisse lentement et se rapproche, la lumière traverse la scène, et là où il y a du feu, la flamme vacille et des étincelles s'élèvent — comme une miniature vivante. Si vos yeux se fatiguent, mettez le mouvement en pause avec le bouton ici.",
@@ -6788,6 +6795,17 @@
             fa: { play: "پخش خوانش سرگذشت فریدون و سه پسرش با صدای الناز", pause: "ایست خوانش سرگذشت فریدون و سه پسرش" },
             en: { play: "Play Elnaz's narration of the tale of Fereydun and his three sons", pause: "Pause the narration of the tale of Fereydun and his three sons" },
             fr: { play: "Écouter la narration du conte de Fereydun et ses trois fils par Elnaz", pause: "Mettre en pause la narration du conte de Fereydun et ses trois fils" }
+          }
+        });
+        /* Tale Seven (Manuchehr and the vengeance for Iraj) */
+        initVoice({
+          box: "voiceManuchehr", btn: "voicePlay10", audio: "voiceAudio10",
+          prog: "voiceProg10", fill: "voiceFill10", time: "voiceTime10",
+          fallbackDur: 168,
+          labels: {
+            fa: { play: "پخش خوانش سرگذشت منوچهر و کین‌خواهی ایرج با صدای الناز", pause: "ایست خوانش سرگذشت منوچهر و کین‌خواهی ایرج" },
+            en: { play: "Play Elnaz's narration of the tale of Manuchehr and the vengeance for Iraj", pause: "Pause the narration of the tale of Manuchehr and the vengeance for Iraj" },
+            fr: { play: "Écouter la narration du conte de Manuchehr et la vengeance d'Iraj par Elnaz", pause: "Mettre en pause la narration du conte de Manuchehr et la vengeance d'Iraj" }
           }
         });
         /* Night One (Shahrazad and Shahriar) */
