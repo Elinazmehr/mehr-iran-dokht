@@ -1051,6 +1051,8 @@
       .book-toc button[aria-current="true"] { color: var(--accent); }
       .book-pages {
         position: relative; padding: 1.3rem 1.15rem 1.5rem;
+        /* Vertical drags belong to page scrolling; only a sideways swipe is a page turn */
+        touch-action: pan-y;
         background:
           linear-gradient(to left, rgba(30,53,112,.07), transparent 26px),
           var(--surface);
@@ -5342,7 +5344,7 @@
             open: "گشودن کتاب", openHint: "روی جلد بزن؛ کتاب باز می‌شه و برگ‌به‌برگ ورق می‌خوره",
             close: "بستن کتاب", contents: "فهرست", cover: "جلد کتاب",
             prev: "برگ پیشین", next: "برگ دیگر", end: "پایان کتاب",
-            ind: "برگ {n} از {t}", swipe: "با کشیدن انگشت روی برگ هم می‌تونی ورق بزنی",
+            ind: "برگ {n} از {t}", swipe: "برای ورق زدن، انگشتت رو به چپ یا راست روی برگ بکش؛ بالا و پایین کشیدن فقط برگ رو بالا و پایین می‌بره",
             shTitle: "شاهنامه", shBy: "حکیم ابوالقاسم فردوسی",
             avTitle: "اوستا", avBy: "سرودهای کهنِ اشو زرتشت",
             nTitle: "هزار و یک شب", nBy: "شهرزاد قصه‌گو"
@@ -5351,7 +5353,7 @@
             open: "Open the book", openHint: "Tap the cover; the book opens and turns page by page",
             close: "Close the book", contents: "Contents", cover: "Cover",
             prev: "Previous page", next: "Next page", end: "End of the book",
-            ind: "Page {n} of {t}", swipe: "You can also swipe across a page to turn it",
+            ind: "Page {n} of {t}", swipe: "To turn a page, swipe left or right across it; swiping up or down only scrolls",
             shTitle: "Shahnameh", shBy: "Hakim Abolqasem Ferdowsi",
             avTitle: "Avesta", avBy: "The ancient hymns of Asho Zoroaster",
             nTitle: "One Thousand and One Nights", nBy: "Shahrazad the storyteller"
@@ -5360,7 +5362,7 @@
             open: "Ouvrir le livre", openHint: "Touchez la couverture ; le livre s'ouvre et se feuillette page par page",
             close: "Fermer le livre", contents: "Sommaire", cover: "Couverture",
             prev: "Page précédente", next: "Page suivante", end: "Fin du livre",
-            ind: "Page {n} sur {t}", swipe: "Vous pouvez aussi glisser sur une page pour la tourner",
+            ind: "Page {n} sur {t}", swipe: "Pour tourner une page, glissez vers la gauche ou la droite ; glisser vers le haut ou le bas fait seulement défiler",
             shTitle: "Shahnameh", shBy: "Hakim Abolqasem Ferdowsi",
             avTitle: "Avesta", avBy: "Les hymnes anciens d'Asho Zoroastre",
             nTitle: "Les Mille et Une Nuits", nBy: "Shahrazad la conteuse"
@@ -5571,17 +5573,46 @@
           B.prevBtn.addEventListener("click", function () { goTo(B.idx - 1, "prev"); });
           B.nextBtn.addEventListener("click", function () { goTo(B.idx + 1, "next"); });
 
-          /* Swipe to turn: follow the physical book — in RTL a rightward sweep turns forward */
-          var touchX = null;
+          /* Swipe to turn — sideways only, following the physical book (in RTL a
+             rightward sweep turns forward). A drag up or down is a SCROLL and must
+             never turn the page: the old handler compared only the sideways drift
+             at touchend, so an ordinary scroll — which always drifts a little
+             sideways — flipped the page. Now both axes are tracked: the swipe is
+             cancelled the moment the gesture turns out to be mostly vertical, and
+             a page turns only when the final movement is long and clearly
+             horizontal (well over twice as wide as it is tall). A touch that
+             starts on a button, link, player or seek bar belongs to that control,
+             not to a page turn. */
+          var swipeX = null, swipeY = null, swipeDead = false;
+          function swipeReset() { swipeX = null; swipeY = null; swipeDead = false; }
           pagesWrap.addEventListener("touchstart", function (e) {
-            touchX = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : null;
+            if (!e.changedTouches || !e.changedTouches[0] || (e.touches && e.touches.length > 1)) { swipeDead = true; return; }
+            var t = e.target;
+            if (t && t.closest && t.closest("button, a, input, textarea, select, audio, video, .voice-progress, .vid-facade")) {
+              swipeDead = true; swipeX = null; swipeY = null; return;
+            }
+            swipeX = e.changedTouches[0].clientX;
+            swipeY = e.changedTouches[0].clientY;
+            swipeDead = false;
           }, { passive: true });
+          pagesWrap.addEventListener("touchmove", function (e) {
+            if (swipeX === null || swipeDead) return;
+            if (!e.changedTouches || !e.changedTouches[0]) return;
+            var mdx = e.changedTouches[0].clientX - swipeX;
+            var mdy = e.changedTouches[0].clientY - swipeY;
+            /* Clearly vertical so far: this is a scroll — kill the swipe for good */
+            if (Math.abs(mdy) > 14 && Math.abs(mdy) >= Math.abs(mdx)) swipeDead = true;
+          }, { passive: true });
+          pagesWrap.addEventListener("touchcancel", swipeReset, { passive: true });
           pagesWrap.addEventListener("touchend", function (e) {
-            if (touchX === null) return;
-            var endX = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : touchX;
-            var dx = endX - touchX;
-            touchX = null;
-            if (Math.abs(dx) < 52) return;
+            if (swipeX === null || swipeDead) { swipeReset(); return; }
+            var touch = e.changedTouches && e.changedTouches[0] ? e.changedTouches[0] : null;
+            if (!touch) { swipeReset(); return; }
+            var dx = touch.clientX - swipeX;
+            var dy = touch.clientY - swipeY;
+            swipeReset();
+            if (Math.abs(dx) < 72) return;
+            if (Math.abs(dx) < Math.abs(dy) * 2.2) return;
             var rtl = document.documentElement.dir !== "ltr";
             var forward = rtl ? dx > 0 : dx < 0;
             if (forward) goTo(B.idx + 1, "next"); else goTo(B.idx - 1, "prev");
