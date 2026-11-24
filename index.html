@@ -761,6 +761,7 @@
       .product-order.gold:hover { filter: brightness(1.06); }
       .product-note { flex: none; color: var(--ink-soft); font-size: .85rem; }
       .product-msg { flex: none; margin: 0; color: var(--gold); font-size: .88rem; font-weight: 800; line-height: 1.8; }
+      .product-ship { flex: none; margin: 0; font-size: .88rem; font-weight: 800; line-height: 1.8; color: var(--ink); background: color-mix(in srgb, var(--gold-bright) 16%, transparent); border: 1px solid color-mix(in srgb, var(--gold-bright) 50%, transparent); border-radius: 10px; padding: .45rem .75rem; }
       .buy-note { margin: 1.1rem 0 0; color: var(--ink-soft); font-size: .9rem; border-top: 1px dashed var(--line); padding-top: .9rem; }
       .buy-note b { color: var(--accent); }
       .product-ph { position: relative; aspect-ratio: 4 / 3; background: linear-gradient(155deg, #22377a 0%, #101c3f 100%); display: grid; place-items: center; border-bottom: 1px solid var(--line); padding: 1rem; }
@@ -1369,10 +1370,10 @@
         </nav>
         <div class="ideas-box">
           <div class="ideas-head">
-            <h2 data-i18n="ideasTitle">محصولات — <em>نشان‌های ایران کهن</em></h2>
+            <h2 data-i18n="ideasTitle">محصولات — <em>کلاه‌های پیل‌باکس و نشان‌های ایران کهن</em></h2>
             <span class="new-badge inline attn" data-i18n="newBadge">تازه</span>
           </div>
-          <p data-i18n="ideasText">نخستین محصولات مهر ایران دخت، بج‌های فلزی ایران کهن‌اند؛ دو بج نخست را از ایران آورده‌ام و همین حالا موجود و آماده‌ی سفارش‌اند و پنج بج دیگر هم به‌زودی ساخته می‌شوند. زیر هر محصول نوشته شده که در ایران موجود است یا در خارج از ایران، تا هر جا که هستی بدانی کدام محصول را می‌توانی بخری. خرید با دکمه‌ی «خرید با PayPal» زیر هر محصول انجام می‌شود: دکمه را بزن و در صفحه‌ی PayPal مبلغ ۷ دلار کانادا را پرداخت کن؛ بعد از پرداخت، از راه صفحه‌ی «پیوند با من» نام بج و نشانی‌ات را برایم بفرست تا سفارشت را برایت ارسال کنم.</p>
+          <p data-i18n="ideasText">محصولات مهر ایران دخت دو دسته‌اند: نخست، کلاه‌های پیل‌باکس نمدی با نشان شیر و خورشید، در سه رنگ آبی درباری، قرمز زرشکی و صورتی ملیح، که پیش‌فروش می‌شوند و بهای هر کلاه ۲۰ دلار کاناداست؛ و دوم، بج‌های فلزی ایران کهن، که دو بج نخستشان را از ایران آورده‌ام و همین حالا موجود و آماده‌ی سفارش‌اند و پنج بج دیگر هم به‌زودی ساخته می‌شوند و بهای هر بج ۷ دلار کاناداست. بهای هر محصول زیر خودش نوشته شده است؛ زیر هر بج هم نوشته شده که در ایران موجود است یا در خارج از ایران، تا هر جا که هستی بدانی کدام محصول را می‌توانی بخری. خرید با دکمه‌ی «خرید با PayPal» زیر هر محصول انجام می‌شود؛ بعد از پرداخت، از راه صفحه‌ی «پیوند با من» نام محصول، نام خودت و نشانی‌ات را برایم بفرست تا سفارشت را برایت ارسال کنم.</p>
           <div class="product-grid" id="shopProducts">
             <article class="product-card">
               <div class="product-imgwrap"><img draggable="false" src="assets/hat-blue.jpg" data-i18n-alt="hatBlueAlt" alt="کلاه پیل‌باکس نمدی آبی درباری با آرم طلایی شیر و خورشید بر پهلوی آن، روی زمینه‌ی کرم روشن" loading="lazy" /><span class="product-preorder" data-i18n="hatPreorder">پیش‌فروش</span></div>
@@ -1381,6 +1382,7 @@
                 <p data-i18n="hatBlueText">کلاه پیل‌باکس نمدی به رنگ آبی درباری، با آرم طلایی شیر و خورشید بر پهلوی آن؛ شیر و خورشید کهن‌ترین و شناخته‌شده‌ترین نشان ایران است.</p>
                 <span class="product-price" data-i18n="hatPrice">۲۰ دلار کانادا</span>
                 <a class="btn btn-accent product-order gold" href="https://www.paypal.me/mehrnazmoghaddam/20CAD" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg><span data-i18n="orderBtn">خرید با PayPal</span></a>
+                <p class="product-ship" data-i18n="shipNote">بعد از پرداخت، اسم و آدرس پستی‌تون رو از صفحه‌ی «پیوند با من» بفرستید تا سفارشتون ارسال بشه.</p>
                 <p class="product-note" data-i18n="hatNote">پیش‌فروش است: تولیدش پس از ثبت پیش‌سفارش‌ها انجام می‌شود. پس از پرداخت، نام و نشانی پستی‌ات را از راه صفحه‌ی «پیوند با من» بفرست تا سفارشت ثبت شود.</p>
                 <p class="product-msg" data-i18n="hatMsg">اگر مایل بودید، از صفحه‌ی «پیوند با من» پیام بدید</p>
               </div>
@@ -1392,6 +1394,7 @@
                 <p data-i18n="hatRedText">کلاه پیل‌باکس نمدی به رنگ قرمز زرشکی ژرف، با آرم طلایی شیر و خورشید بر پهلوی آن؛ شیر و خورشید کهن‌ترین و شناخته‌شده‌ترین نشان ایران است.</p>
                 <span class="product-price" data-i18n="hatPrice">۲۰ دلار کانادا</span>
                 <a class="btn btn-accent product-order gold" href="https://www.paypal.me/mehrnazmoghaddam/20CAD" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg><span data-i18n="orderBtn">خرید با PayPal</span></a>
+                <p class="product-ship" data-i18n="shipNote">بعد از پرداخت، اسم و آدرس پستی‌تون رو از صفحه‌ی «پیوند با من» بفرستید تا سفارشتون ارسال بشه.</p>
                 <p class="product-note" data-i18n="hatNote">پیش‌فروش است: تولیدش پس از ثبت پیش‌سفارش‌ها انجام می‌شود. پس از پرداخت، نام و نشانی پستی‌ات را از راه صفحه‌ی «پیوند با من» بفرست تا سفارشت ثبت شود.</p>
                 <p class="product-msg" data-i18n="hatMsg">اگر مایل بودید، از صفحه‌ی «پیوند با من» پیام بدید</p>
               </div>
@@ -1403,6 +1406,7 @@
                 <p data-i18n="hatPinkText">کلاه پیل‌باکس نمدی به رنگ صورتی ملیح و لطیف، با آرم طلایی شیر و خورشید بر پهلوی آن؛ شیر و خورشید کهن‌ترین و شناخته‌شده‌ترین نشان ایران است.</p>
                 <span class="product-price" data-i18n="hatPrice">۲۰ دلار کانادا</span>
                 <a class="btn btn-accent product-order gold" href="https://www.paypal.me/mehrnazmoghaddam/20CAD" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg><span data-i18n="orderBtn">خرید با PayPal</span></a>
+                <p class="product-ship" data-i18n="shipNote">بعد از پرداخت، اسم و آدرس پستی‌تون رو از صفحه‌ی «پیوند با من» بفرستید تا سفارشتون ارسال بشه.</p>
                 <p class="product-note" data-i18n="hatNote">پیش‌فروش است: تولیدش پس از ثبت پیش‌سفارش‌ها انجام می‌شود. پس از پرداخت، نام و نشانی پستی‌ات را از راه صفحه‌ی «پیوند با من» بفرست تا سفارشت ثبت شود.</p>
                 <p class="product-msg" data-i18n="hatMsg">اگر مایل بودید، از صفحه‌ی «پیوند با من» پیام بدید</p>
               </div>
@@ -1418,6 +1422,7 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg>
                   <span data-i18n="orderBtn">خرید با PayPal</span>
                 </a>
+                <p class="product-ship" data-i18n="shipNote">بعد از پرداخت، اسم و آدرس پستی‌تون رو از صفحه‌ی «پیوند با من» بفرستید تا سفارشتون ارسال بشه.</p>
               </div>
             </article>
             <article class="product-card">
@@ -1431,6 +1436,7 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg>
                   <span data-i18n="orderBtn">خرید با PayPal</span>
                 </a>
+                <p class="product-ship" data-i18n="shipNote">بعد از پرداخت، اسم و آدرس پستی‌تون رو از صفحه‌ی «پیوند با من» بفرستید تا سفارشتون ارسال بشه.</p>
               </div>
             </article>
             <article class="product-card">
@@ -1488,7 +1494,7 @@
               </div>
             </article>
           </div>
-          <p class="buy-note"><b data-i18n="buyNoteLabel">نکته‌ی خرید:</b> <span data-i18n="buyNote">پرداخت در صفحه‌ی رسمی PayPal انجام می‌شود و مبلغ ۷ دلار کانادا از پیش نوشته شده است. پس از پرداخت، از راه صفحه‌ی «پیوند با من» نام بج، نام خودت و نشانی پستی‌ات را بفرست تا سفارشت را برایت ارسال کنم.</span></p>
+          <p class="buy-note"><b data-i18n="buyNoteLabel">نکته‌ی خرید:</b> <span data-i18n="buyNote">پرداخت در صفحه‌ی رسمی PayPal انجام می‌شود و بهای هر محصول از پیش نوشته شده است: ۲۰ دلار کانادا برای هر کلاه و ۷ دلار کانادا برای هر بج. پس از پرداخت، از راه صفحه‌ی «پیوند با من» نام محصول، نام خودت و نشانی پستی‌ات را بفرست تا سفارشت را برایت ارسال کنم.</span></p>
         </div>
       </section>
 
@@ -1529,18 +1535,18 @@
       <section class="steps" data-view="home" data-i18n-aria="stepsAria" aria-label="چگونه سفارش بدهیم">
         <div class="step">
           <span class="num" data-i18n="num1">۱</span>
-          <b data-i18n="step1Title">برگزیدن بج</b>
-          <span data-i18n="step1Text">بجی رو که دوست داری برگزین — شهباز یا گاو تخت جمشید.</span>
+          <b data-i18n="step1Title">برگزیدن محصول</b>
+          <span data-i18n="step1Text">محصولی را که دوست داری برگزین — یکی از کلاه‌های پیل‌باکس شیر و خورشید، یا بج شهباز و گاو تخت جمشید.</span>
         </div>
         <div class="step">
           <span class="num" data-i18n="num2">۲</span>
           <b data-i18n="step2Title">پرداخت با PayPal</b>
-          <span data-i18n="step2Text">دکمه‌ی «خرید با PayPal» زیر بج را بزن و مبلغ ۷ دلار کانادا را در صفحه‌ی PayPal پرداخت کن.</span>
+          <span data-i18n="step2Text">دکمه‌ی «خرید با PayPal» زیر محصول را بزن و بهای آن را در صفحه‌ی PayPal پرداخت کن: ۲۰ دلار کانادا برای هر کلاه و ۷ دلار کانادا برای هر بج.</span>
         </div>
         <div class="step">
           <span class="num" data-i18n="num3">۳</span>
           <b data-i18n="step3Title">نشانی‌ات را بفرست</b>
-          <span data-i18n="step3Text">بعد از پرداخت، از راه صفحه‌ی «پیوند با من» نام بج و نشانی پستی‌ات را بفرست تا سفارشت را برایت بفرستم.</span>
+          <span data-i18n="step3Text">بعد از پرداخت، از راه صفحه‌ی «پیوند با من» نام محصول و نشانی پستی‌ات را بفرست تا سفارشت را برایت بفرستم.</span>
         </div>
       </section>
 
@@ -3652,14 +3658,14 @@
       <div class="foot-in">
         <div>
           <h4 data-i18n="brandName">مهر ایران دخت</h4>
-          <p data-i18n="footAbout">یک فروشگاه کوچک و صمیمی در تورنتو که تازه راه افتاده؛ نخستین محصولاتش — بج‌های فلزی ایران کهن — هم‌اکنون آماده‌ی سفارش‌اند.</p>
+          <p data-i18n="footAbout">یک فروشگاه کوچک و صمیمی در تورنتو که تازه راه افتاده؛ محصولاتش کلاه‌های پیل‌باکس شیر و خورشید (در پیش‌فروش) و بج‌های فلزی ایران کهن‌اند.</p>
         </div>
         <div>
           <h4 data-i18n="footContact">پیوند</h4>
           <p><span data-i18n="footCity">تورنتو، کانادا</span><br /><a href="mailto:elnazmghdm70@gmail.com">elnazmghdm70@gmail.com</a><br /><a href="#privacy" data-view-link="privacy" data-i18n="navPrivacy">حریم خصوصی</a></p>
         </div>
       </div>
-      <p class="foot-note" data-i18n="footNote">دو بج فلزی ایران کهن هم‌اکنون آماده‌ی خریدند — با دکمه‌ی «خرید با PayPal» زیر هر محصول، همین حالا می‌توانی بخری.</p>
+      <p class="foot-note" data-i18n="footNote">کلاه‌های پیل‌باکس شیر و خورشید در پیش‌فروش‌اند و دو بج فلزی ایران کهن آماده‌ی خریدند — با دکمه‌ی «خرید با PayPal» زیر هر محصول، همین حالا می‌توانی بخری.</p>
       <p class="copyright-line" data-i18n="copyrightLine">© مهر ایران دخت — ساخته‌ی الناز (مهرناز) — همه‌ی حق‌ها نگه‌داشته شده‌اند</p>
     </footer>
 
@@ -3731,8 +3737,8 @@
           storeLaterText: "This same site can later be turned into a store app and placed on Apple's App Store and Google Play, so people can find it right in the stores too. For now, though, the free installable version from the site itself is the best way; the store step can wait until the shop has its own products and customers.",
           storeNote: "In short: today you can proudly say “Mehr Iran Dokht has both a website and an app” — and if one day you wish, the App Store's door is open to it too.",
           ideasAria: "Products",
-          ideasTitle: "Products — <em>emblems of ancient Iran</em>",
-          ideasText: "Mehr Iran Dokht's first products are metal pins of ancient Iran; I brought the first two from Iran — they are in stock and ready to order now — and five more pins are coming soon. Under each product it says whether it is available in Iran or outside Iran, so wherever you are, you know which products you can buy. Buy with the “Buy with PayPal” button under each product: tap it and pay CA$7 on the PayPal page; after paying, send me the pin's name and your address through the Contact page so I can send your order.",
+          ideasTitle: "Products — <em>pillbox hats &amp; emblems of ancient Iran</em>",
+          ideasText: "Mehr Iran Dokht's products come in two groups. First, the felt pillbox hats with the Lion and Sun emblem, in three colours — royal blue, deep burgundy red and soft pink — now on pre-sale at CA$20 each. Second, the metal pins of ancient Iran: I brought the first two from Iran, they are in stock and ready to order now, five more pins are coming soon, and each pin is CA$7. Each product's price is written under it; under each pin it also says whether it is available in Iran or outside Iran, so wherever you are, you know which products you can buy. Buy with the “Buy with PayPal” button under each product; after paying, send me the product's name, your name and your address through the Contact page so I can send your order.",
           shopBannerTitle: "Mehr Iran Dokht Shop",
           shopBannerSub: "Keepsakes of ancient Iran, made with love",
           shopBannerBtn: "Shop Now",
@@ -3764,7 +3770,7 @@
           prodAvailOut: "Available outside Iran",
           orderBtn: "Buy with PayPal",
           buyNoteLabel: "Buying note:",
-          buyNote: "Payment is made on PayPal's official page, with CA$7 already filled in. After paying, send the pin's name, your name and your mailing address through the Contact page so I can send your order.",
+          buyNote: "Payment is made on PayPal's official page, with each product's price already filled in: CA$20 for each hat and CA$7 for each pin. After paying, send the product's name, your name and your mailing address through the Contact page so I can send your order.",
           prodSoon: "Coming soon",
           prod3Name: "Derafsh Kaviani",
           prod3Title: "“Derafsh Kaviani” pin",
@@ -3788,6 +3794,7 @@
           hatPrice: "CA$20",
           hatNote: "Pre-order: it will be made once pre-orders are registered. After paying, send your name and postal address through the “Contact” page so your order is recorded.",
           hatMsg: "If you're interested, just send us a message via the Contact page",
+          shipNote: "After paying, send your name and postal address through the “Contact” page so your order can be shipped.",
           hatBlueTitle: "Felt pillbox hat — “Royal Blue” Lion and Sun",
           hatBlueText: "A felt pillbox hat in royal blue, with a golden Lion and Sun emblem on its side; the Lion and Sun is Iran's oldest and best-known emblem.",
           hatBlueAlt: "Royal-blue felt pillbox hat with a golden Lion and Sun emblem on its side, on a light cream background",
@@ -3799,14 +3806,14 @@
           hatPinkAlt: "Soft-pink felt pillbox hat with a golden Lion and Sun emblem on its side, on a light cream background",
           stepsAria: "How to order",
           num1: "1",
-          step1Title: "Choose your pin",
-          step1Text: "Pick the pin you like — the Shahbaz or the Persepolis bull.",
+          step1Title: "Choose your product",
+          step1Text: "Pick the product you like — one of the Lion and Sun pillbox hats, or the Shahbaz or Persepolis bull pin.",
           num2: "2",
           step2Title: "Pay with PayPal",
-          step2Text: "Tap the “Buy with PayPal” button under the pin and pay CA$7 on the PayPal page.",
+          step2Text: "Tap the “Buy with PayPal” button under the product and pay its price on the PayPal page: CA$20 for each hat and CA$7 for each pin.",
           num3: "3",
           step3Title: "Send your address",
-          step3Text: "After paying, send the pin's name and your mailing address through the Contact page, and I'll send your order.",
+          step3Text: "After paying, send the product's name and your mailing address through the Contact page, and I'll send your order.",
           shKicker: "The epic of Iran",
           shTitle: "Shahnameh — <em>The epic of Iran's heroes</em>",
           shIntro: "The Shahnameh was composed by Hakim Abolqasem Ferdowsi of Tus: nearly fifty thousand couplets that took Ferdowsi thirty years to write and were completed about a thousand years ago. From Kiumars, the first king, to the end of the Sasanian era, it has kept the deeds of Iran's kings and heroes alive — and this section is home to those very accounts. Each account has its own painting, drawn from that very account.",
@@ -4747,10 +4754,10 @@
           privacyP4: "The only way to reach me is email: if you email me yourself, only that email and the words you wrote reach me — nothing more.",
           privacyP5: "On the Support page, payment is made through PayPal, and no bank or email address is shown there.",
           privacyBtn: "Contact me",
-          footAbout: "A small, friendly shop in Toronto that has just got started; its first products — metal pins of ancient Iran — are ready to order now.",
+          footAbout: "A small, friendly shop in Toronto that has just got started; its products are the Lion and Sun pillbox hats (on pre-sale) and metal pins of ancient Iran.",
           footContact: "Contact",
           footCity: "Toronto, Canada",
-          footNote: "The two metal pins of ancient Iran are ready to buy now — use the “Buy with PayPal” button under each product.",
+          footNote: "The Lion and Sun pillbox hats are on pre-sale and the two metal pins of ancient Iran are ready to buy — use the “Buy with PayPal” button under each product.",
           copyrightLine: "© Mehr Iran Dokht — Created by Elnaz (Mehrnaz) — All rights reserved."
         },
         fr: {
@@ -4819,8 +4826,8 @@
           storeLaterText: "Ce même site pourra plus tard devenir une application de boutique et être placé sur l'App Store d'Apple et sur Google Play, pour que les gens la trouvent aussi directement dans les boutiques. Pour l'instant, la version gratuite et installable depuis le site lui-même est la meilleure voie ; l'étape des boutiques attendra que la boutique ait ses propres produits et ses clients.",
           storeNote: "En résumé : aujourd'hui, vous pouvez dire fièrement « Mehr Iran Dokht a un site web et une application » — et si un jour vous le souhaitez, la porte de l'App Store lui est ouverte aussi.",
           ideasAria: "Produits",
-          ideasTitle: "Produits — <em>les emblèmes de l'Iran antique</em>",
-          ideasText: "Les premiers produits d'Mehr Iran Dokht sont des broches en métal de l'Iran antique ; j'ai rapporté les deux premières d'Iran — elles sont en stock et prêtes à commander — et cinq autres broches arrivent bientôt. Sous chaque produit, il est indiqué s'il est disponible en Iran ou hors d'Iran, pour que, où que vous soyez, vous sachiez quels produits vous pouvez acheter. Achetez avec le bouton « Acheter avec PayPal » sous chaque produit : touchez-le et payez 7 $ CA sur la page PayPal ; après le paiement, envoyez-moi le nom de la broche et votre adresse via la page Contact pour que je puisse envoyer votre commande.",
+          ideasTitle: "Produits — <em>chapeaux pillbox et emblèmes de l'Iran antique</em>",
+          ideasText: "Les produits de Mehr Iran Dokht se divisent en deux groupes. D'abord, les chapeaux pillbox en feutre à l'emblème du Lion et du Soleil, en trois couleurs — bleu royal, rouge bordeaux profond et rose doux — en prévente à 20 $ CA chacun. Ensuite, les broches en métal de l'Iran antique : j'ai rapporté les deux premières d'Iran, elles sont en stock et prêtes à commander, cinq autres broches arrivent bientôt, et chaque broche coûte 7 $ CA. Le prix de chaque produit est indiqué sous celui-ci ; sous chaque broche, il est aussi précisé si elle est disponible en Iran ou hors d'Iran, pour que, où que vous soyez, vous sachiez quels produits vous pouvez acheter. Achetez avec le bouton « Acheter avec PayPal » sous chaque produit ; après le paiement, envoyez-moi le nom du produit, votre nom et votre adresse via la page Contact pour que je puisse envoyer votre commande.",
           shopBannerTitle: "Boutique Mehr Iran Dokht",
           shopBannerSub: "Des souvenirs de l'Iran antique, faits avec amour",
           shopBannerBtn: "Voir les produits",
@@ -4852,7 +4859,7 @@
           prodAvailOut: "Disponible hors d'Iran",
           orderBtn: "Acheter avec PayPal",
           buyNoteLabel: "Note d'achat : ",
-          buyNote: "Le paiement se fait sur la page officielle de PayPal, avec 7 $ CA déjà inscrits. Après le paiement, envoyez le nom de la broche, votre nom et votre adresse postale via la page Contact pour que je puisse envoyer votre commande.",
+          buyNote: "Le paiement se fait sur la page officielle de PayPal, avec le prix de chaque produit déjà inscrit : 20 $ CA pour chaque chapeau et 7 $ CA pour chaque broche. Après le paiement, envoyez le nom du produit, votre nom et votre adresse postale via la page Contact pour que je puisse envoyer votre commande.",
           prodSoon: "Bientôt",
           prod3Name: "Derafsh Kaviani",
           prod3Title: "Broche « Derafsh Kaviani »",
@@ -4876,6 +4883,7 @@
           hatPrice: "20 $ CA",
           hatNote: "Prévente : il sera fabriqué une fois les précommandes enregistrées. Après le paiement, envoyez votre nom et votre adresse postale via la page « Contact » pour enregistrer votre commande.",
           hatMsg: "Si cela vous intéresse, écrivez-nous via la page Contact",
+          shipNote: "Après le paiement, envoyez votre nom et votre adresse postale via la page « Contact » pour que votre commande puisse être expédiée.",
           hatBlueTitle: "Chapeau pillbox en feutre — Lion et Soleil « bleu royal »",
           hatBlueText: "Un chapeau pillbox en feutre bleu royal, orné sur le côté d'un emblème doré du Lion et du Soleil, le plus ancien et le plus connu des emblèmes de l'Iran.",
           hatBlueAlt: "Chapeau pillbox en feutre bleu royal avec un emblème doré du Lion et du Soleil sur le côté, sur fond crème clair",
@@ -4887,14 +4895,14 @@
           hatPinkAlt: "Chapeau pillbox en feutre rose doux avec un emblème doré du Lion et du Soleil sur le côté, sur fond crème clair",
           stepsAria: "Comment commander",
           num1: "1",
-          step1Title: "Choisissez votre broche",
-          step1Text: "Choisissez la broche qui vous plaît — le Shahbaz ou le taureau de Persépolis.",
+          step1Title: "Choisissez votre produit",
+          step1Text: "Choisissez le produit qui vous plaît — l'un des chapeaux pillbox Lion et Soleil, ou la broche Shahbaz ou taureau de Persépolis.",
           num2: "2",
           step2Title: "Payez avec PayPal",
-          step2Text: "Touchez le bouton « Acheter avec PayPal » sous la broche et payez 7 $ CA sur la page PayPal.",
+          step2Text: "Touchez le bouton « Acheter avec PayPal » sous le produit et payez son prix sur la page PayPal : 20 $ CA pour chaque chapeau et 7 $ CA pour chaque broche.",
           num3: "3",
           step3Title: "Envoyez votre adresse",
-          step3Text: "Après le paiement, envoyez le nom de la broche et votre adresse postale via la page Contact, et je vous enverrai votre commande.",
+          step3Text: "Après le paiement, envoyez le nom du produit et votre adresse postale via la page Contact, et je vous enverrai votre commande.",
           shKicker: "L'épopée de l'Iran",
           shTitle: "Shahnameh — <em>L'épopée des héros de l'Iran</em>",
           shIntro: "Le Shahnameh a été composé par Hakim Abolqasem Ferdowsi de Tus : près de cinquante mille distiques dont la composition a pris trente ans à Ferdowsi et qui furent achevés il y a environ mille ans. De Kiumars, le premier roi, à la fin de l'ère sassanide, il a gardé vivants les récits des rois et des héros de l'Iran — et cette section est la maison de ces récits. Chaque récit a sa propre miniature, tirée de ce récit même.",
@@ -5835,10 +5843,10 @@
           privacyP4: "Le seul moyen de me joindre est le courriel : si vous m'écrivez vous-même, seuls ce courriel et les mots que vous avez écrits me parviennent — rien de plus.",
           privacyP5: "Sur la page Soutien, le paiement se fait par PayPal, et aucune coordonnée bancaire ni adresse courriel n'y est affichée.",
           privacyBtn: "Me contacter",
-          footAbout: "Une petite boutique chaleureuse à Toronto qui vient de démarrer ; ses premiers produits — des broches en métal de l'Iran antique — sont prêts à commander.",
+          footAbout: "Une petite boutique chaleureuse à Toronto qui vient de démarrer ; ses produits sont les chapeaux pillbox Lion et Soleil (en prévente) et des broches en métal de l'Iran antique.",
           footContact: "Contact",
           footCity: "Toronto, Canada",
-          footNote: "Les deux broches en métal de l'Iran antique sont prêtes à acheter — utilisez le bouton « Acheter avec PayPal » sous chaque produit.",
+          footNote: "Les chapeaux pillbox Lion et Soleil sont en prévente et les deux broches en métal de l'Iran antique sont prêtes à acheter — utilisez le bouton « Acheter avec PayPal » sous chaque produit.",
           copyrightLine: "© Mehr Iran Dokht — Créé par Elnaz (Mehrnaz) — Tous droits réservés."
         }
       };
