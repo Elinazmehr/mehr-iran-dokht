@@ -8,6 +8,7 @@
 		"contentInset": "always"
 	},
 	"server": {
+		"url": "https://www.mehrirandokht.com",
 		"iosScheme": "capacitor"
 	},
 	"packageClassList": [
