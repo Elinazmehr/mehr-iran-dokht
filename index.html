@@ -461,6 +461,7 @@
       main > [data-view="festivals"],
       main > [data-view="monuments"], main > [data-view="peoples"],
       main > [data-view="inventions"],
+      main > [data-view="schools"],
       main > [data-view="support"],
       main > [data-view="films"], main > [data-view="books"],
       main > [data-view="contact"], main > [data-view="privacy"] {
@@ -1310,6 +1311,7 @@
         <a href="#avesta" data-view-link="avesta" data-i18n="navAvesta">اوستا</a>
         <a href="#shahnameh" data-view-link="shahnameh" data-i18n="navShahnameh">شاهنامه</a>
         <a href="#shahnameh-history" class="has-new" data-view-link="books"><svg class="nav-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/></svg><span data-i18n="navShahnamehHistory">تاریخ شاهنامه</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
+        <a href="#schools-subscription" class="has-new" data-view-link="schools"><svg class="nav-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span data-i18n="navSchools">برای مدرسه‌ها</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#history" data-view-link="history" data-i18n="navHistory">ایران از ابتدا</a>
         <a href="#calendar" data-view-link="calendar" data-i18n="navCalendar">گاهشمار شاهنشاهی</a>
         <a href="#nights" data-view-link="nights" data-i18n="navNights">هزار و یک شب</a>
@@ -1371,6 +1373,21 @@
           <p data-i18n="shHistP6">فردوسی کتابش را به سلطان محمود غزنوی پیشکش کرد؛ اما روایت می‌کنند که پاداش او آن نشد که چشم‌به‌راهش بود و دل‌آزرده به توس بازگشت. می‌گویند وقتی پاداش دیرهنگام سلطان رسید، فردوسی تازه درگذشته بود و دخترش آن را نپذیرفت.</p>
           <p data-i18n="shHistP7">فردوسی نزدیک سال ۴۱۱ هجری در توس درگذشت و در باغ خود به خاک سپرده شد. امروز آرامگاهش در توس زیارتگاه دوستداران زبان پارسی و ایران است.</p>
           <p data-i18n="shHistP8">شاهنامه تنها کتاب داستان‌های کهن نیست؛ حافظه‌ی یک ملت است که زبان پارسی و نام ایران را زنده نگه داشت — و کتابی که در این سایت می‌خوانید، از همان چشمه آب می‌خورد.</p>
+        </article>
+      </section>
+
+      <section class="heritage" id="schools-subscription" data-view="schools" aria-label="For Persian Schools">
+        <div class="heritage-head">
+          <h2 data-i18n="schoolsTitle">اشتراک مدرسه‌های فارسی</h2>
+        </div>
+        <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
+          <figure class="card-fig story-fig"><img draggable="false" src="assets/shahnameh-history.webp" data-i18n-alt="schoolsImgAlt" alt="شاهنامه‌خوانی برای دانش‌آموزان" loading="lazy" /></figure>
+          <p data-i18n="schoolsText">«مهر ایران دخت» برای مدرسه‌های فارسیِ دور از وطن، جلسه‌های زنده‌ی شاهنامه‌خوانی و قصه‌های هزار و یک شب را از راه زوم برگزار می‌کند — با زبان ساده و مناسب سن دانش‌آموزان. دانش‌آموزان بین جلسه‌ها می‌توانند از سایت و اپلیکیشن برای گوش دادن به روایت‌ها و خواندن کتاب‌ها استفاده کنند. جلسه‌ی نخست آشنایی رایگان است. برای آگاهی از شرایط اشتراک ماهیانه، از صفحه‌ی «پیوند با من» با ما در تماس باشید.</p>
+          <a class="btn btn-accent" href="#contact" data-view-link="contact">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            <span data-i18n="schoolsCta">پیوند با من</span>
+          </a>
         </article>
       </section>
 
@@ -3995,6 +4012,7 @@
           navIdeas: "Products",
           navShahnameh: "Shahnameh",
           navShahnamehHistory: "History of the Shahnameh",
+          navSchools: "For Schools",
           navAvesta: "Avesta",
           lionSunAlt: "The historic Lion and Sun emblem, the emblem of Iran's old flag: a standing golden lion holding a sword in its paw, with the radiant sun shining behind it",
           heroGreeting: "Greetings to you",
@@ -4205,6 +4223,10 @@
           shHistP6: "Ferdowsi presented his book to Sultan Mahmud of Ghazna; but it is told that his reward was not the one he had been waiting for, and heart-sore he returned to Tus. They say that when the Sultan's belated reward arrived, Ferdowsi had only just passed away, and his daughter would not accept it.",
           shHistP7: "Ferdowsi passed away in Tus around the year 411 of the Hijra and was buried in his own garden. Today his tomb in Tus is a place of pilgrimage for lovers of the Persian language and of Iran.",
           shHistP8: "The Shahnameh is not merely a book of ancient tales; it is the memory of a nation, which kept the Persian language and the name of Iran alive — and the book you read on this site drinks from that same spring.",
+          schoolsTitle: "For Persian Schools",
+          schoolsImgAlt: "Shahnameh reading for students",
+          schoolsText: "Mehr Iran Dokht offers Persian schools far from home live Shahnameh-reading sessions and tales from One Thousand and One Nights over Zoom — in simple language suited to the students' ages. Between sessions, students can use the website and the app to listen to the narrations and read the books. The first introductory session is free. To learn about the monthly subscription terms, please get in touch through the Contact page.",
+          schoolsCta: "Contact Me",
           s1Tag: "Account One · From the beginning of the Shahnameh, in order",
           s1Title: "The Opening of the Shahnameh and Kiumars, the First King",
           s1ImgAlt: "A Persian miniature of Kiumars, the first king, enthroned on a mountain rock in leopard skins, with his company in leopard skins and wild animals nearby, from Account One of the Shahnameh",
@@ -5235,6 +5257,7 @@
           navIdeas: "Produits",
           navShahnameh: "Shahnameh",
           navShahnamehHistory: "Histoire du Shahnameh",
+          navSchools: "Pour les écoles",
           navAvesta: "Avesta",
           lionSunAlt: "L'emblème historique du Lion et du Soleil, celui de l'ancien drapeau de l'Iran : un lion doré debout tenant une épée dans sa patte, le soleil rayonnant derrière lui",
           heroGreeting: "Salutations à vous",
@@ -5445,6 +5468,10 @@
           shHistP6: "Ferdowsi offrit son livre au sultan Mahmoud de Ghazna ; mais l'on raconte que sa récompense ne fut pas celle qu'il attendait, et que, le cœur affligé, il retourna à Tous. On dit que lorsque la récompense tardive du sultan arriva, Ferdowsi venait de mourir, et que sa fille refusa de l'accepter.",
           shHistP7: "Ferdowsi mourut à Tous vers l'an 411 de l'Hégire et fut enterré dans son propre jardin. Aujourd'hui, sa tombe à Tous est un lieu de pèlerinage pour les amoureux de la langue persane et de l'Iran.",
           shHistP8: "Le Shahnameh n'est pas seulement un livre de récits anciens ; c'est la mémoire d'une nation, qui a gardé vivants la langue persane et le nom de l'Iran — et le livre que vous lisez sur ce site s'abreuve à cette même source.",
+          schoolsTitle: "Pour les écoles persanes",
+          schoolsImgAlt: "Lecture du Shahnameh pour les élèves",
+          schoolsText: "Mehr Iran Dokht propose aux écoles persanes loin du pays des séances en direct de lecture du Shahnameh et de contes des Mille et Une Nuits par Zoom — dans une langue simple, adaptée à l'âge des élèves. Entre les séances, les élèves peuvent utiliser le site et l'application pour écouter les récits et lire les livres. La première séance de découverte est gratuite. Pour connaître les conditions de l'abonnement mensuel, contactez-nous via la page Contact.",
+          schoolsCta: "Me contacter",
           s1Tag: "Récit 1 · Depuis le début du Shahnameh, dans l'ordre",
           s1Title: "L'ouverture du Shahnameh et Kiumars, le premier roi",
           s1ImgAlt: "Miniature persane de Kiumars, le premier roi, trônant sur un rocher de montagne en peaux de léopard, entouré de sa compagnie en peaux de léopard et d'animaux sauvages, du premier récit du Shahnameh",
@@ -7151,7 +7178,7 @@
     <script>
       /* ---------- Separate pages: show one section at a time ---------- */
       (function () {
-        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "peoples", "inventions", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
+        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "peoples", "inventions", "schools", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
         var panels = document.querySelectorAll("[data-view]");
         var navLinks = document.querySelectorAll("[data-view-link]");
         var current = "home";
