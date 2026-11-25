@@ -456,6 +456,7 @@
         [data-view] { animation: none; }
       }
       main > [data-view="avesta"], main > [data-view="shahnameh"],
+      main > [data-view="gathas"],
       main > [data-view="history"], main > [data-view="app"],
       main > [data-view="calendar"], main > [data-view="nights"],
       main > [data-view="festivals"],
@@ -1320,6 +1321,7 @@
       </div>
       <nav class="site-nav" data-i18n-aria="navAria" aria-label="بخش‌های صفحه">
         <a href="#avesta" data-view-link="avesta" data-i18n="navAvesta">اوستا</a>
+        <a href="#gathas" class="has-new" data-view-link="gathas"><span data-i18n="navGathas">گات‌ها</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#shahnameh" data-view-link="shahnameh" data-i18n="navShahnameh">شاهنامه</a>
         <a href="#shahnameh-history" class="has-new" data-view-link="books"><svg class="nav-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/></svg><span data-i18n="navShahnamehHistory">تاریخ شاهنامه</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#schools-subscription" class="has-new" data-view-link="schools"><svg class="nav-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span data-i18n="navSchools">برای مدرسه‌ها</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
@@ -1615,8 +1617,8 @@
       <section class="heritage" id="books" data-view="books" data-i18n-aria="booksAria" aria-label="کتاب‌های کهن">
         <div class="heritage-head">
           <span class="kicker" data-i18n="booksKicker">کتاب‌های کهن و اسطوره‌ای ایران</span>
-          <h2 data-i18n="booksTitle">کتاب‌های کهن — <em>سه گنجینه‌ی ایران</em></h2>
-          <p data-i18n="booksIntro">هر سه کتاب را از آغاز و به‌ترتیب، با صدای خودم برایتان می‌خوانم و روایت می‌کنم. روی هر کتاب بزن تا باز شود.</p>
+          <h2 data-i18n="booksTitle">کتاب‌های کهن — <em>چهار گنجینه‌ی ایران</em></h2>
+          <p data-i18n="booksIntro">هر چهار کتاب را از آغاز و به‌ترتیب، با صدای خودم برایتان می‌خوانم و روایت می‌کنم. روی هر کتاب بزن تا باز شود.</p>
         </div>
         <div class="books-grid">
           <a class="book-card" href="#shahnameh" data-view-link="shahnameh">
@@ -1632,6 +1634,14 @@
             <span class="book-body">
               <span class="book-name" data-i18n="navAvesta">اوستا</span>
               <span class="book-sub" data-i18n="bookAvSub">سرودهای ورجاوند زرتشت و ایران کهن</span>
+              <span class="book-open"><span data-i18n="bookOpen">گشودن کتاب</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></span>
+            </span>
+          </a>
+          <a class="book-card" href="#gathas" data-view-link="gathas">
+            <span class="book-cover"><img draggable="false" src="assets/zarathustra-yazd.jpg" data-i18n-alt="gImgAlt" alt="پرتره‌ی سنتی اشو زرتشت، از نقاشیِ آتشکده‌ی یزد: جامه و کلاه سپید، کمربند زرین، عصا در دست چپ، انگشت اشاره‌ی دست راست رو به بالا و هاله‌ی خورشید پشت سر" loading="lazy" /></span>
+            <span class="book-body">
+              <span class="book-name"><span data-i18n="navGathas">گات‌ها</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></span>
+              <span class="book-sub" data-i18n="bookGSub">سرودهای خودِ اشو زرتشت، کهن‌ترین بخش اوستا</span>
               <span class="book-open"><span data-i18n="bookOpen">گشودن کتاب</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5"/><path d="m11 18-6-6 6-6"/></svg></span>
             </span>
           </a>
@@ -4260,6 +4270,174 @@
         <p class="heritage-note" data-i18n="avNote">بخش یکم تا دوازدهم منتشر شد؛ سفر در کتاب‌های کهن ایران ادامه دارد.</p>
       </section>
 
+      <section class="heritage" id="gathas" data-view="gathas" data-i18n-aria="gAria" aria-label="Gathas">
+        <div class="heritage-top">
+        <div class="heritage-head">
+          <span class="kicker" data-i18n="gKicker">کهن‌ترین سرودهای ایران</span>
+          <h2 data-i18n="gTitle">گات‌ها — <em>سرودهای اشو زرتشت</em></h2>
+          <p data-i18n="gIntro">این کتاب، خودِ گات‌هاست: هفده سرودی که باور بر این است سخن خودِ اشو زرتشت‌اند و کهن‌ترین لایه‌ی اوستا را می‌سازند. هر پنج گات را از آغاز و به‌ترتیب، با شرحی به فارسی روان می‌خوانیم؛ از اهونود تا وهیشتوایشت.</p>
+          <blockquote class="verse">
+            <span data-i18n="gVerse">خوشبختی از آنِ کسی است که خوشبختی به دیگران می‌بخشد</span>
+            <small data-i18n="gVerseBy">از اشتود گات (یسن ۴۳) — سخن اشو زرتشت</small>
+          </blockquote>
+        </div>
+          <figure class="section-fig living-fig" data-motion="zoom">
+            <span class="living-frame"><img draggable="false" src="assets/zarathustra-yazd.jpg" data-i18n-alt="gImgAlt" alt="پرتره‌ی سنتی اشو زرتشت، از نقاشیِ آتشکده‌ی یزد: جامه و کلاه سپید، کمربند زرین، عصا در دست چپ، انگشت اشاره‌ی دست راست رو به بالا و هاله‌ی خورشید پشت سر" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span>
+            <figcaption data-i18n="gImgCap">پرتره‌ی سنتی اشو زرتشت، از نقاشیِ آتشکده‌ی یزد — جامه‌ی سپید، کمربند زرین و هاله‌ی خورشید بر گرد سر.</figcaption>
+          </figure>
+        </div>
+        <div class="living-bar" role="group" aria-label="نگاره‌های زنده">
+          <span class="living-bar-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg></span>
+          <div class="living-bar-text"><b data-i18n="livingTitle">نگاره‌ها دیگه عکسِ ثابت نیستن — زنده و در حرکتن</b><span data-i18n="livingTextG">نور آرام روی چهره‌ی اشو زرتشت می‌لغزد و هاله‌ی خورشید پشت سرش می‌درخشد؛ درست مثل یه نگاره‌ی زنده. اگه چشمت خسته شد، با دکمه‌ی روبه‌رو حرکت رو نگه دار.</span></div>
+          <button type="button" class="living-toggle" aria-pressed="false"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg><span data-i18n="livingPause">ایستِ حرکت</span></button>
+        </div>
+        <article class="full-story gold">
+          <span class="tag" data-i18n="g0Tag">پیش‌گفتار · آشنایی با کتاب</span>
+          <h3 data-i18n="g0Title">گات‌ها چیست؟ — کهن‌ترین سرودهای ایران</h3>
+          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <span class="voice-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <div class="voice-meta">
+              <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
+              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+            </div>
+            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+          </div>
+          <p data-i18n="g0P1">گات‌ها کهن‌ترین بخش اوستا و از کهن‌ترین نوشته‌های بر جای مانده از ایران باستان است. باور زرتشتیان — و دیدگاه بیشتر پژوهشگران — این است که این سرودها سخن خودِ اشو زرتشت‌اند؛ تنها بخشی از اوستا که بی‌واسطه به خود او می‌رسد. دیگر بخش‌های اوستا، مانند یشت‌ها و وندیداد، در سده‌های پس از او سروده و گرد آمده‌اند، اما گات‌ها صدای خود اوست.</p>
+          <p data-i18n="g0P2">گات‌ها هفده سرود (هات) است که در پنج بخش جای گرفته و در دل «یسنا» — کتاب نیایش‌های اوستا — نشسته است: یسن‌های ۲۸ تا ۳۴ و ۴۳ تا ۵۳. زبانشان «اوستایی گاتی» است؛ زبانی چنان کهن که حتا در روزگار ساسانی هم برای فهمیدنش به شرح و برگردان نیاز بود. واژه‌ی «گات» یعنی سرود و ترانه؛ و هر یک از پنج گات نام خودش را دارد که از واژه‌ی آغازین یا سخن بنیادی همان بخش گرفته شده است.</p>
+          <p data-i18n="g0P3">در این سرودها زرتشت با اهورامزدا سخن می‌گوید: گاه نیایش می‌کند، گاه پرسش می‌پرسد و پاسخ می‌خواهد، و گاه از رنجی می‌نالد که دروغ‌پرستان بر راست‌کاران می‌آورند. سخن بنیادی‌اش «اشا»ست: راستی و سامانِ درستِ هستی. راه رسیدن به اشا «وهومن» است: اندیشه‌ی نیک. و از همه نام‌آورتر، این آموزه است: آدمی آزاد است و باید خود میان راه نیک و راه بد یکی را برگزیند؛ هیچ‌کس به جای دیگری برنمی‌گزیند و پاداش و سزا نیز از همین گزینش آزاد می‌آید.</p>
+          <p data-i18n="g0P4">در سرود نامدار یسن ۳۰، از دو مینوی همزاد سخن می‌رود که از آغاز بوده‌اند: سپنته مینو، مینوی نیک‌افزا، و انگره مینو، مینوی کاهنده و ویرانگر؛ و هر کس در زندگی خویش میان آن دو یکی را برمی‌گزیند. این کتاب هر پنج گات را به‌ترتیب می‌خواند؛ هر بخش به زبان ساده می‌گوید آن گات کجای یسنا نشسته، نامش چه معنایی دارد و سخن اصلی‌اش چیست — و مانند دیگر کتاب‌های این سایت، خوانش هر بخش با صدای خودم نیز به‌زودی همین‌جا می‌نشیند.</p>
+        </article>
+        <article class="full-story gold">
+          <span class="tag" data-i18n="g1Tag">بخش یکم · یسنا ۲۸ تا ۳۴</span>
+          <h3 data-i18n="g1Title">اهونود گات — سرودهای نخستین</h3>
+          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <span class="voice-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <div class="voice-meta">
+              <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
+              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+            </div>
+            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+          </div>
+          <p data-i18n="g1P1">اهونود گات نخستین و بزرگ‌ترین گات است: هفت سرود، از یسن ۲۸ تا ۳۴، در آغاز بخش گات‌هایی یسنا. نامش از کهن‌ترین نیایش اوستا، «اهونور» (یتا اهو)، گرفته شده است؛ نیایشی که پیش از این سرودها خوانده می‌شود و گویی دروازه‌ی ورود به جهان گات‌هاست.</p>
+          <p data-i18n="g1P2">در یسن ۲۸، زرتشت با دست‌های برافراشته نیایش می‌کند و از اهورامزدا شادی و نیرویی می‌خواهد که پاداش روان راست‌کار است؛ می‌گوید با اندیشه‌ی نیک نزد او آمده و از او می‌خواهد راه درست زیستن را نشانش دهد. در یسن ۲۹، روان گاو — نماد آفرینش نیک و مردمان بی‌پناه — از ستمی که بر او می‌رود می‌نالد، و اهورامزدا زرتشت را به رهانندگی و سرپرستی او برمی‌گزیند؛ گفت‌وگویی نمادین که از کهن‌ترین‌های جهان است.</p>
+          <p data-i18n="g1P3">در یسن ۳۰، نام‌آورترین سخن گات‌ها گفته می‌شود: دو مینوی همزاد و گزینش آزاد آدمی میان نیک و بد. یسن ۳۱ از آفرینش و از آتش سخن می‌گوید — آتش، نشانه‌ی داوری راستی و آزمونی که در فرجام جهان همه از آن می‌گذرند. و یسن‌های ۳۲ تا ۳۴ از رویارویی با دروغ‌پرستان و دیوان، و از امید به روزی می‌گویند که راستی در جهان پایدار شود.</p>
+          <blockquote class="verse">
+            <span data-i18n="g1Verse">با گوش‌های خویش بهترین سخنان را بشنوید و با اندیشه‌ای روشن در آن‌ها بنگرید؛ هر کس — زن و مرد — باید خود برای خویش میان دو راه یکی را برگزیند.</span>
+            <small data-i18n="g1VerseBy">از یسن ۳۰، اهونود گات — به فارسی روان</small>
+          </blockquote>
+          <p data-i18n="g1P4">پیام اهونود گات، پیام همه‌ی گات‌هاست: راستی را باید شناخت، برگزید و در زندگی پیاده کرد؛ و این کار هر کس، بر دوش خود اوست.</p>
+        </article>
+        <article class="full-story gold">
+          <span class="tag" data-i18n="g2Tag">بخش دوم · یسنا ۴۳ تا ۴۶</span>
+          <h3 data-i18n="g2Title">اشتود گات — سرود شادمانی</h3>
+          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <span class="voice-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <div class="voice-meta">
+              <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
+              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+            </div>
+            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+          </div>
+          <p data-i18n="g2P1">اشتود گات دومین گات است: چهار سرود، از یسن ۴۳ تا ۴۶. نامش از واژه‌ی «اشتا» می‌آید، یعنی خوشبختی و شادمانی؛ همان واژه‌ای که سرود نخستش با آن آغاز می‌شود و آهنگ همه‌ی این گات است: خوشبختی راستین چیست و از کجا می‌آید؟</p>
+          <p data-i18n="g2P2">این گات از همه شخصی‌تر است؛ گویی زرتشت داستان راه خودش را می‌گوید: از روزهایی که کم‌مایه و تنها بود و از اهورامزدا می‌پرسید چه کسی پشتیبان او خواهد بود، تا روزی که کار پیامش سامان گرفت. در یسن ۴۴، پرسش‌های پی‌درپی او از اهورامزدا — «این را از تو می‌پرسم؛ راست به من بگو، ای اهورا» — درباره‌ی آسمان و زمین و آب و گیاه و سرنوشت آدمی، از زیباترین بخش‌های همه‌ی اوستاست.</p>
+          <p data-i18n="g2P3">در یسن ۴۳، زرتشت می‌گوید چون اهورامزدا را با اندیشه‌ی نیک شناخت، شادمانی به سراغش آمد؛ و در یسن ۴۵، باز از دو مینو و آغاز آفرینش سخن می‌رود. یسن ۴۶ از روزهای سخت آغاز کار می‌گوید: از رانده شدن از خانه و سرزمین، و از امید به رهاننده‌ای که در فرجام می‌آید و جهان را تازه می‌کند.</p>
+          <blockquote class="verse" dir="ltr">
+            <span data-i18n="g2Verse">uštā ahmāi yahmāi uštā kahmāicīt</span>
+            <small data-i18n="g2VerseBy">آغاز یسن ۴۳، اشتود گات — به زبان اوستایی</small>
+          </blockquote>
+          <p class="verse-tr" data-i18n="g2VerseTr">یعنی: «خوشبختی از آنِ او باد که به هر کس خوشبختی می‌بخشد.»</p>
+          <p data-i18n="g2P4">پیام اشتود گات این است که آیین زرتشت راه غم نیست؛ راه شادی است — اما شادی‌ای که از راستی می‌آید و با شاد کردن دیگران ساخته می‌شود، نه از خودخواهی.</p>
+        </article>
+        <article class="full-story gold">
+          <span class="tag" data-i18n="g3Tag">بخش سوم · یسنا ۴۷ تا ۵۰</span>
+          <h3 data-i18n="g3Title">سپنتمد گات — سرود خرد نیک‌افزا</h3>
+          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <span class="voice-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <div class="voice-meta">
+              <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
+              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+            </div>
+            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+          </div>
+          <p data-i18n="g3P1">سپنتمد گات سومین گات است: چهار سرود، از یسن ۴۷ تا ۵۰. نامش از «سپنته مینو» گرفته شده است: مینوی نیک‌افزا و خرد آفریننده‌ای که در برابر مینوی ویرانگر می‌ایستد و جهان را به سوی نیکی پیش می‌برد. هر چهار سرود این گات با ستایش همین مینو آغاز می‌شود.</p>
+          <p data-i18n="g3P2">در یسن ۴۷ گفته می‌شود اهورامزدا از راه سپنته مینو و بهترین اندیشه، «پدر اشا»ست؛ یعنی راستی از خرد نیک او زاده می‌شود و هر کار نیک آدمی نیز از همان سرچشمه است. در این گات از «ارمیتی» نیز سخن می‌رود: فروتنی و پارسایی، که در کنار اشا و وهومن راه زندگی درست را می‌سازد؛ سه‌تایی که در سراسر آیین زرتشتی می‌درخشد.</p>
+          <p data-i18n="g3P3">یسن‌های ۴۹ و ۵۰ از فرمانروایی نیک و از پارسایی سخن می‌گویند: فرمانروای خوب کسی است که با راستی و اندیشه‌ی نیک فرمان براند، و پارسا کسی است که هم خدا را خشنود می‌کند و هم مردمان را. پایان گات، نیایشی آرام است که در آن زرتشت خود و پیروانش را به اهورامزدا می‌سپارد و از او بهترین پاداش را برای راست‌کاران می‌خواهد.</p>
+          <blockquote class="verse">
+            <span data-i18n="g3Verse">اهورامزدا از راه خرد نیک‌افزای خویش و بهترین اندیشه، پدر راستی است.</span>
+            <small data-i18n="g3VerseBy">از یسن ۴۷، سپنتمد گات — به فارسی روان</small>
+          </blockquote>
+          <p data-i18n="g3P4">پیام سپنتمد گات: جهان با خرد و نیک‌افزایی پیش می‌رود؛ و هر اندیشه و کردار نیک ما، دستی است در همین آفرینش نیک — ما همکاران خدا در بهتر کردن جهانیم.</p>
+        </article>
+        <article class="full-story gold">
+          <span class="tag" data-i18n="g4Tag">بخش چهارم · یسن ۵۱</span>
+          <h3 data-i18n="g4Title">وهوخشتر گات — سرود شهریاری نیک</h3>
+          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <span class="voice-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <div class="voice-meta">
+              <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
+              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+            </div>
+            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+          </div>
+          <p data-i18n="g4P1">وهوخشتر گات چهارمین گات است و از همه کوتاه‌تر: تنها یک سرود، یسن ۵۱. نامش یعنی «شهریاری نیک» یا «فرمانروایی خوب»؛ همان شهریاری‌ای که در نیایش‌های زرتشتی از اهورامزدا خواسته می‌شود تا بر زمین برقرار شود و مردمان در سایه‌اش آسوده زندگی کنند.</p>
+          <p data-i18n="g4P2">سخن اصلی این سرود، جامعه‌ی راست‌کاران است: شهریاری نیک از آنِ کسی است که آن را با راستی و برای راستی به کار گیرد، نه برای خویشتن. زرتشت در این سرود از سردمداران و آموزگاران دروغ — که در آن روزگار «کوی»ها و «کرپن»ها خوانده می‌شدند — روی برمی‌گرداند و یاران راستین خویش را به نام می‌ستاید: گشتاسپ، شاه پشتیبان دین، و جاماسپ و فرشوشتر، وزیران و یاران نزدیک او.</p>
+          <blockquote class="verse">
+            <span data-i18n="g4Verse">بهترین شهریاری، شهریاری‌ای است که برای راستی برگزیده شود؛ و بهترین پاداش، از آنِ کسی است که راستی را برگزیند.</span>
+            <small data-i18n="g4VerseBy">برگرفته از سخن یسن ۵۱، وهوخشتر گات — به فارسی روان</small>
+          </blockquote>
+          <p data-i18n="g4P3">پیام وهوخشتر گات برای امروز هم روشن است: توان و فرمانروایی، هر جا که باشد — از خانه تا کشور — تنها وقتی نیک است که در خدمت راستی و مردمان باشد. این کوتاه‌ترین گات، یکی از ژرف‌ترین سخن‌های زرتشت درباره‌ی سیاست و جامعه است.</p>
+        </article>
+        <article class="full-story gold">
+          <span class="tag" data-i18n="g5Tag">بخش پنجم · یسن ۵۳</span>
+          <h3 data-i18n="g5Title">وهیشتوایشت گات — سرود پیوند و زندگی</h3>
+          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <span class="voice-play" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+            </span>
+            <div class="voice-meta">
+              <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
+              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+            </div>
+            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+          </div>
+          <p data-i18n="g5P1">وهیشتوایشت گات واپسین گات است و آن هم تنها یک سرود دارد: یسن ۵۳. نامش یعنی «بهترین آرزو» یا «برترین خواسته». در روایت‌ها آمده است که این سرود در جشن پیوند پورچیستا، کوچک‌ترین دختر زرتشت، با جاماسپ — وزیر دانای گشتاسپ — خوانده شده و از همین رو آن را «سرود عروسی» گات‌ها می‌خوانند.</p>
+          <p data-i18n="g5P2">در این سرود، زرتشت با دخترش و با همه‌ی نوعروسان و نودامادان سخن می‌گوید و اندرزشان می‌دهد: با اندیشه‌ی نیک با یکدیگر زندگی کنید و در راستی و نیکی از هم پیشی بگیرید. پورچیستا خود، با گزینش آزاد خویش، جاماسپ را برمی‌گزیند؛ و همین گزینش آگاهانه‌ی یک زن جوان، از زیباترین برگ‌های گات‌هاست: پیوند نیز، مانند هر کار بزرگ زندگی، باید برگزیده شود، نه تحمیل.</p>
+          <blockquote class="verse">
+            <span data-i18n="g5Verse">این سخنان را به شما می‌گویم، ای دختران و دامادان: با اندیشه‌ی نیک با هم سخن بگویید و در راستی پیشی بگیرید، تا به بهترین زندگی برسید.</span>
+            <small data-i18n="g5VerseBy">برگرفته از اندرز یسن ۵۳، وهیشتوایشت گات — به فارسی روان</small>
+          </blockquote>
+          <p data-i18n="g5P3">با این سرود کوتاه، سخن خودِ زرتشت در اوستا به پایان می‌رسد؛ آنچه پس از آن در یسنا و دیگر بخش‌های اوستا می‌آید، سروده‌ها و نیایش‌های سده‌های پس از اوست. پیام وهیشتوایشت گات، پیام واپسین زرتشت است: بهترین آرزوی آدمی، زندگی‌ای است که با گزینش آزاد، بر راستی و مهر بنا شود — از پیوند دو دل تا پیوند همه‌ی مردمان.</p>
+        </article>
+        <div class="roadmap">
+          <h3 data-i18n="roadGTitle">بخش‌های گات‌ها به‌ترتیب</h3>
+          <ol class="road-list">
+            <li><span class="ttl" data-i18n="rG1">اهونود گات — سرودهای نخستین (یسنا ۲۸ تا ۳۴)</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rG2">اشتود گات — سرود شادمانی (یسنا ۴۳ تا ۴۶)</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rG3">سپنتمد گات — سرود خرد نیک‌افزا (یسنا ۴۷ تا ۵۰)</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rG4">وهوخشتر گات — سرود شهریاری نیک (یسن ۵۱)</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+            <li><span class="ttl" data-i18n="rG5">وهیشتوایشت گات — سرود پیوند و زندگی (یسن ۵۳)</span><span class="status done" data-i18n="statusDone">منتشر شد</span></li>
+          </ol>
+          <p class="roadmap-note" data-i18n="roadGNote">گات‌ها را از آغاز و به همین ترتیب می‌خوانیم؛ هر گات با شرحی به فارسی روان و سخن نامدار خودش.</p>
+        </div>
+        <p class="heritage-note" data-i18n="gNote">هر پنج گات منتشر شد؛ خوانش صوتی هر بخش با صدای خودم به‌زودی همین‌جا می‌نشیند و سفر در کتاب‌های کهن ایران ادامه دارد.</p>
+      </section>
+
       <section class="heritage" id="support" data-view="support" data-i18n-aria="supportAria" aria-label="حمایت مالی">
         <div class="heritage-head">
           <span class="kicker" data-i18n="supportKicker">از دل، برای سایت</span>
@@ -4343,6 +4521,7 @@
           navShahnamehHistory: "History of the Shahnameh",
           navSchools: "For Schools",
           navAvesta: "Avesta",
+          navGathas: "Gathas",
           lionSunAlt: "The historic Lion and Sun emblem, the emblem of Iran's old flag: a standing golden lion holding a sword in its paw, with the radiant sun shining behind it",
           heroGreeting: "Greetings to you",
           heroKicker: "Ancient, mythic books of Iran",
@@ -4415,10 +4594,11 @@
           catMonAlt: "The tall stone columns of Persepolis against a blue sky",
           booksAria: "Ancient books",
           booksKicker: "Ancient, mythic books of Iran",
-          booksTitle: "Ancient Books — <em>three treasures of Iran</em>",
-          booksIntro: "I read and narrate all three books for you from the very beginning, in order, in my own voice. Tap any book to open it.",
+          booksTitle: "Ancient Books — <em>four treasures of Iran</em>",
+          booksIntro: "I read and narrate all four books for you from the very beginning, in order, in my own voice. Tap any book to open it.",
           bookShSub: "The tales of Iran's kings and heroes, composed by Ferdowsi",
           bookAvSub: "The sacred hymns of Zoroaster and ancient Iran",
+          bookGSub: "Zoroaster's own hymns, the oldest part of the Avesta",
           bookNSub: "The tales Shahrazad told Shahriar, night after night",
           bookOpen: "Open the book",
           prod1Title: "Golden metal pin — “Shahbaz, the Shahbaz Standard”",
@@ -4538,6 +4718,7 @@
           livingTitle: "The paintings are no longer still — they live and move",
           livingText: "The camera slowly drifts and draws closer, light slides across the scene, and where there is fire the flame flickers and sparks rise — like a living miniature. If your eyes tire, pause the motion with the button here.",
           livingTextAv: "The temple fire flickers, dawn light slides over Zoroaster's prayer, and light sparkles and ripples on Tishtar's waters — like a living miniature. If your eyes tire, pause the motion with the button here.",
+          livingTextG: "A gentle light glides over the face of Asho Zoroaster and the halo of sun behind his head glows; just like a living miniature. If your eyes tire, pause the motion with the button beside it.",
           livingPause: "Pause motion",
           livingPlay: "Play motion",
           shHistAria: "History of the Shahnameh",
@@ -4857,6 +5038,67 @@
           rAv11: "Denkard — the great encyclopedia of the Zoroastrian faith",
           rAv12: "Menog-i Khrad — the Book of the Spirit of Wisdom",
           roadAvNote: "The Avesta, too, proceeds from the beginning and in this order; each part comes with its own texts and hymns and an explanation in plain language.",
+          gAria: "Gathas",
+          gImgAlt: "The traditional portrait of Asho Zoroaster, from the painting of the Yazd fire temple: white robe and cap, golden girdle, a staff in his left hand, the forefinger of his right hand raised, and a halo of sun behind his head",
+          gImgCap: "The traditional portrait of Asho Zoroaster, from the painting of the Yazd fire temple — white robe, golden girdle, and a halo of sun around his head.",
+          gKicker: "Iran's oldest hymns",
+          gTitle: "Gathas — <em>the hymns of Asho Zoroaster</em>",
+          gIntro: "This book is the Gathas themselves: the seventeen hymns believed to be the very words of Asho Zoroaster, forming the oldest layer of the Avesta. We read all five Gathas from the beginning, in order, each explained in plain words — from the Ahunavad to the Vahishtoisht.",
+          gVerse: "Happiness belongs to the one who brings happiness to others",
+          gVerseBy: "From the Ushtavad Gatha (Yasna 43) — the words of Asho Zoroaster",
+          g0Tag: "Introduction · About this book",
+          g0Title: "What are the Gathas? — Iran's oldest hymns",
+          g0P1: "The Gathas are the oldest part of the Avesta and among the most ancient writings to survive from ancient Iran. Zoroastrians believe — and most scholars agree — that these hymns are the very words of Asho Zoroaster: the only part of the Avesta that comes from him directly. The Avesta's other parts, such as the Yashts and the Vendidad, were composed and gathered in the centuries after him, but the Gathas are his own voice.",
+          g0P2: "The Gathas are seventeen hymns (hāts) arranged in five groups, set within the Yasna — the Avesta's book of worship: Yasna 28–34 and 43–53. Their language is Gathic Avestan, so ancient that even in Sasanian times it needed commentary and translation to be understood. The word 'gāthā' means a hymn or song, and each of the five Gathas bears its own name, taken from its opening word or its central theme.",
+          g0P3: "In these hymns Zoroaster speaks with Ahura Mazda: at times he prays, at times he asks questions and seeks answers, and at times he laments the suffering that the followers of the Lie bring upon the righteous. His central word is Asha: truth, and the right order of existence. The way to Asha is Vohu Manah: good thought. And most famous of all is this teaching: every person is free, and must choose for themselves between the path of good and the path of evil; no one can choose for another, and reward and consequence flow from that free choice.",
+          g0P4: "In the famous hymn Yasna 30, we hear of two twin spirits who have existed from the beginning: Spenta Mainyu, the spirit that increases good, and Angra Mainyu, the spirit that diminishes and destroys; and every person, in their own life, chooses between the two. This book reads all five Gathas in order; each section says, in simple words, where that Gatha sits in the Yasna, what its name means, and what its main message is — and, like this site's other books, my own reading of each section will soon be here too.",
+          g1Tag: "Part One · Yasna 28–34",
+          g1Title: "Ahunavad Gatha — the first hymns",
+          g1P1: "The Ahunavad Gatha is the first and longest of the Gathas: seven hymns, Yasna 28 to 34, at the head of the Yasna's Gathic section. Its name comes from the Avesta's most ancient prayer, the Ahunavar (Yatha Ahu), which is recited before these hymns — like a gateway into the world of the Gathas.",
+          g1P2: "In Yasna 28, Zoroaster prays with uplifted hands and asks Ahura Mazda for the joy and strength that are the reward of the righteous soul; he says he has come before him with good thought, and asks to be shown the right way to live. In Yasna 29, the Soul of the Cow — a symbol of good creation and of defenceless people — laments the violence done to her, and Ahura Mazda appoints Zoroaster as her protector and guide; a symbolic dialogue among the oldest in the world.",
+          g1P3: "In Yasna 30 comes the Gathas' most famous teaching: the two twin spirits, and each person's free choice between good and evil. Yasna 31 speaks of creation and of fire — fire, the sign of truth's judgement and the test through which, at the end of time, all must pass. And Yasna 32 to 34 speak of the struggle against the followers of the Lie and the false gods, and of the hope for a day when truth stands firm in the world.",
+          g1Verse: "Hear with your ears the best words and look upon them with a clear mind; every person — woman and man — must choose for themselves between the two paths.",
+          g1VerseBy: "From Yasna 30, the Ahunavad Gatha — retold in plain words",
+          g1P4: "The message of the Ahunavad Gatha is the message of all the Gathas: truth must be known, chosen, and lived — and that task rests on each person's own shoulders.",
+          g2Tag: "Part Two · Yasna 43–46",
+          g2Title: "Ushtavad Gatha — the hymn of happiness",
+          g2P1: "The Ushtavad Gatha is the second Gatha: four hymns, Yasna 43 to 46. Its name comes from the word 'ushtā' — happiness and joy — the very word with which its first hymn opens, and the theme of the whole Gatha: what is true happiness, and where does it come from?",
+          g2P2: "This Gatha is the most personal of all; it is as if Zoroaster tells the story of his own path: from the days when he was poor and alone, asking Ahura Mazda who would stand by him, to the day his message found its footing. In Yasna 44, his question after question to Ahura Mazda — 'This I ask you; tell me truly, O Ahura' — about the sky and the earth, the waters and the plants and the fate of humankind, is among the most beautiful passages in the whole Avesta.",
+          g2P3: "In Yasna 43, Zoroaster says that when he came to know Ahura Mazda through good thought, happiness came to him; and in Yasna 45 the two spirits and the beginning of creation are spoken of again. Yasna 46 tells of the hard days at the start of his work: of being driven from home and land, and of the hope for a saviour who will come at the end and make the world new.",
+          g2Verse: "uštā ahmāi yahmāi uštā kahmāicīt",
+          g2VerseBy: "The opening of Yasna 43, the Ushtavad Gatha — in Avestan",
+          g2VerseTr: "That is: 'Happiness be his who gives happiness to anyone.'",
+          g2P4: "The message of the Ushtavad Gatha is that Zoroaster's path is not a path of sorrow; it is a path of joy — but a joy that comes from truth and is made by gladdening others, not from selfishness.",
+          g3Tag: "Part Three · Yasna 47–50",
+          g3Title: "Spentamad Gatha — the hymn of the bountiful spirit",
+          g3P1: "The Spentamad Gatha is the third Gatha: four hymns, Yasna 47 to 50. Its name comes from Spenta Mainyu: the bountiful spirit, the creative wisdom that stands against the destructive spirit and moves the world toward goodness. All four of its hymns open with praise of this spirit.",
+          g3P2: "In Yasna 47, Ahura Mazda is called, through Spenta Mainyu and the best thought, the 'father of Asha' — truth is born of his good wisdom, and every good deed of ours flows from that same source. This Gatha also speaks of Armaiti: humility and devotion, which together with Asha and Vohu Manah form the way of right living — a triad that shines through the whole Zoroastrian faith.",
+          g3P3: "Yasna 49 and 50 speak of good rule and of devotion: a good ruler is one who rules with truth and good thought, and the devout person is one who pleases both God and people. The Gatha ends with a quiet prayer in which Zoroaster entrusts himself and his followers to Ahura Mazda and asks him for the best reward for the righteous.",
+          g3Verse: "Through his bountiful wisdom and the best thought, Ahura Mazda is the father of truth.",
+          g3VerseBy: "From Yasna 47, the Spentamad Gatha — retold in plain words",
+          g3P4: "The message of the Spentamad Gatha: the world moves forward through wisdom and increase of good; and every good thought and deed of ours is a hand in that same good creation — we are God's fellow-workers in making the world better.",
+          g4Tag: "Part Four · Yasna 51",
+          g4Title: "Vohukhshathra Gatha — the hymn of good dominion",
+          g4P1: "The Vohukhshathra Gatha is the fourth Gatha and the shortest of all: a single hymn, Yasna 51. Its name means 'good dominion' or 'good rule' — the very dominion that Zoroastrian prayers ask Ahura Mazda to establish on earth, so that people may live in peace beneath it.",
+          g4P2: "This hymn's central theme is the community of the righteous: good dominion belongs to the one who wields it with truth and for truth, not for himself. In it, Zoroaster turns away from the lords and teachers of the Lie — called in those days the Kavis and the Karpans — and praises his true companions by name: Vishtaspa, the king who upheld the faith, and Jamaspa and Frashaoshtra, his ministers and close friends.",
+          g4Verse: "The best dominion is a dominion chosen for truth; and the best reward belongs to the one who chooses truth.",
+          g4VerseBy: "Drawn from Yasna 51, the Vohukhshathra Gatha — retold in plain words",
+          g4P3: "The message of the Vohukhshathra Gatha is clear for today as well: power and rule, wherever they are — from a household to a country — are good only when they serve truth and people. This shortest of the Gathas is one of Zoroaster's deepest words on rule and society.",
+          g5Tag: "Part Five · Yasna 53",
+          g5Title: "Vahishtoisht Gatha — the hymn of union and life",
+          g5P1: "The Vahishtoisht Gatha is the last of the Gathas, and it too has a single hymn: Yasna 53. Its name means 'the best wish' or 'the highest desire.' Tradition tells that this hymn was sung at the wedding of Pouruchista, Zoroaster's youngest daughter, to Jamaspa — Vishtaspa's wise minister — and so it is called the wedding hymn of the Gathas.",
+          g5P2: "In this hymn, Zoroaster speaks to his daughter and to all brides and bridegrooms, and counsels them: live together with good thought, and outdo one another in truth and goodness. Pouruchista herself, by her own free choice, chooses Jamaspa; and this conscious choice of a young woman is one of the Gathas' most beautiful pages: marriage, like every great thing in life, must be chosen, not imposed.",
+          g5Verse: "These words I speak to you, O brides and bridegrooms: speak to one another with good thought and outdo one another in truth, so that you may reach the best life.",
+          g5VerseBy: "Drawn from the counsel of Yasna 53, the Vahishtoisht Gatha — retold in plain words",
+          g5P3: "With this short hymn, Zoroaster's own words in the Avesta come to an end; what follows in the Yasna and the Avesta's other parts are the hymns and prayers of the centuries after him. The message of the Vahishtoisht Gatha is Zoroaster's last message: a person's best wish is a life built, by free choice, on truth and love — from the union of two hearts to the union of all people.",
+          roadGTitle: "The Gathas, in order",
+          rG1: "Ahunavad Gatha — the first hymns (Yasna 28–34)",
+          rG2: "Ushtavad Gatha — the hymn of happiness (Yasna 43–46)",
+          rG3: "Spentamad Gatha — the hymn of the bountiful spirit (Yasna 47–50)",
+          rG4: "Vohukhshathra Gatha — the hymn of good dominion (Yasna 51)",
+          rG5: "Vahishtoisht Gatha — the hymn of union and life (Yasna 53)",
+          roadGNote: "We read the Gathas from the beginning, in this order; each Gatha with a plain explanation and its own famous word.",
+          gNote: "All five Gathas are published; my own voice reading of each part will soon sit here too, and the journey through Iran's ancient books goes on.",
           navNights: "One Thousand and One Nights",
           nAria: "One Thousand and One Nights",
           nKicker: "Shahrazad the storyteller",
@@ -5752,6 +5994,7 @@
           navShahnamehHistory: "Histoire du Shahnameh",
           navSchools: "Pour les écoles",
           navAvesta: "Avesta",
+          navGathas: "Gathas",
           lionSunAlt: "L'emblème historique du Lion et du Soleil, celui de l'ancien drapeau de l'Iran : un lion doré debout tenant une épée dans sa patte, le soleil rayonnant derrière lui",
           heroGreeting: "Salutations à vous",
           heroKicker: "Livres anciens et mythiques de l'Iran",
@@ -5824,10 +6067,11 @@
           catMonAlt: "Les hautes colonnes de pierre de Persépolis sous un ciel bleu",
           booksAria: "Livres anciens",
           booksKicker: "Livres anciens et mythiques de l'Iran",
-          booksTitle: "Livres anciens — <em>trois trésors de l'Iran</em>",
-          booksIntro: "Je vous lis et raconte ces trois livres depuis le tout début, dans l'ordre, de ma propre voix. Touchez un livre pour l'ouvrir.",
+          booksTitle: "Livres anciens — <em>quatre trésors de l'Iran</em>",
+          booksIntro: "Je vous lis et raconte ces quatre livres depuis le tout début, dans l'ordre, de ma propre voix. Touchez un livre pour l'ouvrir.",
           bookShSub: "Les récits des rois et des héros de l'Iran, composés par Ferdowsi",
           bookAvSub: "Les hymnes sacrés de Zoroastre et de l'Iran antique",
+          bookGSub: "Les hymnes de Zoroastre lui-même, la plus ancienne partie de l'Avesta",
           bookNSub: "Les contes que Shahrazad raconta à Shahriar, nuit après nuit",
           bookOpen: "Ouvrir le livre",
           prod1Title: "Broche en métal doré — « Shahbaz, l'étendard Shahbaz »",
@@ -5947,6 +6191,7 @@
           livingTitle: "Les miniatures ne sont plus fixes — elles vivent et bougent",
           livingText: "La caméra glisse lentement et se rapproche, la lumière traverse la scène, et là où il y a du feu, la flamme vacille et des étincelles s'élèvent — comme une miniature vivante. Si vos yeux se fatiguent, mettez le mouvement en pause avec le bouton ici.",
           livingTextAv: "Le feu du temple vacille, la lumière de l'aube glisse sur la prière de Zoroastre, et la lumière scintille et ondule sur les eaux de Tishtar — comme une miniature vivante. Si vos yeux se fatiguent, mettez le mouvement en pause avec le bouton ici.",
+          livingTextG: "Une lumière douce glisse sur le visage d'Asho Zoroastre et le halo de soleil derrière sa tête rayonne ; comme une miniature vivante. Si vos yeux se fatiguent, arrêtez le mouvement avec le bouton ci-contre.",
           livingPause: "Pause",
           livingPlay: "Lecture",
           shHistAria: "Histoire du Shahnameh",
@@ -6266,6 +6511,67 @@
           rAv11: "Denkard — la grande encyclopédie de la religion zoroastrienne",
           rAv12: "Menog-i Khrad — le livre de l'Esprit de sagesse",
           roadAvNote: "L'Avesta aussi avance depuis le début et dans cet ordre ; chaque partie viendra avec ses propres textes et hymnes et une explication en langage simple.",
+          gAria: "Gathas",
+          gImgAlt: "Le portrait traditionnel d'Asho Zoroastre, d'après la peinture du temple du feu de Yazd : robe et bonnet blancs, ceinture dorée, un bâton dans la main gauche, l'index de la main droite levé et un halo de soleil derrière la tête",
+          gImgCap: "Le portrait traditionnel d'Asho Zoroastre, d'après la peinture du temple du feu de Yazd — robe blanche, ceinture dorée et halo de soleil autour de la tête.",
+          gKicker: "Les plus anciens hymnes de l'Iran",
+          gTitle: "Gathas — <em>les hymnes d'Asho Zoroastre</em>",
+          gIntro: "Ce livre, ce sont les Gathas elles-mêmes : les dix-sept hymnes que l'on tient pour les paroles mêmes d'Asho Zoroastre, la couche la plus ancienne de l'Avesta. Nous lisons les cinq Gathas depuis le début, dans l'ordre, chacune expliquée simplement — de l'Ahunavad à la Vahishtoisht.",
+          gVerse: "Le bonheur est à celui qui rend les autres heureux",
+          gVerseBy: "De la Gatha Ushtavad (Yasna 43) — parole d'Asho Zoroastre",
+          g0Tag: "Introduction · À propos de ce livre",
+          g0Title: "Que sont les Gathas ? — les plus anciens hymnes de l'Iran",
+          g0P1: "Les Gathas sont la partie la plus ancienne de l'Avesta et parmi les écrits les plus anciens qui nous restent de l'Iran antique. Les zoroastriens croient — et la plupart des chercheurs s'accordent — que ces hymnes sont les paroles mêmes d'Asho Zoroastre : la seule partie de l'Avesta qui vienne directement de lui. Les autres parties de l'Avesta, comme les Yashts et le Vendidad, ont été composées et rassemblées dans les siècles qui l'ont suivi, mais les Gathas sont sa propre voix.",
+          g0P2: "Les Gathas sont dix-sept hymnes (hāts) répartis en cinq groupes, insérés dans le Yasna — le livre de prières de l'Avesta : Yasna 28 à 34 et 43 à 53. Leur langue est l'avestique gathique, si ancienne qu'à l'époque sassanide déjà, il fallait des commentaires et des traductions pour la comprendre. Le mot « gāthā » signifie hymne ou chant, et chacune des cinq Gathas porte son propre nom, tiré de son mot d'ouverture ou de son thème central.",
+          g0P3: "Dans ces hymnes, Zoroastre parle avec Ahura Mazda : tantôt il prie, tantôt il pose des questions et cherche des réponses, tantôt il se plaint des souffrances que les partisans du Mensonge infligent aux justes. Son mot central est Asha : la vérité et l'ordre juste de l'existence. La voie vers Asha est Vohu Manah : la bonne pensée. Et l'enseignement le plus célèbre est celui-ci : chaque être humain est libre et doit choisir lui-même entre la voie du bien et celle du mal ; nul ne peut choisir pour un autre, et la récompense comme la sanction naissent de ce libre choix.",
+          g0P4: "Dans le célèbre hymne Yasna 30, il est question de deux esprits jumeaux qui existent depuis le commencement : Spenta Mainyu, l'esprit qui accroît le bien, et Angra Mainyu, l'esprit qui diminue et détruit ; et chacun, dans sa propre vie, choisit entre les deux. Ce livre lit les cinq Gathas dans l'ordre ; chaque partie dit, en mots simples, où cette Gatha se trouve dans le Yasna, ce que son nom signifie et quel est son message principal — et, comme pour les autres livres de ce site, ma propre lecture de chaque partie arrivera bientôt ici aussi.",
+          g1Tag: "Première partie · Yasna 28 à 34",
+          g1Title: "Gatha Ahunavad — les premiers hymnes",
+          g1P1: "La Gatha Ahunavad est la première et la plus longue des Gathas : sept hymnes, Yasna 28 à 34, au début de la partie gathique du Yasna. Son nom vient de la plus ancienne prière de l'Avesta, l'Ahunavar (Yatha Ahu), récitée avant ces hymnes — comme une porte d'entrée dans le monde des Gathas.",
+          g1P2: "Dans le Yasna 28, Zoroastre prie les mains levées et demande à Ahura Mazda la joie et la force qui récompensent l'âme juste ; il dit être venu à lui avec une bonne pensée et lui demande de lui montrer la juste façon de vivre. Dans le Yasna 29, l'Âme de la Vache — symbole de la bonne création et des gens sans défense — se plaint de la violence qu'elle subit, et Ahura Mazda choisit Zoroastre pour la protéger et la guider ; un dialogue symbolique parmi les plus anciens du monde.",
+          g1P3: "Le Yasna 30 livre l'enseignement le plus célèbre des Gathas : les deux esprits jumeaux et le libre choix de chacun entre le bien et le mal. Le Yasna 31 parle de la création et du feu — le feu, signe du jugement de la vérité et épreuve que tous devront traverser à la fin des temps. Et les Yasna 32 à 34 parlent de la lutte contre les partisans du Mensonge et les faux dieux, et de l'espoir d'un jour où la vérité régnera sur le monde.",
+          g1Verse: "Écoutez de vos oreilles les meilleures paroles et regardez-les avec un esprit clair ; chaque personne — femme et homme — doit choisir elle-même entre les deux voies.",
+          g1VerseBy: "Du Yasna 30, Gatha Ahunavad — raconté en mots simples",
+          g1P4: "Le message de la Gatha Ahunavad est celui de toutes les Gathas : il faut connaître la vérité, la choisir et la vivre — et cette tâche repose sur les épaules de chacun.",
+          g2Tag: "Deuxième partie · Yasna 43 à 46",
+          g2Title: "Gatha Ushtavad — l'hymne du bonheur",
+          g2P1: "La Gatha Ushtavad est la deuxième Gatha : quatre hymnes, Yasna 43 à 46. Son nom vient du mot « ushtā » — bonheur et joie — le mot même par lequel s'ouvre son premier hymne, et le thème de toute la Gatha : qu'est-ce que le vrai bonheur, et d'où vient-il ?",
+          g2P2: "Cette Gatha est la plus personnelle de toutes ; c'est comme si Zoroastre racontait son propre chemin : depuis les jours où il était pauvre et seul, demandant à Ahura Mazda qui le soutiendrait, jusqu'au jour où son message prit racine. Dans le Yasna 44, ses questions à Ahura Mazda, l'une après l'autre — « Je te le demande ; dis-moi la vérité, ô Ahura » — sur le ciel et la terre, les eaux et les plantes et le destin des humains, comptent parmi les plus beaux passages de tout l'Avesta.",
+          g2P3: "Dans le Yasna 43, Zoroastre dit que lorsqu'il connut Ahura Mazda par la bonne pensée, le bonheur vint à lui ; et le Yasna 45 parle à nouveau des deux esprits et du commencement de la création. Le Yasna 46 raconte les jours difficiles du début de son œuvre : l'exil loin de sa maison et de sa terre, et l'espoir d'un sauveur qui viendra à la fin et renouvellera le monde.",
+          g2Verse: "uštā ahmāi yahmāi uštā kahmāicīt",
+          g2VerseBy: "L'ouverture du Yasna 43, Gatha Ushtavad — en avestique",
+          g2VerseTr: "C'est-à-dire : « Le bonheur soit à celui qui donne le bonheur à quiconque. »",
+          g2P4: "Le message de la Gatha Ushtavad est que la voie de Zoroastre n'est pas une voie de tristesse ; c'est une voie de joie — mais une joie qui vient de la vérité et se construit en rendant les autres heureux, non dans l'égoïsme.",
+          g3Tag: "Troisième partie · Yasna 47 à 50",
+          g3Title: "Gatha Spentamad — l'hymne de l'esprit bienfaisant",
+          g3P1: "La Gatha Spentamad est la troisième Gatha : quatre hymnes, Yasna 47 à 50. Son nom vient de Spenta Mainyu : l'esprit bienfaisant, la sagesse créatrice qui se dresse contre l'esprit destructeur et fait avancer le monde vers le bien. Ses quatre hymnes s'ouvrent tous par la louange de cet esprit.",
+          g3P2: "Dans le Yasna 47, Ahura Mazda est appelé, par Spenta Mainyu et la meilleure pensée, le « père d'Asha » — la vérité naît de sa bonne sagesse, et chacun de nos actes bons coule de cette même source. Cette Gatha parle aussi d'Armaiti : l'humilité et la dévotion qui, avec Asha et Vohu Manah, forment la voie de la vie juste — une triade qui rayonne dans toute la foi zoroastrienne.",
+          g3P3: "Les Yasna 49 et 50 parlent du bon gouvernement et de la dévotion : un bon souverain est celui qui règne avec la vérité et la bonne pensée, et la personne dévote est celle qui plaît à la fois à Dieu et aux gens. La Gatha s'achève par une prière paisible où Zoroastre se confie, lui et ses fidèles, à Ahura Mazda et lui demande la meilleure récompense pour les justes.",
+          g3Verse: "Par sa sagesse bienfaisante et la meilleure pensée, Ahura Mazda est le père de la vérité.",
+          g3VerseBy: "Du Yasna 47, Gatha Spentamad — raconté en mots simples",
+          g3P4: "Le message de la Gatha Spentamad : le monde avance par la sagesse et l'accroissement du bien ; et chacune de nos bonnes pensées et de nos bonnes actions est une main dans cette même bonne création — nous sommes les collaborateurs de Dieu pour rendre le monde meilleur.",
+          g4Tag: "Quatrième partie · Yasna 51",
+          g4Title: "Gatha Vohukhshathra — l'hymne du bon règne",
+          g4P1: "La Gatha Vohukhshathra est la quatrième Gatha et la plus courte de toutes : un seul hymne, le Yasna 51. Son nom signifie « bon règne » ou « bonne domination » — ce règne même que les prières zoroastriennes demandent à Ahura Mazda d'établir sur la terre, pour que les gens vivent en paix sous sa protection.",
+          g4P2: "Le thème central de cet hymne est la communauté des justes : le bon règne appartient à celui qui l'exerce avec la vérité et pour la vérité, et non pour lui-même. Zoroastre s'y détourne des seigneurs et des maîtres du Mensonge — appelés en ces temps-là les Kavis et les Karpans — et loue ses vrais compagnons par leur nom : Vishtaspa, le roi qui soutint la foi, et Jamaspa et Frashaoshtra, ses ministres et amis proches.",
+          g4Verse: "Le meilleur règne est un règne choisi pour la vérité ; et la meilleure récompense est à celui qui choisit la vérité.",
+          g4VerseBy: "Tiré du Yasna 51, Gatha Vohukhshathra — raconté en mots simples",
+          g4P3: "Le message de la Gatha Vohukhshathra est clair pour aujourd'hui aussi : le pouvoir et le règne, où qu'ils soient — d'un foyer à un pays — ne sont bons que lorsqu'ils servent la vérité et les gens. Cette Gatha, la plus courte, est l'une des paroles les plus profondes de Zoroastre sur le pouvoir et la société.",
+          g5Tag: "Cinquième partie · Yasna 53",
+          g5Title: "Gatha Vahishtoisht — l'hymne de l'union et de la vie",
+          g5P1: "La Gatha Vahishtoisht est la dernière des Gathas, et elle aussi n'a qu'un seul hymne : le Yasna 53. Son nom signifie « le meilleur souhait » ou « le plus haut désir ». La tradition raconte que cet hymne fut chanté au mariage de Pouruchista, la plus jeune fille de Zoroastre, avec Jamaspa — le sage ministre de Vishtaspa — et c'est pourquoi on l'appelle l'hymne de mariage des Gathas.",
+          g5P2: "Dans cet hymne, Zoroastre parle à sa fille et à toutes les jeunes mariées et tous les jeunes mariés, et il les conseille : vivez ensemble avec une bonne pensée, et surpassiez-vous l'un l'autre en vérité et en bonté. Pouruchista elle-même, par son propre libre choix, choisit Jamaspa ; et ce choix conscient d'une jeune femme est l'une des plus belles pages des Gathas : le mariage, comme toute grande chose de la vie, doit être choisi, non imposé.",
+          g5Verse: "Ces paroles, je vous les dis, ô jeunes mariées et jeunes mariés : parlez-vous avec une bonne pensée et surpassiez-vous en vérité, afin d'atteindre la meilleure vie.",
+          g5VerseBy: "Tiré du conseil du Yasna 53, Gatha Vahishtoisht — raconté en mots simples",
+          g5P3: "Avec cet hymne bref s'achèvent les paroles mêmes de Zoroastre dans l'Avesta ; ce qui suit dans le Yasna et les autres parties de l'Avesta, ce sont les hymnes et les prières des siècles qui l'ont suivi. Le message de la Gatha Vahishtoisht est le dernier message de Zoroastre : le meilleur souhait d'un être humain est une vie bâtie, par libre choix, sur la vérité et l'amour — de l'union de deux cœurs à l'union de tous les peuples.",
+          roadGTitle: "Les Gathas, dans l'ordre",
+          rG1: "Gatha Ahunavad — les premiers hymnes (Yasna 28 à 34)",
+          rG2: "Gatha Ushtavad — l'hymne du bonheur (Yasna 43 à 46)",
+          rG3: "Gatha Spentamad — l'hymne de l'esprit bienfaisant (Yasna 47 à 50)",
+          rG4: "Gatha Vohukhshathra — l'hymne du bon règne (Yasna 51)",
+          rG5: "Gatha Vahishtoisht — l'hymne de l'union et de la vie (Yasna 53)",
+          roadGNote: "Nous lisons les Gathas depuis le début, dans cet ordre ; chaque Gatha avec une explication simple et sa parole célèbre.",
+          gNote: "Les cinq Gathas sont publiées ; ma propre lecture de chaque partie arrivera bientôt ici aussi, et le voyage dans les livres anciens de l'Iran continue.",
           navNights: "Les Mille et Une Nuits",
           nAria: "Les Mille et Une Nuits",
           nKicker: "Shahrazad la conteuse",
@@ -7835,7 +8141,7 @@
     <script>
       /* ---------- Separate pages: show one section at a time ---------- */
       (function () {
-        var VIEWS = ["avesta", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "peoples", "inventions", "creatures", "heroes", "schools", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
+        var VIEWS = ["avesta", "gathas", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "peoples", "inventions", "creatures", "heroes", "schools", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
         var panels = document.querySelectorAll("[data-view]");
         var navLinks = document.querySelectorAll("[data-view-link]");
         var current = "home";
@@ -7981,6 +8287,7 @@
             ind: "برگ {n} از {t}", swipe: "برای ورق زدن، انگشتت رو به چپ یا راست روی برگ بکش؛ بالا و پایین کشیدن فقط برگ رو بالا و پایین می‌بره",
             shTitle: "شاهنامه", shBy: "حکیم ابوالقاسم فردوسی",
             avTitle: "اوستا", avBy: "سرودهای کهنِ اشو زرتشت",
+            gTitle: "گات‌ها", gBy: "سرودهای اشو زرتشت",
             nTitle: "هزار و یک شب", nBy: "شهرزاد قصه‌گو"
           },
           en: {
@@ -7990,6 +8297,7 @@
             ind: "Page {n} of {t}", swipe: "To turn a page, swipe left or right across it; swiping up or down only scrolls",
             shTitle: "Shahnameh", shBy: "Hakim Abolqasem Ferdowsi",
             avTitle: "Avesta", avBy: "The ancient hymns of Asho Zoroaster",
+            gTitle: "Gathas", gBy: "The hymns of Asho Zoroaster",
             nTitle: "One Thousand and One Nights", nBy: "Shahrazad the storyteller"
           },
           fr: {
@@ -7999,6 +8307,7 @@
             ind: "Page {n} sur {t}", swipe: "Pour tourner une page, glissez vers la gauche ou la droite ; glisser vers le haut ou le bas fait seulement défiler",
             shTitle: "Shahnameh", shBy: "Hakim Abolqasem Ferdowsi",
             avTitle: "Avesta", avBy: "Les hymnes anciens d'Asho Zoroastre",
+            gTitle: "Gathas", gBy: "Les hymnes d'Asho Zoroastre",
             nTitle: "Les Mille et Une Nuits", nBy: "Shahrazad la conteuse"
           }
         };
@@ -8101,7 +8410,7 @@
 
           function renderLabels() {
             var lab = L();
-            var bt = kind === "shahnameh" ? [lab.shTitle, lab.shBy] : kind === "nights" ? [lab.nTitle, lab.nBy] : [lab.avTitle, lab.avBy];
+            var bt = kind === "shahnameh" ? [lab.shTitle, lab.shBy] : kind === "nights" ? [lab.nTitle, lab.nBy] : kind === "gathas" ? [lab.gTitle, lab.gBy] : [lab.avTitle, lab.avBy];
             cover.querySelector(".book-cover-title").textContent = bt[0];
             cover.querySelector(".book-cover-by").textContent = bt[1];
             cover.querySelector(".open-label").textContent = lab.open;
@@ -8267,6 +8576,7 @@
         buildBook(document.getElementById("shahnameh"), "shahnameh");
         buildBook(document.getElementById("avesta"), "avesta");
         buildBook(document.getElementById("nights"), "nights");
+        buildBook(document.getElementById("gathas"), "gathas");
 
         /* Arrow keys turn the pages of whichever book is open on screen */
         document.addEventListener("keydown", function (e) {
