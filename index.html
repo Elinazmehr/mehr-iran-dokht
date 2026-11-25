@@ -772,6 +772,15 @@
       /* In-stock hats: real photo with a gold «موجود» badge, like the «به‌زودی» cards */
       .product-imgwrap { position: relative; }
       .product-preorder { position: absolute; top: .8rem; inset-inline-start: .8rem; z-index: 1; background: linear-gradient(160deg, var(--court), var(--court-2)); color: var(--gold-bright); border: 1.5px solid var(--gold-bright); font-size: .8rem; font-weight: 900; line-height: 1.9; border-radius: 999px; padding: .05rem .85rem; box-shadow: 0 4px 12px rgba(22, 42, 92, .35); }
+      /* Velvet waistcoat size table */
+      .vest-sizes-label { flex: none; margin: 0; font-size: .88rem; font-weight: 800; line-height: 1.8; color: var(--accent); }
+      .vest-size-table { width: 100%; border-collapse: collapse; font-size: .85rem; line-height: 1.7; text-align: center; }
+      .vest-size-table th, .vest-size-table td { border: 1px solid var(--line); padding: .3rem .35rem; }
+      .vest-size-table th { background: var(--surface); color: var(--ink); font-weight: 800; }
+      .vest-size-table td { color: var(--ink-soft); }
+      /* Red waistcoat only: strip of extra photos under the main photo */
+      .vest-extra-photos { display: flex; gap: .55rem; }
+      .vest-extra-photos img { flex: 1 1 0; width: auto; min-width: 0; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; border: 1px solid var(--line); border-radius: 10px; }
       @media (max-width: 700px) { .product-grid { grid-template-columns: 1fr; } }
 
       /* ---------- App (installable) ---------- */
@@ -1410,6 +1419,57 @@
                 <a class="btn btn-accent product-order gold" href="https://www.paypal.me/mehrnazmoghaddam/30CAD" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg><span data-i18n="orderBtn">خرید با PayPal</span></a>
                 <p class="product-ship" data-i18n="shipNote">بعد از پرداخت، اسم و آدرس پستی‌تون رو از صفحه‌ی «پیوند با من» بفرستید تا سفارشتون ارسال بشه.</p>
                 <p class="product-note" data-i18n="hatNote">این کلاه موجود و آماده‌ی ارسال است.</p>
+                <p class="product-msg" data-i18n="hatMsg">اگر مایل بودید، از صفحه‌ی «پیوند با من» پیام بدید</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-imgwrap"><img draggable="false" src="assets/vest-blue.jpg" data-i18n-alt="vestBlueAlt" alt="جلیقه مخمل زنانه به رنگ آبی درباری با نوار ساتن و سه دکمه، در برابر فرش ایرانی" loading="lazy" /><span class="product-preorder" data-i18n="vestPreorder">پیش‌فروش</span></div>
+              <div class="product-body">
+                <h3 data-i18n="vestBlueTitle">جلیقه مخمل آبی درباری</h3>
+                <p data-i18n="vestBlueText">جلیقه‌ی مخمل زنانه به رنگ آبی درباری ژرف، با نوار ساتن هم‌رنگ دور یقه‌ی هفت و لبه‌ی جیب‌ها و سه دکمه در جلو؛ برشی اندازه و شیک که هم با پیراهن و هم روی مانتو می‌نشیند.</p>
+                <p class="vest-sizes-label" data-i18n="vestSizesTitle">سایزها</p>
+                <table class="vest-size-table">
+                  <thead>
+                    <tr><th data-i18n="vestSizeCol">سایز</th><th data-i18n="vestBustCol">دور سینه (سانتی‌متر)</th><th data-i18n="vestWaistCol">دور کمر (سانتی‌متر)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>S</td><td data-i18n="vestBustS">۸۹</td><td data-i18n="vestWaistS">۶۹</td></tr>
+                    <tr><td>M</td><td data-i18n="vestBustM">۹۴</td><td data-i18n="vestWaistM">۷۴</td></tr>
+                    <tr><td>L</td><td data-i18n="vestBustL">۱۰۲</td><td data-i18n="vestWaistL">۸۱</td></tr>
+                  </tbody>
+                </table>
+                <span class="product-price" data-i18n="vestPrice">۵۰ دلار کانادا</span>
+                <a class="btn btn-accent product-order gold" href="https://www.paypal.me/mehrnazmoghaddam/50CAD" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg><span data-i18n="orderBtn">خرید با PayPal</span></a>
+                <p class="product-ship" data-i18n="shipNote">بعد از پرداخت، اسم و آدرس پستی‌تون رو از صفحه‌ی «پیوند با من» بفرستید تا سفارشتون ارسال بشه.</p>
+                <p class="product-note" data-i18n="vestNote">این جلیقه پیش‌فروش است؛ پس از آماده‌شدن، برایتان ارسال می‌شود.</p>
+                <p class="product-msg" data-i18n="hatMsg">اگر مایل بودید، از صفحه‌ی «پیوند با من» پیام بدید</p>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-imgwrap"><img draggable="false" src="assets/vest-red.jpg" data-i18n-alt="vestRedAlt" alt="جلیقه مخمل زنانه به رنگ قرمز زرشکی با نوار ساتن و سه دکمه، در برابر فرش ایرانی" loading="lazy" /><span class="product-preorder" data-i18n="vestPreorder">پیش‌فروش</span></div>
+              <div class="product-body">
+                <div class="vest-extra-photos">
+                  <img draggable="false" src="assets/vest-red-worn-front.jpg" data-i18n-alt="vestRedWornFrontAlt" alt="نمای تن‌خور جلیقه مخمل قرمز زرشکی از جلو" loading="lazy" />
+                  <img draggable="false" src="assets/vest-red-worn-back.jpg" data-i18n-alt="vestRedWornBackAlt" alt="نمای پشت جلیقه مخمل قرمز زرشکی" loading="lazy" />
+                  <img draggable="false" src="assets/vest-red-detail.jpg" data-i18n-alt="vestRedDetailAlt" alt="نمای نزدیک جلیقه مخمل قرمز زرشکی با بافت مخمل و مادگی دکمه‌ها، در برابر فرش ایرانی" loading="lazy" />
+                </div>
+                <h3 data-i18n="vestRedTitle">جلیقه مخمل قرمز زرشکی</h3>
+                <p data-i18n="vestRedText">جلیقه‌ی مخمل زنانه به رنگ قرمز زرشکی ژرف، با نوار ساتن هم‌رنگ دور یقه‌ی هفت و لبه‌ی جیب‌ها و سه دکمه در جلو؛ برشی اندازه و شیک که هم با پیراهن و هم روی مانتو می‌نشیند.</p>
+                <p class="vest-sizes-label" data-i18n="vestSizesTitle">سایزها</p>
+                <table class="vest-size-table">
+                  <thead>
+                    <tr><th data-i18n="vestSizeCol">سایز</th><th data-i18n="vestBustCol">دور سینه (سانتی‌متر)</th><th data-i18n="vestWaistCol">دور کمر (سانتی‌متر)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>S</td><td data-i18n="vestBustS">۸۹</td><td data-i18n="vestWaistS">۶۹</td></tr>
+                    <tr><td>M</td><td data-i18n="vestBustM">۹۴</td><td data-i18n="vestWaistM">۷۴</td></tr>
+                    <tr><td>L</td><td data-i18n="vestBustL">۱۰۲</td><td data-i18n="vestWaistL">۸۱</td></tr>
+                  </tbody>
+                </table>
+                <span class="product-price" data-i18n="vestPrice">۵۰ دلار کانادا</span>
+                <a class="btn btn-accent product-order gold" href="https://www.paypal.me/mehrnazmoghaddam/50CAD" target="_blank" rel="noopener noreferrer"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.6"/><circle cx="17" cy="20" r="1.6"/><path d="M3 3h2l2.4 12.2a1.5 1.5 0 0 0 1.5 1.2h7.9a1.5 1.5 0 0 0 1.5-1.2L20 7H6"/></svg><span data-i18n="orderBtn">خرید با PayPal</span></a>
+                <p class="product-ship" data-i18n="shipNote">بعد از پرداخت، اسم و آدرس پستی‌تون رو از صفحه‌ی «پیوند با من» بفرستید تا سفارشتون ارسال بشه.</p>
+                <p class="product-note" data-i18n="vestNote">این جلیقه پیش‌فروش است؛ پس از آماده‌شدن، برایتان ارسال می‌شود.</p>
                 <p class="product-msg" data-i18n="hatMsg">اگر مایل بودید، از صفحه‌ی «پیوند با من» پیام بدید</p>
               </div>
             </article>
@@ -4036,6 +4096,28 @@
           hatPinkTitle: "Felt pillbox hat — “Soft Pink” Lion and Sun",
           hatPinkText: "A felt pillbox hat in soft, gentle pink, with a golden Lion and Sun emblem on its side; the Lion and Sun is Iran's oldest and best-known emblem.",
           hatPinkAlt: "Soft-pink felt pillbox hat with a golden Lion and Sun emblem on its side, on a light cream background",
+          vestPreorder: "Pre-sale",
+          vestPrice: "CA$50",
+          vestNote: "This waistcoat is a pre-sale item; it will be shipped to you once it is ready.",
+          vestBlueTitle: "Royal Blue Velvet Waistcoat",
+          vestBlueText: "A women's velvet waistcoat in deep royal blue, with matching satin trim along the V neckline and pocket welts and three buttons down the front; a neat, fitted cut that sits well over a shirt or a manteau.",
+          vestBlueAlt: "Women's royal-blue velvet waistcoat with satin trim and three buttons, against a Persian carpet",
+          vestRedTitle: "Burgundy Velvet Waistcoat",
+          vestRedText: "A women's velvet waistcoat in deep burgundy red, with matching satin trim along the V neckline and pocket welts and three buttons down the front; a neat, fitted cut that sits well over a shirt or a manteau.",
+          vestRedAlt: "Women's burgundy velvet waistcoat with satin trim and three buttons, against a Persian carpet",
+          vestRedWornFrontAlt: "Burgundy red velvet waistcoat worn, front view",
+          vestRedWornBackAlt: "Burgundy red velvet waistcoat, back view",
+          vestRedDetailAlt: "Close-up detail of the burgundy velvet waistcoat showing the velvet texture and buttonholes, against a Persian carpet",
+          vestSizesTitle: "Sizes",
+          vestSizeCol: "Size",
+          vestBustCol: "Bust (cm)",
+          vestWaistCol: "Waist (cm)",
+          vestBustS: "89",
+          vestBustM: "94",
+          vestBustL: "102",
+          vestWaistS: "69",
+          vestWaistM: "74",
+          vestWaistL: "81",
           stepsAria: "How to order",
           num1: "1",
           step1Title: "Choose your product",
@@ -5240,6 +5322,28 @@
           hatPinkTitle: "Chapeau pillbox en feutre — Lion et Soleil « rose doux »",
           hatPinkText: "Un chapeau pillbox en feutre rose doux et délicat, orné sur le côté d'un emblème doré du Lion et du Soleil, le plus ancien et le plus connu des emblèmes de l'Iran.",
           hatPinkAlt: "Chapeau pillbox en feutre rose doux avec un emblème doré du Lion et du Soleil sur le côté, sur fond crème clair",
+          vestPreorder: "Prévente",
+          vestPrice: "50 $ CA",
+          vestNote: "Ce gilet est en prévente; il vous sera expédié dès qu'il sera prêt.",
+          vestBlueTitle: "Gilet en velours bleu royal",
+          vestBlueText: "Gilet en velours pour femme, d'un bleu royal profond, avec une bordure en satin assortie le long du col en V et des poches passepoilées, et trois boutons devant; une coupe ajustée et élégante, à porter sur une chemise ou un manteau.",
+          vestBlueAlt: "Gilet en velours bleu royal pour femme, avec bordure en satin et trois boutons, devant un tapis persan",
+          vestRedTitle: "Gilet en velours bordeaux",
+          vestRedText: "Gilet en velours pour femme, d'un bordeaux profond, avec une bordure en satin assortie le long du col en V et des poches passepoilées, et trois boutons devant; une coupe ajustée et élégante, à porter sur une chemise ou un manteau.",
+          vestRedAlt: "Gilet en velours bordeaux pour femme, avec bordure en satin et trois boutons, devant un tapis persan",
+          vestRedWornFrontAlt: "Gilet en velours bordeaux porté, vue de face",
+          vestRedWornBackAlt: "Gilet en velours bordeaux, vue de dos",
+          vestRedDetailAlt: "Gros plan du gilet en velours bordeaux montrant la texture du velours et les boutonnières, devant un tapis persan",
+          vestSizesTitle: "Tailles",
+          vestSizeCol: "Taille",
+          vestBustCol: "Tour de poitrine (cm)",
+          vestWaistCol: "Tour de taille (cm)",
+          vestBustS: "89",
+          vestBustM: "94",
+          vestBustL: "102",
+          vestWaistS: "69",
+          vestWaistM: "74",
+          vestWaistL: "81",
           stepsAria: "Comment commander",
           num1: "1",
           step1Title: "Choisissez votre produit",
