@@ -7138,7 +7138,7 @@
         var LABELS = {
           fa: {
             open: "گشودن کتاب", openHint: "روی جلد بزن؛ کتاب باز می‌شه و برگ‌به‌برگ ورق می‌خوره",
-            close: "بستن کتاب", contents: "فهرست", cover: "جلد کتاب",
+            close: "بستن کتاب", contents: "فهرست", cover: "جلد کتاب", newBadge: "تازه",
             prev: "برگ پیشین", next: "برگ دیگر", end: "پایان کتاب",
             ind: "برگ {n} از {t}", swipe: "برای ورق زدن، انگشتت رو به چپ یا راست روی برگ بکش؛ بالا و پایین کشیدن فقط برگ رو بالا و پایین می‌بره",
             shTitle: "شاهنامه", shBy: "حکیم ابوالقاسم فردوسی",
@@ -7147,7 +7147,7 @@
           },
           en: {
             open: "Open the book", openHint: "Tap the cover; the book opens and turns page by page",
-            close: "Close the book", contents: "Contents", cover: "Cover",
+            close: "Close the book", contents: "Contents", cover: "Cover", newBadge: "New",
             prev: "Previous page", next: "Next page", end: "End of the book",
             ind: "Page {n} of {t}", swipe: "To turn a page, swipe left or right across it; swiping up or down only scrolls",
             shTitle: "Shahnameh", shBy: "Hakim Abolqasem Ferdowsi",
@@ -7156,7 +7156,7 @@
           },
           fr: {
             open: "Ouvrir le livre", openHint: "Touchez la couverture ; le livre s'ouvre et se feuillette page par page",
-            close: "Fermer le livre", contents: "Sommaire", cover: "Couverture",
+            close: "Fermer le livre", contents: "Sommaire", cover: "Couverture", newBadge: "Nouveau",
             prev: "Page précédente", next: "Page suivante", end: "Fin du livre",
             ind: "Page {n} sur {t}", swipe: "Pour tourner une page, glissez vers la gauche ou la droite ; glisser vers le haut ou le bas fait seulement défiler",
             shTitle: "Shahnameh", shBy: "Hakim Abolqasem Ferdowsi",
@@ -7229,7 +7229,8 @@
           /* --- Pages: one story per page, roadmap + note as the last page --- */
           var pageEls = [];
           var titles = [];
-          function makePage(nodes, title) {
+          var titleNew = [];
+          function makePage(nodes, title, isNew) {
             var p = el("div", "bpage");
             for (var n = 0; n < nodes.length; n++) p.appendChild(nodes[n]);
             var pn = el("span", "bpage-num");
@@ -7238,10 +7239,11 @@
             pagesWrap.appendChild(p);
             pageEls.push(p);
             titles.push(title);
+            titleNew.push(!!isNew);
           }
           for (var s = 0; s < stories.length; s++) {
             var h = stories[s].querySelector("h3");
-            makePage([stories[s]], h ? h.textContent : "");
+            makePage([stories[s]], h ? h.textContent : "", !!stories[s].querySelector(".new-badge"));
           }
           if (tail.length) {
             var rh = null;
@@ -7280,6 +7282,12 @@
                 b.type = "button";
                 b.innerHTML = '<span class="toc-num">' + (entryIdx === 0 ? "◆" : num(entryIdx)) + '</span><span></span>';
                 b.querySelector("span:last-child").textContent = entryTitle;
+                if (entryIdx > 0 && titleNew[entryIdx - 1]) {
+                  var nb = el("span", "new-badge inline");
+                  nb.setAttribute("data-i18n", "newBadge");
+                  nb.textContent = lab.newBadge;
+                  b.appendChild(nb);
+                }
                 b.setAttribute("aria-current", entryIdx > 0 && B.open && B.idx === entryIdx - 1 ? "true" : "false");
                 b.addEventListener("click", function () {
                   toc.hidden = true; B.tocBtn.setAttribute("aria-expanded", "false");
