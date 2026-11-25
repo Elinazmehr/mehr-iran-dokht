@@ -684,6 +684,8 @@
       html[lang="fa"] .new-badge.inline { line-height: 2; }
       /* ---------- «تازه» badge beside the Products nav link + section title ---------- */
       .site-nav a.has-new { display: inline-flex; align-items: center; gap: .45rem; }
+      .site-nav a .nav-ic { color: var(--gold-bright); flex: none; }
+      .site-nav a.active .nav-ic { color: inherit; }
       .ideas-head { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .7rem; margin-bottom: .4rem; }
       .ideas-head h2 { margin-bottom: 0; }
       .new-badge.attn { animation: badgePulse 2.2s ease-in-out infinite; }
@@ -1307,6 +1309,7 @@
       <nav class="site-nav" data-i18n-aria="navAria" aria-label="بخش‌های صفحه">
         <a href="#avesta" data-view-link="avesta" data-i18n="navAvesta">اوستا</a>
         <a href="#shahnameh" data-view-link="shahnameh" data-i18n="navShahnameh">شاهنامه</a>
+        <a href="#shahnameh-history" class="has-new" data-view-link="books"><svg class="nav-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h12a2 2 0 0 0 2-2v-2H10v2a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v3h4"/><path d="M19 17V5a2 2 0 0 0-2-2H4"/></svg><span data-i18n="navShahnamehHistory">تاریخ شاهنامه</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#history" data-view-link="history" data-i18n="navHistory">ایران از ابتدا</a>
         <a href="#calendar" data-view-link="calendar" data-i18n="navCalendar">گاهشمار شاهنشاهی</a>
         <a href="#nights" data-view-link="nights" data-i18n="navNights">هزار و یک شب</a>
@@ -1350,6 +1353,25 @@
           </div>
           <p class="notify-msg" data-notify-msg hidden></p>
         </div>
+      </section>
+
+      <section class="heritage" id="shahnameh-history" data-view="books" data-i18n-aria="shHistAria" aria-label="History of the Shahnameh">
+        <div class="heritage-head">
+          <h2 data-i18n="shHistHeading">تاریخ شاهنامه</h2>
+        </div>
+        <article class="full-story">
+          <span class="new-badge" data-i18n="newBadge">تازه</span>
+          <h3 data-i18n="shHistTitle">تاریخ شاهنامه — از ابومنصوری تا فردوسی</h3>
+          <figure class="card-fig story-fig living-fig" data-motion="pan"><span class="living-frame"><img draggable="false" src="assets/shahnameh-history.webp" data-i18n-alt="shHistImgAlt" alt="نگاره‌ی مینیاتور ایرانی از فردوسی که در دربار کتاب شاهنامه را پیشکش می‌کند و کاتبان و شاعران توس سرگرم نوشتن و خواندن آن کتاب‌اند، از پیش‌درآمد شاهنامه" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="shHistImgCap">فردوسی شاهنامه را پیشکش می‌کند — سرانجامِ سی سال رنجی که نام ایران و زبان پارسی را زنده نگه داشت.</figcaption></figure>
+          <p data-i18n="shHistP1">داستان‌های شاهنامه یک‌شبه ساخته نشده‌اند. ریشه‌ی آن‌ها به روزگار ساسانیان می‌رسد؛ به کتابی به زبان پهلوی به نام «خدای‌نامه» که سرگذشت شاهان و پهلوانان ایران را از نخستین روزگار تا پایان دوره‌ی ساسانی در خود نگه داشته بود. این کتاب را در دربار ساسانی، دهقانان و موبدان گرد آورده بودند و پس از آن روزگار نیز، نسخه‌ها و بازنویسی‌هایش دست‌به‌دست می‌شد.</p>
+          <p data-i18n="shHistP2">در سال ۳۴۶ هجری، ابومنصور محمد بن عبدالرزاق، بزرگِ توس و سپهسالار خراسان، خواست که این گنجینه از میان نرود. به دستور او، و با سرپرستی وزیرش ابومنصور معمری، چهار دانشمند از شهرهای گوناگون — از هرات و سیستان و نیشابور و توس — گرد هم نشستند و «شاهنامه‌ی ابومنصوری» را به نثر نوشتند؛ از کیومرث، نخستین شاه، تا پایان کار یزدگرد. کتابی که امروز تنها مقدمه‌اش به دست ما رسیده و از کهن‌ترین نمونه‌های نثر پارسی است.</p>
+          <p data-i18n="shHistP3">پس از او، نوبت به دقیقی رسید؛ شاعری جوان و توانا در دربار سامانی. دقیقی به نظم درآوردن آن داستان‌ها را آغاز کرد و نزدیک هزار بیت سرود؛ از جمله داستان گشتاسپ و آمدن زرتشت. در روایت‌ها آمده که او خود نیز به آیین نیاکانش دلبسته بود. اما دقیقی در جوانی کشته شد و کار بزرگش ناتمام ماند.</p>
+          <p data-i18n="shHistP4">آن‌گاه نوبت فردوسی رسید؛ ابوالقاسم فردوسی، زاده‌ی نزدیک سال ۳۲۹ هجری در روستای پاژِ توس، از خانواده‌ای دهقان. دهقانان در آن روزگار نگهبانان سنت و تاریخ ایران بودند و فردوسی از جوانی شیفته‌ی داستان‌های کهن بود. یکی از دوستانش نسخه‌ی شاهنامه‌ی ابومنصوری را به او رساند و او سرودن را آغاز کرد.</p>
+          <p data-i18n="shHistP5">فردوسی نزدیک سی سال از عمرش را پای این کتاب گذاشت. به پاس امانت، هزار بیت دقیقی را به نام خود او در کتابش آورد. در میانه‌ی راه پسر جوانش را از دست داد و این داغ را در شعرش نیز می‌توان دید. سرانجام در سال ۴۰۰ هجری، شاهنامه با نزدیک پنجاه هزار بیت به پایان رسید؛ بزرگ‌ترین کتاب حماسی پارسی.</p>
+          <p data-i18n="shHistP6">فردوسی کتابش را به سلطان محمود غزنوی پیشکش کرد؛ اما روایت می‌کنند که پاداش او آن نشد که چشم‌به‌راهش بود و دل‌آزرده به توس بازگشت. می‌گویند وقتی پاداش دیرهنگام سلطان رسید، فردوسی تازه درگذشته بود و دخترش آن را نپذیرفت.</p>
+          <p data-i18n="shHistP7">فردوسی نزدیک سال ۴۱۱ هجری در توس درگذشت و در باغ خود به خاک سپرده شد. امروز آرامگاهش در توس زیارتگاه دوستداران زبان پارسی و ایران است.</p>
+          <p data-i18n="shHistP8">شاهنامه تنها کتاب داستان‌های کهن نیست؛ حافظه‌ی یک ملت است که زبان پارسی و نام ایران را زنده نگه داشت — و کتابی که در این سایت می‌خوانید، از همان چشمه آب می‌خورد.</p>
+        </article>
       </section>
 
       <section class="ideas" id="ideas" data-view="home" data-i18n-aria="ideasAria" aria-label="محصولات">
@@ -1592,25 +1614,6 @@
             </span>
           </a>
         </div>
-      </section>
-
-      <section class="heritage" id="shahnameh-history" data-view="books" data-i18n-aria="shHistAria" aria-label="History of the Shahnameh">
-        <div class="heritage-head">
-          <h2 data-i18n="shHistHeading">تاریخ شاهنامه</h2>
-        </div>
-        <article class="full-story">
-          <span class="new-badge" data-i18n="newBadge">تازه</span>
-          <h3 data-i18n="shHistTitle">تاریخ شاهنامه — از ابومنصوری تا فردوسی</h3>
-          <figure class="card-fig story-fig living-fig" data-motion="pan"><span class="living-frame"><img draggable="false" src="assets/shahnameh-history.webp" data-i18n-alt="shHistImgAlt" alt="نگاره‌ی مینیاتور ایرانی از فردوسی که در دربار کتاب شاهنامه را پیشکش می‌کند و کاتبان و شاعران توس سرگرم نوشتن و خواندن آن کتاب‌اند، از پیش‌درآمد شاهنامه" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="shHistImgCap">فردوسی شاهنامه را پیشکش می‌کند — سرانجامِ سی سال رنجی که نام ایران و زبان پارسی را زنده نگه داشت.</figcaption></figure>
-          <p data-i18n="shHistP1">داستان‌های شاهنامه یک‌شبه ساخته نشده‌اند. ریشه‌ی آن‌ها به روزگار ساسانیان می‌رسد؛ به کتابی به زبان پهلوی به نام «خدای‌نامه» که سرگذشت شاهان و پهلوانان ایران را از نخستین روزگار تا پایان دوره‌ی ساسانی در خود نگه داشته بود. این کتاب را در دربار ساسانی، دهقانان و موبدان گرد آورده بودند و پس از آن روزگار نیز، نسخه‌ها و بازنویسی‌هایش دست‌به‌دست می‌شد.</p>
-          <p data-i18n="shHistP2">در سال ۳۴۶ هجری، ابومنصور محمد بن عبدالرزاق، بزرگِ توس و سپهسالار خراسان، خواست که این گنجینه از میان نرود. به دستور او، و با سرپرستی وزیرش ابومنصور معمری، چهار دانشمند از شهرهای گوناگون — از هرات و سیستان و نیشابور و توس — گرد هم نشستند و «شاهنامه‌ی ابومنصوری» را به نثر نوشتند؛ از کیومرث، نخستین شاه، تا پایان کار یزدگرد. کتابی که امروز تنها مقدمه‌اش به دست ما رسیده و از کهن‌ترین نمونه‌های نثر پارسی است.</p>
-          <p data-i18n="shHistP3">پس از او، نوبت به دقیقی رسید؛ شاعری جوان و توانا در دربار سامانی. دقیقی به نظم درآوردن آن داستان‌ها را آغاز کرد و نزدیک هزار بیت سرود؛ از جمله داستان گشتاسپ و آمدن زرتشت. در روایت‌ها آمده که او خود نیز به آیین نیاکانش دلبسته بود. اما دقیقی در جوانی کشته شد و کار بزرگش ناتمام ماند.</p>
-          <p data-i18n="shHistP4">آن‌گاه نوبت فردوسی رسید؛ ابوالقاسم فردوسی، زاده‌ی نزدیک سال ۳۲۹ هجری در روستای پاژِ توس، از خانواده‌ای دهقان. دهقانان در آن روزگار نگهبانان سنت و تاریخ ایران بودند و فردوسی از جوانی شیفته‌ی داستان‌های کهن بود. یکی از دوستانش نسخه‌ی شاهنامه‌ی ابومنصوری را به او رساند و او سرودن را آغاز کرد.</p>
-          <p data-i18n="shHistP5">فردوسی نزدیک سی سال از عمرش را پای این کتاب گذاشت. به پاس امانت، هزار بیت دقیقی را به نام خود او در کتابش آورد. در میانه‌ی راه پسر جوانش را از دست داد و این داغ را در شعرش نیز می‌توان دید. سرانجام در سال ۴۰۰ هجری، شاهنامه با نزدیک پنجاه هزار بیت به پایان رسید؛ بزرگ‌ترین کتاب حماسی پارسی.</p>
-          <p data-i18n="shHistP6">فردوسی کتابش را به سلطان محمود غزنوی پیشکش کرد؛ اما روایت می‌کنند که پاداش او آن نشد که چشم‌به‌راهش بود و دل‌آزرده به توس بازگشت. می‌گویند وقتی پاداش دیرهنگام سلطان رسید، فردوسی تازه درگذشته بود و دخترش آن را نپذیرفت.</p>
-          <p data-i18n="shHistP7">فردوسی نزدیک سال ۴۱۱ هجری در توس درگذشت و در باغ خود به خاک سپرده شد. امروز آرامگاهش در توس زیارتگاه دوستداران زبان پارسی و ایران است.</p>
-          <p data-i18n="shHistP8">شاهنامه تنها کتاب داستان‌های کهن نیست؛ حافظه‌ی یک ملت است که زبان پارسی و نام ایران را زنده نگه داشت — و کتابی که در این سایت می‌خوانید، از همان چشمه آب می‌خورد.</p>
-        </article>
       </section>
 
       <section class="steps" data-view="home" data-i18n-aria="stepsAria" aria-label="چگونه سفارش بدهیم">
@@ -3991,6 +3994,7 @@
           navHome: "Home",
           navIdeas: "Products",
           navShahnameh: "Shahnameh",
+          navShahnamehHistory: "History of the Shahnameh",
           navAvesta: "Avesta",
           lionSunAlt: "The historic Lion and Sun emblem, the emblem of Iran's old flag: a standing golden lion holding a sword in its paw, with the radiant sun shining behind it",
           heroGreeting: "Greetings to you",
@@ -5230,6 +5234,7 @@
           navHome: "Accueil",
           navIdeas: "Produits",
           navShahnameh: "Shahnameh",
+          navShahnamehHistory: "Histoire du Shahnameh",
           navAvesta: "Avesta",
           lionSunAlt: "L'emblème historique du Lion et du Soleil, celui de l'ancien drapeau de l'Iran : un lion doré debout tenant une épée dans sa patte, le soleil rayonnant derrière lui",
           heroGreeting: "Salutations à vous",
