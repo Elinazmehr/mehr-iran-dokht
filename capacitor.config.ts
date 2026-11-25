@@ -14,9 +14,11 @@ const config: CapacitorConfig = {
     contentInset: 'always',
   },
   server: {
-    // Local web content is served from the app bundle; no remote server.
-    // Google Fonts still load from the CDN when online and fall back
-    // gracefully to system fonts when offline.
+    // Version 1.1+: the app loads its content LIVE from the website, so
+    // every site update appears in the app with no new build and no
+    // Apple review. The bundled www/ is only a minimal offline fallback
+    // page. HTTPS only — no cleartext.
+    url: 'https://www.mehrirandokht.com',
     iosScheme: 'capacitor',
   },
   // Note: no SplashScreen plugin is installed — the launch screen is the
