@@ -728,6 +728,15 @@
         width: 100%; aspect-ratio: 16 / 9; display: block;
         border-radius: 14px; background: #000; border: 1px solid var(--line);
       }
+      /* Directly embedded film videos: duration chip in the corner, like the facade cards */
+      .vid-slot.has-video { position: relative; }
+      .vid-slot > .vid-dur {
+        position: absolute; top: .55rem; inset-inline-end: .6rem; z-index: 2;
+        background: rgba(6, 15, 33, .72); color: #fff;
+        border-radius: 8px; padding: .05rem .5rem;
+        font-size: .78rem; font-weight: 800; font-variant-numeric: tabular-nums;
+        pointer-events: none;
+      }
       .mon-vid .vid-credit { color: var(--ink-soft); font-size: .78rem; margin: .4rem 0 0; line-height: 1.9; }
       .vid-credit a { color: var(--gold); font-weight: 700; }
       .full-story .story-fig figcaption { color: var(--ink-soft); font-size: .83rem; margin-top: .5rem; line-height: 1.7; }
@@ -1319,7 +1328,7 @@
         <a href="#monuments" data-view-link="monuments" data-i18n="navMonuments">یادگارهای باستانی ایران</a>
         <a href="#peoples" class="has-new" data-view-link="peoples"><span data-i18n="navPeoples">اقوام ایرانی</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#inventions" class="has-new" data-view-link="inventions"><span data-i18n="navInventions">اختراعات ایران باستان</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
-        <a href="#films" data-view-link="films" data-i18n="navFilms">فیلم‌ها</a>
+        <a href="#films" class="has-new" data-view-link="films"><span data-i18n="navFilms">فیلم‌ها</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#ideas" class="has-new" data-view-link="ideas"><span data-i18n="navIdeas">محصولات</span><span class="new-badge inline attn" data-i18n="newBadge">تازه</span></a>
         <a href="#app" data-view-link="app" data-i18n="navApp">اپلیکیشن</a>
         <a href="#home" data-view-link="home" data-i18n="navHome">خانه</a>
@@ -2969,7 +2978,7 @@
         <div class="heritage-head">
           <span class="kicker" data-i18n="filmKicker">سینمای آزاد ایران کهن</span>
           <h2 data-i18n="filmTitle">فیلم‌ها — <em>ایران کهن، بر پرده</em></h2>
-          <p data-i18n="filmIntro">هر دو فیلم این بخش آزاد و بدون کپی‌رایت‌اند.</p>
+          <p data-i18n="filmIntro">فیلم‌های این بخش آزاد و بدون کپی‌رایت‌اند.</p>
         </div>
         <div class="story-grid">
           <article class="story-card">
@@ -3001,6 +3010,106 @@
                   </button>
                 </div>
                 <p class="vid-credit" data-i18n="mon7Vid2Credit">ساخته‌ی AsuhsWorld · مجوز <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener">CC BY 3.0</a> · <a href="https://commons.wikimedia.org/wiki/File:Persepolis,_what_a_great_place_to_see.webm" target="_blank" rel="noopener">در ویکی‌مدیا کامنز ببینید</a></p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film7Tag">گیلان</span>
+            <h3 data-i18n="film7Title">ماسوله</h3>
+            <p data-i18n="film7Text">گردشی آرام در کوچه‌های پلکانی ماسوله، روستای کوهستانی گیلان که بام هر خانه‌اش حیاط خانه‌ی بالایی است.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot has-video">
+                  <video controls preload="metadata" playsinline>
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Masouleh_village_in_Gilan_province_Iran_-_City_tour_-_4K_-_SCHONax.webm/Masouleh_village_in_Gilan_province_Iran_-_City_tour_-_4K_-_SCHONax.webm.720p.vp9.webm" type="video/webm" />
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/3/3c/Masouleh_village_in_Gilan_province_Iran_-_City_tour_-_4K_-_SCHONax.webm/Masouleh_village_in_Gilan_province_Iran_-_City_tour_-_4K_-_SCHONax.webm.360p.mpeg4.mov" type="video/quicktime" />
+                  </video>
+                  <span class="vid-dur" dir="ltr">17:32</span>
+                </div>
+                <p class="vid-credit" data-i18n="film7Credit">فیلم: Sahand Gholizadeh — مجوز CC BY 3.0</p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film8Tag">آذربایجان شرقی</span>
+            <h3 data-i18n="film8Title">کندوان</h3>
+            <p data-i18n="film8Text">نگاهی کوتاه به کندوان، روستای صخره‌ای آذربایجان شرقی که خانه‌هایش در دل سنگ‌های آتشفشانی کنده شده‌اند و هنوز در آن‌ها زندگی می‌کنند.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot has-video">
+                  <video controls preload="metadata" playsinline>
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/1/13/Kandovan_%2Ca_historical_village_with_rock_houses_%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C_%D8%AA%D8%A7%D8%B1%DB%8C%D8%AE%DB%8C_%DA%A9%D9%86%D8%AF%D9%88%D8%A7%D9%86.webm/Kandovan_%2Ca_historical_village_with_rock_houses_%D8%B1%D9%88%D8%B3%D8%AA%D8%A7%DB%8C_%D8%AA%D8%A7%D8%B1%DB%8C%D8%AE%DB%8C_%DA%A9%D9%86%D8%AF%D9%88%D8%A7%D9%86.webm.720p.vp9.webm" type="video/webm" />
+                  </video>
+                  <span class="vid-dur" dir="ltr">0:43</span>
+                </div>
+                <p class="vid-credit" data-i18n="film8Credit">فیلم: Reza Rafizadeh — مجوز CC BY 3.0</p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film9Tag">یزد</span>
+            <h3 data-i18n="film9Title">بافت تاریخی یزد</h3>
+            <p data-i18n="film9Text">قدم‌زدن در بافت تاریخی یزد در یک روز تعطیل آرام؛ میان کوچه‌های خشتی، بادگیرها و دیوارهای کاهگلی شهر کویری.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot has-video">
+                  <video controls preload="metadata" playsinline>
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/d/dc/A_short_stroll_through_Yazd_on_a_quiet_friday.webm/A_short_stroll_through_Yazd_on_a_quiet_friday.webm.720p.vp9.webm" type="video/webm" />
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/d/dc/A_short_stroll_through_Yazd_on_a_quiet_friday.webm/A_short_stroll_through_Yazd_on_a_quiet_friday.webm.360p.mpeg4.mov" type="video/quicktime" />
+                  </video>
+                  <span class="vid-dur" dir="ltr">2:07</span>
+                </div>
+                <p class="vid-credit" data-i18n="film9Credit">فیلم: AsuhsWorld — مجوز CC BY 3.0</p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film10Tag">فارس</span>
+            <h3 data-i18n="film10Title">بازار وکیل شیراز</h3>
+            <p data-i18n="film10Text">گردشی در بازار وکیل شیراز، بازار تاریخی روزگار زندیه با حجره‌ها و کاروانسراهایش که هنوز قلب تپنده‌ی خرید و فروش شهر است.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot has-video">
+                  <video controls preload="metadata" playsinline>
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/3/39/Iran_Shiraz_City_Tour_2021_-5_-_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86%D8%8C_%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%D8%8C_%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%D9%88%DA%A9%DB%8C%D9%84.webm/Iran_Shiraz_City_Tour_2021_-5_-_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86%D8%8C_%D8%B4%DB%8C%D8%B1%D8%A7%D8%B2%D8%8C_%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1_%D9%88%DA%A9%DB%8C%D9%84.webm.720p.vp9.webm" type="video/webm" />
+                  </video>
+                  <span class="vid-dur" dir="ltr">8:09</span>
+                </div>
+                <p class="vid-credit" data-i18n="film10Credit">فیلم: 4K Tour — مجوز CC BY 3.0</p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film11Tag">کرمان</span>
+            <h3 data-i18n="film11Title">ارگ بم</h3>
+            <p data-i18n="film11Text">ارگ بم، بزرگ‌ترین بنای خشتی جهان در استان کرمان، و بازسازی‌اش پس از زمین‌لرزه؛ این فیلم روایت انگلیسی دارد.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot has-video">
+                  <video controls preload="metadata" playsinline>
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Reconstruction_of_Arg-e_Bam_Citadel_%E2%80%A2_A_City_Reborn_%E2%80%A2_Bam_%E2%80%A2_IRAN.webm" type="video/webm" />
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/c/c7/Reconstruction_of_Arg-e_Bam_Citadel_%E2%80%A2_A_City_Reborn_%E2%80%A2_Bam_%E2%80%A2_IRAN.webm/Reconstruction_of_Arg-e_Bam_Citadel_%E2%80%A2_A_City_Reborn_%E2%80%A2_Bam_%E2%80%A2_IRAN.webm.360p.mpeg4.mov" type="video/quicktime" />
+                  </video>
+                  <span class="vid-dur" dir="ltr">4:42</span>
+                </div>
+                <p class="vid-credit" data-i18n="film11Credit">فیلم: Oxlaey — مجوز CC BY-SA 3.0</p>
+              </div>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="tag" data-i18n="film12Tag">گیلان</span>
+            <h3 data-i18n="film12Title">بندر کیاشهر</h3>
+            <p data-i18n="film12Text">طبیعت سبز بندر کیاشهر در گیلان؛ از تالاب و رودخانه تا کرانه‌های دریای خزر.</p>
+            <div class="mon-watch">
+              <div class="mon-vid">
+                <div class="vid-slot has-video">
+                  <video controls preload="metadata" playsinline>
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/%D8%B7%D8%A8%DB%8C%D8%B9%D8%AA_%D8%B2%DB%8C%D8%A8%D8%A7%DB%8C_%D8%A8%D9%86%D8%AF%D8%B1_%DA%A9%DB%8C%D8%A7%D8%B4%D9%87%D8%B1_%D8%8C_%DA%AF%DB%8C%D9%84%D8%A7%D9%86_%D8%8C_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86_-_Bandar_e_kiashahr_Nature_%28Gilan_-_Iran%29.webm/%D8%B7%D8%A8%DB%8C%D8%B9%D8%AA_%D8%B2%DB%8C%D8%A8%D8%A7%DB%8C_%D8%A8%D9%86%D8%AF%D8%B1_%DA%A9%DB%8C%D8%A7%D8%B4%D9%87%D8%B1_%D8%8C_%DA%AF%DB%8C%D9%84%D8%A7%D9%86_%D8%8C_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86_-_Bandar_e_kiashahr_Nature_%28Gilan_-_Iran%29.webm.720p.vp9.webm" type="video/webm" />
+                    <source src="https://upload.wikimedia.org/wikipedia/commons/transcoded/f/f1/%D8%B7%D8%A8%DB%8C%D8%B9%D8%AA_%D8%B2%DB%8C%D8%A8%D8%A7%DB%8C_%D8%A8%D9%86%D8%AF%D8%B1_%DA%A9%DB%8C%D8%A7%D8%B4%D9%87%D8%B1_%D8%8C_%DA%AF%DB%8C%D9%84%D8%A7%D9%86_%D8%8C_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86_-_Bandar_e_kiashahr_Nature_%28Gilan_-_Iran%29.webm/%D8%B7%D8%A8%DB%8C%D8%B9%D8%AA_%D8%B2%DB%8C%D8%A8%D8%A7%DB%8C_%D8%A8%D9%86%D8%AF%D8%B1_%DA%A9%DB%8C%D8%A7%D8%B4%D9%87%D8%B1_%D8%8C_%DA%AF%DB%8C%D9%84%D8%A7%D9%86_%D8%8C_%D8%A7%DB%8C%D8%B1%D8%A7%D9%86_-_Bandar_e_kiashahr_Nature_%28Gilan_-_Iran%29.webm.360p.mpeg4.mov" type="video/quicktime" />
+                  </video>
+                  <span class="vid-dur" dir="ltr">4:13</span>
+                </div>
+                <p class="vid-credit" data-i18n="film12Credit">فیلم: Mahyar Ahmadi — مجوز CC BY 3.0</p>
               </div>
             </div>
           </article>
@@ -4768,13 +4877,37 @@
           filmsAria: "Films",
           filmKicker: "Free cinema of ancient Iran",
           filmTitle: "Films — <em>ancient Iran, on screen</em>",
-          filmIntro: "Both films in this section are free and carry no copyright.",
+          filmIntro: "The films in this section are free and carry no copyright.",
           film5Tag: "Persepolis",
           film5Title: "Persepolis Rebuilt",
           film5Text: "What did Persepolis look like in the days of Darius? This short reconstruction shows its halls and its columns standing tall once more.",
           film6Tag: "Persepolis",
           film6Title: "A Walk Through Persepolis",
           film6Text: "A walk among the ruins of Persepolis, between the columns and stairways that stand there today.",
+          film7Tag: "Gilan",
+          film7Title: "Masuleh",
+          film7Text: "A calm walk through the stepped lanes of Masuleh, the mountain village of Gilan where each house's roof is the yard of the one above.",
+          film7Credit: "Film: Sahand Gholizadeh — License CC BY 3.0",
+          film8Tag: "East Azerbaijan",
+          film8Title: "Kandovan",
+          film8Text: "A short look at Kandovan, the rock village of East Azerbaijan, whose homes are carved into volcanic stone and are still lived in today.",
+          film8Credit: "Film: Reza Rafizadeh — License CC BY 3.0",
+          film9Tag: "Yazd",
+          film9Title: "The Old City of Yazd",
+          film9Text: "A stroll through the historic fabric of Yazd on a quiet holiday, among adobe lanes, windcatchers and the mud-brick walls of the desert city.",
+          film9Credit: "Film: AsuhsWorld — License CC BY 3.0",
+          film10Tag: "Fars",
+          film10Title: "Vakil Bazaar of Shiraz",
+          film10Text: "A tour of the Vakil Bazaar in Shiraz, the historic Zand-era bazaar whose shops and caravanserais are still the beating heart of the city's trade.",
+          film10Credit: "Film: 4K Tour — License CC BY 3.0",
+          film11Tag: "Kerman",
+          film11Title: "Arg-e Bam",
+          film11Text: "Arg-e Bam in Kerman province, the largest adobe structure in the world, and its rebuilding after the earthquake; this film has English narration.",
+          film11Credit: "Film: Oxlaey — License CC BY-SA 3.0",
+          film12Tag: "Gilan",
+          film12Title: "Bandar Kiashahr",
+          film12Text: "The green nature of Bandar Kiashahr in Gilan, from its lagoon and river to the shores of the Caspian Sea.",
+          film12Credit: "Film: Mahyar Ahmadi — License CC BY 3.0",
           monMapBtn: "Show on the map",
           mon1Tag: "Kashan · from about 5000 BCE",
           mon1Title: "The Sialk Mounds",
@@ -6013,13 +6146,37 @@
           filmsAria: "Films",
           filmKicker: "Le cinéma libre de l'Iran ancien",
           filmTitle: "Films — <em>l'Iran ancien, à l'écran</em>",
-          filmIntro: "Les deux films de cette section sont libres et sans droit d'auteur.",
+          filmIntro: "Les films de cette section sont libres et sans droit d'auteur.",
           film5Tag: "Persépolis",
           film5Title: "Persépolis reconstruite",
           film5Text: "À quoi ressemblait Persépolis au temps de Darius ? Cette courte reconstruction montre ses salles et ses colonnes dressées de nouveau.",
           film6Tag: "Persépolis",
           film6Title: "Promenade à Persépolis",
           film6Text: "Une promenade parmi les ruines de Persépolis, entre les colonnes et les escaliers qui s'y dressent encore aujourd'hui.",
+          film7Tag: "Guilan",
+          film7Title: "Masouleh",
+          film7Text: "Une promenade tranquille dans les ruelles en escalier de Masouleh, village de montagne du Guilan où le toit de chaque maison est la cour de celle du dessus.",
+          film7Credit: "Film : Sahand Gholizadeh — Licence CC BY 3.0",
+          film8Tag: "Azerbaïdjan oriental",
+          film8Title: "Kandovan",
+          film8Text: "Un bref aperçu de Kandovan, le village troglodyte de l'Azerbaïdjan oriental, dont les maisons creusées dans la roche volcanique sont encore habitées.",
+          film8Credit: "Film : Reza Rafizadeh — Licence CC BY 3.0",
+          film9Tag: "Yazd",
+          film9Title: "La vieille ville de Yazd",
+          film9Text: "Une promenade dans le tissu historique de Yazd un jour de repos tranquille, entre ruelles d'adobe, badgirs et murs de torchis de la ville du désert.",
+          film9Credit: "Film : AsuhsWorld — Licence CC BY 3.0",
+          film10Tag: "Fars",
+          film10Title: "Le bazar Vakil de Chiraz",
+          film10Text: "Une visite du bazar Vakil de Chiraz, le bazar historique de l'époque Zand dont les boutiques et les caravansérails sont encore le cœur commerçant de la ville.",
+          film10Credit: "Film : 4K Tour — Licence CC BY 3.0",
+          film11Tag: "Kerman",
+          film11Title: "Arg-e Bam",
+          film11Text: "Arg-e Bam, dans la province de Kerman, la plus grande construction en adobe du monde, et sa reconstruction après le séisme ; ce film est commenté en anglais.",
+          film11Credit: "Film : Oxlaey — Licence CC BY-SA 3.0",
+          film12Tag: "Guilan",
+          film12Title: "Bandar Kiashahr",
+          film12Text: "La nature verdoyante de Bandar Kiashahr, au Guilan, de sa lagune et sa rivière jusqu'aux rives de la mer Caspienne.",
+          film12Credit: "Film : Mahyar Ahmadi — Licence CC BY 3.0",
           monMapBtn: "Voir sur la carte",
           mon1Tag: "Kashan · dès environ 5000 av. J.-C.",
           mon1Title: "Les collines de Sialk",
