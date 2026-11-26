@@ -133,6 +133,29 @@
         width: 14px; height: 14px; border: none; border-radius: 0;
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5c2 3.2 5.5 5.6 5.5 9.7a5.5 5.5 0 1 1-11 0c0-1.9.8-3.4 1.9-4.9.5 1 1.3 1.7 2.3 2.1-.6-2.9.1-4.1 1.3-6.9z' fill='%23c9a227'/%3E%3Cpath d='M12 12.5c1.2 1.6 2.6 2.9 2.6 4.7a2.6 2.6 0 1 1-5.2 0c0-1.8 1.4-3.1 2.6-4.7z' fill='%23e8c96e'/%3E%3C/svg%3E") center / contain no-repeat;
       }
+      /* Legend icons: gold banner (Derafsh) for historical events, gold open book for great figures' days */
+      .lg-hist {
+        width: 14px; height: 14px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 2.6v18.8' stroke='%23c9a227' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M6.5 3.2c3.9-1.8 7.7 1.8 11.6 0v7.2c-3.9 1.8-7.7-1.8-11.6 0z' fill='%23c9a227'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      .lg-great {
+        width: 14px; height: 14px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6.4C9.9 4.7 6.9 4 3.6 4.5v13.6c3.3-.5 6.3.2 8.4 1.9 2.1-1.7 5.1-2.4 8.4-1.9V4.5C17.1 4 14.1 4.7 12 6.4z' fill='%23c9a227'/%3E%3Cpath d='M12 6.4v13.6' stroke='%23e8c96e' stroke-width='1.3' fill='none'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      /* Cell markers: historical days a tiny gold banner at the bottom-inline-start corner,
+         great figures' days a tiny gold open book at the bottom-inline-end corner — clear of
+         the festival sun (bottom centre), the Nabor ring (top-inline-end) and the Gahambar wash */
+      .cal-cell .mk-hist, .cal-cell .mk-great {
+        position: absolute; bottom: 2px; width: 10px; height: 10px; pointer-events: none;
+      }
+      .cal-cell .mk-hist {
+        inset-inline-start: 3px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 2.6v18.8' stroke='%23c9a227' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M6.5 3.2c3.9-1.8 7.7 1.8 11.6 0v7.2c-3.9 1.8-7.7-1.8-11.6 0z' fill='%23c9a227'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      .cal-cell .mk-great {
+        inset-inline-end: 3px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6.4C9.9 4.7 6.9 4 3.6 4.5v13.6c3.3-.5 6.3.2 8.4 1.9 2.1-1.7 5.1-2.4 8.4-1.9V4.5C17.1 4 14.1 4.7 12 6.4z' fill='%23c9a227'/%3E%3Cpath d='M12 6.4v13.6' stroke='%23e8c96e' stroke-width='1.3' fill='none'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
       /* Festival days carry a tiny gold sun instead of the plain dot */
       .cal-cell.fest::after {
         width: 9px; height: 9px; border-radius: 0; bottom: 3px;
@@ -263,6 +286,8 @@
           <span><i class="lg-fest"></i><span data-t="legFest">جشن و مناسبت</span></span>
           <span><i class="lg-gah"></i><span data-t="legGah">گاهنبار</span></span>
           <span><i class="lg-nabor"></i><span data-t="legNabor">روز نبر</span></span>
+          <span><i class="lg-hist"></i><span data-t="legHist">رویداد تاریخی</span></span>
+          <span><i class="lg-great"></i><span data-t="legGreat">زادروز و بزرگداشت بزرگان</span></span>
         </div>
         <div class="cal-months" id="calMonths"></div>
         <div class="cal-days" id="calDaysPanel" hidden>
@@ -337,6 +362,7 @@
           monthsTitle: "دوازده ماه سال شاهنشاهی",
           tapHint: "برای دیدن روزهای هر ماه و جشن‌های آن ماه، روی اسم ماه بزن.",
           legFest: "جشن و مناسبت", legGah: "گاهنبار", legNabor: "روز نبر",
+          legHist: "رویداد تاریخی", legGreat: "زادروز و بزرگداشت بزرگان",
           perTitle: "عنوان", perNote: "یادداشت (دلخواه)", perOnce: "یک‌بار", perYearly: "هر سال", perAdd: "افزودن",
           perHead: "یادآوری شخصی", perPh: "تولد، سالگرد، یا هر چیز دیگر…",
           allTitle: "همه‌ی جشن‌ها و مناسبت‌های سال",
@@ -378,7 +404,25 @@
           nb2Name: "روز نبر (روز بهمن) · دوم هر ماه", nb2Text: "روز بهمن، دوم هر ماه، روز نبر است؛ بهمن ایزد اندیشه‌ی نیک و نگهبان جانوران سودمند است و در این روز از خوردن گوشت و کشتن جانوران پرهیز می‌شود.",
           nb12Name: "روز نبر (روز ماه) · دوازدهم هر ماه", nb12Text: "روز ماه، دوازدهم هر ماه، روز نبر است؛ روزی برای آرامش و پرهیز از گوشت و کشتار، به پاسداشت جانوران.",
           nb14Name: "روز نبر (روز گوشت) · چهاردهم هر ماه", nb14Text: "روز گوشت، چهاردهم هر ماه، روز نبر است؛ این روز به روان جانوران (گئوش اوروان) ویژه است و در آن گوشت نمی‌خورند و جانوری نمی‌کشند.",
-          nb21Name: "روز نبر (روز رام) · بیست‌ویکم هر ماه", nb21Text: "روز رام، بیست‌ویکم هر ماه، روز نبر است؛ رام ایزد آشتی و شادی است و این روز هم با پرهیز از گوشت و کشتن جانوران گرامی داشته می‌شود."
+          nb21Name: "روز نبر (روز رام) · بیست‌ویکم هر ماه", nb21Text: "روز رام، بیست‌ویکم هر ماه، روز نبر است؛ رام ایزد آشتی و شادی است و این روز هم با پرهیز از گوشت و کشتن جانوران گرامی داشته می‌شود.",
+          h1Name: "روز ملی خلیج فارس · دهم اردیبهشت", h1Text: "سالروز بیرون راندن پرتغالی‌ها از تنگه‌ی هرمز و بازگشت فرمانروایی ایران بر خلیج فارس در سال ۱۶۲۲ میلادی، به فرماندهی امام‌قلی‌خان در روزگار صفوی؛ روزی برای پاسداشت نام همیشه‌فارس این دریا.",
+          h2Name: "روز کوروش بزرگ · هفتم آبان", h2Text: "سالروز ورود آرام کوروش بزرگ به بابل در سال ۵۳۹ پیش از میلاد، بر پایه‌ی گاه‌نگار نبونید؛ روزی که فرمان آزادی و برابری او، که در منشور کوروش آمده است، گرامی داشته می‌شود.",
+          p1Name: "روز بزرگداشت سعدی · یکم اردیبهشت", p1Text: "سعدی شیرازی، سراینده‌ی بوستان و گلستان و آموزگار سخن و انسانیت؛ یکم اردیبهشت در تقویم ایران روز بزرگداشت اوست.",
+          p2Name: "روز بزرگداشت فردوسی · بیست‌وپنجم اردیبهشت", p2Text: "فردوسی، سراینده‌ی شاهنامه و نگهبان زبان فارسی؛ این روز همچنین «روز پاسداشت زبان فارسی» نام دارد.",
+          p3Name: "روز بزرگداشت خیام · بیست‌وهشتم اردیبهشت", p3Text: "حکیم عمر خیام، ریاضی‌دان، ستاره‌شناس و سراینده‌ی رباعیات؛ سازنده‌ی گاهشمار جلالی، درست‌ترین گاهشمار جهان.",
+          p4Name: "بزرگداشت ابن‌سینا و روز پزشک · یکم شهریور", p4Text: "ابوعلی سینا، پزشک و فیلسوف نام‌آور ایران و نویسنده‌ی کتاب «قانون» در پزشکی؛ یکم شهریور به پاس او روز پزشک است.",
+          p5Name: "بزرگداشت رازی و روز داروساز · پنجم شهریور", p5Text: "محمد بن زکریای رازی، پزشک و شیمی‌دان بزرگ ایران و کاشف الکل؛ پنجم شهریور به پاس او روز داروساز است.",
+          p6Name: "روز بزرگداشت ابوریحان بیرونی · سیزدهم شهریور", p6Text: "ابوریحان بیرونی، دانشمند همه‌چیزدان ایران؛ ستاره‌شناس و تاریخ‌نگاری که اندازه‌ی زمین را با دقتی شگفت سنجید.",
+          p7Name: "روز بزرگداشت مولوی · هشتم مهر", p7Text: "مولانا جلال‌الدین محمد بلخی، سراینده‌ی مثنوی و دیوان شمس؛ از پرخواننده‌ترین شاعران جهان تا امروز.",
+          p8Name: "زادروز سهراب سپهری · پانزدهم مهر", p8Text: "سهراب سپهری، شاعر و نگارگر معاصر، در پانزدهم مهر ۱۳۰۷ در کاشان زاده شد؛ سراینده‌ی «صدای پای آب» و مجموعه‌ی هشت کتاب.",
+          p9Name: "روز بزرگداشت حافظ · بیستم مهر", p9Text: "خواجه شمس‌الدین محمد حافظ شیرازی، لسان‌الغیب؛ دیوانش پس از سده‌ها هنوز در خانه‌ی هر ایرانی جای دارد.",
+          p10Name: "زادروز نیما یوشیج · بیست‌ویکم آبان", p10Text: "نیما یوشیج، پدر شعر نو فارسی، در بیست‌ویکم آبان ۱۲۷۶ در یوش زاده شد و راه شعر فارسی را برای همیشه دگرگون کرد.",
+          p11Name: "بزرگداشت خواجه نصیرالدین طوسی و روز مهندس · پنجم اسفند", p11Text: "خواجه نصیرالدین طوسی، دانشمند و ستاره‌شناس بزرگ و سازنده‌ی رصدخانه‌ی مراغه؛ پنجم اسفند به پاس او روز مهندس است.",
+          p12Name: "زادروز پروین اعتصامی · بیست‌وپنجم اسفند", p12Text: "پروین اعتصامی، پرآوازه‌ترین شاعر زن ایران، در بیست‌وپنجم اسفند ۱۲۸۵ در تبریز زاده شد؛ دیوانش سرشار از مناظره و پند است.",
+          p13Name: "زادروز شهبانو فرح پهلوی · بیست‌ودوم مهر", p13Text: "شهبانو فرح پهلوی (فرح دیبا)، شهبانوی ایران، در بیست‌ودوم مهر ۱۳۱۷ در تهران زاده شد؛ پشتیبان هنر و فرهنگ ایران و بنیان‌گذار جشن هنر شیراز و موزه‌های نوین ایران.",
+          p14Name: "زادروز محمدرضا شاه پهلوی · چهارم آبان", p14Text: "محمدرضا شاه پهلوی، واپسین شاه ایران از دودمان پهلوی، در چهارم آبان ۱۲۹۸ در تهران زاده شد و بیش از سی‌وهفت سال بر ایران فرمان راند.",
+          p15Name: "زادروز شاهزاده رضا پهلوی · نهم آبان", p15Text: "شاهزاده رضا پهلوی، ولیعهد ایران و فرزند محمدرضا شاه و شهبانو فرح، در نهم آبان ۱۳۳۹ در تهران زاده شد.",
+          p16Name: "زادروز رضا شاه کبیر · بیست‌وچهارم اسفند", p16Text: "رضا شاه کبیر، بنیان‌گذار دودمان پهلوی و پدر ایران نوین، در بیست‌وچهارم اسفند ۱۲۵۶ در آلاشتِ مازندران زاده شد؛ سازنده‌ی راه‌آهن سراسری، دانشگاه تهران و ارتش نوین ایران."
         },
         en: {
           brand: "Mehr Iran Dokht", brandSub: "The Imperial Calendar and Zoroastrian observances",
@@ -390,6 +434,7 @@
           monthsTitle: "The twelve months of the Imperial year",
           tapHint: "Tap a month to see its days and its festivals.",
           legFest: "Festival / observance", legGah: "Gahambar", legNabor: "Nabor day",
+          legHist: "Historical event", legGreat: "Great figures' day",
           perTitle: "Title", perNote: "Note (optional)", perOnce: "Once", perYearly: "Every year", perAdd: "Add",
           perHead: "Your own reminder", perPh: "Birthday, anniversary, or anything else…",
           allTitle: "All the festivals and observances of the year",
@@ -431,7 +476,25 @@
           nb2Name: "Nabor Day (Bahman Day) · the 2nd of every month", nb2Text: "Bahman day, the 2nd of every month, is a Nabor day. Bahman is the deity of good thought and the guardian of useful animals, and on this day people refrain from eating meat and killing animals.",
           nb12Name: "Nabor Day (Mah Day) · the 12th of every month", nb12Text: "Mah day, the 12th of every month, is a Nabor day — a day of calm and of refraining from meat and slaughter, in honor of animals.",
           nb14Name: "Nabor Day (Gosht Day) · the 14th of every month", nb14Text: "Gosht day, the 14th of every month, is a Nabor day. This day belongs to the soul of the animals (Geush Urvan), and on it no meat is eaten and no animal is killed.",
-          nb21Name: "Nabor Day (Ram Day) · the 21st of every month", nb21Text: "Ram day, the 21st of every month, is a Nabor day. Ram is the deity of peace and joy, and this day too is honored by refraining from meat and from killing animals."
+          nb21Name: "Nabor Day (Ram Day) · the 21st of every month", nb21Text: "Ram day, the 21st of every month, is a Nabor day. Ram is the deity of peace and joy, and this day too is honored by refraining from meat and from killing animals.",
+          h1Name: "National Persian Gulf Day · 10 Ordibehesht", h1Text: "The anniversary of the expulsion of the Portuguese from the Strait of Hormuz and the return of Iranian rule over the Persian Gulf in 1622, under Imam Quli Khan in the Safavid era — a day for honoring the ever-Persian name of this sea.",
+          h2Name: "Cyrus the Great Day · 7 Aban", h2Text: "The anniversary of Cyrus the Great's peaceful entry into Babylon in 539 BCE, recorded in the Nabonidus Chronicle — the day his edict of freedom and equality, set down in the Cyrus Cylinder, is honored.",
+          p1Name: "Saadi Day · 1 Ordibehesht", p1Text: "Saadi of Shiraz, author of the Bustan and the Gulistan and a teacher of eloquence and humanity; 1 Ordibehesht is his commemoration day in Iran's calendar.",
+          p2Name: "Ferdowsi Day · 25 Ordibehesht", p2Text: "Ferdowsi, poet of the Shahnameh and guardian of the Persian language; this day is also marked as Persian Language Day.",
+          p3Name: "Khayyam Day · 28 Ordibehesht", p3Text: "Omar Khayyam, mathematician, astronomer and poet of the Rubaiyat — and maker of the Jalali calendar, the most accurate calendar in the world.",
+          p4Name: "Avicenna Day and Physicians' Day · 1 Shahrivar", p4Text: "Avicenna (Ibn Sina), Iran's famed physician and philosopher and author of The Canon of Medicine; 1 Shahrivar is Physicians' Day in his honor.",
+          p5Name: "Razi Day and Pharmacists' Day · 5 Shahrivar", p5Text: "Muhammad ibn Zakariya Razi, the great Iranian physician and chemist who identified alcohol; 5 Shahrivar is Pharmacists' Day in his honor.",
+          p6Name: "Biruni Day · 13 Shahrivar", p6Text: "Abu Rayhan Biruni, Iran's polymath — the astronomer and historian who measured the Earth's size with astonishing precision.",
+          p7Name: "Rumi Day · 8 Mehr", p7Text: "Jalal al-Din Muhammad Balkhi, known as Rumi (Molavi), poet of the Masnavi and the Divan of Shams — among the most widely read poets in the world today.",
+          p8Name: "Sohrab Sepehri's Birthday · 15 Mehr", p8Text: "Sohrab Sepehri, contemporary poet and painter, was born on 15 Mehr 1307 (1928) in Kashan — author of 'The Sound of Water's Footsteps' and the Hasht Ketab (Eight Books) collection.",
+          p9Name: "Hafez Day · 20 Mehr", p9Text: "Khwaja Shams al-Din Muhammad Hafez of Shiraz, the 'Tongue of the Unseen'; centuries on, his Divan still has a place in every Iranian home.",
+          p10Name: "Nima Yushij's Birthday · 21 Aban", p10Text: "Nima Yushij, the father of modern Persian poetry, was born on 21 Aban 1276 (1897) in Yush and forever changed the course of Persian verse.",
+          p11Name: "Nasir al-Din Tusi Day and Engineers' Day · 5 Esfand", p11Text: "Nasir al-Din Tusi, the great scholar and astronomer who built the Maragheh Observatory; 5 Esfand is Engineers' Day in his honor.",
+          p12Name: "Parvin Etesami's Birthday · 25 Esfand", p12Text: "Parvin Etesami, Iran's most celebrated woman poet, was born on 25 Esfand 1285 (1907) in Tabriz; her Divan is rich in debate poems and moral counsel.",
+          p13Name: "Shahbanu Farah Pahlavi's Birthday · 22 Mehr", p13Text: "Shahbanu Farah Pahlavi (Farah Diba), Empress of Iran, was born on 22 Mehr 1317 (1938) in Tehran — a patron of Iranian art and culture who founded the Shiraz Arts Festival and Iran's modern museums.",
+          p14Name: "Mohammad Reza Shah Pahlavi's Birthday · 4 Aban", p14Text: "Mohammad Reza Shah Pahlavi, the last Shah of Iran of the Pahlavi dynasty, was born on 4 Aban 1298 (1919) in Tehran and reigned over Iran for more than thirty-seven years.",
+          p15Name: "Crown Prince Reza Pahlavi's Birthday · 9 Aban", p15Text: "Prince Reza Pahlavi, Crown Prince of Iran and son of Mohammad Reza Shah and Shahbanu Farah, was born on 9 Aban 1339 (1960) in Tehran.",
+          p16Name: "Reza Shah the Great's Birthday · 24 Esfand", p16Text: "Reza Shah the Great, founder of the Pahlavi dynasty and father of modern Iran, was born on 24 Esfand 1256 (1878) in Alasht, Mazandaran — builder of the Trans-Iranian Railway, the University of Tehran and Iran's modern army."
         },
         fr: {
           brand: "Mehr Iran Dokht", brandSub: "Le calendrier impérial et les observances zoroastriennes",
@@ -443,6 +506,7 @@
           monthsTitle: "Les douze mois de l'année impériale",
           tapHint: "Touchez un mois pour voir ses jours et ses fêtes.",
           legFest: "Fête / observance", legGah: "Gahambar", legNabor: "Jour Nabor",
+          legHist: "Événement historique", legGreat: "Grands personnages",
           perTitle: "Titre", perNote: "Note (facultatif)", perOnce: "Une fois", perYearly: "Chaque année", perAdd: "Ajouter",
           perHead: "Votre rappel personnel", perPh: "Anniversaire, date spéciale, ou autre chose…",
           allTitle: "Toutes les fêtes et observances de l'année",
@@ -484,7 +548,25 @@
           nb2Name: "Jour Nabor (jour de Bahman) · le 2 de chaque mois", nb2Text: "Le jour de Bahman, le 2 de chaque mois, est un jour Nabor. Bahman est la divinité de la bonne pensée et le gardien des animaux utiles ; ce jour-là, on s'abstient de manger de la viande et de tuer les animaux.",
           nb12Name: "Jour Nabor (jour de Mah) · le 12 de chaque mois", nb12Text: "Le jour de Mah, le 12 de chaque mois, est un jour Nabor — un jour de calme et d'abstention de viande et d'abattage, en l'honneur des animaux.",
           nb14Name: "Jour Nabor (jour de Gosht) · le 14 de chaque mois", nb14Text: "Le jour de Gosht, le 14 de chaque mois, est un jour Nabor. Ce jour appartient à l'âme des animaux (Geush Urvan) ; on n'y mange pas de viande et l'on n'y tue aucun animal.",
-          nb21Name: "Jour Nabor (jour de Ram) · le 21 de chaque mois", nb21Text: "Le jour de Ram, le 21 de chaque mois, est un jour Nabor. Ram est la divinité de la paix et de la joie, et ce jour aussi est honoré par l'abstention de viande et de tuer les animaux."
+          nb21Name: "Jour Nabor (jour de Ram) · le 21 de chaque mois", nb21Text: "Le jour de Ram, le 21 de chaque mois, est un jour Nabor. Ram est la divinité de la paix et de la joie, et ce jour aussi est honoré par l'abstention de viande et de tuer les animaux.",
+          h1Name: "Journée nationale du golfe Persique · 10 Ordibehesht", h1Text: "Anniversaire de l'expulsion des Portugais du détroit d'Ormuz et du retour de la souveraineté iranienne sur le golfe Persique en 1622, sous Imam Quli Khan à l'époque safavide — un jour pour honorer le nom à jamais persique de cette mer.",
+          h2Name: "Journée de Cyrus le Grand · 7 Aban", h2Text: "Anniversaire de l'entrée pacifique de Cyrus le Grand à Babylone en 539 avant notre ère, consignée dans la Chronique de Nabonide — le jour où l'on honore son édit de liberté et d'égalité, gravé dans le Cylindre de Cyrus.",
+          p1Name: "Journée de Saadi · 1 Ordibehesht", p1Text: "Saadi de Chiraz, auteur du Boustan et du Golestan, maître de l'éloquence et de l'humanité ; le 1 Ordibehesht est sa journée de commémoration dans le calendrier iranien.",
+          p2Name: "Journée de Ferdowsi · 25 Ordibehesht", p2Text: "Ferdowsi, poète du Shahnameh et gardien de la langue persane ; ce jour est aussi la Journée de la langue persane.",
+          p3Name: "Journée de Khayyam · 28 Ordibehesht", p3Text: "Omar Khayyam, mathématicien, astronome et poète des Rubaiyat — et auteur du calendrier jalali, le calendrier le plus précis du monde.",
+          p4Name: "Journée d'Avicenne et des médecins · 1 Shahrivar", p4Text: "Avicenne (Ibn Sina), célèbre médecin et philosophe iranien, auteur du Canon de la médecine ; le 1 Shahrivar est la Journée des médecins en son honneur.",
+          p5Name: "Journée de Razi et des pharmaciens · 5 Shahrivar", p5Text: "Muhammad ibn Zakariya Razi, grand médecin et chimiste iranien qui identifia l'alcool ; le 5 Shahrivar est la Journée des pharmaciens en son honneur.",
+          p6Name: "Journée d'Al-Biruni · 13 Shahrivar", p6Text: "Abou Rayhan Biruni, le savant universel de l'Iran — l'astronome et historien qui mesura la taille de la Terre avec une précision étonnante.",
+          p7Name: "Journée de Rumi · 8 Mehr", p7Text: "Jalal al-Din Muhammad Balkhi, dit Rumi (Molavi), poète du Masnavi et du Divan de Shams — parmi les poètes les plus lus au monde aujourd'hui.",
+          p8Name: "Anniversaire de Sohrab Sepehri · 15 Mehr", p8Text: "Sohrab Sepehri, poète et peintre contemporain, naquit le 15 Mehr 1307 (1928) à Kashan — auteur du « Bruit des pas de l'eau » et du recueil Hasht Ketab (Huit livres).",
+          p9Name: "Journée de Hafez · 20 Mehr", p9Text: "Khwaja Shams al-Din Muhammad Hafez de Chiraz, la « Langue de l'Invisible » ; des siècles plus tard, son Divan a toujours sa place dans chaque foyer iranien.",
+          p10Name: "Anniversaire de Nima Yushij · 21 Aban", p10Text: "Nima Yushij, le père de la poésie persane moderne, naquit le 21 Aban 1276 (1897) à Yush et changea pour toujours le cours de la poésie persane.",
+          p11Name: "Journée de Nasir al-Din Tusi et des ingénieurs · 5 Esfand", p11Text: "Nasir al-Din Tusi, le grand savant et astronome qui construisit l'observatoire de Maragheh ; le 5 Esfand est la Journée des ingénieurs en son honneur.",
+          p12Name: "Anniversaire de Parvin Etesami · 25 Esfand", p12Text: "Parvin Etesami, la poétesse la plus célèbre d'Iran, naquit le 25 Esfand 1285 (1907) à Tabriz ; son Divan est riche en poèmes de débat et en conseils moraux.",
+          p13Name: "Anniversaire de la Shahbanu Farah Pahlavi · 22 Mehr", p13Text: "La Shahbanu Farah Pahlavi (Farah Diba), impératrice d'Iran, naquit le 22 Mehr 1317 (1938) à Téhéran — protectrice des arts et de la culture iraniens, fondatrice du Festival des arts de Chiraz et des musées modernes d'Iran.",
+          p14Name: "Anniversaire de Mohammad Reza Shah Pahlavi · 4 Aban", p14Text: "Mohammad Reza Shah Pahlavi, le dernier chah d'Iran de la dynastie Pahlavi, naquit le 4 Aban 1298 (1919) à Téhéran et régna sur l'Iran plus de trente-sept ans.",
+          p15Name: "Anniversaire du prince héritier Reza Pahlavi · 9 Aban", p15Text: "Le prince Reza Pahlavi, prince héritier d'Iran et fils de Mohammad Reza Shah et de la Shahbanu Farah, naquit le 9 Aban 1339 (1960) à Téhéran.",
+          p16Name: "Anniversaire de Reza Shah le Grand · 24 Esfand", p16Text: "Reza Shah le Grand, fondateur de la dynastie Pahlavi et père de l'Iran moderne, naquit le 24 Esfand 1256 (1878) à Alasht, au Mazandaran — bâtisseur du chemin de fer transiranien, de l'université de Téhéran et de l'armée moderne iranienne."
         }
       };
       var FEST_DAYS = {
@@ -500,6 +582,17 @@
         10: [[1, "f10bName"], [8, "f10cName"], [11, "f10fName"], [15, "f10dName"], [23, "f10eName"]],
         11: [[2, "f11aName"], [10, "f11bName"]],
         12: [[5, "f12aName"]]
+      };
+      var HIST_DAYS = {
+        2: [[10, "h1Name"]],
+        8: [[7, "h2Name"]]
+      };
+      var GREAT_DAYS = {
+        2: [[1, "p1Name"], [25, "p2Name"], [28, "p3Name"]],
+        6: [[1, "p4Name"], [5, "p5Name"], [13, "p6Name"]],
+        7: [[8, "p7Name"], [15, "p8Name"], [20, "p9Name"], [22, "p13Name"]],
+        8: [[4, "p14Name"], [9, "p15Name"], [21, "p10Name"]],
+        12: [[5, "p11Name"], [24, "p16Name"], [25, "p12Name"]]
       };
       var GAHANBAR = {
         g1Name: [2, 11, 15], g2Name: [4, 11, 15], g3Name: [6, 26, 30],
@@ -568,6 +661,10 @@
         function push(d, key, kind) { if (!map[d]) map[d] = []; map[d].push({ key: key, kind: kind }); }
         var list = FEST_DAYS[m] || [];
         for (var i = 0; i < list.length; i++) push(list[i][0], list[i][1], "fest");
+        var hlist = HIST_DAYS[m] || [];
+        for (var hi = 0; hi < hlist.length; hi++) push(hlist[hi][0], hlist[hi][1], "hist");
+        var glist = GREAT_DAYS[m] || [];
+        for (var gi = 0; gi < glist.length; gi++) push(glist[gi][0], glist[gi][1], "great");
         for (var gk in GAHANBAR) {
           if (!GAHANBAR.hasOwnProperty(gk)) continue;
           var r = gahRange(gk);
@@ -725,18 +822,22 @@
           var cls = "cal-cell";
           var dayEv = ev[d] || [];
           var names = [];
+          var hasHist = false, hasGreat = false;
           for (var q = 0; q < dayEv.length; q++) {
             if (dayEv[q].kind === "fest") cls += " fest";
             else if (dayEv[q].kind === "gah") { if (cls.indexOf(" gah") === -1) cls += " gah"; }
             else if (dayEv[q].kind === "nabor") cls += " nabor";
+            else if (dayEv[q].kind === "hist") { cls += " hist"; hasHist = true; }
+            else if (dayEv[q].kind === "great") { cls += " great"; hasGreat = true; }
             names.push(T(dayEv[q].key));
           }
           cls = cls.replace(/ fest fest/g, " fest").replace(/ nabor nabor/g, " nabor");
+          var marks = (hasHist ? '<i class="mk-hist" aria-hidden="true"></i>' : "") + (hasGreat ? '<i class="mk-great" aria-hidden="true"></i>' : "");
           if (m === base.today.m && d === base.today.d) cls += " today";
           var ttl = names.length ? ' title="' + names.join(" — ").replace(/"/g, "") + '"' : "";
           var gd = gregOf(m, d);
           var gLabel = (d === 1 || gd.getDate() === 1) ? gMonFmt.format(gd) : gDayFmt.format(gd);
-          html += '<button type="button" class="' + cls + '" data-cal-day="' + d + '"' + ttl + ">" + num(d) + '<span class="cal-greg">' + gLabel + "</span></button>";
+          html += '<button type="button" class="' + cls + '" data-cal-day="' + d + '"' + ttl + ">" + num(d) + '<span class="cal-greg">' + gLabel + "</span>" + marks + "</button>";
         }
         grid.innerHTML = html;
         var entries = [];
