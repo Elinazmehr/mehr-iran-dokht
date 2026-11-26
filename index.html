@@ -342,6 +342,69 @@
       .lg-fest { width: 8px; height: 8px; border-radius: 999px; background: var(--gold); }
       .lg-gah { width: 15px; height: 15px; border-radius: 5px; background: color-mix(in srgb, var(--gold-bright) 30%, var(--surface-2)); border: 1px solid var(--gold); }
       .lg-nabor { width: 8px; height: 8px; border-radius: 999px; border: 2px solid var(--gold); }
+
+      /* ---------- Calendar ornaments (decoration only): درباری gold frame, بته‌جقه corners, star-flanked months ---------- */
+      .cal-banner { margin: 0 0 1.4rem; }
+      .cal-banner img {
+        display: block; width: 100%; height: auto;
+        border: 1.5px solid var(--gold-bright); border-radius: 18px;
+      }
+      /* Double gold frame: gold outer border + thin inner gold line */
+      .cal-box, .cal-today {
+        border-color: var(--gold-bright);
+        box-shadow: inset 0 0 0 1px var(--surface), inset 0 0 0 2.5px var(--gold);
+      }
+      /* Gold بته‌جقه corner ornaments + a subtle repeating boteh band along the top edge */
+      .cal-box {
+        background-image:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(-45 12 12)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.55'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E"),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(45 12 12)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.55'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E"),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(135 12 12)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.55'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E"),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(-135 12 12)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.55'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E"),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 24'%3E%3Cg transform='translate(6 0)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.3'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.3'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat-x;
+        background-position: left 6px top 6px, right 6px top 6px, right 6px bottom 6px, left 6px bottom 6px, center top 4px;
+        background-size: 18px 18px, 18px 18px, 18px 18px, 18px 18px, auto 12px;
+      }
+      .cal-today {
+        background-image:
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(-45 12 12)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.55'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E"),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(45 12 12)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.55'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E"),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(135 12 12)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.55'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E"),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg transform='rotate(-135 12 12)'%3E%3Cpath d='M12 2c3.4 4.4 7 7.9 7 12a7 7 0 1 1-14 0c0-4.1 3.6-7.6 7-12z' fill='%23c9a227' fill-opacity='.55'/%3E%3Ccircle cx='12' cy='14' r='2.3' fill='none' stroke='%23c9a227' stroke-opacity='.55'/%3E%3C/g%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: left 6px top 6px, right 6px top 6px, right 6px bottom 6px, left 6px bottom 6px;
+        background-size: 18px 18px;
+      }
+      /* Eight-point gold stars flanking each month name and the open month's title */
+      .cal-month { position: relative; }
+      .cal-month::before, .cal-month::after {
+        content: ""; position: absolute; top: 50%; transform: translateY(-50%);
+        width: 11px; height: 11px; opacity: .75; pointer-events: none;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23c9a227'%3E%3Crect x='6.2' y='6.2' width='11.6' height='11.6'/%3E%3Crect x='6.2' y='6.2' width='11.6' height='11.6' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      .cal-month::before { inset-inline-start: 6px; }
+      .cal-month::after { inset-inline-end: 6px; }
+      .cal-days-head h4 { display: flex; align-items: center; gap: .55rem; }
+      .cal-days-head h4::before, .cal-days-head h4::after {
+        content: ""; flex: none; width: 13px; height: 13px; opacity: .85;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23c9a227'%3E%3Crect x='6.2' y='6.2' width='11.6' height='11.6'/%3E%3Crect x='6.2' y='6.2' width='11.6' height='11.6' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      /* Legend icons: gold sun for festivals, gold flame for Gahambars (Nabor keeps its open ring) */
+      .lg-fest {
+        width: 14px; height: 14px; border-radius: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19' stroke='%23c9a227' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='12' cy='12' r='4.2' fill='%23c9a227'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      .lg-gah {
+        width: 14px; height: 14px; border: none; border-radius: 0;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5c2 3.2 5.5 5.6 5.5 9.7a5.5 5.5 0 1 1-11 0c0-1.9.8-3.4 1.9-4.9.5 1 1.3 1.7 2.3 2.1-.6-2.9.1-4.1 1.3-6.9z' fill='%23c9a227'/%3E%3Cpath d='M12 12.5c1.2 1.6 2.6 2.9 2.6 4.7a2.6 2.6 0 1 1-5.2 0c0-1.8 1.4-3.1 2.6-4.7z' fill='%23e8c96e'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      /* Festival days carry a tiny gold sun instead of the plain dot */
+      .cal-cell.fest::after {
+        width: 9px; height: 9px; border-radius: 0; bottom: 3px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19' stroke='%23c9a227' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='12' cy='12' r='4.2' fill='%23c9a227'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      .cal-cell.today.fest::after { width: 5px; height: 5px; border-radius: 999px; bottom: 5px; }
       .cal-fests .fest-main { flex: 1; min-width: 190px; }
       .cal-fest-desc { display: block; color: var(--ink-soft); font-size: .85rem; margin-top: .1rem; line-height: 1.8; }
       /* Standalone-calendar link row + install guide (also reused ideas) */
@@ -403,6 +466,15 @@
       button.cal-cell { font: inherit; cursor: pointer; width: 100%; color: inherit; }
       button.cal-cell:hover { border-color: var(--gold-bright); }
       .cal-cell.sel-day { box-shadow: inset 0 0 0 2px var(--accent); }
+      /* Gregorian (میلادی) date line inside each day cell: small and muted, under the Persian day number */
+      .cal-cell { padding-bottom: .8rem; }
+      .cal-greg { display: block; font-size: .62rem; font-weight: 500; line-height: 1.3; color: var(--ink-soft); opacity: .8; white-space: nowrap; }
+      .cal-cell.today .cal-greg { color: inherit; opacity: .85; }
+      .cal-cell.fest::after {
+        width: 9px; height: 9px; border-radius: 0; bottom: 2px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5 5l1.8 1.8M17.2 17.2L19 19M19 5l-1.8 1.8M6.8 17.2L5 19' stroke='%23c9a227' stroke-width='2' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='12' cy='12' r='4.2' fill='%23c9a227'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      .cal-cell.today.fest::after { width: 5px; height: 5px; border-radius: 999px; bottom: 5px; }
       .cal-personal {
         margin-top: 1rem; border: 1px solid var(--gold-bright); border-radius: 14px;
         background: var(--surface-2); padding: 1rem 1.1rem;
@@ -533,6 +605,16 @@
       .full-story p:last-child { margin-bottom: 0; }
       .full-story .verse { margin: 0 0 1rem; }
       .verse-tr { font-weight: 700; margin-top: -.4rem; }
+
+      /* ---------- Simple rendering of a hymn (Gathas daily readings) ---------- */
+      .hymn-reading {
+        border-inline-start: 3px solid var(--gold);
+        background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface));
+        border-radius: 12px; padding: 1.1rem 1.2rem; margin: 0;
+      }
+      .hymn-reading h4 { margin: 0 0 .6rem; font-size: 1.12rem; font-weight: 900; line-height: 1.7; color: var(--gold); }
+      .hymn-reading p { font-size: .97rem; }
+      .hymn-reading .reading-note { color: var(--ink-soft); font-size: .88rem; }
 
       /* ---------- Voice narration (recordings by Elnaz) ---------- */
       .voice-box {
@@ -1786,6 +1868,9 @@
       </section>
 
       <section class="heritage" id="calendar" data-view="calendar" aria-label="Imperial calendar of Iran">
+        <figure class="cal-banner">
+          <img draggable="false" src="assets/calendar-header-v2.webp" data-i18n-alt="calBannerAlt" alt="نگاره‌ی مینیاتوری آسمان و گاهشمار کهن ایران: خورشید و ماه و ستارگان با نقش بته‌جقه‌ی طلایی بر زمینه‌ی آبی درباری" loading="lazy" />
+        </figure>
         <div class="heritage-head">
           <span class="kicker" data-i18n="calKicker">گاهشمار کهن ایران</span>
           <h2 data-i18n="calTitle">گاهشمار شاهنشاهی ایران — <em>گاهشماری دو هزار و پانصد و چند ساله</em></h2>
@@ -4531,6 +4616,22 @@
             <small data-i18n="g1VerseBy">از یسن ۳۰، اهونود گات — به فارسی روان</small>
           </blockquote>
           <p data-i18n="g1P4">پیام اهونود گات، پیام همه‌ی گات‌هاست: راستی را باید شناخت، برگزید و در زندگی پیاده کرد؛ و این کار هر کس، بر دوش خود اوست.</p>
+          <div class="hymn-reading">
+            <h4 data-i18n="g1RTitle">بازخوانی ساده‌ی این سرود — یسنا ۲۸</h4>
+            <p data-i18n="g1RIntro">یسنا ۲۸ نخستین سرود گات‌هاست؛ نیایشی که زرتشت با دست‌های برافراشته آغاز می‌کند و در آن، راه خود را از اهورامزدا می‌خواهد.</p>
+            <p data-i18n="g1RP1">با دست‌های برافراشته و دلی شاد، از تو یاری می‌خواهم، ای مزدا؛ یاریِ مینوی نیک‌افزا را، و پاداش کارهایی را که بر پایه‌ی راستی انجام می‌شود. با اندیشه‌ی نیک می‌خواهم روان آفرینش را خشنود کنم و از خردی بهره بگیرم که راه درست را نشان می‌دهد.</p>
+            <p data-i18n="g1RP2">با اندیشه‌ی نیک به تو نزدیک می‌شوم، ای مزدا؛ مرا از راه راستی، بهره‌ی هر دو جهان ببخش: هم زندگی تن و هم زندگی روان؛ بهره‌ای که آدمی را در کنار راستی می‌نشاند و به آرامش می‌رساند.</p>
+            <p data-i18n="g1RP3">تو را می‌ستایم، ای مزدا، و راستی و اندیشه‌ی نیک و پارساییِ پایدار را؛ سرودهای ستایشم را بشنو و به سوی ما بیا، تا سخن راست در جهان شنیده شود و دل‌ها به سوی آن گراید.</p>
+            <p data-i18n="g1RP4">روان خویش را با اندیشه‌ی نیک پرورش می‌دهم و می‌دانم پاداش کارهای نیک نزد توست. تا توان و نیرو دارم، مردمان را به راستی فرا می‌خوانم و راه آن را به ایشان می‌آموزم.</p>
+            <p data-i18n="g1RP5">ای راستی، کی تو را خواهم دید؟ کی اندیشه‌ی نیک و راه رسیدن به مزدای توانا را خواهم شناخت؟ با سخن بزرگ و نیرومندِ این سرود، بدکاران را نیز به سوی راستی می‌خوانیم؛ باشد که زبان‌ها به گفتار راست گشوده شود.</p>
+            <p data-i18n="g1RP6">با اندیشه‌ی نیک بیا و از راه راستی، زندگی دراز و نیروی پایدار ببخش؛ پشتیبانی استوار به زرتشت و به ما ارزانی دار، پشتیبانی‌ای که با آن بر دشمنی‌ها چیره شویم.</p>
+            <p data-i18n="g1RP7">ای راستی، پاداشی را که وعده داده‌ای ببخش؛ و ای اندیشه‌ی نیک، شهریاریِ دلخواه را ارزانی دار. ای مزدا، و ای پارسایی، ما را نگه دارید و پناه دهید تا در راه راستی استوار بمانیم.</p>
+            <p data-i18n="g1RP8">ای بهترین، ای هم‌سخن با راستی، از تو می‌خواهم برترین بهره‌ها را به یاران راست‌کارم ببخشی و مرا نیز از آن بهره‌مند کنی؛ تا همیشه تو را بستایم و سرودهای تو را بخوانم.</p>
+            <p data-i18n="g1RP9">باشد که نیایش‌های ما تو را ناخشنود نکند، ای مزدا، و نه راستی و بهترین اندیشه را؛ ما که با کوشش، ستایش خود را پیشکش می‌کنیم. تو سرچشمه‌ی نیرو و توانایی، و کارها را به سرانجام نیک می‌رسانی.</p>
+            <p data-i18n="g1RP10">کسانی را که به راستی شناخته شده‌اند، یاری ده تا آرزوهایشان برآورده شود؛ می‌دانم ستایشی که از دل برآید نزد تو پذیرفته است. آنچه را برای مردمان سودمند است، از تو می‌خواهم و چشم به راه بخشش توام.</p>
+            <p data-i18n="g1RP11">ای مزدا، آموزش‌های راستی و اندیشه‌ی نیک را برای همیشه نگه دار و بیاموز؛ سخنانی را که از آغاز بوده‌اند و تا فرجام می‌مانند، تا راه درست زندگی برای مردمان روشن بماند.</p>
+            <p class="reading-note" data-i18n="g1RNote">این بازخوانی ساده‌ی یسنا ۲۸ است، نه برگردان لفظ‌به‌لفظ؛ برای خواندن ژرف‌تر، برگردان‌های پژوهشی گات‌ها را ببینید.</p>
+          </div>
         </article>
         <article class="full-story gold">
           <span class="tag" data-i18n="g2Tag">بخش دوم · یسنا ۴۳ تا ۴۶</span>
@@ -5302,6 +5403,20 @@
           g1Verse: "Hear with your ears the best words and look upon them with a clear mind; every person — woman and man — must choose for themselves between the two paths.",
           g1VerseBy: "From Yasna 30, the Ahunavad Gatha — retold in plain words",
           g1P4: "The message of the Ahunavad Gatha is the message of all the Gathas: truth must be known, chosen, and lived — and that task rests on each person's own shoulders.",
+          g1RTitle: "A simple rendering of this hymn — Yasna 28",
+          g1RIntro: "Yasna 28 is the first hymn of the Gathas: a prayer Zoroaster begins with uplifted hands, asking Ahura Mazda to show him his path.",
+          g1RP1: "With uplifted hands and a glad heart I ask your help, O Mazda — the help of the bountiful spirit, and the reward of deeds done in line with truth. With good thought I wish to gladden the soul of creation, and to share in the wisdom that shows the right way.",
+          g1RP2: "With good thought I draw near to you, O Mazda. Through truth, grant me the blessings of both worlds — the life of the body and the life of the soul — the blessing that sets a person beside truth and brings them peace.",
+          g1RP3: "I praise you, O Mazda, and truth, and good thought, and steadfast devotion. Hear my songs of praise and come toward us, so that the true word may be heard in the world and hearts may turn toward it.",
+          g1RP4: "I nurture my own soul with good thought, and I know that the reward of good deeds rests with you. As long as I have strength and power, I will call people to truth and teach them its way.",
+          g1RP5: "O Truth, when shall I see you? When shall I know good thought, and the path to mighty Mazda? With the great and powerful word of this hymn we call even the wicked toward truth; may tongues be opened to speak what is right.",
+          g1RP6: "Come with good thought, and through truth grant long life and lasting strength. Give firm support to Zoroaster and to us — support with which we may overcome hostility.",
+          g1RP7: "O Truth, grant the reward you have promised; and O Good Thought, grant the dominion we long for. O Mazda, and O Devotion, guard us and shelter us, so that we may stand firm on the path of truth.",
+          g1RP8: "O Best One, who speaks in harmony with truth, I ask you to grant the highest blessings to my righteous companions, and to let me share in them too — so that I may praise you always and sing your hymns.",
+          g1RP9: "May our prayers not displease you, O Mazda, nor truth, nor the best thought — we who offer our praise with effort. You are the source of strength and power, and you bring deeds to a good end.",
+          g1RP10: "Help those who are known for their truthfulness to fulfil their hopes; I know that praise which rises from the heart is accepted by you. I ask of you what is good for people, and I look to your giving.",
+          g1RP11: "O Mazda, guard and teach forever the teachings of truth and good thought — the words that have been from the beginning and will remain to the end — so that the right way of life stays clear for people.",
+          g1RNote: "This is a simple rendering of Yasna 28, not a word-for-word translation; for deeper study, see the scholarly translations of the Gathas.",
           g2Tag: "Part Two · Yasna 43–46",
           g2Title: "Ushtavad Gatha — the hymn of happiness",
           g2P1: "The Ushtavad Gatha is the second Gatha: four hymns, Yasna 43 to 46. Its name comes from the word 'ushtā' — happiness and joy — the very word with which its first hymn opens, and the theme of the whole Gatha: what is true happiness, and where does it come from?",
@@ -5586,6 +5701,7 @@
           legFest: "Festival / observance",
           legGah: "Gahambar",
           legNabor: "Nabor day",
+          calBannerAlt: "Persian miniature of the ancient Iranian celestial calendar: sun, moon and stars with golden boteh-jegheh motifs on royal blue",
           soloGuideTitle: "Put the calendar on your phone",
           soloIosTitle: "iPhone (Safari)",
           soloIos1: "Open the “Standalone Calendar” page in Safari",
@@ -6872,6 +6988,20 @@
           g1Verse: "Écoutez de vos oreilles les meilleures paroles et regardez-les avec un esprit clair ; chaque personne — femme et homme — doit choisir elle-même entre les deux voies.",
           g1VerseBy: "Du Yasna 30, Gatha Ahunavad — raconté en mots simples",
           g1P4: "Le message de la Gatha Ahunavad est celui de toutes les Gathas : il faut connaître la vérité, la choisir et la vivre — et cette tâche repose sur les épaules de chacun.",
+          g1RTitle: "Lecture simple de cet hymne — Yasna 28",
+          g1RIntro: "Le Yasna 28 est le premier hymne des Gathas : une prière que Zoroastre commence les mains levées, en demandant à Ahura Mazda de lui montrer sa voie.",
+          g1RP1: "Les mains levées et le cœur joyeux, je te demande ton aide, ô Mazda — l'aide de l'esprit bienfaisant, et la récompense des actes accomplis selon la vérité. Par la bonne pensée, je veux réjouir l'âme de la création et prendre part à la sagesse qui montre la juste voie.",
+          g1RP2: "Par la bonne pensée, je m'approche de toi, ô Mazda. Par la vérité, accorde-moi les bienfaits des deux mondes — la vie du corps et la vie de l'âme — le bienfait qui place l'être humain aux côtés de la vérité et lui apporte la paix.",
+          g1RP3: "Je te loue, ô Mazda, et je loue la vérité, la bonne pensée et la dévotion constante. Entends mes chants de louange et viens vers nous, pour que la parole vraie soit entendue dans le monde et que les cœurs se tournent vers elle.",
+          g1RP4: "Je nourris mon âme par la bonne pensée, et je sais que la récompense des bonnes actions repose auprès de toi. Tant que j'en aurai la force, j'appellerai les gens à la vérité et je leur enseignerai sa voie.",
+          g1RP5: "Ô Vérité, quand te verrai-je ? Quand connaîtrai-je la bonne pensée et la voie vers le puissant Mazda ? Par la parole grande et forte de cet hymne, nous appelons même les méchants vers la vérité ; que les langues s'ouvrent pour dire ce qui est juste.",
+          g1RP6: "Viens avec la bonne pensée et, par la vérité, accorde une longue vie et une force durable. Donne un appui ferme à Zoroastre et à nous — un appui qui nous permette de surmonter l'hostilité.",
+          g1RP7: "Ô Vérité, accorde la récompense que tu as promise ; et ô Bonne Pensée, accorde le règne que nous désirons. Ô Mazda, et ô Dévotion, gardez-nous et abritez-nous, pour que nous restions fermes sur la voie de la vérité.",
+          g1RP8: "Ô le Meilleur, toi qui parles en accord avec la vérité, je te demande d'accorder les plus hauts bienfaits à mes compagnons justes, et de m'en faire aussi profiter — pour que je te loue toujours et que je chante tes hymnes.",
+          g1RP9: "Que nos prières ne te déplaisent pas, ô Mazda, ni à la vérité, ni à la meilleure pensée — nous qui offrons notre louange avec effort. Tu es la source de la force et du pouvoir, et tu mènes les actes à une bonne fin.",
+          g1RP10: "Aide ceux qui sont connus pour leur droiture à réaliser leurs espoirs ; je sais que la louange qui monte du cœur est acceptée par toi. Je te demande ce qui est bon pour les gens, et j'attends ton don.",
+          g1RP11: "Ô Mazda, garde et enseigne pour toujours les enseignements de la vérité et de la bonne pensée — les paroles qui existent depuis le commencement et resteront jusqu'à la fin — pour que la juste façon de vivre reste claire pour les gens.",
+          g1RNote: "Ceci est une lecture simple du Yasna 28, et non une traduction mot à mot ; pour aller plus loin, voyez les traductions savantes des Gathas.",
           g2Tag: "Deuxième partie · Yasna 43 à 46",
           g2Title: "Gatha Ushtavad — l'hymne du bonheur",
           g2P1: "La Gatha Ushtavad est la deuxième Gatha : quatre hymnes, Yasna 43 à 46. Son nom vient du mot « ushtā » — bonheur et joie — le mot même par lequel s'ouvre son premier hymne, et le thème de toute la Gatha : qu'est-ce que le vrai bonheur, et d'où vient-il ?",
@@ -7156,6 +7286,7 @@
           legFest: "Fête / observance",
           legGah: "Gahambar",
           legNabor: "Jour Nabor",
+          calBannerAlt: "Miniature persane du calendrier céleste de l'Iran ancien : soleil, lune et étoiles avec motifs dorés boteh-jegheh sur bleu royal",
           soloGuideTitle: "Mettez le calendrier sur votre téléphone",
           soloIosTitle: "iPhone (Safari)",
           soloIos1: "Ouvrez la page « Calendrier séparé » dans Safari",
@@ -8186,6 +8317,8 @@
         var gLoc = lang === "fa" ? "fa-IR-u-ca-gregory" : loc;
         var fFirst = new Intl.DateTimeFormat(gLoc, { day: "numeric", month: "long" }).format(first);
         var fLast = new Intl.DateTimeFormat(gLoc, { day: "numeric", month: "long", year: "numeric" }).format(last);
+        var gDayFmt = new Intl.DateTimeFormat(gLoc, { day: "numeric" });
+        var gMonFmt = new Intl.DateTimeFormat(gLoc, { day: "numeric", month: "short" });
         if (lang === "fa") subEl.textContent = mName + " " + num(base.today.y) + " خورشیدی · از " + fFirst + " تا " + fLast + " میلادی";
         else if (lang === "fr") subEl.textContent = mName + " " + base.today.y + " solaire · du " + fFirst + " au " + fLast + " grégorien";
         else subEl.textContent = mName + " " + base.today.y + " Solar · " + fFirst + " – " + fLast + " Gregorian";
@@ -8219,7 +8352,9 @@
           if (hasNabor) cls += " nabor";
           if (m === base.today.m && d === base.today.d) cls += " today";
           var ttl = fests[d] ? ' title="' + fests[d].join(" — ").replace(/"/g, "") + '"' : "";
-          html += '<button type="button" class="' + cls + '" data-cal-day="' + d + '"' + ttl + ">" + num(d) + "</button>";
+          var gd = gregOf(m, d);
+          var gLabel = (d === 1 || gd.getDate() === 1) ? gMonFmt.format(gd) : gDayFmt.format(gd);
+          html += '<button type="button" class="' + cls + '" data-cal-day="' + d + '"' + ttl + ">" + num(d) + '<span class="cal-greg">' + gLabel + "</span></button>";
         }
         grid.innerHTML = html;
         /* One list line per observance; a Gahambar appears once, as a five-day range */
