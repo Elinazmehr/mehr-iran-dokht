@@ -399,6 +399,29 @@
         width: 14px; height: 14px; border: none; border-radius: 0;
         background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2.5c2 3.2 5.5 5.6 5.5 9.7a5.5 5.5 0 1 1-11 0c0-1.9.8-3.4 1.9-4.9.5 1 1.3 1.7 2.3 2.1-.6-2.9.1-4.1 1.3-6.9z' fill='%23c9a227'/%3E%3Cpath d='M12 12.5c1.2 1.6 2.6 2.9 2.6 4.7a2.6 2.6 0 1 1-5.2 0c0-1.8 1.4-3.1 2.6-4.7z' fill='%23e8c96e'/%3E%3C/svg%3E") center / contain no-repeat;
       }
+      /* Legend icons: gold banner (Derafsh) for historical events, gold open book for great figures' days */
+      .lg-hist {
+        width: 14px; height: 14px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 2.6v18.8' stroke='%23c9a227' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M6.5 3.2c3.9-1.8 7.7 1.8 11.6 0v7.2c-3.9 1.8-7.7-1.8-11.6 0z' fill='%23c9a227'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      .lg-great {
+        width: 14px; height: 14px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6.4C9.9 4.7 6.9 4 3.6 4.5v13.6c3.3-.5 6.3.2 8.4 1.9 2.1-1.7 5.1-2.4 8.4-1.9V4.5C17.1 4 14.1 4.7 12 6.4z' fill='%23c9a227'/%3E%3Cpath d='M12 6.4v13.6' stroke='%23e8c96e' stroke-width='1.3' fill='none'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      /* Cell markers: historical days a tiny gold banner at the bottom-inline-start corner,
+         great figures' days a tiny gold open book at the bottom-inline-end corner — clear of
+         the festival sun (bottom centre), the Nabor ring (top-inline-end) and the Gahambar wash */
+      .cal-cell .mk-hist, .cal-cell .mk-great {
+        position: absolute; bottom: 2px; width: 10px; height: 10px; pointer-events: none;
+      }
+      .cal-cell .mk-hist {
+        inset-inline-start: 3px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6.5 2.6v18.8' stroke='%23c9a227' stroke-width='2.2' stroke-linecap='round' fill='none'/%3E%3Cpath d='M6.5 3.2c3.9-1.8 7.7 1.8 11.6 0v7.2c-3.9 1.8-7.7-1.8-11.6 0z' fill='%23c9a227'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
+      .cal-cell .mk-great {
+        inset-inline-end: 3px;
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 6.4C9.9 4.7 6.9 4 3.6 4.5v13.6c3.3-.5 6.3.2 8.4 1.9 2.1-1.7 5.1-2.4 8.4-1.9V4.5C17.1 4 14.1 4.7 12 6.4z' fill='%23c9a227'/%3E%3Cpath d='M12 6.4v13.6' stroke='%23e8c96e' stroke-width='1.3' fill='none'/%3E%3C/svg%3E") center / contain no-repeat;
+      }
       /* Festival days carry a tiny gold sun instead of the plain dot */
       .cal-cell.fest::after {
         width: 9px; height: 9px; border-radius: 0; bottom: 3px;
@@ -532,6 +555,7 @@
       main > [data-view="history"], main > [data-view="app"],
       main > [data-view="calendar"], main > [data-view="nights"],
       main > [data-view="festivals"],
+      main > [data-view="festivals-guide"],
       main > [data-view="monuments"], main > [data-view="peoples"],
       main > [data-view="inventions"],
       main > [data-view="creatures"],
@@ -1409,6 +1433,7 @@
         <a href="#schools-subscription" class="has-new" data-view-link="schools"><svg class="nav-ic" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span data-i18n="navSchools">برای مدرسه‌ها</span><span class="new-badge inline attn" data-new-for="schools" data-i18n="newBadge">تازه</span></a>
         <a href="#history" data-view-link="history" data-i18n="navHistory">ایران از ابتدا</a>
         <a href="#calendar" data-view-link="calendar" data-i18n="navCalendar">گاهشمار شاهنشاهی</a>
+        <a href="#festivals-guide" class="has-new" data-view-link="festivals-guide"><span data-i18n="navFestivalsGuide">جشن‌های کهن ایرانی</span><span class="new-badge inline attn" data-new-for="festivals-guide" data-i18n="newBadge">تازه</span></a>
         <a href="#nights" data-view-link="nights" data-i18n="navNights">هزار و یک شب</a>
         <a href="#festivals" data-view-link="festivals" data-i18n="navFestivals">جشن‌های کهن</a>
         <a href="#monuments" data-view-link="monuments" data-i18n="navMonuments">یادگارهای باستانی ایران</a>
@@ -1900,6 +1925,46 @@
             <span><i class="lg-fest"></i><span data-i18n="legFest">جشن و مناسبت</span></span>
             <span><i class="lg-gah"></i><span data-i18n="legGah">گاهنبار</span></span>
             <span><i class="lg-nabor"></i><span data-i18n="legNabor">روز نبر</span></span>
+            <span><i class="lg-hist"></i><span data-i18n="legHist">رویداد تاریخی</span></span>
+            <span><i class="lg-great"></i><span data-i18n="legGreat">زادروز و بزرگداشت بزرگان</span></span>
+          </div>
+          <div hidden aria-hidden="true">
+            <span data-i18n="h1Name">روز ملی خلیج فارس · دهم اردیبهشت</span>
+            <span data-i18n="h1Text">سالروز بیرون راندن پرتغالی‌ها از تنگه‌ی هرمز و بازگشت فرمانروایی ایران بر خلیج فارس در سال ۱۶۲۲ میلادی، به فرماندهی امام‌قلی‌خان در روزگار صفوی؛ روزی برای پاسداشت نام همیشه‌فارس این دریا.</span>
+            <span data-i18n="h2Name">روز کوروش بزرگ · هفتم آبان</span>
+            <span data-i18n="h2Text">سالروز ورود آرام کوروش بزرگ به بابل در سال ۵۳۹ پیش از میلاد، بر پایه‌ی گاه‌نگار نبونید؛ روزی که فرمان آزادی و برابری او، که در منشور کوروش آمده است، گرامی داشته می‌شود.</span>
+            <span data-i18n="p1Name">روز بزرگداشت سعدی · یکم اردیبهشت</span>
+            <span data-i18n="p1Text">سعدی شیرازی، سراینده‌ی بوستان و گلستان و آموزگار سخن و انسانیت؛ یکم اردیبهشت در تقویم ایران روز بزرگداشت اوست.</span>
+            <span data-i18n="p2Name">روز بزرگداشت فردوسی · بیست‌وپنجم اردیبهشت</span>
+            <span data-i18n="p2Text">فردوسی، سراینده‌ی شاهنامه و نگهبان زبان فارسی؛ این روز همچنین «روز پاسداشت زبان فارسی» نام دارد.</span>
+            <span data-i18n="p3Name">روز بزرگداشت خیام · بیست‌وهشتم اردیبهشت</span>
+            <span data-i18n="p3Text">حکیم عمر خیام، ریاضی‌دان، ستاره‌شناس و سراینده‌ی رباعیات؛ سازنده‌ی گاهشمار جلالی، درست‌ترین گاهشمار جهان.</span>
+            <span data-i18n="p4Name">بزرگداشت ابن‌سینا و روز پزشک · یکم شهریور</span>
+            <span data-i18n="p4Text">ابوعلی سینا، پزشک و فیلسوف نام‌آور ایران و نویسنده‌ی کتاب «قانون» در پزشکی؛ یکم شهریور به پاس او روز پزشک است.</span>
+            <span data-i18n="p5Name">بزرگداشت رازی و روز داروساز · پنجم شهریور</span>
+            <span data-i18n="p5Text">محمد بن زکریای رازی، پزشک و شیمی‌دان بزرگ ایران و کاشف الکل؛ پنجم شهریور به پاس او روز داروساز است.</span>
+            <span data-i18n="p6Name">روز بزرگداشت ابوریحان بیرونی · سیزدهم شهریور</span>
+            <span data-i18n="p6Text">ابوریحان بیرونی، دانشمند همه‌چیزدان ایران؛ ستاره‌شناس و تاریخ‌نگاری که اندازه‌ی زمین را با دقتی شگفت سنجید.</span>
+            <span data-i18n="p7Name">روز بزرگداشت مولوی · هشتم مهر</span>
+            <span data-i18n="p7Text">مولانا جلال‌الدین محمد بلخی، سراینده‌ی مثنوی و دیوان شمس؛ از پرخواننده‌ترین شاعران جهان تا امروز.</span>
+            <span data-i18n="p8Name">زادروز سهراب سپهری · پانزدهم مهر</span>
+            <span data-i18n="p8Text">سهراب سپهری، شاعر و نگارگر معاصر، در پانزدهم مهر ۱۳۰۷ در کاشان زاده شد؛ سراینده‌ی «صدای پای آب» و مجموعه‌ی هشت کتاب.</span>
+            <span data-i18n="p9Name">روز بزرگداشت حافظ · بیستم مهر</span>
+            <span data-i18n="p9Text">خواجه شمس‌الدین محمد حافظ شیرازی، لسان‌الغیب؛ دیوانش پس از سده‌ها هنوز در خانه‌ی هر ایرانی جای دارد.</span>
+            <span data-i18n="p10Name">زادروز نیما یوشیج · بیست‌ویکم آبان</span>
+            <span data-i18n="p10Text">نیما یوشیج، پدر شعر نو فارسی، در بیست‌ویکم آبان ۱۲۷۶ در یوش زاده شد و راه شعر فارسی را برای همیشه دگرگون کرد.</span>
+            <span data-i18n="p11Name">بزرگداشت خواجه نصیرالدین طوسی و روز مهندس · پنجم اسفند</span>
+            <span data-i18n="p11Text">خواجه نصیرالدین طوسی، دانشمند و ستاره‌شناس بزرگ و سازنده‌ی رصدخانه‌ی مراغه؛ پنجم اسفند به پاس او روز مهندس است.</span>
+            <span data-i18n="p12Name">زادروز پروین اعتصامی · بیست‌وپنجم اسفند</span>
+            <span data-i18n="p12Text">پروین اعتصامی، پرآوازه‌ترین شاعر زن ایران، در بیست‌وپنجم اسفند ۱۲۸۵ در تبریز زاده شد؛ دیوانش سرشار از مناظره و پند است.</span>
+            <span data-i18n="p13Name">زادروز شهبانو فرح پهلوی · بیست‌ودوم مهر</span>
+            <span data-i18n="p13Text">شهبانو فرح پهلوی (فرح دیبا)، شهبانوی ایران، در بیست‌ودوم مهر ۱۳۱۷ در تهران زاده شد؛ پشتیبان هنر و فرهنگ ایران و بنیان‌گذار جشن هنر شیراز و موزه‌های نوین ایران.</span>
+            <span data-i18n="p14Name">زادروز محمدرضا شاه پهلوی · چهارم آبان</span>
+            <span data-i18n="p14Text">محمدرضا شاه پهلوی، واپسین شاه ایران از دودمان پهلوی، در چهارم آبان ۱۲۹۸ در تهران زاده شد و بیش از سی‌وهفت سال بر ایران فرمان راند.</span>
+            <span data-i18n="p15Name">زادروز شاهزاده رضا پهلوی · نهم آبان</span>
+            <span data-i18n="p15Text">شاهزاده رضا پهلوی، ولیعهد ایران و فرزند محمدرضا شاه و شهبانو فرح، در نهم آبان ۱۳۳۹ در تهران زاده شد.</span>
+            <span data-i18n="p16Name">زادروز رضا شاه کبیر · بیست‌وچهارم اسفند</span>
+            <span data-i18n="p16Text">رضا شاه کبیر، بنیان‌گذار دودمان پهلوی و پدر ایران نوین، در بیست‌وچهارم اسفند ۱۲۵۶ در آلاشتِ مازندران زاده شد؛ سازنده‌ی راه‌آهن سراسری، دانشگاه تهران و ارتش نوین ایران.</span>
           </div>
           <div class="cal-months">
             <button type="button" class="cal-month" data-cal-month="1" aria-expanded="false" aria-controls="calDaysPanel" data-i18n="calM1">فروردین<small>۳۱ روز</small></button>
@@ -2353,6 +2418,119 @@
         <p class="heritage-note" data-i18n="festNote">بیشتر این جشن‌ها «روز و ماه هم‌نام» هستند؛ یعنی روزی از ماه که نامش با نام همان ماه یکی می‌شود، مانند روز امرداد از ماه امرداد.</p>
         <p class="heritage-note" data-i18n="festNote2">در گاهشمار شاهنشاهی همین سایت، همه‌ی این روزها — جشن‌های ماهانه، شش گاهنبار، روزهای نبر و مناسبت‌های ویژه — روی روزهای هر ماه نشسته‌اند؛ روی نام هر ماه بزن تا روزهایش را با توضیح کوتاهشان ببینی.</p>
         <p class="heritage-note" data-i18n="remNote">با زدن دکمه‌ی «یادآوری»، یک پرونده‌ی کوچکِ تقویم بارگیری می‌شود؛ آن را روی گوشی‌ات باز کن و «افزودن به تقویم» را بزن تا آن روز در تقویم گوشی‌ات بنشیند و یک روز پیش از آن به تو یادآوری شود. این یادآوری از سوی تقویم گوشی خودت می‌آید؛ برای آگاه شدن از بخش‌های تازه‌ی خود سایت هم زنگ آگاه‌سازی را در صفحه‌ی خانه یا بخش اپلیکیشن فعال کن.</p>
+      </section>
+
+      <section class="heritage" id="festivals-guide" data-view="festivals-guide" aria-label="Ancient Iranian festivals">
+        <div class="heritage-head">
+          <span class="kicker" data-i18n="fgKicker">جشن‌های سال در ایران کهن</span>
+          <h2 data-i18n="fgTitle">جشن‌های کهن ایرانی — <em>از نوروز تا گاهنبارها</em></h2>
+          <p data-i18n="fgIntro">در این بخش با جشن‌های کهن ایرانی آشنا می‌شوی؛ جشن‌هایی که با فصل‌ها، کشت‌وکار و ستارگان پیوند داشتند و هر کدام داستان و آیینی ویژه‌ی خود دارند؛ از نوروز و سده تا مهرگان و یلدا و شش گاهنبار سال. بیشتر جشن‌های ماهانه روزی برگزار می‌شوند که نام روز و نام ماه یکی می‌شود. همه‌ی این بازگوها با زبان ساده و به سخن خودمان نوشته شده‌اند.</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-nowruz.webp" data-i18n-alt="fg1Alt" alt="نگاره‌ی مینیاتوری سفره‌ی هفت‌سین نوروز با سبزه و آینه و شمع و ماهی سرخ، و خانواده‌ای ایرانی گرد سفره" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg1Tag">یکم فروردین</span>
+            <h3 data-i18n="fg1Name">نوروز</h3>
+            <p data-i18n="fg1Text">نوروز بزرگ‌ترین و کهن‌ترین جشن ایرانیان و آغاز سال نوست؛ روزی که بهار از راه می‌رسد و زمین از خواب زمستان بیدار می‌شود. «نوروز» یعنی روز نو؛ روزی که در باور کهن، جهان و آدمی نیز با طبیعت از نو آغاز می‌شود. هفته‌ها پیش از نوروز، خانه‌تکانی آغاز می‌شود تا خانه و دل از کهنگی پاک شود. بر سفره‌ی هفت‌سین، هفت چیز که نامشان با «سین» آغاز می‌شود می‌نشینند؛ سبزه، سمنو، سنجد، سیر، سیب، سماق و سرکه، و در کنارشان آینه، شمع، ماهی، تخم‌مرغ رنگی و کتابی ارجمند. هنگام گردش سال، خانواده گرد سفره جمع می‌شوند و سال نو را با آرزوی تندرستی و شادی آغاز می‌کنند. سیزده روز نخست سال به دید و بازدید و شادی می‌گذرد و در سیزده‌بدر، مردم به دل طبیعت می‌روند و سبزه‌ی سفره را به آب می‌سپارند. در شاهنامه، بنیان نوروز را به جمشید، شاه اسطوره‌ای ایران، نسبت می‌دهند؛ روزی که بر تخت نشست و آن روز را «روز نو» نامید.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-rapithwin.webp" data-i18n-alt="fg2Alt" alt="نگاره‌ی مینیاتوری خورشید نیمروز بر فراز آتشکده و بازگشت رپیثون، با جوانه‌های تازه بر زمین" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg2Tag">سوم فروردین</span>
+            <h3 data-i18n="fg2Name">جشن رپیثون</h3>
+            <p data-i18n="fg2Text">رپیثون ایزد نیمروز و گرمای تابستان است؛ نگهبان هنگامی از روز که خورشید به بلندترین جای آسمان می‌رسد. در باور زرتشتی، رپیثون در آغاز زمستان بزرگ به زیر زمین می‌رود تا در سرمای زمستان، ریشه‌ی درختان و آب‌های زیرزمینی را گرم نگه دارد و نگذارد زندگی خاموش شود؛ و در نیمروز نوروز، با بازگشت بهار، دوباره به روی زمین بازمی‌گردد. از همین رو، بازگشت رپیثون نشانه‌ی پیروزی گرما و نور بر سرما و تاریکی است. آیین آفرینگان رپیثون را به یمن این بازگشت، در روز سوم فروردین (روز اردیبهشت از ماه فروردین) در نیمروز برگزار می‌کنند؛ زیرا اردیبهشت امشاسپند، نگهبان آتش، نزدیک‌ترین همکار رپیثون است. در این آیین، موبدان و مردم در آتشکده گرد هم می‌آیند و با خواندن اوستا و آفرینگان، بازگشت گرما و زندگی را به زمین خوشامد می‌گویند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-farvardegan.webp" data-i18n-alt="fg3Alt" alt="نگاره‌ی مینیاتوری آرامگاهی کهن در سپیده‌دم بهار و مردمی با گل و شمع بر سر خاک نیاکان" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg3Tag">نوزدهم فروردین</span>
+            <h3 data-i18n="fg3Name">فروردینگان</h3>
+            <p data-i18n="fg3Text">فروردینگان جشن فروهرهاست؛ روز یاد کردن از روان نیاکان و درگذشتگان. «فروهر» در باور ایران کهن، نیروی مینوی و نگهبان هر انسان است که پیش از زاده‌شدن او هست و پس از مرگش نیز به جهان مینوی بازمی‌گردد. در این روز که روز فروردین از ماه فروردین است و نام روز و ماه یکی می‌شود، مردم به آرامگاه‌ها و دخمه‌ها می‌روند، بر سر خاک رفتگانشان گل و سبزه می‌نشانند، شمع و عود روشن می‌کنند و برای شادی روانشان نیایش می‌خوانند. باور بر این است که فروهرهای درگذشتگان در روزهای آغاز سال به خانه و کاشانه‌ی بازماندگان سر می‌زنند و از شادی و آبادانی خانه خشنود می‌شوند. فروردینگان یادآور این پیوند ناگسستنی میان زندگان و رفتگان است؛ اینکه هیچ‌کس با مرگ از یاد خانواده‌اش نمی‌رود.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-ordibeheshtgan.webp" data-i18n-alt="fg4Alt" alt="نگاره‌ی مینیاتوری مردمانی سپیدپوش گرد آتش مقدس در آتشکده، با باغ پرشکوفه‌ی بهاری" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg4Tag">سوم اردیبهشت</span>
+            <h3 data-i18n="fg4Name">اردیبهشتگان</h3>
+            <p data-i18n="fg4Text">اردیبهشتگان جشن اردیبهشت امشاسپند است؛ نگهبان راستی و درستی و آتش. اردیبهشت در زبان اوستایی «اشه وهیشته» خوانده می‌شود؛ یعنی بهترین راستی و نظم جهان. روزی که این جشن برگزار می‌شود، روز اردیبهشت از ماه اردیبهشت است؛ سومین روز سال و سوم اردیبهشت. در این روز، مردم جامه‌ی سپید می‌پوشند — نشانه‌ی پاکی و راستی — و به آتشکده‌ها می‌روند و در کنار آتش، راستی و پاکی را گرامی می‌دارند. اردیبهشتگان در دل بهار برگزار می‌شود؛ هنگامی که باغ‌ها پر از گل و شکوفه‌اند و زمین در زیباترین چهره‌ی خود است. از این رو این جشن را جشن گل و راستی هم دانسته‌اند و روز پاسداشت آتش و پرهیز از دروغ و آلودگی است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-khordadgan.webp" data-i18n-alt="fg5Alt" alt="نگاره‌ی مینیاتوری چشمه و رودی روان در باغی سرسبز و مردمی که کنار آب نیایش می‌کنند" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg5Tag">ششم خرداد</span>
+            <h3 data-i18n="fg5Name">خردادگان</h3>
+            <p data-i18n="fg5Text">خردادگان جشن خرداد امشاسپند است؛ نگهبان آب‌ها و نماد رسایی، کمال و تندرستی. «خرداد» در اوستایی «هئوروتات» است؛ یعنی رسایی و بی‌کاستی. این جشن در روز خرداد از ماه خرداد، یعنی ششم خرداد، برگزار می‌شود؛ زمانی که آب‌ها پرآب‌اند و کشتزارها و باغ‌ها سرسبز. در این روز، مردم به کنار چشمه‌ها، رودها و قنات‌ها می‌رفتند، آب را گرامی می‌داشتند و برای فراوانی و تندرستی نیایش می‌کردند. پاسداشت آب در سرزمین کم‌آب ایران همیشه کاری سپند و واجب بوده است؛ و خردادگان یادآور همین سپاس از آب و زندگی است. این جشن همچنین روز آرزوی رسیدن به رسایی و سالی پر از تندرستی و فراوانی برای همه است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-tirgan.webp" data-i18n-alt="fg6Alt" alt="نگاره‌ی مینیاتوری تیشتر درخشان در ابرها و آرش کمانگیر بر قله‌ی البرز، با مردمی که بر هم آب می‌پاشند" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg6Tag">سیزدهم تیر</span>
+            <h3 data-i18n="fg6Name">تیرگان</h3>
+            <p data-i18n="fg6Text">تیرگان جشن تیشتر، ایزد باران، است؛ ستاره‌ای درخشان که در اوستا سرور ستارگان خوانده شده است. در روایت‌های کهن، تیشتر با دیو خشکسالی، اپوش، می‌جنگد و سرانجام بر او پیروز می‌شود؛ آنگاه بند آب‌ها گشوده می‌شود و باران بر زمین خشک فرو می‌بارد. تیرگان در روز تیر از ماه تیر، سیزدهم تیر، در آغاز تابستان برگزار می‌شود. این جشن را با یاد آرش کمانگیر هم پیوند می‌دهند؛ پهلوانی که در همین روزگار، جانش را در تیری گذاشت و از فراز البرز افکند تا مرز ایران و توران نشانه شود و سرزمین ایران گشاده بماند. شادترین آیین تیرگان، آب پاشیدن بر یکدیگر است؛ مردم به کنار رودها و چشمه‌ها می‌روند، بر هم آب می‌پاشند و برای سالی پرباران و پربرکت آرزو می‌کنند. بند رنگینی هم به نام «تیر و باد» به مچ می‌بندند که پس از چند روز، از بلندی به باد می‌سپارند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-amordadgan.webp" data-i18n-alt="fg7Alt" alt="نگاره‌ی مینیاتوری باغی پر از درختان پربار در تابستان و ایزدبانوی گیاهان میان درختان" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg7Tag">هفتم امرداد</span>
+            <h3 data-i18n="fg7Name">امردادگان</h3>
+            <p data-i18n="fg7Text">امردادگان جشن امرداد امشاسپند است؛ نگهبان گیاهان و رستنی‌ها و نماد جاودانگی و بی‌مرگی. نام این ماه را باید «امرداد» خواند، نه «مرداد»؛ زیرا «امرداد» یعنی بی‌مرگی و جاودانگی، و «مرداد» وارونه‌ی آن معنی می‌دهد. این جشن در روز امرداد از ماه امرداد، هفتم امرداد، در دل تابستان برگزار می‌شود؛ هنگامی که باغ‌ها و کشتزارها به بار نشسته‌اند و سبزی و میوه فراوان است. در این روز، مردم به باغ‌ها و سبزه‌زارها می‌رفتند و پاسداشت گیاهان و درختان را به جا می‌آوردند؛ زیرا در باور کهن، رستنی‌ها یکی از آفرینش‌های سپند اورمزدند و نگهبانی از آن‌ها کاری نیک است. امردادگان جشن زندگی و سرسبزی و ماندگاری است؛ یادآور اینکه آدمی با پاسداشت طبیعت، سهمی از جاودانگی می‌برد.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-shahrivargan.webp" data-i18n-alt="fg8Alt" alt="نگاره‌ی مینیاتوری آهنگری کهن با کوره‌ی افروخته و شهری آباد در پس‌زمینه" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg8Tag">چهارم شهریور</span>
+            <h3 data-i18n="fg8Name">شهریورگان</h3>
+            <p data-i18n="fg8Text">شهریورگان جشن شهریور امشاسپند است؛ نگهبان فلزها و نماد شهریاری آسمانی و دادگر. «شهریور» در اوستایی «خشتَره وَیریه» است؛ یعنی شهریاری آرمانی و برگزیده؛ پادشاهی‌ای که بر پایه‌ی داد و درستی باشد. این جشن در روز شهریور از ماه شهریور، چهارم شهریور، برگزار می‌شود. شهریورگان را جشن داد و دادگری و پاسداشت کوشش و کار دانسته‌اند؛ روزی برای گرامی‌داشتن کسانی که با کار و رنج، زندگی را آباد می‌کنند؛ از آهنگر و فلزکار تا کشاورز و پیشه‌ور. در برخی روایت‌های مردمی، شهریورگان را زادروز کوروش بزرگ هم خوانده‌اند و از این رو این جشن در سال‌های گذشته در میان دوستداران ایران کهن رونقی تازه یافته است. این روز همچنین یادآور آن است که شهریاری راستین، جز با دادگری و مهر به مردم، پایدار نمی‌ماند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-mehregan.webp" data-i18n-alt="fg9Alt" alt="نگاره‌ی مینیاتوری سفره‌ی مهرگان با انار و آینه و مردمی که به یکدیگر هدیه می‌دهند" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg9Tag">شانزدهم مهر</span>
+            <h3 data-i18n="fg9Name">مهرگان</h3>
+            <p data-i18n="fg9Text">مهرگان، پس از نوروز، بزرگ‌ترین جشن ایران کهن است؛ جشن مهر، ایزد پیمان و نور و دوستی. این جشن در روز مهر از ماه مهر، شانزدهم مهر، هنگام برداشت فرآورده‌های کشتزار و آغاز پاییز برگزار می‌شود. مهر در باور ایرانیان نگهبان پیمان‌هاست؛ هر پیمانی که بسته می‌شود، مهر ناظر آن است و پیمان‌شکنی گناهی بزرگ شمرده می‌شد. در مهرگان، مردم جامه‌ی نو می‌پوشیدند، به دیدار یکدیگر می‌رفتند، هدیه می‌دادند و پیمان‌هایشان را تازه می‌کردند. بر سفره‌ی مهرگان، آینه و گل و میوه‌های پاییزی مانند انار و به می‌نشست و عطر گل همیشه‌بهار و اسفند در هوا می‌پیچید. در شاهنامه، مهرگان را روز بر تخت نشستن فریدون و پیروزی او بر ضحاک می‌دانند؛ روزی که داد بر بیداد پیروز شد. مهرگان جشن سپاس برای برداشت و جشن مهرورزی و پیمان‌داری است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-abangan.webp" data-i18n-alt="fg10Alt" alt="نگاره‌ی مینیاتوری ایزدبانو آناهیتا با کوزه‌ی زرین بر کنار رود و چشمه‌ای زلال" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg10Tag">دهم آبان</span>
+            <h3 data-i18n="fg10Name">آبانگان</h3>
+            <p data-i18n="fg10Text">آبانگان جشن آب‌ها و ایزدبانو آناهیتاست؛ ایزدبانوی آب‌های روان، پاکی و باروری. «آبان» نام ماه و روز آب است و این جشن در روز آبان از ماه آبان، دهم آبان، برگزار می‌شود. در ایران کم‌آب، آب همیشه گران‌بهاترین گنجینه بوده و آناهیتا نگهبان چشمه‌ها، رودها، جوی‌ها و قنات‌هاست. در آبانگان، مردم به کنار آب‌ها می‌رفتند؛ چشمه و رود و کاریز را پاکیزه و گرامی می‌داشتند و برای فراوانی آب و باروری زمین نیایش می‌کردند. در روایت‌های شاهنامه هم آمده است که زو، پسر تهماسپ، در خشکسالی بزرگ به کنار آب نیایش کرد و باران و فراوانی بازگشت. آبانگان یادآور این درس کهن است که آب را باید پاک نگه داشت و هدر نداد؛ پاسداشت آب، پاسداشت زندگی است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-azargan.webp" data-i18n-alt="fg11Alt" alt="نگاره‌ی مینیاتوری آتش مقدس در آتشدان زرین در آتشکده و برف در بیرون" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg11Tag">نهم آذر</span>
+            <h3 data-i18n="fg11Name">آذرگان</h3>
+            <p data-i18n="fg11Text">آذرگان جشن آتش است؛ جشن آذر، ایزد نگهبان آتش و فرزند اورمزد. این جشن در روز آذر از ماه آذر، نهم آذر، در آستانه‌ی زمستان برگزار می‌شود؛ هنگامی که سرما از راه می‌رسد و آتش، گرما و روشنایی خانه‌ها می‌شود. آتش در باور ایرانیان کهن، سپند و پاک و نشانه‌ی راستی و روشنایی است؛ نه خودِ پرستش، که نماد و نشانه‌ای از نور و حقیقت. در آذرگان، مردم به آتشکده‌ها می‌رفتند، آتش را با چوب‌های خوش‌بو می‌افروختند و نگهبانی از آتش خانه را تازه می‌کردند. در این روز همچنین آتشکده‌ها و آتش‌های سپند را غبارروبی و پاکیزه می‌کردند. آذرگان یادآور پیوند دیرینه‌ی ایرانیان با آتش است؛ از آتش افسانه‌ای هوشنگ تا آتشکده‌هایی که سده‌ها روشن مانده‌اند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-yalda.webp" data-i18n-alt="fg12Alt" alt="نگاره‌ی مینیاتوری خانواده‌ای گرد کرسی در شب یلدا با انار و هندوانه و شمع" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg12Tag">شب سی‌ام آذر</span>
+            <h3 data-i18n="fg12Name">یلدا (شب چله)</h3>
+            <p data-i18n="fg12Text">یلدا یا شب چله، بلندترین شب سال است؛ شب سی‌ام آذر، در آستانه‌ی زمستان. از این شب به بعد، روزها کم‌کم بلندتر می‌شوند و روشنایی بر تاریکی پیشی می‌گیرد؛ از همین رو یلدا را شب زاده‌شدن دوباره‌ی خورشید و مهر دانسته‌اند. در این شب، خانواده‌ها در خانه‌ی بزرگ‌ترها گرد هم می‌آیند و شب را با گرمای دورهمی کوتاه می‌کنند؛ بر کرسی و گرد سفره‌ای با انار سرخ، هندوانه، آجیل و شیرینی. بزرگ‌ترها قصه می‌گویند، از شاهنامه می‌خوانند و از دیوان حافظ فال می‌گیرند. سرخی انار و هندوانه، یادآور سرخی سپیده‌دم و گرمای خورشید است که پس از بلندترین شب بازمی‌گردد. یلدا جشن پیروزی امید بر تاریکی است؛ اینکه هیچ شبی، هرقدر هم بلند، بی‌سحر نمی‌ماند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-deygan.webp" data-i18n-alt="fg13Alt" alt="نگاره‌ی مینیاتوری جشن زمستانی دیگان و مردمی شاد گرد آتش در شهری برفی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg13Tag">یکم، هشتم، پانزدهم و بیست‌وسوم دی</span>
+            <h3 data-i18n="fg13Name">دیگان</h3>
+            <p data-i18n="fg13Text">ماه دی ماهی یگانه است؛ زیرا در این ماه، چهار روز نامشان با نام ماه یکی می‌شود و دی چهار جشن دارد. روز یکم دی «خرم‌روز» است؛ روزی فرخنده که آن را روز برابری شاه و مردم هم خوانده‌اند؛ می‌گویند در این روز شاه از تخت فرود می‌آمد و با کشاورزان بر یک سفره می‌نشست. روزهای هشتم، پانزدهم و بیست‌وسوم دی نیز به ترتیب دی‌به‌آذر، دی‌به‌مهر و دی‌به‌دین نام دارند و هر چهار روز را «دیگان» می‌خوانند. «دی» یعنی آفریدگار و این ماه و روزهایش ویژه‌ی اورمزد و آفرینش است. جشن‌های دیگان در دل زمستان برگزار می‌شوند؛ با نیایش و شادی و دورهمی، تا سرمای زمستان با گرمای مهر و جشن سبک‌تر شود. دیگان یادآور آن است که حتا در سردترین ماه سال، چهار بار بهانه‌ای برای جشن و با هم بودن هست.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-bahmangan.webp" data-i18n-alt="fg14Alt" alt="نگاره‌ی مینیاتوری گل بهمن در برف و مردمی سپیدپوش که به جانوران خوراک می‌دهند" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg14Tag">دوم بهمن</span>
+            <h3 data-i18n="fg14Name">بهمنگان</h3>
+            <p data-i18n="fg14Text">بهمنگان جشن بهمن، یا وهومن، است؛ امشاسپند اندیشه‌ی نیک و نگهبان جانوران سودمند. «وهومن» یعنی اندیشه و منش نیک؛ نخستین و بزرگ‌ترین آفریده‌ی اورمزد در جهان مینوی. این جشن در روز بهمن از ماه بهمن، دوم بهمن، در دل زمستان برگزار می‌شود. بهمنگان روز پاسداشت جانوران سودمند است؛ در این روز از کشتن جانوران و خوردن گوشت پرهیز می‌کردند و به جانوران خوراک می‌دادند و از آن‌ها نگهبانی می‌کردند. در این جشن، گل بهمن — گلی سپید و خوش‌بو که در زمستان می‌روید — را به یکدیگر هدیه می‌دادند و جامه‌ی سپید می‌پوشیدند. بهمنگان را می‌توان کهن‌ترین جشن پاسداشت جانوران و اندیشه‌ی نیک دانست؛ روزی که آدمی به یاد می‌آورد اندیشه‌ی نیک، سرآغاز گفتار و کردار نیک است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-sadeh.webp" data-i18n-alt="fg15Alt" alt="نگاره‌ی مینیاتوری آتش بزرگ سده بر فراز تپه در غروب زمستان و مردم گرد آتش" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg15Tag">دهم بهمن</span>
+            <h3 data-i18n="fg15Name">جشن سده</h3>
+            <p data-i18n="fg15Text">سده جشن بزرگ آتش و یکی از باشکوه‌ترین جشن‌های ایران کهن است؛ جشن پیدایش آتش. در سرگذشت‌های شاهنامه آمده است که هوشنگ، شاه پیشدادی، روزی در کوه به ماری بزرگ برخورد؛ سنگی به سویش افکند، سنگ به سنگی دیگر خورد و جرقه‌ای پدید آمد و آتش از دل سنگ زاده شد. هوشنگ آن شب جشنی بزرگ برپا کرد و آن را «سده» نامید. سده در دهم بهمن برگزار می‌شود؛ در باور کهن، صد روز و شب از آغاز زمستان گذشته و پنجاه روز و شب به نوروز مانده است. هنگام غروب، بر فراز بلندی‌ها و بام‌ها آتشی بزرگ می‌افروزند؛ مردم گرد آتش جمع می‌شوند، از شاهنامه می‌خوانند، نیایش می‌کنند و شادی می‌کنند تا سرمای زمستان را پس برانند و به پیشواز بازگشت گرما و رپیثون بروند. آتش سده را معمولاً در غروب روز نهم بهمن می‌افروزند و جشن در روز دهم بهمن است. سده جشن پیروزی روشنایی و گرمای زندگی بر سرمای تاریک زمستان است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-esfandegan.webp" data-i18n-alt="fg16Alt" alt="نگاره‌ی مینیاتوری ایزدبانو سپندارمذ بر زمین سرسبز و زنانی که گل و هدیه می‌گیرند" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg16Tag">پنجم اسفند</span>
+            <h3 data-i18n="fg16Name">اسفندگان (سپندارمذگان)</h3>
+            <p data-i18n="fg16Text">اسفندگان یا سپندارمذگان جشن سپندارمذ است؛ امشاسپند نگهبان زمین و نماد فروتنی، مهر و بردباری. «سپندارمذ» یعنی فروتنی و مهر مقدس؛ ایزدبانویی که زمین را نگه می‌دارد و چون زمین، همه را با بردباری بر خود می‌پذیرد. این جشن در روز سپندارمذ از ماه اسفند، پنجم اسفند، برگزار می‌شود. در ایران کهن، این روز روز گرامیداشت زمین و زنان بود؛ روز مهر و مهربانی. مردان به زنان و مادران هدیه می‌دادند و از آنان سپاسگزاری می‌کردند و در این روز زنان را ارج می‌نهادند. همزمان، کشاورزان زمین را برای کشت بهاری آماده می‌کردند و جشن، با نزدیک‌شدن بهار، رنگ و بوی نوزایی داشت. سپندارمذگان یادآور دو پاسداشت بزرگ است؛ پاسداشت زمین که مادر همه‌ی ماست، و پاسداشت مهر و زنانی که زندگی را می‌پرورند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/festival-gahanbar.webp" data-i18n-alt="fg17Alt" alt="نگاره‌ی مینیاتوری سفره‌ی همگانی گاهنبار در آتشکده و مردمی که خوراک را با هم بخش می‌کنند" loading="lazy" /></figure>
+            <span class="tag" data-i18n="fg17Tag">شش جشن فصلی سال</span>
+            <h3 data-i18n="fg17Name">گاهنبارها</h3>
+            <p data-i18n="fg17Text">گاهنبارها شش جشن فصلی بزرگ سال‌اند؛ کهن‌ترین جشن‌های آیینی ایران که هر کدام پنج روز به درازا می‌کشند. هر گاهنبار، جشن سپاس برای یکی از آفرینش‌های اورمزد است و در هنگام خود از سال برگزار می‌شود: میدیوزرم‌گاه در میانه‌ی بهار (یازدهم تا پانزدهم اردیبهشت) برای آفرینش آسمان؛ میدیوشهم‌گاه در میانه‌ی تابستان (یازدهم تا پانزدهم تیر) برای آفرینش آب؛ پیتی‌شهم‌گاه در پایان تابستان (بیست‌وششم تا سی‌ام شهریور) برای آفرینش زمین و هنگام برداشت؛ ایاثرم‌گاه در میانه‌ی پاییز (بیست‌وششم تا سی‌ام مهر) برای آفرینش گیاهان و هنگام بازگشت گله‌ها؛ میدیارم‌گاه در میانه‌ی زمستان (دهم تا چهاردهم دی) برای آفرینش جانوران سودمند؛ و همسپثمیدیم‌گاه در پنج روز پایانی سال برای آفرینش انسان و هنگام یاد فروهرهای درگذشتگان، در آستانه‌ی نوروز. در گاهنبارها، مردم در آتشکده گرد هم می‌آیند، اوستا می‌خوانند و سفره‌ی گاهنباری می‌گسترانند؛ خوراک این سفره میان همه — دارا و ندار — یکسان پخش می‌شود. گاهنبار جشن سپاس و بخشش و با هم بودن است؛ راهی برای اینکه آدمی سالی شش بار گرد هم آید، سپاس بگوید و سهم خود از فراوانی جهان را با دیگران بخش کند.</p>
+          </article>
+        </div>
+        <p class="heritage-note" data-i18n="fgCredits">نگاره‌های این بخش، نقاشی‌های مینیاتوری به سبک نگارگری ایرانی‌اند که برای همین سایت ساخته شده‌اند.</p>
       </section>
 
       <section class="heritage" id="monuments" data-view="monuments" aria-label="Ancient monuments of Iran">
@@ -5590,6 +5768,7 @@
           nNote: "Tales One to Three and Six to Ten are published; the next tale: The Three Apples.",
           navCalendar: "Imperial Calendar",
           navFestivals: "Ancient Festivals",
+          navFestivalsGuide: "Ancient Iranian Festivals",
           navMonuments: "Ancient Monuments",
           navPeoples: "Peoples of Iran",
           navInventions: "Inventions of Ancient Iran",
@@ -5695,12 +5874,122 @@
           nb14Text: "Gosht day, the 14th of every month, is a Nabor day. This day belongs to the soul of the animals (Geush Urvan), and on it no meat is eaten and no animal is killed.",
           nb21Name: "Nabor Day (Ram Day) · the 21st of every month",
           nb21Text: "Ram day, the 21st of every month, is a Nabor day. Ram is the deity of peace and joy, and this day too is honored by refraining from meat and from killing animals.",
+          h1Name: "National Persian Gulf Day · 10 Ordibehesht",
+          h1Text: "The anniversary of the expulsion of the Portuguese from the Strait of Hormuz and the return of Iranian rule over the Persian Gulf in 1622, under Imam Quli Khan in the Safavid era — a day for honoring the ever-Persian name of this sea.",
+          h2Name: "Cyrus the Great Day · 7 Aban",
+          h2Text: "The anniversary of Cyrus the Great's peaceful entry into Babylon in 539 BCE, recorded in the Nabonidus Chronicle — the day his edict of freedom and equality, set down in the Cyrus Cylinder, is honored.",
+          p1Name: "Saadi Day · 1 Ordibehesht",
+          p1Text: "Saadi of Shiraz, author of the Bustan and the Gulistan and a teacher of eloquence and humanity; 1 Ordibehesht is his commemoration day in Iran's calendar.",
+          p2Name: "Ferdowsi Day · 25 Ordibehesht",
+          p2Text: "Ferdowsi, poet of the Shahnameh and guardian of the Persian language; this day is also marked as Persian Language Day.",
+          p3Name: "Khayyam Day · 28 Ordibehesht",
+          p3Text: "Omar Khayyam, mathematician, astronomer and poet of the Rubaiyat — and maker of the Jalali calendar, the most accurate calendar in the world.",
+          p4Name: "Avicenna Day and Physicians' Day · 1 Shahrivar",
+          p4Text: "Avicenna (Ibn Sina), Iran's famed physician and philosopher and author of The Canon of Medicine; 1 Shahrivar is Physicians' Day in his honor.",
+          p5Name: "Razi Day and Pharmacists' Day · 5 Shahrivar",
+          p5Text: "Muhammad ibn Zakariya Razi, the great Iranian physician and chemist who identified alcohol; 5 Shahrivar is Pharmacists' Day in his honor.",
+          p6Name: "Biruni Day · 13 Shahrivar",
+          p6Text: "Abu Rayhan Biruni, Iran's polymath — the astronomer and historian who measured the Earth's size with astonishing precision.",
+          p7Name: "Rumi Day · 8 Mehr",
+          p7Text: "Jalal al-Din Muhammad Balkhi, known as Rumi (Molavi), poet of the Masnavi and the Divan of Shams — among the most widely read poets in the world today.",
+          p8Name: "Sohrab Sepehri's Birthday · 15 Mehr",
+          p8Text: "Sohrab Sepehri, contemporary poet and painter, was born on 15 Mehr 1307 (1928) in Kashan — author of 'The Sound of Water's Footsteps' and the Hasht Ketab (Eight Books) collection.",
+          p9Name: "Hafez Day · 20 Mehr",
+          p9Text: "Khwaja Shams al-Din Muhammad Hafez of Shiraz, the 'Tongue of the Unseen'; centuries on, his Divan still has a place in every Iranian home.",
+          p10Name: "Nima Yushij's Birthday · 21 Aban",
+          p10Text: "Nima Yushij, the father of modern Persian poetry, was born on 21 Aban 1276 (1897) in Yush and forever changed the course of Persian verse.",
+          p11Name: "Nasir al-Din Tusi Day and Engineers' Day · 5 Esfand",
+          p11Text: "Nasir al-Din Tusi, the great scholar and astronomer who built the Maragheh Observatory; 5 Esfand is Engineers' Day in his honor.",
+          p12Name: "Parvin Etesami's Birthday · 25 Esfand",
+          p12Text: "Parvin Etesami, Iran's most celebrated woman poet, was born on 25 Esfand 1285 (1907) in Tabriz; her Divan is rich in debate poems and moral counsel.",
+          p13Name: "Shahbanu Farah Pahlavi's Birthday · 22 Mehr",
+          p13Text: "Shahbanu Farah Pahlavi (Farah Diba), Empress of Iran, was born on 22 Mehr 1317 (1938) in Tehran — a patron of Iranian art and culture who founded the Shiraz Arts Festival and Iran's modern museums.",
+          p14Name: "Mohammad Reza Shah Pahlavi's Birthday · 4 Aban",
+          p14Text: "Mohammad Reza Shah Pahlavi, the last Shah of Iran of the Pahlavi dynasty, was born on 4 Aban 1298 (1919) in Tehran and reigned over Iran for more than thirty-seven years.",
+          p15Name: "Crown Prince Reza Pahlavi's Birthday · 9 Aban",
+          p15Text: "Prince Reza Pahlavi, Crown Prince of Iran and son of Mohammad Reza Shah and Shahbanu Farah, was born on 9 Aban 1339 (1960) in Tehran.",
+          p16Name: "Reza Shah the Great's Birthday · 24 Esfand",
+          p16Text: "Reza Shah the Great, founder of the Pahlavi dynasty and father of modern Iran, was born on 24 Esfand 1256 (1878) in Alasht, Mazandaran — builder of the Trans-Iranian Railway, the University of Tehran and Iran's modern army.",
           festNote2: "In this site's Imperial Calendar, all of these days — the monthly festivals, the six Gahambars, the Nabor days, and the special observances — sit on the days of each month; tap a month's name to see its days with a short note on each.",
+          fgKicker: "The festive year of ancient Iran",
+          fgTitle: "Ancient Iranian Festivals — <em>from Nowruz to the Gahanbars</em>",
+          fgIntro: "In this section you will meet the ancient festivals of Iran — celebrations tied to the seasons, to farming and to the stars, each with its own story and rite; from Nowruz and Sadeh to Mehregan, Yalda and the six Gahanbars of the year. Most of the monthly festivals fall on the day whose name matches the name of the month. All of these retellings are written in plain language and in our own words.",
+          fgCredits: "The illustrations in this section are miniature paintings in the Iranian negargari style, made for this site.",
+          fg1Tag: "1 Farvardin",
+          fg1Name: "Nowruz",
+          fg1Alt: "Miniature painting of a Nowruz Haft-Sin table with sprouts, a mirror, candles and a goldfish, and an Iranian family gathered around it",
+          fg1Text: "Nowruz is the greatest and oldest festival of the Iranians and the beginning of the New Year; the day when spring arrives and the earth wakes from its winter sleep. 'Nowruz' means 'new day' — a day on which, in ancient belief, the world and humankind begin anew together with nature. Weeks before, the spring cleaning begins, so that house and heart are cleansed of oldness. On the Haft-Sin cloth sit seven things whose names begin with 'sin' — sabzeh (sprouts), samanu, senjed, garlic, apple, sumac and vinegar — and beside them a mirror, candles, a goldfish, painted eggs and a cherished book. At the moment the year turns, the family gathers around the cloth and begins the new year wishing for health and joy. The first thirteen days pass in visits and celebration, and on Sizdah-bedar people go out into nature and entrust the sprouts to running water. In the Shahnameh, the founding of Nowruz is ascribed to Jamshid, the mythical king of Iran, who mounted the throne on that day and named it the 'New Day'.",
+          fg2Tag: "3 Farvardin",
+          fg2Name: "Rapithwin Festival",
+          fg2Alt: "Miniature painting of the noonday sun above a fire temple and the return of Rapithwin, with fresh shoots on the earth",
+          fg2Text: "Rapithwin is the yazata of noon and of summer's heat, guardian of the hour when the sun reaches its highest point in the sky. In Zoroastrian belief, at the start of the great winter Rapithwin goes beneath the earth to keep the roots of trees and the underground waters warm through the cold, so that life does not go out; and at noon on Nowruz, with the return of spring, he comes back above the earth. His return is thus a sign of the victory of warmth and light over cold and darkness. The Afrinagan of Rapithwin is celebrated for this return at noon on the third day of Farvardin (Ordibehesht day of Farvardin month), because Ordibehesht Amshaspand, guardian of fire, is Rapithwin's closest helper. In this rite, priests and people gather in the fire temple and, reciting the Avesta and the Afrinagan, welcome the return of warmth and life to the earth.",
+          fg3Tag: "19 Farvardin",
+          fg3Name: "Farvardegan",
+          fg3Alt: "Miniature painting of an ancient cemetery at spring dawn, with people holding flowers and candles at their ancestors' graves",
+          fg3Text: "Farvardegan is the festival of the fravashis — the day of remembering the souls of ancestors and the departed. In ancient Iranian belief, the fravashi is the spiritual, guardian essence of every human being, which exists before one's birth and returns to the spiritual world after death. On this day — Farvardin day of Farvardin month, the 19th of Farvardin, when the names of day and month coincide — people go to cemeteries and burial places, place flowers and greenery on the graves of their loved ones, light candles and incense, and pray for the joy of their souls. It is believed that in the first days of the year the fravashis of the departed visit the homes of their survivors and are gladdened by the joy and prosperity of the house. Farvardegan recalls this unbroken bond between the living and the gone: that no one is forgotten by their family after death.",
+          fg4Tag: "3 Ordibehesht",
+          fg4Name: "Ordibeheshtgan",
+          fg4Alt: "Miniature painting of people in white garments around a sacred fire in a fire temple, with a blossoming spring garden",
+          fg4Text: "Ordibeheshtgan is the festival of Ordibehesht Amshaspand, guardian of truth, righteousness and fire. In Avestan, Ordibehesht is 'Asha Vahishta' — the best truth and order of the world. The festival is held on Ordibehesht day of Ordibehesht month, the 3rd of Ordibehesht. On this day people wear white garments — the sign of purity and truth — and go to the fire temples to honor truth and purity beside the fire. Ordibeheshtgan falls in the heart of spring, when gardens are full of blossoms and the earth is at its most beautiful; hence it is also called the festival of flowers and truth, a day for guarding fire and shunning falsehood and pollution.",
+          fg5Tag: "6 Khordad",
+          fg5Name: "Khordadgan",
+          fg5Alt: "Miniature painting of a spring and a flowing river in a green garden, with people praying beside the water",
+          fg5Text: "Khordadgan is the festival of Khordad Amshaspand, guardian of the waters and symbol of perfection, wholeness and health. In Avestan, Khordad is 'Haurvatat' — wholeness and flawlessness. The festival is held on Khordad day of Khordad month, the 6th of Khordad, when the waters are full and the farms and gardens are green. On this day people went to springs, rivers and qanats, honored the water and prayed for abundance and health. Guarding water in water-scarce Iran has always been a sacred duty, and Khordadgan recalls this gratitude for water and life. It is also the day of wishing for perfection and a year full of health and plenty for everyone.",
+          fg6Tag: "13 Tir",
+          fg6Name: "Tirgan",
+          fg6Alt: "Miniature painting of shining Tishtar in the clouds and Arash the Archer on the Alborz peak, with people splashing water",
+          fg6Text: "Tirgan is the festival of Tishtar, the yazata of rain — the shining star called in the Avesta the lord of the stars. In the ancient tales, Tishtar battles the demon of drought, Apaosha, and at last defeats him; then the bonds of the waters are loosed and rain pours down on the dry earth. Tirgan is held on Tir day of Tir month, the 13th of Tir, at the start of summer. The festival is also linked with the memory of Arash the Archer, the hero who put his own life into an arrow shot from the peak of Alborz to mark the border of Iran and Turan and keep Iran's land wide. The merriest rite of Tirgan is splashing water on one another: people go to rivers and springs, splash water, and wish for a rainy, fruitful year. They also tie a colored band called 'Tir-o-Bad' on their wrists and, after some days, release it to the wind from a height.",
+          fg7Tag: "7 Amordad",
+          fg7Name: "Amordadgan",
+          fg7Alt: "Miniature painting of a summer garden full of fruit-laden trees, with the goddess of plants among the trees",
+          fg7Text: "Amordadgan is the festival of Amordad Amshaspand, guardian of plants and vegetation and the symbol of immortality and deathlessness. The name of this month must be read 'Amordad', not 'Mordad': 'Amordad' means deathlessness and immortality, while 'Mordad' would carry the opposite meaning. The festival is held on Amordad day of Amordad month, the 7th of Amordad, in the heart of summer, when gardens and fields have come to fruit and greenery and produce abound. On this day people went to gardens and meadows and honored the plants and trees, for in ancient belief vegetation is one of Ohrmazd's sacred creations and guarding it is a good deed. Amordadgan is the festival of life, greenness and endurance — a reminder that by guarding nature, humankind takes a share in immortality.",
+          fg8Tag: "4 Shahrivar",
+          fg8Name: "Shahrivargan",
+          fg8Alt: "Miniature painting of an ancient forge with a glowing furnace and a prosperous city in the background",
+          fg8Text: "Shahrivargan is the festival of Shahrivar Amshaspand, guardian of metals and the symbol of heavenly, just kingship. In Avestan, Shahrivar is 'Khshathra Vairya' — the ideal, chosen dominion; a kingship founded on justice and rightness. The festival is held on Shahrivar day of Shahrivar month, the 4th of Shahrivar. Shahrivargan is known as the festival of justice and of honoring effort and work — a day to honor those who make life flourish by work and toil, from the blacksmith and metalworker to the farmer and craftsman. In some folk tellings, Shahrivargan is also called the birthday of Cyrus the Great, and for this reason the festival has found fresh popularity among lovers of ancient Iran in recent years. The day also recalls that true kingship endures only with justice and kindness toward the people.",
+          fg9Tag: "16 Mehr",
+          fg9Name: "Mehregan",
+          fg9Alt: "Miniature painting of a Mehregan table with pomegranates and a mirror, and people giving gifts to each other",
+          fg9Text: "Mehregan, after Nowruz, is the greatest festival of ancient Iran — the festival of Mehr, the yazata of covenant, light and friendship. It is held on Mehr day of Mehr month, the 16th of Mehr, at harvest time and the beginning of autumn. In Iranian belief, Mehr is the guardian of covenants: every pact that is made is witnessed by Mehr, and breaking a covenant was counted a great sin. At Mehregan people wore new clothes, visited one another, gave gifts and renewed their covenants. On the Mehregan cloth sat a mirror, flowers and autumn fruits such as pomegranate and quince, and the scent of marjoram and wild rue filled the air. In the Shahnameh, Mehregan is the day Fereydun mounted the throne and triumphed over Zahhak — the day justice defeated tyranny. Mehregan is the festival of thanksgiving for the harvest, and of love and covenant-keeping.",
+          fg10Tag: "10 Aban",
+          fg10Name: "Abangan",
+          fg10Alt: "Miniature painting of the goddess Anahita with a golden pitcher beside a river and a clear spring",
+          fg10Text: "Abangan is the festival of the waters and of Anahita, the goddess of flowing waters, purity and fertility. 'Aban' is the name of the month and day of water, and the festival is held on Aban day of Aban month, the 10th of Aban. In water-scarce Iran, water has always been the most precious treasure, and Anahita guards the springs, rivers, streams and qanats. At Abangan people went to the watersides, kept springs, rivers and water channels clean and honored, and prayed for abundant water and fertile land. The Shahnameh too tells that in a great drought, Zav, son of Tahmasp, prayed beside the water and rain and plenty returned. Abangan recalls this ancient lesson: keep water clean and do not waste it — guarding water is guarding life.",
+          fg11Tag: "9 Azar",
+          fg11Name: "Azargan",
+          fg11Alt: "Miniature painting of a sacred fire in a golden fire-holder inside a fire temple, with snow outside",
+          fg11Text: "Azargan is the festival of fire — the festival of Azar, the yazata who guards fire, son of Ohrmazd. It is held on Azar day of Azar month, the 9th of Azar, on the threshold of winter, when the cold arrives and fire becomes the warmth and light of homes. In ancient Iranian belief, fire is sacred and pure, a sign of truth and brightness — not itself worshipped, but a symbol of light and truth. At Azargan people went to the fire temples, kindled the fire with fragrant woods and renewed the tending of the home fire. On this day the fire temples and sacred fires were also cleaned and dusted. Azargan recalls the age-old bond of Iranians with fire — from the legendary fire of Hushang to the fire temples that have stayed alight for centuries.",
+          fg12Tag: "The night of 30 Azar",
+          fg12Name: "Yalda (Shab-e Chelleh)",
+          fg12Alt: "Miniature painting of a family around a korsi on Yalda night, with pomegranates, watermelon and candles",
+          fg12Text: "Yalda, or Shab-e Chelleh, is the longest night of the year — the night of the 30th of Azar, on the threshold of winter. From this night on, the days slowly grow longer and light gains on darkness; hence Yalda has been called the night of the rebirth of the sun and of Mehr. On this night families gather in the homes of their elders and shorten the night with the warmth of togetherness — around the korsi and a cloth of red pomegranates, watermelon, nuts and sweets. The elders tell tales, read from the Shahnameh and take omens from the Divan of Hafez. The red of pomegranate and watermelon recalls the red of dawn and the warmth of the sun that returns after the longest night. Yalda is the festival of hope's victory over darkness: no night, however long, is without its dawn.",
+          fg13Tag: "1, 8, 15 and 23 Dey",
+          fg13Name: "Deygan",
+          fg13Alt: "Miniature painting of a winter Deygan festival, with joyful people around a fire in a snowy town",
+          fg13Text: "The month of Dey is unique, for in it four days bear the same name as the month, and Dey has four festivals. The 1st of Dey is 'Khorramruz', an auspicious day also called the day of equality of king and people: it is said that on this day the king came down from his throne and sat at one table with the farmers. The 8th, 15th and 23rd of Dey are named Dey-be-Azar, Dey-be-Mehr and Dey-be-Din, and all four days are called 'Deygan'. 'Dey' means the Creator, and this month and its days belong to Ohrmazd and creation. The Deygan festivals are held in the heart of winter with prayer, joy and gathering, so that the cold of winter is lightened by the warmth of love and festivity. Deygan recalls that even in the coldest month of the year there are four occasions for celebration and togetherness.",
+          fg14Tag: "2 Bahman",
+          fg14Name: "Bahmangan",
+          fg14Alt: "Miniature painting of a white Bahman flower in the snow and people in white feeding animals",
+          fg14Text: "Bahmangan is the festival of Bahman, or Vahuman — the Amshaspand of good thought and guardian of beneficent animals. 'Vahuman' means good thought and good mind, the first and greatest of Ohrmazd's creations in the spiritual world. The festival is held on Bahman day of Bahman month, the 2nd of Bahman, in the heart of winter. Bahmangan is the day of guarding beneficent animals: on this day people refrained from killing animals and eating meat, and they fed the animals and cared for them. At this festival they gave one another the Bahman flower — a white, fragrant blossom that grows in winter — and wore white garments. Bahmangan may be called the oldest festival of care for animals and of good thought: a day when one remembers that good thought is the beginning of good words and good deeds.",
+          fg15Tag: "10 Bahman",
+          fg15Name: "Sadeh",
+          fg15Alt: "Miniature painting of the great Sadeh fire on a hilltop at winter dusk, with people gathered around it",
+          fg15Text: "Sadeh is the great festival of fire and one of the most splendid festivals of ancient Iran — the festival of the discovery of fire. The Shahnameh tells that Hushang, the Pishdadian king, one day on a mountain came upon a great serpent; he hurled a stone at it, the stone struck another stone, a spark leapt forth and fire was born from the heart of the stone. That night Hushang held a great feast and named it 'Sadeh'. Sadeh is held on the 10th of Bahman; in ancient reckoning, a hundred days and nights of winter have passed and fifty days and nights remain to Nowruz. At sunset great fires are lit on hilltops and roofs; people gather around the fire, read from the Shahnameh, pray and celebrate, to drive back the winter cold and go out to meet the return of warmth and of Rapithwin. The Sadeh fire is usually lit at sunset on the 9th of Bahman, and the festival is on the 10th. Sadeh is the festival of the victory of light and the warmth of life over the cold darkness of winter.",
+          fg16Tag: "5 Esfand",
+          fg16Name: "Esfandegan (Sepandarmazgan)",
+          fg16Alt: "Miniature painting of the goddess Sepandarmaz on green earth, with women receiving flowers and gifts",
+          fg16Text: "Esfandegan, or Sepandarmazgan, is the festival of Sepandarmaz, the Amshaspand who guards the earth and is the symbol of humility, love and patience. 'Sepandarmaz' means sacred humility and love — the goddess who holds the earth and, like the earth, bears everyone with patience. The festival is held on Sepandarmaz day of Esfand month, the 5th of Esfand. In ancient Iran this was the day of honoring the earth and women — the day of love and kindness. Men gave gifts to women and mothers and thanked them, and women were held in honor on this day. At the same time, farmers prepared the earth for the spring sowing, and as spring drew near the festival took on the color of renewal. Sepandarmazgan recalls two great honors: honoring the earth, who is the mother of us all, and honoring love and the women who nurture life.",
+          fg17Tag: "The six seasonal festivals",
+          fg17Name: "The Gahanbars",
+          fg17Alt: "Miniature painting of a communal Gahanbar table in a fire temple, with people sharing food together",
+          fg17Text: "The Gahanbars are the six great seasonal festivals of the year — the oldest ritual festivals of Iran, each lasting five days. Each Gahanbar is a thanksgiving for one of Ohrmazd's creations and is held at its own season: Maidyozarem in mid-spring (11–15 Ordibehesht) for the creation of the sky; Maidyoshahem in mid-summer (11–15 Tir) for the creation of water; Paitishahem at summer's end (26–30 Shahrivar) for the creation of the earth and harvest time; Ayathrem in mid-autumn (26–30 Mehr) for the creation of plants and the homecoming of the herds; Maidyarem in mid-winter (10–14 Dey) for the creation of beneficent animals; and Hamaspathmaidyem in the last five days of the year for the creation of humankind and the remembrance of the fravashis of the departed, on the threshold of Nowruz. At the Gahanbars people gather in the fire temple, recite the Avesta and spread the Gahanbar table; the food of this table is shared equally among all — rich and poor alike. The Gahanbar is the festival of thanks, giving and togetherness: a way for people to come together six times a year, give thanks, and share their portion of the world's abundance with others.",
           calSoloBtn: "Standalone Calendar",
           calSoloHint: "Open the calendar on its own full-screen page; you can add it separately to your phone's home screen, so it is always one tap away.",
           legFest: "Festival / observance",
           legGah: "Gahambar",
           legNabor: "Nabor day",
+          legHist: "Historical event",
+          legGreat: "Great figures' day",
           calBannerAlt: "Persian miniature of the ancient Iranian celestial calendar: sun, moon and stars with golden boteh-jegheh motifs on royal blue",
           soloGuideTitle: "Put the calendar on your phone",
           soloIosTitle: "iPhone (Safari)",
@@ -7175,6 +7464,7 @@
           nNote: "Les contes un à trois et six à dix sont publiés ; le prochain conte : Les Trois Pommes.",
           navCalendar: "Calendrier impérial",
           navFestivals: "Fêtes anciennes",
+          navFestivalsGuide: "Fêtes iraniennes anciennes",
           navMonuments: "Monuments anciens",
           navPeoples: "Peuples d'Iran",
           navInventions: "Inventions de l'Iran antique",
@@ -7280,12 +7570,122 @@
           nb14Text: "Le jour de Gosht, le 14 de chaque mois, est un jour Nabor. Ce jour appartient à l'âme des animaux (Geush Urvan) ; on n'y mange pas de viande et l'on n'y tue aucun animal.",
           nb21Name: "Jour Nabor (jour de Ram) · le 21 de chaque mois",
           nb21Text: "Le jour de Ram, le 21 de chaque mois, est un jour Nabor. Ram est la divinité de la paix et de la joie, et ce jour aussi est honoré par l'abstention de viande et de tuer les animaux.",
+          h1Name: "Journée nationale du golfe Persique · 10 Ordibehesht",
+          h1Text: "Anniversaire de l'expulsion des Portugais du détroit d'Ormuz et du retour de la souveraineté iranienne sur le golfe Persique en 1622, sous Imam Quli Khan à l'époque safavide — un jour pour honorer le nom à jamais persique de cette mer.",
+          h2Name: "Journée de Cyrus le Grand · 7 Aban",
+          h2Text: "Anniversaire de l'entrée pacifique de Cyrus le Grand à Babylone en 539 avant notre ère, consignée dans la Chronique de Nabonide — le jour où l'on honore son édit de liberté et d'égalité, gravé dans le Cylindre de Cyrus.",
+          p1Name: "Journée de Saadi · 1 Ordibehesht",
+          p1Text: "Saadi de Chiraz, auteur du Boustan et du Golestan, maître de l'éloquence et de l'humanité ; le 1 Ordibehesht est sa journée de commémoration dans le calendrier iranien.",
+          p2Name: "Journée de Ferdowsi · 25 Ordibehesht",
+          p2Text: "Ferdowsi, poète du Shahnameh et gardien de la langue persane ; ce jour est aussi la Journée de la langue persane.",
+          p3Name: "Journée de Khayyam · 28 Ordibehesht",
+          p3Text: "Omar Khayyam, mathématicien, astronome et poète des Rubaiyat — et auteur du calendrier jalali, le calendrier le plus précis du monde.",
+          p4Name: "Journée d'Avicenne et des médecins · 1 Shahrivar",
+          p4Text: "Avicenne (Ibn Sina), célèbre médecin et philosophe iranien, auteur du Canon de la médecine ; le 1 Shahrivar est la Journée des médecins en son honneur.",
+          p5Name: "Journée de Razi et des pharmaciens · 5 Shahrivar",
+          p5Text: "Muhammad ibn Zakariya Razi, grand médecin et chimiste iranien qui identifia l'alcool ; le 5 Shahrivar est la Journée des pharmaciens en son honneur.",
+          p6Name: "Journée d'Al-Biruni · 13 Shahrivar",
+          p6Text: "Abou Rayhan Biruni, le savant universel de l'Iran — l'astronome et historien qui mesura la taille de la Terre avec une précision étonnante.",
+          p7Name: "Journée de Rumi · 8 Mehr",
+          p7Text: "Jalal al-Din Muhammad Balkhi, dit Rumi (Molavi), poète du Masnavi et du Divan de Shams — parmi les poètes les plus lus au monde aujourd'hui.",
+          p8Name: "Anniversaire de Sohrab Sepehri · 15 Mehr",
+          p8Text: "Sohrab Sepehri, poète et peintre contemporain, naquit le 15 Mehr 1307 (1928) à Kashan — auteur du « Bruit des pas de l'eau » et du recueil Hasht Ketab (Huit livres).",
+          p9Name: "Journée de Hafez · 20 Mehr",
+          p9Text: "Khwaja Shams al-Din Muhammad Hafez de Chiraz, la « Langue de l'Invisible » ; des siècles plus tard, son Divan a toujours sa place dans chaque foyer iranien.",
+          p10Name: "Anniversaire de Nima Yushij · 21 Aban",
+          p10Text: "Nima Yushij, le père de la poésie persane moderne, naquit le 21 Aban 1276 (1897) à Yush et changea pour toujours le cours de la poésie persane.",
+          p11Name: "Journée de Nasir al-Din Tusi et des ingénieurs · 5 Esfand",
+          p11Text: "Nasir al-Din Tusi, le grand savant et astronome qui construisit l'observatoire de Maragheh ; le 5 Esfand est la Journée des ingénieurs en son honneur.",
+          p12Name: "Anniversaire de Parvin Etesami · 25 Esfand",
+          p12Text: "Parvin Etesami, la poétesse la plus célèbre d'Iran, naquit le 25 Esfand 1285 (1907) à Tabriz ; son Divan est riche en poèmes de débat et en conseils moraux.",
+          p13Name: "Anniversaire de la Shahbanu Farah Pahlavi · 22 Mehr",
+          p13Text: "La Shahbanu Farah Pahlavi (Farah Diba), impératrice d'Iran, naquit le 22 Mehr 1317 (1938) à Téhéran — protectrice des arts et de la culture iraniens, fondatrice du Festival des arts de Chiraz et des musées modernes d'Iran.",
+          p14Name: "Anniversaire de Mohammad Reza Shah Pahlavi · 4 Aban",
+          p14Text: "Mohammad Reza Shah Pahlavi, le dernier chah d'Iran de la dynastie Pahlavi, naquit le 4 Aban 1298 (1919) à Téhéran et régna sur l'Iran plus de trente-sept ans.",
+          p15Name: "Anniversaire du prince héritier Reza Pahlavi · 9 Aban",
+          p15Text: "Le prince Reza Pahlavi, prince héritier d'Iran et fils de Mohammad Reza Shah et de la Shahbanu Farah, naquit le 9 Aban 1339 (1960) à Téhéran.",
+          p16Name: "Anniversaire de Reza Shah le Grand · 24 Esfand",
+          p16Text: "Reza Shah le Grand, fondateur de la dynastie Pahlavi et père de l'Iran moderne, naquit le 24 Esfand 1256 (1878) à Alasht, au Mazandaran — bâtisseur du chemin de fer transiranien, de l'université de Téhéran et de l'armée moderne iranienne.",
           festNote2: "Dans le calendrier impérial de ce site, tous ces jours — les fêtes mensuelles, les six Gahambars, les jours Nabor et les observances spéciales — figurent sur les jours de chaque mois ; touchez le nom d'un mois pour voir ses jours avec une courte note sur chacun.",
+          fgKicker: "L'année festive de l'Iran ancien",
+          fgTitle: "Fêtes iraniennes anciennes — <em>de Norouz aux Gahanbars</em>",
+          fgIntro: "Dans cette partie, vous découvrirez les fêtes anciennes de l'Iran — des célébrations liées aux saisons, aux travaux des champs et aux étoiles, chacune avec son histoire et son rite ; de Norouz et Sadeh à Mehregan, Yalda et aux six Gahanbars de l'année. La plupart des fêtes mensuelles tombent le jour dont le nom est le même que celui du mois. Tous ces récits sont écrits en langue simple et avec nos propres mots.",
+          fgCredits: "Les illustrations de cette partie sont des peintures miniatures dans le style de la négârgari iranienne, réalisées pour ce site.",
+          fg1Tag: "1er Farvardin",
+          fg1Name: "Norouz",
+          fg1Alt: "Peinture miniature d'une nappe de Haft-Sin de Norouz avec des pousses, un miroir, des bougies et un poisson rouge, et une famille iranienne rassemblée autour",
+          fg1Text: "Norouz est la plus grande et la plus ancienne fête des Iraniens et le commencement de la nouvelle année ; le jour où le printemps arrive et où la terre se réveille de son sommeil hivernal. « Norouz » signifie « jour nouveau » — un jour où, dans la croyance ancienne, le monde et l'être humain recommencent avec la nature. Des semaines à l'avance commence le grand ménage de printemps, pour purifier la maison et le cœur. Sur la nappe du Haft-Sin reposent sept choses dont le nom commence par « sin » — les pousses vertes, le samanu, le senjed, l'ail, la pomme, le sumac et le vinaigre — et à côté d'eux un miroir, des bougies, un poisson rouge, des œufs peints et un livre précieux. Au moment où l'année tourne, la famille se rassemble autour de la nappe et commence la nouvelle année avec des vœux de santé et de joie. Les treize premiers jours passent en visites et en fête, et le jour de Sizdah-bédar, on sort dans la nature et l'on confie les pousses à l'eau courante. Dans le Shahnameh, la fondation de Norouz est attribuée à Jamshid, le roi mythique de l'Iran, qui monta ce jour-là sur le trône et le nomma « Jour nouveau ».",
+          fg2Tag: "3 Farvardin",
+          fg2Name: "Fête de Rapithwin",
+          fg2Alt: "Peinture miniature du soleil de midi au-dessus d'un temple du feu et du retour de Rapithwin, avec des pousses fraîches sur la terre",
+          fg2Text: "Rapithwin est le yazata de midi et de la chaleur de l'été, gardien de l'heure où le soleil atteint le plus haut point du ciel. Dans la croyance zoroastrienne, au début du grand hiver, Rapithwin descend sous la terre pour garder au chaud, durant le froid, les racines des arbres et les eaux souterraines, afin que la vie ne s'éteigne pas ; et à midi, le jour de Norouz, avec le retour du printemps, il revient sur la terre. Son retour est donc le signe de la victoire de la chaleur et de la lumière sur le froid et les ténèbres. L'Afrinagan de Rapithwin est célébré pour ce retour à midi, le troisième jour de Farvardin (jour d'Ordibehesht du mois de Farvardin), car Ordibehesht Amshaspand, gardien du feu, est le plus proche auxiliaire de Rapithwin. Lors de ce rite, prêtres et fidèles se rassemblent au temple du feu et, en récitant l'Avesta et l'Afrinagan, souhaitent la bienvenue au retour de la chaleur et de la vie sur la terre.",
+          fg3Tag: "19 Farvardin",
+          fg3Name: "Farvardegan",
+          fg3Alt: "Peinture miniature d'un cimetière ancien à l'aube du printemps, avec des gens portant des fleurs et des bougies sur les tombes de leurs ancêtres",
+          fg3Text: "Farvardegan est la fête des fravashis — le jour du souvenir des âmes des ancêtres et des disparus. Dans la croyance de l'Iran ancien, le fravashi est l'essence spirituelle et gardienne de chaque être humain, qui existe avant sa naissance et retourne au monde spirituel après sa mort. Ce jour-là — jour de Farvardin du mois de Farvardin, le 19 Farvardin, lorsque le nom du jour et celui du mois coïncident — les gens se rendent dans les cimetières, déposent des fleurs et de la verdure sur les tombes de leurs proches, allument des bougies et de l'encens et prient pour la joie de leurs âmes. On croit que, dans les premiers jours de l'année, les fravashis des disparus visitent les maisons de leurs survivants et se réjouissent de la joie et de la prospérité du foyer. Farvardegan rappelle ce lien indissoluble entre les vivants et les disparus : nul n'est oublié par sa famille après la mort.",
+          fg4Tag: "3 Ordibehesht",
+          fg4Name: "Ordibeheshtgan",
+          fg4Alt: "Peinture miniature de gens en vêtements blancs autour d'un feu sacré dans un temple du feu, avec un jardin printanier en fleurs",
+          fg4Text: "Ordibeheshtgan est la fête d'Ordibehesht Amshaspand, gardien de la vérité, de la droiture et du feu. En avestique, Ordibehesht est « Asha Vahishta » — la meilleure vérité et l'ordre du monde. La fête a lieu le jour d'Ordibehesht du mois d'Ordibehesht, le 3 Ordibehesht. Ce jour-là, les gens portent des vêtements blancs — signe de pureté et de vérité — et se rendent aux temples du feu pour honorer la vérité et la pureté auprès du feu. Ordibeheshtgan tombe au cœur du printemps, lorsque les jardins sont pleins de fleurs et que la terre est dans sa plus grande beauté ; c'est pourquoi on l'appelle aussi la fête des fleurs et de la vérité, un jour pour garder le feu et fuir le mensonge et la souillure.",
+          fg5Tag: "6 Khordad",
+          fg5Name: "Khordadgan",
+          fg5Alt: "Peinture miniature d'une source et d'une rivière dans un jardin verdoyant, avec des gens priant au bord de l'eau",
+          fg5Text: "Khordadgan est la fête de Khordad Amshaspand, gardienne des eaux et symbole de la perfection, de la plénitude et de la santé. En avestique, Khordad est « Haurvatat » — la plénitude sans défaut. La fête a lieu le jour de Khordad du mois de Khordad, le 6 Khordad, lorsque les eaux sont abondantes et que les champs et les jardins sont verts. Ce jour-là, on se rendait aux sources, aux rivières et aux qanats, on honorait l'eau et l'on priait pour l'abondance et la santé. Garder l'eau, dans un Iran pauvre en eau, a toujours été un devoir sacré, et Khordadgan rappelle cette gratitude envers l'eau et la vie. C'est aussi le jour où l'on souhaite la perfection et une année pleine de santé et d'abondance pour tous.",
+          fg6Tag: "13 Tir",
+          fg6Name: "Tirgan",
+          fg6Alt: "Peinture miniature de Tishtar brillant dans les nuages et d'Arash l'Archer au sommet de l'Alborz, avec des gens s'aspergeant d'eau",
+          fg6Text: "Tirgan est la fête de Tishtar, le yazata de la pluie — l'étoile brillante que l'Avesta appelle le seigneur des étoiles. Dans les récits anciens, Tishtar combat le démon de la sécheresse, Apaosha, et finit par le vaincre ; alors les liens des eaux se défont et la pluie tombe sur la terre sèche. Tirgan a lieu le jour de Tir du mois de Tir, le 13 Tir, au début de l'été. La fête est aussi liée au souvenir d'Arash l'Archer, le héros qui mit sa propre vie dans une flèche tirée du sommet de l'Alborz pour marquer la frontière entre l'Iran et le Touran et garder vaste la terre d'Iran. Le rite le plus joyeux de Tirgan est de s'asperger d'eau : les gens se rendent aux rivières et aux sources, s'éclaboussent et souhaitent une année pluvieuse et féconde. On noue aussi à son poignet un ruban coloré appelé « Tir-o-Bad », que l'on confie au vent quelques jours plus tard, d'un lieu élevé.",
+          fg7Tag: "7 Amordad",
+          fg7Name: "Amordadgan",
+          fg7Alt: "Peinture miniature d'un jardin d'été plein d'arbres chargés de fruits, avec la déesse des plantes parmi les arbres",
+          fg7Text: "Amordadgan est la fête d'Amordad Amshaspand, gardienne des plantes et de la végétation et symbole de l'immortalité. Le nom de ce mois doit se lire « Amordad » et non « Mordad » : « Amordad » signifie l'absence de mort et l'immortalité, tandis que « Mordad » porterait le sens contraire. La fête a lieu le jour d'Amordad du mois d'Amordad, le 7 Amordad, au cœur de l'été, lorsque les jardins et les champs ont porté leurs fruits et que la verdure et les récoltes abondent. Ce jour-là, on se rendait dans les jardins et les prairies et l'on honorait les plantes et les arbres, car dans la croyance ancienne, la végétation est l'une des créations sacrées d'Ohrmazd et la garder est une bonne action. Amordadgan est la fête de la vie, de la verdure et de la durée — un rappel qu'en gardant la nature, l'être humain prend part à l'immortalité.",
+          fg8Tag: "4 Shahrivar",
+          fg8Name: "Shahrivargan",
+          fg8Alt: "Peinture miniature d'une forge ancienne avec un four ardent et une ville prospère en arrière-plan",
+          fg8Text: "Shahrivargan est la fête de Shahrivar Amshaspand, gardien des métaux et symbole de la royauté céleste et juste. En avestique, Shahrivar est « Khshathra Vairya » — la domination idéale et choisie, un règne fondé sur la justice et la droiture. La fête a lieu le jour de Shahrivar du mois de Shahrivar, le 4 Shahrivar. Shahrivargan est connue comme la fête de la justice et de l'honneur rendu à l'effort et au travail — un jour pour honorer ceux qui font fleurir la vie par leur travail, du forgeron et du métallurgiste au paysan et à l'artisan. Dans certains récits populaires, Shahrivargan est aussi appelée l'anniversaire de Cyrus le Grand, et c'est pourquoi cette fête a retrouvé ces dernières années une popularité nouvelle parmi les amoureux de l'Iran ancien. Ce jour rappelle aussi que la vraie royauté ne dure que par la justice et la bonté envers le peuple.",
+          fg9Tag: "16 Mehr",
+          fg9Name: "Mehregan",
+          fg9Alt: "Peinture miniature d'une nappe de Mehregan avec des grenades et un miroir, et des gens s'offrant des cadeaux",
+          fg9Text: "Mehregan, après Norouz, est la plus grande fête de l'Iran ancien — la fête de Mehr, le yazata de l'alliance, de la lumière et de l'amitié. Elle a lieu le jour de Mehr du mois de Mehr, le 16 Mehr, au temps des récoltes et au début de l'automne. Dans la croyance iranienne, Mehr est le gardien des alliances : tout pacte conclu l'est sous son regard, et rompre un pacte était tenu pour un grand péché. À Mehregan, les gens portaient des vêtements neufs, se rendaient visite, s'offraient des cadeaux et renouvelaient leurs alliances. Sur la nappe de Mehregan reposaient un miroir, des fleurs et des fruits d'automne comme la grenade et le coing, et le parfum de la marjolaine et de la rue emplissait l'air. Dans le Shahnameh, Mehregan est le jour où Fereydun monta sur le trône et triompha de Zahhak — le jour où la justice vainquit la tyrannie. Mehregan est la fête de l'action de grâce pour la récolte, et de l'amour et de la fidélité aux pactes.",
+          fg10Tag: "10 Aban",
+          fg10Name: "Abangan",
+          fg10Alt: "Peinture miniature de la déesse Anahita avec une cruche dorée au bord d'une rivière et d'une source claire",
+          fg10Text: "Abangan est la fête des eaux et de la déesse Anahita, divinité des eaux courantes, de la pureté et de la fécondité. « Aban » est le nom du mois et du jour de l'eau, et la fête a lieu le jour d'Aban du mois d'Aban, le 10 Aban. Dans un Iran pauvre en eau, l'eau a toujours été le trésor le plus précieux, et Anahita garde les sources, les rivières, les ruisseaux et les qanats. À Abangan, les gens se rendaient au bord des eaux, gardaient propres et honorés les sources, les rivières et les canaux, et priaient pour l'abondance de l'eau et la fertilité de la terre. Le Shahnameh raconte aussi que, lors d'une grande sécheresse, Zav, fils de Tahmasp, pria au bord de l'eau et que la pluie et l'abondance revinrent. Abangan rappelle cette leçon ancienne : garder l'eau propre et ne pas la gaspiller — garder l'eau, c'est garder la vie.",
+          fg11Tag: "9 Azar",
+          fg11Name: "Azargan",
+          fg11Alt: "Peinture miniature d'un feu sacré dans un porte-feu doré à l'intérieur d'un temple du feu, avec de la neige dehors",
+          fg11Text: "Azargan est la fête du feu — la fête d'Azar, le yazata gardien du feu, fils d'Ohrmazd. Elle a lieu le jour d'Azar du mois d'Azar, le 9 Azar, au seuil de l'hiver, lorsque le froid arrive et que le feu devient la chaleur et la lumière des maisons. Dans la croyance de l'Iran ancien, le feu est sacré et pur, signe de vérité et de lumière — non pas adoré lui-même, mais symbole de la lumière et de la vérité. À Azargan, les gens se rendaient aux temples du feu, allumaient le feu avec des bois parfumés et renouvelaient la garde du feu du foyer. Ce jour-là, on nettoyait aussi les temples du feu et les feux sacrés. Azargan rappelle le lien ancien des Iraniens avec le feu — du feu légendaire de Hushang aux temples du feu restés allumés pendant des siècles.",
+          fg12Tag: "La nuit du 30 Azar",
+          fg12Name: "Yalda (Shab-e Chelleh)",
+          fg12Alt: "Peinture miniature d'une famille autour d'un korsi la nuit de Yalda, avec des grenades, une pastèque et des bougies",
+          fg12Text: "Yalda, ou Shab-e Chelleh, est la nuit la plus longue de l'année — la nuit du 30 Azar, au seuil de l'hiver. À partir de cette nuit, les jours s'allongent lentement et la lumière gagne sur les ténèbres ; c'est pourquoi Yalda a été appelée la nuit de la renaissance du soleil et de Mehr. Cette nuit-là, les familles se rassemblent chez les aînés et raccourcissent la nuit par la chaleur de la réunion — autour du korsi et d'une nappe de grenades rouges, de pastèque, de fruits secs et de douceurs. Les aînés racontent des histoires, lisent le Shahnameh et tirent des présages du Divan de Hafez. Le rouge de la grenade et de la pastèque rappelle le rouge de l'aube et la chaleur du soleil qui revient après la plus longue nuit. Yalda est la fête de la victoire de l'espérance sur les ténèbres : aucune nuit, si longue soit-elle, n'est sans aube.",
+          fg13Tag: "1, 8, 15 et 23 Dey",
+          fg13Name: "Deygan",
+          fg13Alt: "Peinture miniature d'une fête hivernale de Deygan, avec des gens joyeux autour d'un feu dans une ville enneigée",
+          fg13Text: "Le mois de Dey est unique, car quatre de ses jours portent le même nom que le mois, et Dey compte quatre fêtes. Le 1er Dey est « Khorramruz », un jour faste appelé aussi le jour de l'égalité du roi et du peuple : on dit que ce jour-là, le roi descendait de son trône et s'asseyait à la même table que les paysans. Les 8, 15 et 23 Dey se nomment Dey-be-Azar, Dey-be-Mehr et Dey-be-Din, et ces quatre jours sont appelés « Deygan ». « Dey » signifie le Créateur, et ce mois et ses jours appartiennent à Ohrmazd et à la création. Les fêtes de Deygan ont lieu au cœur de l'hiver, avec des prières, de la joie et des réunions, pour que le froid de l'hiver soit allégé par la chaleur de l'amour et de la fête. Deygan rappelle que même dans le mois le plus froid de l'année, il y a quatre occasions de célébrer et d'être ensemble.",
+          fg14Tag: "2 Bahman",
+          fg14Name: "Bahmangan",
+          fg14Alt: "Peinture miniature d'une fleur blanche de Bahman dans la neige et de gens en blanc nourrissant les animaux",
+          fg14Text: "Bahmangan est la fête de Bahman, ou Vahuman — l'Amshaspand de la bonne pensée et le gardien des animaux utiles. « Vahuman » signifie la bonne pensée et le bon esprit, la première et la plus grande des créations d'Ohrmazd dans le monde spirituel. La fête a lieu le jour de Bahman du mois de Bahman, le 2 Bahman, au cœur de l'hiver. Bahmangan est le jour de la protection des animaux utiles : ce jour-là, on s'abstenait de tuer les animaux et de manger de la viande, et l'on nourrissait les animaux et prenait soin d'eux. Lors de cette fête, on s'offrait la fleur de Bahman — une fleur blanche et parfumée qui pousse en hiver — et l'on portait des vêtements blancs. Bahmangan peut être appelée la plus ancienne fête de la protection des animaux et de la bonne pensée : un jour où l'on se souvient que la bonne pensée est le commencement des bonnes paroles et des bonnes actions.",
+          fg15Tag: "10 Bahman",
+          fg15Name: "Sadeh",
+          fg15Alt: "Peinture miniature du grand feu de Sadeh sur une colline au crépuscule d'hiver, avec des gens rassemblés autour",
+          fg15Text: "Sadeh est la grande fête du feu et l'une des plus splendides fêtes de l'Iran ancien — la fête de la découverte du feu. Le Shahnameh raconte que Hushang, le roi pishdadien, rencontra un jour, dans la montagne, un grand serpent ; il lança une pierre contre lui, la pierre frappa une autre pierre, une étincelle jaillit et le feu naquit du cœur de la pierre. Cette nuit-là, Hushang fit une grande fête et la nomma « Sadeh ». Sadeh a lieu le 10 Bahman ; dans le compte ancien, cent jours et nuits d'hiver se sont écoulés et il reste cinquante jours et nuits jusqu'à Norouz. Au coucher du soleil, on allume de grands feux sur les hauteurs et les toits ; les gens se rassemblent autour du feu, lisent le Shahnameh, prient et se réjouissent, pour repousser le froid de l'hiver et aller à la rencontre du retour de la chaleur et de Rapithwin. Le feu de Sadeh est habituellement allumé au coucher du soleil le 9 Bahman, et la fête est le 10. Sadeh est la fête de la victoire de la lumière et de la chaleur de la vie sur les ténèbres froides de l'hiver.",
+          fg16Tag: "5 Esfand",
+          fg16Name: "Esfandegan (Sepandarmazgan)",
+          fg16Alt: "Peinture miniature de la déesse Sepandarmaz sur une terre verdoyante, avec des femmes recevant des fleurs et des cadeaux",
+          fg16Text: "Esfandegan, ou Sepandarmazgan, est la fête de Sepandarmaz, l'Amshaspand gardienne de la terre et symbole de l'humilité, de l'amour et de la patience. « Sepandarmaz » signifie l'humilité et l'amour sacrés — la déesse qui tient la terre et, comme la terre, supporte tout le monde avec patience. La fête a lieu le jour de Sepandarmaz du mois d'Esfand, le 5 Esfand. Dans l'Iran ancien, ce jour était celui de l'honneur rendu à la terre et aux femmes — le jour de l'amour et de la bonté. Les hommes offraient des cadeaux aux femmes et aux mères et les remerciaient, et les femmes étaient honorées ce jour-là. En même temps, les paysans préparaient la terre pour les semailles du printemps, et à l'approche du printemps, la fête prenait la couleur du renouveau. Sepandarmazgan rappelle deux grands honneurs : honorer la terre, qui est la mère de tous, et honorer l'amour et les femmes qui nourrissent la vie.",
+          fg17Tag: "Les six fêtes saisonnières",
+          fg17Name: "Les Gahanbars",
+          fg17Alt: "Peinture miniature d'une table commune de Gahanbar dans un temple du feu, avec des gens partageant la nourriture",
+          fg17Text: "Les Gahanbars sont les six grandes fêtes saisonnières de l'année — les plus anciennes fêtes rituelles de l'Iran, chacune durant cinq jours. Chaque Gahanbar est une action de grâce pour l'une des créations d'Ohrmazd et a lieu en sa saison : Maidyozarem au milieu du printemps (11–15 Ordibehesht) pour la création du ciel ; Maidyoshahem au milieu de l'été (11–15 Tir) pour la création de l'eau ; Paitishahem à la fin de l'été (26–30 Shahrivar) pour la création de la terre et le temps des récoltes ; Ayathrem au milieu de l'automne (26–30 Mehr) pour la création des plantes et le retour des troupeaux ; Maidyarem au milieu de l'hiver (10–14 Dey) pour la création des animaux utiles ; et Hamaspathmaidyem dans les cinq derniers jours de l'année pour la création de l'être humain et le souvenir des fravashis des disparus, au seuil de Norouz. Aux Gahanbars, les gens se rassemblent au temple du feu, récitent l'Avesta et dressent la table du Gahanbar ; la nourriture de cette table est partagée également entre tous — riches et pauvres. Le Gahanbar est la fête de l'action de grâce, du don et de la réunion : une manière de se rassembler six fois l'an, de rendre grâce et de partager avec les autres sa part de l'abondance du monde.",
           calSoloBtn: "Calendrier séparé",
           calSoloHint: "Ouvrez le calendrier sur sa propre page plein écran ; vous pouvez l'ajouter séparément à l'écran d'accueil de votre téléphone, pour l'avoir toujours à une touche.",
           legFest: "Fête / observance",
           legGah: "Gahambar",
           legNabor: "Jour Nabor",
+          legHist: "Événement historique",
+          legGreat: "Grands personnages",
           calBannerAlt: "Miniature persane du calendrier céleste de l'Iran ancien : soleil, lune et étoiles avec motifs dorés boteh-jegheh sur bleu royal",
           soloGuideTitle: "Mettez le calendrier sur votre téléphone",
           soloIosTitle: "iPhone (Safari)",
@@ -8184,6 +8584,19 @@
         11: [[2, "f11aName"], [10, "f11bName"]],
         12: [[5, "f12aName"]]
       };
+      /* Historical events: month -> [[day, name key]] */
+      var HIST_DAYS = {
+        2: [[10, "h1Name"]],
+        8: [[7, "h2Name"]]
+      };
+      /* Birthdays and commemoration days of great Iranian writers, poets and scientists */
+      var GREAT_DAYS = {
+        2: [[1, "p1Name"], [25, "p2Name"], [28, "p3Name"]],
+        6: [[1, "p4Name"], [5, "p5Name"], [13, "p6Name"]],
+        7: [[8, "p7Name"], [15, "p8Name"], [20, "p9Name"], [22, "p13Name"]],
+        8: [[4, "p14Name"], [9, "p15Name"], [21, "p10Name"]],
+        12: [[5, "p11Name"], [24, "p16Name"], [25, "p12Name"]]
+      };
       /* The six Gahambars: key -> [month, first day, last day]; a 0 day means
          "counted from the end of Esfand" (Hamaspathmaidyem = the year's last five days) */
       var GAHANBAR = {
@@ -8209,6 +8622,10 @@
         }
         var list = FEST_DAYS[m] || [];
         for (var i = 0; i < list.length; i++) push(list[i][0], list[i][1], "fest");
+        var hlist = HIST_DAYS[m] || [];
+        for (var hi = 0; hi < hlist.length; hi++) push(hlist[hi][0], hlist[hi][1], "hist");
+        var glist = GREAT_DAYS[m] || [];
+        for (var gi = 0; gi < glist.length; gi++) push(glist[gi][0], glist[gi][1], "great");
         for (var gk in GAHANBAR) {
           if (!GAHANBAR.hasOwnProperty(gk)) continue;
           var r = gahRange(gk);
@@ -8341,20 +8758,25 @@
         for (var d = 1; d <= len; d++) {
           var cls = "cal-cell";
           var dayEv = ev[d] || [];
-          var hasFest = false, hasGah = false, hasNabor = false;
+          var hasFest = false, hasGah = false, hasNabor = false, hasHist = false, hasGreat = false;
           for (var q = 0; q < dayEv.length; q++) {
             if (dayEv[q].kind === "fest") hasFest = true;
             else if (dayEv[q].kind === "gah") hasGah = true;
             else if (dayEv[q].kind === "nabor") hasNabor = true;
+            else if (dayEv[q].kind === "hist") hasHist = true;
+            else if (dayEv[q].kind === "great") hasGreat = true;
           }
           if (hasFest) cls += " fest";
           if (hasGah) cls += " gah";
           if (hasNabor) cls += " nabor";
+          if (hasHist) cls += " hist";
+          if (hasGreat) cls += " great";
           if (m === base.today.m && d === base.today.d) cls += " today";
           var ttl = fests[d] ? ' title="' + fests[d].join(" — ").replace(/"/g, "") + '"' : "";
           var gd = gregOf(m, d);
           var gLabel = (d === 1 || gd.getDate() === 1) ? gMonFmt.format(gd) : gDayFmt.format(gd);
-          html += '<button type="button" class="' + cls + '" data-cal-day="' + d + '"' + ttl + ">" + num(d) + '<span class="cal-greg">' + gLabel + "</span></button>";
+          var marks = (hasHist ? '<i class="mk-hist" aria-hidden="true"></i>' : "") + (hasGreat ? '<i class="mk-great" aria-hidden="true"></i>' : "");
+          html += '<button type="button" class="' + cls + '" data-cal-day="' + d + '"' + ttl + ">" + num(d) + '<span class="cal-greg">' + gLabel + "</span>" + marks + "</button>";
         }
         grid.innerHTML = html;
         /* One list line per observance; a Gahambar appears once, as a five-day range */
@@ -8738,7 +9160,7 @@
     <script>
       /* ---------- Separate pages: show one section at a time ---------- */
       (function () {
-        var VIEWS = ["avesta", "gathas", "shahnameh", "history", "calendar", "nights", "festivals", "monuments", "peoples", "inventions", "creatures", "heroes", "schools", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
+        var VIEWS = ["avesta", "gathas", "shahnameh", "history", "calendar", "nights", "festivals", "festivals-guide", "monuments", "peoples", "inventions", "creatures", "heroes", "schools", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
         var panels = document.querySelectorAll("[data-view]");
         var navLinks = document.querySelectorAll("[data-view-link]");
         var current = "home";
