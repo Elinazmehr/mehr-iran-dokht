@@ -1488,6 +1488,22 @@
         <article class="full-story">
           <span class="new-badge" data-new-key="books:shHistTitle" data-i18n="newBadge">تازه</span>
           <h3 data-i18n="shHistTitle">تاریخ شاهنامه — از ابومنصوری تا فردوسی</h3>
+          <!-- Voice narration: Elnaz's own recording of the History of the Shahnameh — recorded by her, added 2026-11-26. -->
+          <div class="voice-box live" id="voiceShahnamehHistory" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <button type="button" class="voice-play" id="voicePlay15" aria-label="پخش خوانش تاریخ شاهنامه با صدای الناز" aria-pressed="false">
+              <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
+            <div class="voice-meta">
+              <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
+              <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
+              <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+              <span class="voice-progress" id="voiceProg15" aria-hidden="true"><i id="voiceFill15"></i></span>
+              <span class="voice-time" id="voiceTime15" dir="ltr">0:00 / 3:57</span>
+            </div>
+            <span class="voice-badge voice-badge-live" data-i18n="voiceDur15">۳:۵۷</span>
+            <audio id="voiceAudio15" src="assets/voice-shahnameh-history.m4a" preload="metadata"></audio>
+          </div>
           <figure class="card-fig story-fig living-fig" data-motion="pan"><span class="living-frame"><img draggable="false" src="assets/shahnameh-history.webp" data-i18n-alt="shHistImgAlt" alt="نگاره‌ی مینیاتور ایرانی از فردوسی که در دربار کتاب شاهنامه را پیشکش می‌کند و کاتبان و شاعران توس سرگرم نوشتن و خواندن آن کتاب‌اند، از پیش‌درآمد شاهنامه" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="shHistImgCap">فردوسی شاهنامه را پیشکش می‌کند — سرانجامِ سی سال رنجی که نام ایران و زبان پارسی را زنده نگه داشت.</figcaption></figure>
           <p data-i18n="shHistP1">داستان‌های شاهنامه یک‌شبه ساخته نشده‌اند. ریشه‌ی آن‌ها به روزگار ساسانیان می‌رسد؛ به کتابی به زبان پهلوی به نام «خدای‌نامه» که سرگذشت شاهان و پهلوانان ایران را از نخستین روزگار تا پایان دوره‌ی ساسانی در خود نگه داشته بود. این کتاب را در دربار ساسانی، دهقانان و موبدان گرد آورده بودند و پس از آن روزگار نیز، نسخه‌ها و بازنویسی‌هایش دست‌به‌دست می‌شد.</p>
           <p data-i18n="shHistP2">در سال ۳۴۶ هجری، ابومنصور محمد بن عبدالرزاق، بزرگِ توس و سپهسالار خراسان، خواست که این گنجینه از میان نرود. به دستور او، و با سرپرستی وزیرش ابومنصور معمری، چهار دانشمند از شهرهای گوناگون — از هرات و سیستان و نیشابور و توس — گرد هم نشستند و «شاهنامه‌ی ابومنصوری» را به نثر نوشتند؛ از کیومرث، نخستین شاه، تا پایان کار یزدگرد. کتابی که امروز تنها مقدمه‌اش به دست ما رسیده و از کهن‌ترین نمونه‌های نثر پارسی است.</p>
@@ -4389,17 +4405,21 @@
           <span class="new-badge" data-new-key="shahnameh:s10Title" data-i18n="newBadge">تازه</span>
           <span class="tag" data-i18n="s10Tag">سرگذشت دهم · به‌ترتیب شاهنامه</span>
           <h3 data-i18n="s10Title">هفت‌خان رستم</h3>
-          <!-- Voice narration: Elnaz's own recording of Account Ten (The Seven Labours of Rostam) goes here (assets/voice-shahnameh-10.*) once she sends it. -->
-          <div class="voice-box" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
-            <span class="voice-play" aria-hidden="true">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
-            </span>
+          <!-- Voice narration: Elnaz's own recording of Account Ten (The Seven Labours of Rostam) — recorded by her, added 2026-11-26. -->
+          <div class="voice-box live" id="voiceHaftKhan" role="group" data-i18n-aria="voiceAria" aria-label="خوانش صوتی">
+            <button type="button" class="voice-play" id="voicePlay14" aria-label="پخش خوانش سرگذشت هفت‌خان رستم با صدای الناز" aria-pressed="false">
+              <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
+              <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+            </button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
-              <span data-i18n="voiceText">این بخش را با صدای خودم می‌خوانم و ضبطش را همین‌جا می‌گذارم تا با صدای من گوش بدهی.</span>
+              <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
               <span class="voice-wave" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:18px"></i><i style="height:9px"></i><i style="height:16px"></i><i style="height:22px"></i><i style="height:11px"></i><i style="height:17px"></i><i style="height:7px"></i><i style="height:15px"></i><i style="height:21px"></i><i style="height:10px"></i><i style="height:19px"></i><i style="height:13px"></i><i style="height:8px"></i><i style="height:16px"></i><i style="height:20px"></i><i style="height:12px"></i><i style="height:9px"></i><i style="height:15px"></i></span>
+              <span class="voice-progress" id="voiceProg14" aria-hidden="true"><i id="voiceFill14"></i></span>
+              <span class="voice-time" id="voiceTime14" dir="ltr">0:00 / 3:48</span>
             </div>
-            <span class="voice-badge" data-i18n="voiceSoon">به‌زودی</span>
+            <span class="voice-badge voice-badge-live" data-i18n="voiceDur14">۳:۴۸</span>
+            <audio id="voiceAudio14" src="assets/voice-shahnameh-10.m4a" preload="metadata"></audio>
           </div>
           <figure class="card-fig story-fig living-fig" data-motion="fire"><span class="living-frame"><img draggable="false" src="assets/shahnameh-haftkhan.webp" data-i18n-alt="s10ImgAlt" alt="نگاره‌ی مینیاتور ایرانی از رستم با ببربیان و کلاه پلنگی که در غار تاریک مازندران با شمشیر برافراشته با دیو سپید کوه‌پیکر نبرد می‌کند و رخش، اسب وفادارش، بر دهانه‌ی غار ایستاده است، از سرگذشت دهم شاهنامه" loading="lazy" /><span class="living-glow" aria-hidden="true"></span><span class="living-badge" data-i18n="livingBadge">نگاره‌ی زنده · در حرکت</span></span><figcaption data-i18n="s10ImgCap">هفت‌خان رستم — خان هفتم: نبرد رستم با دیو سپید در غار تاریک مازندران.</figcaption></figure>
           <p data-i18n="s10P1">پس از زادن رستم و بالیدنش، نوبت آزمونی بزرگ رسید. کیکاوس، شاه ایران، فریب دیوی را خورد که به ریخت آوازخوانی نزد او آمده و از باغ‌های پرگل مازندران — سرزمین دیوان و جادو — برایش خوانده بود؛ شاه با سپاهی بزرگ به مازندران تاخت تا آن را بگشاید، اما دیوان بر سپاه ایران تاختند و کیکاوس و پهلوانانش به جادوی دیو سپید نابینا شدند و همه در بند افتادند. فرستاده‌ای خود را به زال رساند و زال، رستم جوان را خواند و گفت: تنها تو می‌توانی شاه و سپاه ایران را رها کنی. رستم راه کوتاه و پرخطر کوهستان را برگزید — راهی که هفت خان، هفت ایستگاه پر از دیو و اژدها و جادو، در آن بود — و تنها با اسبش رخش به راه افتاد:</p>
@@ -5370,6 +5390,8 @@
           voiceDur11: "3:47",
           voiceDur12: "3:17",
           voiceDur13: "3:16",
+          voiceDur14: "3:48",
+          voiceDur15: "3:57",
           livingBadge: "Living painting · in motion",
           livingTitle: "The paintings are no longer still — they live and move",
           livingText: "The camera slowly drifts and draws closer, light slides across the scene, and where there is fire the flame flickers and sparks rise — like a living miniature. If your eyes tire, pause the motion with the button here.",
@@ -7166,6 +7188,8 @@
           voiceDur11: "3:47",
           voiceDur12: "3:17",
           voiceDur13: "3:16",
+          voiceDur14: "3:48",
+          voiceDur15: "3:57",
           livingBadge: "Miniature vivante · en mouvement",
           livingTitle: "Les miniatures ne sont plus fixes — elles vivent et bougent",
           livingText: "La caméra glisse lentement et se rapproche, la lumière traverse la scène, et là où il y a du feu, la flamme vacille et des étincelles s'élèvent — comme une miniature vivante. Si vos yeux se fatiguent, mettez le mouvement en pause avec le bouton ici.",
@@ -10175,6 +10199,17 @@
             fr: { play: "Écouter la narration du conte de la naissance de Rostam par Elnaz", pause: "Mettre en pause la narration du conte de la naissance de Rostam" }
           }
         });
+        /* Account Ten (The Seven Labours of Rostam) */
+        initVoice({
+          box: "voiceHaftKhan", btn: "voicePlay14", audio: "voiceAudio14",
+          prog: "voiceProg14", fill: "voiceFill14", time: "voiceTime14",
+          fallbackDur: 228,
+          labels: {
+            fa: { play: "پخش خوانش سرگذشت هفت‌خان رستم با صدای الناز", pause: "ایست خوانش سرگذشت هفت‌خان رستم" },
+            en: { play: "Play Elnaz's narration of the tale of the Seven Labours of Rostam", pause: "Pause the narration of the tale of the Seven Labours of Rostam" },
+            fr: { play: "Écouter la narration du conte des Sept Épreuves de Rostam par Elnaz", pause: "Mettre en pause la narration du conte des Sept Épreuves de Rostam" }
+          }
+        });
         /* Night One (Shahrazad and Shahriar) */
         initVoice({
           box: "voiceShahrazad", btn: "voicePlay8", audio: "voiceAudio8",
@@ -10217,6 +10252,17 @@
             fa: { play: "پخش خوانش بخش یسنا و گات‌ها با صدای الناز", pause: "ایست خوانش بخش یسنا و گات‌ها" },
             en: { play: "Play Elnaz's narration of the Yasna and the Gathas", pause: "Pause the narration of the Yasna and the Gathas" },
             fr: { play: "Écouter la narration du Yasna et des Gathas par Elnaz", pause: "Mettre en pause la narration du Yasna et des Gathas" }
+          }
+        });
+        /* History of the Shahnameh */
+        initVoice({
+          box: "voiceShahnamehHistory", btn: "voicePlay15", audio: "voiceAudio15",
+          prog: "voiceProg15", fill: "voiceFill15", time: "voiceTime15",
+          fallbackDur: 237,
+          labels: {
+            fa: { play: "پخش خوانش تاریخ شاهنامه با صدای الناز", pause: "ایست خوانش تاریخ شاهنامه" },
+            en: { play: "Play Elnaz's narration of the History of the Shahnameh", pause: "Pause the narration of the History of the Shahnameh" },
+            fr: { play: "Écouter la narration de l'Histoire du Shahnameh par Elnaz", pause: "Mettre en pause la narration de l'Histoire du Shahnameh" }
           }
         });
       })();
