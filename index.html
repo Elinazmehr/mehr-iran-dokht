@@ -773,6 +773,12 @@
       .section-fig figcaption { color: var(--ink-soft); font-size: .83rem; margin-top: .5rem; line-height: 1.7; }
       .card-fig { margin: 0 0 .9rem; }
       .card-fig img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); }
+      /* ---------- Real photographs inside carpet cards ---------- */
+      .real-photo { margin: 1rem 0 0; }
+      .real-photo img { aspect-ratio: auto; height: auto; border: 1.5px solid var(--gold); }
+      .real-photo figcaption { color: var(--ink-soft); font-size: .83rem; margin-top: .5rem; line-height: 1.7; }
+      .photo-credit { display: block; margin-top: .3rem; color: var(--ink-soft); opacity: .72; font-size: .72rem; line-height: 1.6; direction: ltr; text-align: left; }
+      .photo-credit a { color: inherit; text-decoration: underline; }
       /* ---------- Monument location lines + map buttons ---------- */
       .mon-loc { display: flex; flex-wrap: wrap; align-items: center; gap: .45rem .8rem; margin-top: .75rem; }
       .mon-loc-line { display: inline-flex; align-items: center; gap: .35rem; color: var(--ink-soft); font-size: .86rem; font-weight: 700; }
@@ -2598,6 +2604,28 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon53Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-chogha-mish.webp" data-i18n-alt="mon53Alt" alt="تپه‌ی باستانی چغامیش در میان کشتزارهای دشت خوزستان" loading="lazy" /><small class="photo-credit">Public domain · <a href="https://commons.wikimedia.org/wiki/File:Choghamish.jpg" target="_blank" rel="noopener">Wikimedia Commons</a></small></figure>
+            <span class="tag" data-i18n="mon53Tag">خوزستان · از نزدیک به ۶۸۰۰ پیش از میلاد</span>
+            <h3 data-i18n="mon53Title">تپه‌ی چغامیش، از نخستین شهرهای ایران</h3>
+            <p data-i18n="mon53Text">در دشت خوزستان، میان دزفول و شوشتر، تپه‌ای آرام نشسته که از کهن‌ترین جاهای شهرنشینی در ایران است؛ نزدیک نه هزار سال پیش، مردمانی در آن خانه ساختند و سفال پختند. چغامیش در روزگار پیش‌ایلامی یکی از کانون‌های بزرگ این سرزمین بود و در آن نشانه‌هایی از نخستین گام‌های انسان به سوی نوشتن پیدا شده است: مهرهای گلی و نشانه‌های شمارش. کاسه‌ای سفالی از این تپه، با نقش گروهی از نوازندگان، از کهن‌ترین نگاره‌های موسیقی در جهان به شمار می‌رود.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon53Loc">دزفول، خوزستان</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Chogha+Mish+Dezful" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon54Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-cheshmeh-ali.webp" data-i18n-alt="mon54Alt" alt="چشمه‌ی کهن علی پای تپه‌ی سنگی چشمه‌علی در شهر ری" loading="lazy" /><small class="photo-credit">Photo: Orijentolog · <a href="https://commons.wikimedia.org/wiki/File:Cheshmeh-Ali,_Ray.JPG" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figure>
+            <span class="tag" data-i18n="mon54Tag">تهران · از نزدیک به ۵۰۰۰ پیش از میلاد</span>
+            <h3 data-i18n="mon54Title">چشمه‌علی و تپه‌ی کهن ری</h3>
+            <p data-i18n="mon54Text">پای تپه‌ای سنگی در شهر ری، چشمه‌ای کهن از دل سنگ می‌جوشد که هزاران سال است زندگی را به این سرزمین آورده است. بر تپه‌ی کنار چشمه، مردمانی نزدیک هفت هزار سال پیش خانه ساختند و سفال‌های سرخ‌فامی پختند که نقش انسان و خورشید و جانوران بر آن‌ها کشیده‌اند؛ سفال چشمه‌علی امروز در موزه‌های جهان نام‌آور است. این‌جا آغازه‌ی شهر بزرگ «ری» است؛ شهری که در روزگار مادها و هخامنشیان و ساسانیان از بزرگ‌ترین شهرهای ایران بود.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon54Loc">شهر ری، تهران</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Cheshmeh+Ali+Rey" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
             <span class="new-badge" data-new-key="monuments:mon24Title" data-i18n="newBadge">تازه</span>
             <figure class="card-fig"><img draggable="false" src="assets/monument-hissar.jpg" data-i18n-alt="mon24Alt" alt="ویرانه‌های خشتی تپه‌ی حصار در نزدیکی دامغان" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon24Tag">سمنان · از نزدیک به ۴۰۰۰ پیش از میلاد</span>
@@ -2721,6 +2749,28 @@
             <div class="mon-loc">
               <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon21Loc">ملایر، همدان</span></span>
               <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Nushijan+Fire+Temple+Malayer" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon55Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-eshaqvand.webp" data-i18n-alt="mon55Alt" alt="نقش مرد نیایشگر بر دیواره‌ی گوردخمه‌ی اسحاق‌وند در هرسین" loading="lazy" /><small class="photo-credit">Photo: Breathing Dead · <a href="https://commons.wikimedia.org/wiki/File:Praying_Man%27s_figure_over_one_the_tombs_of_Es-hagh-vand.JPG" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figure>
+            <span class="tag" data-i18n="mon55Tag">کرمانشاه · روزگار مادها</span>
+            <h3 data-i18n="mon55Title">گوردخمه‌های اسحاق‌وند</h3>
+            <p data-i18n="mon55Text">در روستای اسحاق‌وند، نزدیک هرسین کرمانشاه، سه گوردخمه در دل کوه کنده شده که از کهن‌ترین گوردخمه‌های ایران‌اند و به روزگار مادها می‌رسند. بر دیواره‌ی گوردخمه‌ی میانی، نقش مردی نیایشگر کنده شده که دست‌ها را به نیایش بلند کرده و شاخه‌های بَرسَم در دست دارد. این آرامگاه‌های سنگی خاموش، از نخستین نشانه‌های آیین خاک‌سپاری بزرگان در کوهستان‌های غرب ایران‌اند.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon55Loc">هرسین، کرمانشاه</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Eshaqvand+Rock+Tombs+Harsin" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon56Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-dokan-davud.webp" data-i18n-alt="mon56Alt" alt="گوردخمه‌ی صخره‌ای دکان داوود در سرپل ذهاب کرمانشاه" loading="lazy" /><small class="photo-credit">Photo: Kaveh Parseh · <a href="https://commons.wikimedia.org/wiki/File:Catacombs-Dukkan-e_Daud_1.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figure>
+            <span class="tag" data-i18n="mon56Tag">کرمانشاه · روزگار مادها</span>
+            <h3 data-i18n="mon56Title">گوردخمه‌ی دکان داوود</h3>
+            <p data-i18n="mon56Text">نزدیک سرپل ذهاب، در دل دیواره‌ای سنگی، گوردخمه‌ای از روزگار مادها کنده شده که مردم آن را «دکان داوود» می‌نامند. درونش تالاری ستون‌دار و جای آرامگاه است و زیر آن، نقش مردی نیایشگر با جامه‌ی مادی و شاخه‌های برسم در دست بر سنگ نشسته است. این گوردخمه را از کهن‌ترین آرامگاه‌های صخره‌ای ایران می‌دانند و سادگی و شکوهش، یادگار روزگاری است که مادها نخستین شاهنشاهی ایران را می‌ساختند.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon56Loc">سرپل ذهاب، کرمانشاه</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Dokan-e+Davud+Sarpol-e+Zahab" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
             </div>
           </article>
           <article class="story-card">
@@ -2860,6 +2910,17 @@
             <div class="mon-loc">
               <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon39Loc">مسجدسلیمان، خوزستان</span></span>
               <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Bard-e+Neshandeh+Masjed+Soleyman" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon57Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-stone-lion.webp" data-i18n-alt="mon57Alt" alt="پیکره‌ی سنگی شیر همدان، یادگار هگمتانه‌ی کهن" loading="lazy" /><small class="photo-credit">Photo: Carole Raddato · <a href="https://commons.wikimedia.org/wiki/File:The_stone_lion_of_Hamadan,_Hellenistic_sculpture,_Ecbatana,_Iran_02.jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a></small></figure>
+            <span class="tag" data-i18n="mon57Tag">همدان · از روزگار اشکانیان</span>
+            <h3 data-i18n="mon57Title">شیر سنگی همدان</h3>
+            <p data-i18n="mon57Text">در میدانی در همدان، شیری بزرگ از سنگ نشسته که بیش از دو هزار سال است نگهبان این شهر است. گمان بیشتر پژوهشگران این است که این پیکره از روزگار اشکانیان مانده و روزگاری بر دروازه‌ی هگمتانه، پایتخت کهن مادها، جای داشته است. شیر سنگی در گذر سده‌ها آسیب‌ها دیده، اما هنوز با همان آرامش کهن بر شهر می‌نگرد و از دوست‌داشتنی‌ترین نشانه‌های همدان است.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon57Loc">همدان</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Stone+Lion+Hamadan" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
             </div>
           </article>
           <article class="story-card">
@@ -3056,6 +3117,17 @@
             </div>
           </article>
           <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon58Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-gorgan-wall.webp" data-i18n-alt="mon58Alt" alt="بازمانده‌ی تپه‌مانند دیوار بزرگ گرگان و دژهایش در دشت گلستان" loading="lazy" /><small class="photo-credit">Photo: Lars Holmer · <a href="https://commons.wikimedia.org/wiki/File:Great_Wall_of_Gorgan_-_panoramio.jpg" target="_blank" rel="noopener">CC BY 3.0</a></small></figure>
+            <span class="tag" data-i18n="mon58Tag">گلستان · ساسانی، سده‌ی پنجم و ششم میلادی</span>
+            <h3 data-i18n="mon58Title">دیوار بزرگ گرگان، دیوار سرخ</h3>
+            <p data-i18n="mon58Text">از کرانه‌ی دریای کاسپین تا کوه‌های شرق گلستان، دیواری از آجر سرخ نزدیک به دویست کیلومتر کشیده شده که پس از دیوار چین، از درازترین دیوارهای پدافندی جهان کهن است. شاهنشاهان ساسانی آن را در سده‌ی پنجم و ششم میلادی ساختند تا راه تازش کوچ‌نشینان شمال را ببندند؛ در درازایش بیش از سی دژ و خندقی بزرگ بود که آب رود گرگان در آن روان می‌شد. چون آجرهایش سرخ‌فام است، مردم آن را «دیوار سرخ» نامیده‌اند و هنوز ردی از آن بر دشت گرگان پیداست.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon58Loc">گنبد کاووس، گلستان</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Great+Wall+of+Gorgan" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/monument-taq-bostan.jpg" data-i18n-alt="mon15Alt" alt="نقش‌برجسته‌ی تاج‌گذاری ساسانی در طاق بستان، بر فراز آب" loading="lazy" /></figure>
             <span class="tag" data-i18n="mon15Tag">کرمانشاه · ساسانی</span>
             <h3 data-i18n="mon15Title">طاق بستان</h3>
@@ -3128,6 +3200,72 @@
             <div class="mon-loc">
               <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon44Loc">لارستان، فارس</span></span>
               <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Kariyan+Fire+Temple+Larestan" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon59Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-bandian.webp" data-i18n-alt="mon59Alt" alt="تالار گچ‌بری‌شده‌ی آتشکده‌ی ساسانی بندیان در درگز" loading="lazy" /><small class="photo-credit">Photo: Pej Man · <a href="https://commons.wikimedia.org/wiki/File:Bandian_Gallery_Hall.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figure>
+            <span class="tag" data-i18n="mon59Tag">خراسان رضوی · ساسانی، سده‌ی پنجم و ششم میلادی</span>
+            <h3 data-i18n="mon59Title">آتشکده‌ی بندیان درگز و گچ‌بری‌هایش</h3>
+            <p data-i18n="mon59Text">در درگز خراسان، آتشکده‌ای ساسانی از زیر خاک بیرون آمده که گنجینه‌اش دیوارهایش است: گچ‌بری‌هایی شگفت از نبرد شاه با دشمنان، شکار و آیین‌های کهن که چون پرده‌ای از سنگ و گچ، داستان آن روزگار را بازمی‌گویند. بندیان در سده‌ی پنجم و ششم میلادی ساخته شد و آتشدان و تالارهایش هنوز برپاست. این آتشکده را از ارزشمندترین یافته‌های ساسانی در شرق ایران می‌دانند و امروز سایبانی بزرگ از آن نگهبانی می‌کند.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon59Loc">درگز، خراسان رضوی</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Bandian+Fire+Temple+Dargaz" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon60Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-tappeh-mil.webp" data-i18n-alt="mon60Alt" alt="بازمانده‌ی آتشکده‌ی ساسانی تپه‌ی میل در دشت ورامین" loading="lazy" /><small class="photo-credit">Photo: Orijentolog · <a href="https://commons.wikimedia.org/wiki/File:Tappeh_Mill_4.JPG" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figure>
+            <span class="tag" data-i18n="mon60Tag">تهران · ساسانی</span>
+            <h3 data-i18n="mon60Title">تپه‌ی میل و آتشکده‌ی بهرام ری</h3>
+            <p data-i18n="mon60Text">بر فراز تپه‌ای در دشت ورامین، نزدیک ری کهن، بازمانده‌ی آتشکده‌ای ساسانی ایستاده که مردم آن را آتشکده‌ی بهرام می‌نامند و داستانش را به بهرام گور، شاه نام‌آور ساسانی، می‌بندند. روزگاری تالارها و ایوان‌هایی با گچ‌بری‌های زیبا داشته و آتشش از دور دیده می‌شده است. امروز دیوارهای سترگش بر بلندای تپه میل، هنوز بر دشت ری چشم دوخته‌اند.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon60Loc">ورامین، تهران</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tappeh+Mil+Varamin" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon61Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-narin-meybod.webp" data-i18n-alt="mon61Alt" alt="ارگ خشتی نارین بر تپه‌ای در شهر میبد یزد" loading="lazy" /><small class="photo-credit">Photo: Diego Delso · <a href="https://commons.wikimedia.org/wiki/File:Ciudadela_de_Meybod,_Ir%C3%A1n,_2016-09-20,_DD_03.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figure>
+            <span class="tag" data-i18n="mon61Tag">یزد · ریشه در روزگار ساسانی</span>
+            <h3 data-i18n="mon61Title">ارگ نارین میبد، بزرگ‌ترین دژ خشتی ایران</h3>
+            <p data-i18n="mon61Text">بر تپه‌ای در دل شهر میبد، دژی خشتی و سترگ نشسته که آن را بزرگ‌ترین بنای خشتی بازمانده‌ی ایران می‌دانند. ریشه‌ی نارین‌قلعه به روزگار ساسانی می‌رسد و در سده‌های پس از آن، بارها بر همان سنگ‌بنای کهن بازسازی شده است. از فراز برج‌هایش، بافت کهن میبد و راه باستانی ری به کرمان زیر پاست؛ راهی که کاروان‌ها هزار سال از کنار این دژ گذشته‌اند.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon61Loc">میبد، یزد</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Narin+Castle+Meybod" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon62Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-saryazd.webp" data-i18n-alt="mon62Alt" alt="اتاقک‌های گنبدی خشتی قلعه‌ی ساسانی سریزد در مهریز" loading="lazy" /><small class="photo-credit">Photo: Nina Shokouhy · <a href="https://commons.wikimedia.org/wiki/File:SarYazd_Castle_03.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figure>
+            <span class="tag" data-i18n="mon62Tag">یزد · ساسانی</span>
+            <h3 data-i18n="mon62Title">قلعه‌ی سریزد، انبار گنجینه‌ی کویر</h3>
+            <p data-i18n="mon62Text">در روستای سریزد، نزدیک مهریز یزد، قلعه‌ای ساسانی ایستاده که کارش نه پادشاهی بود و نه جنگ: گنجینه‌خانه و انبار مردم بود. قلعه سه اشکوبه و صدها اتاقک طاق‌دار دارد؛ مردمان پیرامون، هنگام یورش دشمن، خوراک و دارایی و گنجینه‌شان را در این اتاقک‌ها می‌نهادند و درش را می‌بستند. دو دیوار استوار و خندقی گرد آن، این انبار بزرگ کویر را سده‌ها نگه داشته‌اند.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon62Loc">مهریز، یزد</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Saryazd+Castle+Mehriz" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon63Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-izadkhast.webp" data-i18n-alt="mon63Alt" alt="قلعه و شهر کهن ایزدخواست بر تپه‌ی سنگی در آباده‌ی فارس" loading="lazy" /><small class="photo-credit">Photo: Amin Noubahar · <a href="https://commons.wikimedia.org/wiki/File:Izadkhast_Fortress.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></small></figure>
+            <span class="tag" data-i18n="mon63Tag">فارس · ساسانی</span>
+            <h3 data-i18n="mon63Title">قلعه‌ی ایزدخواست، شهر سنگی فارس</h3>
+            <p data-i18n="mon63Text">در شمال فارس، شهری کهن بر یک تپه‌ی سنگی یگانه برآمده که خانه‌هایش پله‌پله بر هم نشسته‌اند؛ ایزدخواست، از نخستین دژشهرهای ساسانی در این سرزمین. قلعه و آتشکده و خانه‌های خشتی‌اش در دل یک صخره‌ی بزرگ جای گرفته و از فراز آن، دشت آباده پیداست. ایزدخواست بر سر راه کهن اصفهان به شیراز بود و کاروان‌ها سده‌ها در سایه‌ی دیوارهایش آرام می‌گرفتند.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon63Loc">آباده، فارس</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Izadkhast+Castle" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
+            </div>
+          </article>
+          <article class="story-card">
+            <span class="new-badge" data-new-key="monuments:mon64Title" data-i18n="newBadge">تازه</span>
+            <figure class="card-fig"><img draggable="false" src="assets/monument-falak-olaflak.webp" data-i18n-alt="mon64Alt" alt="قلعه‌ی فلک‌الافلاک بر تپه‌ای در خرم‌آباد لرستان" loading="lazy" /><small class="photo-credit">Photo: Meysam.ebrahimi · <a href="https://commons.wikimedia.org/wiki/File:Falak-ol-Aflak_Castle_03.JPG" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figure>
+            <span class="tag" data-i18n="mon64Tag">لرستان · ریشه‌ی ساسانی</span>
+            <h3 data-i18n="mon64Title">قلعه‌ی فلک‌الافلاک، یادگار شاپورخواست</h3>
+            <p data-i18n="mon64Text">بر فراز تپه‌ای در دل خرم‌آباد، قلعه‌ای با برج‌های بلند ایستاده که سنگ‌بنایش به شهر ساسانی «شاپورخواست» می‌رسد؛ شهری که شاپور یکم ساسانی ساخت. بنای کنونی فلک‌الافلاک در سده‌های پسین بر همان پایه‌ی کهن بازسازی شده و برج‌های بلندش هنوز بر شهر چشم دارند. امروز درون قلعه موزه‌ای از یادگارهای لرستان است و خود قلعه، نشانه‌ی همیشگی خرم‌آباد به شمار می‌رود.</p>
+            <div class="mon-loc">
+              <span class="mon-loc-line"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg><span data-i18n="mon64Loc">خرم‌آباد، لرستان</span></span>
+              <a class="mon-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Falak-ol-Aflak+Castle+Khorramabad" target="_blank" rel="noopener" data-i18n="monMapBtn">نمایش روی نقشه</a>
             </div>
           </article>
           <article class="story-card">
@@ -3576,6 +3714,7 @@
             <span class="tag" data-i18n="cp1Tag">کهن‌ترین فرش جهان · حدود ۲۵۰۰ سال پیش</span>
             <h3 data-i18n="cp1Name">فرش پازیریک</h3>
             <p data-i18n="cp1Text">کهن‌ترین فرش گره‌باف جهان که تا امروز بر جای مانده، در سال ۱۹۴۹ میلادی از آرامگاهی یخ‌زده در دره‌ی پازیریک، در کوه‌های آلتای سیبری، پیدا شد. این فرش نزدیک به دو هزار و پانصد سال قدمت دارد و به روزگار هخامنشیان می‌رسد؛ یخ و سرمای گور، آن را از گزند روزگار نگه داشته و امروز در موزه‌ی ارمیتاژ نگهداری می‌شود. زمینه‌اش سرخ است و بر حاشیه‌هایش ردیف گوزن‌ها و سواران نقش بسته‌اند؛ نقش‌هایی که بسیاری از پژوهشگران آن‌ها را هم‌خانواده‌ی هنر ایران کهن می‌دانند، هرچند خاستگاه درست این فرش هنوز جای گفت‌وگوست. همین یک فرش نشان می‌دهد که هنر فرش‌بافی در آن روزگار، از پیش هنری پخته و استادانه بوده است.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-pazyryk.webp" data-i18n-alt="cpRealPazyrykAlt" alt="عکس واقعی فرش پازیریک، در موزه‌ی ارمیتاژ" loading="lazy" /><figcaption data-i18n="cpRealPazyryk">عکس واقعی فرش پازیریک، در موزه‌ی ارمیتاژ</figcaption><small class="photo-credit">Photo: Ninara · <a href="https://commons.wikimedia.org/wiki/File:Pazyryk_carpet_(10169022503).jpg" target="_blank" rel="noopener">CC BY 2.0</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-baharestan.webp" data-i18n-alt="cp2Alt" alt="نگاره‌ی مینیاتوری فرش افسانه‌ای بهارستان در کاخ تیسفون، با نقش باغی پر از جوی و درخت و گل و شاه ساسانی بر تخت" loading="lazy" /></figure>
@@ -3588,6 +3727,7 @@
             <span class="tag" data-i18n="cp3Tag">روزگار صفوی · ۹۴۶ هجری</span>
             <h3 data-i18n="cp3Name">فرش اردبیل و روزگار صفوی</h3>
             <p data-i18n="cp3Text">روزگار صفوی عصر طلایی فرش ایران است؛ شاهان صفوی، به‌ویژه شاه عباس بزرگ، کارگاه‌های شاهانه برپا کردند و فرش ایران را به اوج زیبایی و بافت رساندند. نام‌آورترین یادگار آن روزگار «فرش اردبیل» است که برای آرامگاه شیخ صفی‌الدین اردبیلی، نیای شاهان صفوی، بافته شد و در خود فرش، تاریخ پایان بافتش — سال ۹۴۶ هجری، برابر ۱۵۳۹ میلادی — و نام «مقصود کاشانی» گره خورده است؛ از همین رو کهن‌ترین فرش تاریخ‌دار جهان شمرده می‌شود. این فرش بسیار بزرگ، با نزدیک به بیست‌وشش میلیون گره، ترنجی بزرگ چون خورشید در میان دارد و دو چراغ در دو سویش نقش بسته است؛ امروز یکی از جفت آن در موزه‌ی ویکتوریا و آلبرت لندن و دیگری در موزه‌ی لس‌آنجلس نگهداری می‌شود.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-ardabil.webp" data-i18n-alt="cpRealArdabilAlt" alt="عکس واقعی فرش اردبیل، پهن‌شده در موزه‌ی ویکتوریا و آلبرت لندن" loading="lazy" /><figcaption data-i18n="cpRealArdabil">عکس واقعی فرش اردبیل، پهن‌شده در موزه‌ی ویکتوریا و آلبرت لندن</figcaption><small class="photo-credit">Photo: 14GTR · <a href="https://commons.wikimedia.org/wiki/File:The_Ardabil_Carpet_@_V%26A_South_Kensington_01.jpg" target="_blank" rel="noopener">CC0</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-qajar.webp" data-i18n-alt="cp4Alt" alt="نگاره‌ی مینیاتوری کارگاه بزرگ فرش‌بافی روزگار قاجار با دارهای بسیار و بافندگان و تاجرانی که فرش‌ها را برای سفر بار می‌بندند" loading="lazy" /></figure>
@@ -3600,24 +3740,28 @@
             <span class="tag" data-i18n="cp5Tag">آذربایجان خاوری</span>
             <h3 data-i18n="cp5Name">تبریز</h3>
             <p data-i18n="cp5Text">تبریز از کهن‌ترین و بزرگ‌ترین کانون‌های فرش‌بافی جهان است و فرشش به بافت استوار و ریزبافی و رنگ‌های هماهنگ شناخته می‌شود. طرح‌های لچک و ترنج، هراتی و شاه‌عباسی در فرش تبریز فراوان است و گاه چله‌اش ابریشم و نقش‌هایش چون نگارگری ظریف‌اند. فرش‌های تبریز در اندازه‌های بزرگ، با پشم مرغوب و گاه ابریشم بافته می‌شوند و هم در ایران و هم در بازار جهان خواستاران بسیار دارند.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-tabriz.webp" data-i18n-alt="cpRealTabrizAlt" alt="عکس واقعی یک فرش تبریز" loading="lazy" /><figcaption data-i18n="cpRealTabriz">عکس واقعی یک فرش تبریز</figcaption><small class="photo-credit">Photo: Fabien Dany · <a href="https://commons.wikimedia.org/wiki/File:Farsh_tabriz.JPG" target="_blank" rel="noopener">CC BY-SA 2.5</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-kashan.webp" data-i18n-alt="cp6Alt" alt="نگاره‌ی مینیاتوری فرش کاشان با زمینه‌ی سرخ لاکی و ترنج شاه‌عباسی نیلی و گل‌های ظریف" loading="lazy" /></figure>
             <span class="tag" data-i18n="cp6Tag">ایران مرکزی</span>
             <h3 data-i18n="cp6Name">کاشان</h3>
             <p data-i18n="cp6Text">کاشان از دیرباز شهر ابریشم و فرش‌های نفیس بوده است؛ فرش‌های «محتشم» کاشان با پشم نرم و براق و زمینه‌ی سرخ لاکی و نیلی و ترنج‌های شاه‌عباسی، از شاهکارهای فرش ایران‌اند. کاشان فرش ابریشم بسیار ظریف هم می‌بافد و مهارت فرش‌بافی سنتی‌اش در فهرست میراث جهانی یونسکو ثبت شده است. رنگ‌های کاشان — سرخ، نیلی، کرم و سبز — هماهنگی و شکوهی شاهانه به فرش می‌دهند.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-kashan.webp" data-i18n-alt="cpRealKashanAlt" alt="عکس واقعی یک فرش ابریشم کاشان، در موزه‌ی متروپولیتن" loading="lazy" /><figcaption data-i18n="cpRealKashan">عکس واقعی یک فرش ابریشم کاشان، در موزه‌ی متروپولیتن</figcaption><small class="photo-credit">The Metropolitan Museum of Art · <a href="https://commons.wikimedia.org/wiki/File:Silk_Kashan_Carpet_MET_DT5436.jpg" target="_blank" rel="noopener">CC0</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-isfahan.webp" data-i18n-alt="cp7Alt" alt="نگاره‌ی مینیاتوری فرش بسیار ظریف اصفهان با گل‌های شاه‌عباسی پیچان بر زمینه‌ی کرم و حاشیه‌ی نیلی" loading="lazy" /></figure>
             <span class="tag" data-i18n="cp7Tag">ایران مرکزی</span>
             <h3 data-i18n="cp7Name">اصفهان</h3>
             <p data-i18n="cp7Text">فرش اصفهان را از ظریف‌ترین فرش‌های جهان می‌دانند؛ گره‌های بسیار ریز بر چله‌ی ابریشم، با نقش‌های شاه‌عباسی و گل‌های پیچان بر زمینه‌ی کرم، نیلی یا سرخ. کارگاه‌های نام‌آوری چون صیرفیان، نام اصفهان را در جهان بلندآوازه کرده‌اند. فرش اصفهان بیشتر نگاره‌ای هنری است تا زیرانداز؛ هر گرهش با حوصله و دقتی کم‌مانند زده می‌شود و بهایش نیز از گران‌ترین‌هاست.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-isfahan.webp" data-i18n-alt="cpRealIsfahanAlt" alt="عکس واقعی یک فرش اصفهان از روزگار صفوی" loading="lazy" /><figcaption data-i18n="cpRealIsfahan">عکس واقعی یک فرش اصفهان از روزگار صفوی</figcaption><small class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Isfahan_-_Google_Art_Project.jpg" target="_blank" rel="noopener">Public domain</a> · Google Art Project</small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-qom.webp" data-i18n-alt="cp8Alt" alt="نگاره‌ی مینیاتوری فرش ابریشم قم با درخشش نرم و رنگ‌های روشن و طرح باغی پرگل" loading="lazy" /></figure>
             <span class="tag" data-i18n="cp8Tag">فرش ابریشم</span>
             <h3 data-i18n="cp8Name">قم</h3>
             <p data-i18n="cp8Text">فرش قم بیشتر از ابریشم خالص بافته می‌شود و به نرمی و درخشش و ریزبافی شگفتش شناخته می‌شود. بافت فرش در قم پیشینه‌ای کهن ندارد و در سده‌ی بیستم رونق گرفت؛ اما در همین زمان کوتاه، با طرح‌های باغی و لچک و ترنج و رنگ‌های روشن و زنده، جایگاهی بلند یافت. فرش ابریشم قم چنان لطیف است که چون پارچه‌ای گران‌بها تا می‌شود و بیشتر برای زینت و کلکسیون خریده می‌شود.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-qom.webp" data-i18n-alt="cpRealQomAlt" alt="عکس واقعی یک فرش قم" loading="lazy" /><figcaption data-i18n="cpRealQom">عکس واقعی یک فرش قم</figcaption><small class="photo-credit">Photo: Fabienkhan · <a href="https://commons.wikimedia.org/wiki/File:Farsh_Qom.JPG" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-kerman.webp" data-i18n-alt="cp9Alt" alt="نگاره‌ی مینیاتوری فرش کرمان با گل‌های ریز پرکار و بوته‌های رنگین بر زمینه‌ی سرخ لاکی و کرم" loading="lazy" /></figure>
@@ -3666,12 +3810,14 @@
             <span class="tag" data-i18n="cp16Tag">ایل‌های جنوب و باختر</span>
             <h3 data-i18n="cp16Name">گبه</h3>
             <p data-i18n="cp16Text">گبه فرش ایل‌هاست؛ زیراندازی کلفت و درشت‌بافت با پرز بلند که ایل‌های جنوب و باختر ایران — قشقایی و لر و بختیاری — برای زندگی کوچ‌نشینی خود می‌بافند. نقش گبه ساده و بی‌پیرایه است؛ بز و درخت و آدمک و ستاره، هرچه در ذهن بافنده است، با رنگ‌های گیاهی و پشم دست‌ریس. گبه نقشه و الگو ندارد؛ قصه‌ی زندگی ایل است که بر دار می‌نشیند و از همین رو هر گبه‌ای یگانه و بی‌همتاست.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-gabbeh.webp" data-i18n-alt="cpRealGabbehAlt" alt="عکس واقعی یک گبه‌ی لری" loading="lazy" /><figcaption data-i18n="cpRealGabbeh">عکس واقعی یک گبه‌ی لری</figcaption><small class="photo-credit">Grogan &amp; Co. · <a href="https://commons.wikimedia.org/wiki/File:Luri_Gabbeh_Camel_Hair_Rug.png" target="_blank" rel="noopener">Public domain</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-qashqai.webp" data-i18n-alt="cp17Alt" alt="نگاره‌ی مینیاتوری زن قشقایی سر دار زمینی با فرشی رنگین و نقش‌های هندسی و جانوران، کنار چادر ایل" loading="lazy" /></figure>
             <span class="tag" data-i18n="cp17Tag">ایل قشقایی · فارس</span>
             <h3 data-i18n="cp17Name">قشقایی</h3>
             <p data-i18n="cp17Text">ایل قشقایی در سرزمین فارس کوچ می‌کند و زنانش بر دارهای زمینی، فرش‌هایی می‌بافند که از زنده‌ترین و رنگین‌ترین فرش‌های ایران‌اند. نقش‌های هندسی و جانوران و آدم‌ها و ستاره‌ها با رنگ‌های سرخ و نیلی و زرد گیاهی، بی‌نقشه و از بر، بر فرش می‌نشینند. فرش قشقایی سراسر پشم است و بافتی استوار دارد؛ شور و آزادی زندگی ایل را می‌توان در هر گرهش دید. گلیم و گبه‌ی قشقایی نیز در جهان نام‌آور است.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-qashqai.webp" data-i18n-alt="cpRealQashqaiAlt" alt="عکس واقعی یک فرش قشقایی" loading="lazy" /><figcaption data-i18n="cpRealQashqai">عکس واقعی یک فرش قشقایی</figcaption><small class="photo-credit">Photo: Berndt Fernow · <a href="https://commons.wikimedia.org/wiki/File:Ghashghai_rug.jpg" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-bakhtiari.webp" data-i18n-alt="cp18Alt" alt="نگاره‌ی مینیاتوری فرش باغی بختیاری با خانه‌خانه‌هایی پر از درخت و گل و پرنده بر زمینه‌ی نیلی" loading="lazy" /></figure>
@@ -3684,12 +3830,14 @@
             <span class="tag" data-i18n="cp19Tag">ترکمن‌صحرا</span>
             <h3 data-i18n="cp19Name">ترکمن</h3>
             <p data-i18n="cp19Text">فرش ترکمن را از دور می‌توان شناخت؛ زمینه‌ی سرخ تیره و نقش‌های هندسی هشت‌گوش که «گل» خوانده می‌شوند و نشان هر طایفه‌اند — گل تکه، گل ساریق و گل یموت. بافت ترکمن ریز و فشرده و سراسر پشم است و رنگ سرخش گرمای صحرای ترکمن را دارد. هر طایفه گل ویژه‌ی خود را نسل‌به‌نسل نگه داشته است؛ از همین رو فرش ترکمن شناسنامه‌ی ایل است و خواندن گل‌هایش، خواندن تاریخ طایفه‌هاست.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-turkmen.webp" data-i18n-alt="cpRealTurkmenAlt" alt="عکس واقعی یک فرش ترکمن با گل‌های تکه" loading="lazy" /><figcaption data-i18n="cpRealTurkmen">عکس واقعی یک فرش ترکمن با گل‌های تکه</figcaption><small class="photo-credit">Photo: AltynAsyr · <a href="https://commons.wikimedia.org/wiki/File:%D0%A2%D1%83%D1%80%D0%BA%D0%BC%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B9_%D0%BA%D0%BE%D0%B2%D1%91%D1%80.JPG" target="_blank" rel="noopener">CC BY-SA 3.0</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-baluch.webp" data-i18n-alt="cp20Alt" alt="نگاره‌ی مینیاتوری جانماز بلوچ با رنگ‌های قهوه‌ای و شتری و لوزی‌های هندسی، در صحرایی با نخل و شتر" loading="lazy" /></figure>
             <span class="tag" data-i18n="cp20Tag">بلوچستان</span>
             <h3 data-i18n="cp20Name">بلوچ</h3>
             <p data-i18n="cp20Text">فرش بلوچ بیشتر کوچک‌پارچه و جانمازی است؛ با رنگ‌های تیره و گرم — قهوه‌ای و شتری و سرخ تیره و نیلی — و نقش‌های هندسی ریز و لوزی‌های پی‌درپی. بلوچ‌ها فرش را از پشم گوسفند و گاه موی بز و پشم شتر می‌بافند و بافتش سبک و نرم و همراه زندگی کوچ و صحراست. سادگی و وقار فرش بلوچ، آیینه‌ی زندگی مردمان سخت‌کوش جنوب خاور ایران است؛ مردمانی که هنرشان در سوزن‌دوزی و فرش هر دو می‌درخشد.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-baluch.webp" data-i18n-alt="cpRealBaluchAlt" alt="عکس واقعی یک جانماز بلوچ" loading="lazy" /><figcaption data-i18n="cpRealBaluch">عکس واقعی یک جانماز بلوچ</figcaption><small class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:Carpet,_Iran,_Vicinity_of_Mashhad_(Baluchistan),_20th_century.jpeg" target="_blank" rel="noopener">CC0</a></small></figure>
           </article>
           <article class="story-card">
             <figure class="card-fig"><img draggable="false" src="assets/carpet-shahsavan.webp" data-i18n-alt="cp21Alt" alt="نگاره‌ی مینیاتوری بافته‌ی سوماک شاهسون با نقش‌های هندسی درشت و رنگ‌های زنده و خورجین‌های آویخته بر اسب" loading="lazy" /></figure>
@@ -3762,6 +3910,7 @@
             <span class="tag" data-i18n="cp32Tag">کارت ویژه · هنر بافنده</span>
             <h3 data-i18n="cp32Name">تابلوفرش</h3>
             <p data-i18n="cp32Text">«تابلوفرش» بلندترین قله‌ی فرش تصویری است؛ تصویری کامل — چهره، منظره یا نگاره‌ای نامدار — که بر دار ایستاده، گره‌به‌گره و با چله و پودی بسیار ظریف بافته می‌شود تا از دور، نقاشی پنداشته شود. بافنده‌ی تابلوفرش ماه‌ها پشت دار می‌نشیند و با صدها رنگ و صبری شگفت، نور و سایه را با گره می‌سازد. این هنر نیز بیش از همه در تبریز و آذربایجان ریشه دارد و هر تابلوفرش، امضای دست و دل بافنده‌اش است. و برای ما این کارت رنگی دیگر دارد: الناز، بنیان‌گذار مهر ایران دخت، در سال‌های زندگی در ایران خود تابلوفرش می‌بافت و همه‌چیز بر دار می‌نشاند؛ از همین روست که مهر ایران دخت به هنر دست زنان ایران چنین دلبسته است.</p>
+            <figure class="card-fig real-photo"><img src="assets/carpet-real-tableau.webp" data-i18n-alt="cpRealTableauAlt" alt="عکس واقعی یک تابلوفرش کرمان، بافته‌ی پیرامون سال ۱۹۰۰ میلادی" loading="lazy" /><figcaption data-i18n="cpRealTableau">عکس واقعی یک تابلوفرش کرمان، بافته‌ی پیرامون سال ۱۹۰۰ میلادی</figcaption><small class="photo-credit"><a href="https://commons.wikimedia.org/wiki/File:A_Kirman_pictorial_rug,_signed_Muhammad_ibn_Ja%27far,_south_east_Persia,_circa_1900.jpg" target="_blank" rel="noopener">Public domain</a></small></figure>
           </article>
         </div>
         <p class="heritage-note" data-i18n="cpCredits">نگاره‌های این بخش، نقاشی‌های مینیاتوری به سبک نگارگری ایرانی‌اند که برای همین سایت ساخته شده‌اند.</p>
@@ -6933,6 +7082,66 @@
           mon52Text: "North of Qasr-e Shirin stands a mighty four-arched hall from the days of Khosrow II: a square chamber, twenty-five by twenty-five metres, with a doorway to each of the four directions and a dome that is gone today. Its fire could be seen from all four sides, and beside Khosrow's palace it served as the court's sanctuary — among the largest surviving fire temples of Sasanian Iran.",
           mon52Alt: "The stone ruins of the Chahar Qapu fire temple at Qasr-e Shirin",
           mon52Loc: "Qasr-e Shirin, Kermanshah Province",
+          mon53Tag: "Khuzestan · from about 6800 BCE",
+          mon53Title: "Tepe Chogha Mish, one of Iran's first cities",
+          mon53Alt: "The ancient mound of Chogha Mish among the fields of the Khuzestan plain",
+          mon53Text: "In the Khuzestan plain, between Dezful and Shushtar, sits a quiet mound that is one of the oldest places of city life in Iran; nearly nine thousand years ago people built houses there and fired pottery. In pre-Elamite times Chogha Mish was one of the great centres of this land, and signs of humankind's first steps toward writing have been found there: clay seals and counting tokens. A pottery bowl from this mound, painted with a group of musicians, counts among the oldest depictions of music in the world.",
+          mon53Loc: "Dezful, Khuzestan Province",
+          mon54Tag: "Tehran · from about 5000 BCE",
+          mon54Title: "Cheshmeh Ali and the ancient mound of Rey",
+          mon54Alt: "The ancient spring of Ali at the foot of the rocky Cheshmeh Ali mound in Rey",
+          mon54Text: "At the foot of a rocky mound in the city of Rey, an ancient spring gushes from the rock, bringing life to this land for thousands of years. On the mound beside the spring, people built houses nearly seven thousand years ago and fired red pottery painted with figures of humans, the sun and animals; Cheshmeh Ali pottery is famous in the world's museums today. This is the beginning of the great city of Rey — a city that in Median, Achaemenid and Sasanian times was among the greatest cities of Iran.",
+          mon54Loc: "Rey, Tehran Province",
+          mon55Tag: "Kermanshah · the Median age",
+          mon55Title: "The rock tombs of Eshaqvand",
+          mon55Alt: "The relief of the praying man on the wall of the Eshaqvand rock tomb at Harsin",
+          mon55Text: "In the village of Eshaqvand, near Harsin in Kermanshah, three rock tombs are carved into the mountain; they are among the oldest rock tombs of Iran and date to the Median age. On the wall of the middle tomb is carved the figure of a praying man, his hands raised in prayer and barsom twigs in his hand. These silent stone tombs are among the first signs of the burial rites of nobles in the mountains of western Iran.",
+          mon55Loc: "Harsin, Kermanshah Province",
+          mon56Tag: "Kermanshah · the Median age",
+          mon56Title: "The rock tomb of Dokan-e Davud",
+          mon56Alt: "The rock tomb of Dokan-e Davud at Sarpol-e Zahab, Kermanshah",
+          mon56Text: "Near Sarpol-e Zahab, carved into a rock face, is a tomb of the Median age that people call 'Dokan-e Davud' — David's shop. Inside it is a columned hall and the place of the tomb, and beneath it, the figure of a praying man in Median dress, barsom twigs in hand, sits carved in the stone. This tomb is counted among the oldest rock tombs of Iran, and its simplicity and grandeur are a relic of the days when the Medes were building the first empire of Iran.",
+          mon56Loc: "Sarpol-e Zahab, Kermanshah Province",
+          mon57Tag: "Hamadan · from the Parthian age",
+          mon57Title: "The Stone Lion of Hamadan",
+          mon57Alt: "The stone lion statue of Hamadan, a relic of ancient Ecbatana",
+          mon57Text: "In a square in Hamadan sits a great lion of stone that has guarded this city for more than two thousand years. Most scholars believe the statue survives from the Parthian age and once stood at the gate of Ecbatana, the ancient capital of the Medes. The Stone Lion has suffered damage over the centuries, yet it still gazes over the city with the same ancient calm, and it is one of Hamadan's best-loved landmarks.",
+          mon57Loc: "Hamadan",
+          mon58Tag: "Golestan · Sasanian, 5th and 6th centuries CE",
+          mon58Title: "The Great Wall of Gorgan, the Red Wall",
+          mon58Alt: "The mound-like remains of the Great Wall of Gorgan and its forts in the Golestan plain",
+          mon58Text: "From the shore of the Caspian Sea to the mountains of eastern Golestan stretches a wall of red brick nearly two hundred kilometres long — after the Great Wall of China, one of the longest defensive walls of the ancient world. The Sasanian kings built it in the fifth and sixth centuries CE to block the raids of the nomads of the north; along its length stood more than thirty forts and a great canal in which the water of the Gorgan River flowed. Because its bricks are red, people named it the 'Red Wall', and traces of it can still be seen across the Gorgan plain.",
+          mon58Loc: "Gonbad-e Kavus, Golestan Province",
+          mon59Tag: "Razavi Khorasan · Sasanian, 5th and 6th centuries CE",
+          mon59Title: "The Bandian fire temple of Dargaz and its stuccoes",
+          mon59Alt: "The stuccoed hall of the Sasanian Bandian fire temple at Dargaz",
+          mon59Text: "At Dargaz in Khorasan, a Sasanian fire temple has come out of the earth whose treasure is its walls: astonishing stucco reliefs of the king's battles with his enemies, of hunting and of ancient rites, which like a tapestry of stone and plaster retell the story of that age. Bandian was built in the fifth and sixth centuries CE, and its fire altar and halls still stand. This fire temple is counted among the most valuable Sasanian finds in eastern Iran, and today a great shelter guards it.",
+          mon59Loc: "Dargaz, Razavi Khorasan Province",
+          mon60Tag: "Tehran · Sasanian",
+          mon60Title: "Tappeh Mil and the Bahram fire temple of Rey",
+          mon60Alt: "The remains of the Sasanian fire temple of Tappeh Mil in the Varamin plain",
+          mon60Text: "On a hill in the Varamin plain, near ancient Rey, stand the remains of a Sasanian fire temple that people call the Fire Temple of Bahram, tying its story to Bahram Gur, the famous Sasanian king. Once it had halls and iwans with beautiful stuccoes, and its fire could be seen from afar. Today its mighty walls, on the heights of Tappeh Mil, still gaze over the plain of Rey.",
+          mon60Loc: "Varamin, Tehran Province",
+          mon61Tag: "Yazd · rooted in the Sasanian age",
+          mon61Title: "Narin Castle of Meybod, Iran's largest mud-brick fortress",
+          mon61Alt: "The mud-brick Narin citadel on a hill in the city of Meybod, Yazd",
+          mon61Text: "On a hill in the heart of the city of Meybod sits a mighty mud-brick fortress, counted as the largest surviving mud-brick building of Iran. Narin Castle's roots reach back to the Sasanian age, and in the centuries after, it was rebuilt again and again on the same ancient foundations. From the top of its towers, the old fabric of Meybod and the ancient road from Rey to Kerman lie below — a road along which caravans passed this fortress for a thousand years.",
+          mon61Loc: "Meybod, Yazd Province",
+          mon62Tag: "Yazd · Sasanian",
+          mon62Title: "Saryazd Castle, the desert's treasure storehouse",
+          mon62Alt: "The domed mud-brick chambers of the Sasanian Saryazd Castle at Mehriz",
+          mon62Text: "In the village of Saryazd, near Mehriz in Yazd, stands a Sasanian castle whose work was neither kingship nor war: it was the people's treasury and storehouse. The castle has three floors and hundreds of vaulted chambers; when enemies attacked, the people around stored their food, belongings and treasures in these chambers and shut the door. Two strong walls and a moat around it kept this great storehouse of the desert safe for centuries.",
+          mon62Loc: "Mehriz, Yazd Province",
+          mon63Tag: "Fars · Sasanian",
+          mon63Title: "Izadkhast Castle, the stone city of Fars",
+          mon63Alt: "The castle and ancient town of Izadkhast on its rocky hill at Abadeh, Fars",
+          mon63Text: "In northern Fars, an ancient town has risen on a single rocky hill, its houses stepped one upon another; Izadkhast, one of the first Sasanian fortress-towns of this land. Its castle, fire temple and mud-brick houses sit within one great rock, and from its top the plain of Abadeh can be seen. Izadkhast stood on the old road from Isfahan to Shiraz, and for centuries caravans rested in the shadow of its walls.",
+          mon63Loc: "Abadeh, Fars Province",
+          mon64Tag: "Lorestan · Sasanian roots",
+          mon64Title: "Falak-ol-Aflak Castle, relic of Shapurkhast",
+          mon64Alt: "Falak-ol-Aflak Castle on a hill in Khorramabad, Lorestan",
+          mon64Text: "On a hill in the heart of Khorramabad stands a castle with tall towers whose foundations reach back to the Sasanian city of 'Shapurkhast', the city built by Shapur I the Sasanian. The present building of Falak-ol-Aflak was rebuilt in later centuries on the same ancient base, and its tall towers still watch over the city. Today inside the castle is a museum of the relics of Lorestan, and the castle itself is counted the everlasting symbol of Khorramabad.",
+          mon64Loc: "Khorramabad, Lorestan Province",
           monCredits: "Photo credits for this section's new pictures, from Wikimedia Commons: <a href=\"https://commons.wikimedia.org/wiki/File:Estakhr_Darafsh_(55).JPG\" target=\"_blank\" rel=\"noopener\">Istakhr</a>, by Darafsh Kaviani · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Zahhak_castle.jpg\" target=\"_blank\" rel=\"noopener\">Zahhak Castle</a>, by Mechadavid · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Qaleh_Dokhtar_Firuzabad_by_HADI_01.jpg\" target=\"_blank\" rel=\"noopener\">Qaleh Dokhtar</a>, by HADI · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Darabgerd-01-by_HADI.jpg\" target=\"_blank\" rel=\"noopener\">Darabgerd</a>, by HADI · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Naqsh-e_Rajab_01.jpg\" target=\"_blank\" rel=\"noopener\">Naqsh-e Rajab</a>, by Bernard Gagnon · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:001125-TaqKasra-Iraq-IMG_7914-2.jpg\" target=\"_blank\" rel=\"noopener\">Taq Kasra</a>, by Safa.daneshvar · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Kul-e_Farah_Darafsh_(10).JPG\" target=\"_blank\" rel=\"noopener\">Kul-e Farah</a>, by Darafsh Kaviani · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Shahr-e_Yeri_Historical_Site_2019-09-18_01.jpg\" target=\"_blank\" rel=\"noopener\">Shahr Yeri</a>, by Reza Khanbabaei · CC BY 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:معبد_برد_نشانده_1.jpg\" target=\"_blank\" rel=\"noopener\">Bard-e Neshandeh</a>, by AMIR 121 · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Mehr_Temple_in_Maragheh_2019-07-06_01.jpg\" target=\"_blank\" rel=\"noopener\">Varjoy Mithraeum</a>, by Amir Sadeghi · CC BY 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Ancient_City_of_Gandhi_Shapour_02.jpg\" target=\"_blank\" rel=\"noopener\">Gundeshapur</a>, by Alireza.heydear · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Dezful_Old_Bridge_01.jpg\" target=\"_blank\" rel=\"noopener\">Dezful Bridge</a>, by Alireza.heydear · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Sasanian_statue_of_Shapur_I_in_Shapur_Cave,_Fars_Province.jpg\" target=\"_blank\" rel=\"noopener\">Shapur Cave</a>, by Tesiyeyodish · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:آتشکده_آذرفرنبغ_کاریان.jpg\" target=\"_blank\" rel=\"noopener\">Kariyan Fire Temple</a>, by Vahhiidd · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Ganj_Dareh_site.jpg\" target=\"_blank\" rel=\"noopener\">Ganj Dareh</a>, by Masdf98 · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Anubanini_Rock_Relief_1.jpg\" target=\"_blank\" rel=\"noopener\">Anubanini</a>, by Koorosh Nozad Tehrani · CC BY-SA 2.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Grabgewölbe_Haft_Tepe.JPG\" target=\"_blank\" rel=\"noopener\">Haft Tepe</a>, by Rainer Fischer · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:دهانه_غلامان.jpg\" target=\"_blank\" rel=\"noopener\">Dahaneh-ye Gholaman</a>, by Majid malaki · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:ستونهای_باقی_مانده_از_معبد_خورهه_-_01.jpg\" target=\"_blank\" rel=\"noopener\">Khurheh</a>, by Arash Ghafari · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Madaktu_06.jpg\" target=\"_blank\" rel=\"noopener\">Seymareh</a>, by Siamak Kargar · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:بنای_چهارقاپی.jpg\" target=\"_blank\" rel=\"noopener\">Chahar Qapu</a>, by Ali Heidari · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:کوه_خواجه_پانوراما.jpg\" target=\"_blank\" rel=\"noopener\">Mount Khwaja</a>, by Ahmad.abbasi.m · CC BY-SA 4.0",
           invKicker: "Iranian ingenuity, thousands of years ago",
           invTitle: "Inventions and Innovations of Pre-Islamic Iran",
@@ -7491,6 +7700,28 @@
           cp32Name: "The Tableau Carpet",
           cp32Alt: "Miniature painting of a woman weaver at the upright loom of a tableau carpet, weaving a face, with coloured skeins beside her",
           cp32Text: "The 'tableau carpet' is the highest peak of the pictorial carpet: a complete picture — a face, a landscape or a famous painting — woven on an upright loom, knot by knot, with a very fine warp and weft, until from a distance it is taken for a painting. The tableau weaver sits for months behind the loom and, with hundreds of colours and astonishing patience, builds light and shade out of knots. This art too is rooted above all in Tabriz and Azerbaijan, and every tableau carpet bears the signature of its weaver's hand and heart. And for us this card has another colour: Elnaz, the founder of Mehr Iran Dokht, in her years of life in Iran wove tableau carpets herself and set everything upon the loom — which is why Mehr Iran Dokht is so devoted to the handcraft of Iran's women.",
+          cpRealPazyryk: "The real Pazyryk carpet, at the Hermitage Museum",
+          cpRealPazyrykAlt: "The real Pazyryk carpet, at the Hermitage Museum",
+          cpRealArdabil: "The real Ardabil carpet, laid out at the Victoria and Albert Museum, London",
+          cpRealArdabilAlt: "The real Ardabil carpet, laid out at the Victoria and Albert Museum, London",
+          cpRealTabriz: "A real Tabriz carpet",
+          cpRealTabrizAlt: "A real Tabriz carpet",
+          cpRealKashan: "A real silk Kashan carpet, at the Metropolitan Museum of Art",
+          cpRealKashanAlt: "A real silk Kashan carpet, at the Metropolitan Museum of Art",
+          cpRealIsfahan: "A real Isfahan carpet from the Safavid era",
+          cpRealIsfahanAlt: "A real Isfahan carpet from the Safavid era",
+          cpRealQom: "A real Qom carpet",
+          cpRealQomAlt: "A real Qom carpet",
+          cpRealGabbeh: "A real Luri gabbeh",
+          cpRealGabbehAlt: "A real Luri gabbeh",
+          cpRealQashqai: "A real Qashqai carpet",
+          cpRealQashqaiAlt: "A real Qashqai carpet",
+          cpRealTurkmen: "A real Turkmen carpet with Tekke güls",
+          cpRealTurkmenAlt: "A real Turkmen carpet with Tekke güls",
+          cpRealBaluch: "A real Baluch prayer rug",
+          cpRealBaluchAlt: "A real Baluch prayer rug",
+          cpRealTableau: "A real Kirman pictorial carpet (tableau), woven around 1900",
+          cpRealTableauAlt: "A real Kirman pictorial carpet (tableau), woven around 1900",
           navHistory: "Iran from the Beginning",
           histAria: "Iran from the beginning",
           histKicker: "The history of ancient Iran",
@@ -8939,6 +9170,66 @@
           mon52Text: "Au nord de Qasr-e Shirin se dresse une puissante salle à quatre arches du temps de Khosrow II : une chambre carrée de vingt-cinq mètres sur vingt-cinq, avec une porte vers chacun des quatre points cardinaux et un dôme aujourd'hui disparu. Son feu se voyait des quatre côtés et, près du palais de Khosrow, elle servait de sanctuaire à la cour — l'un des plus grands temples du feu subsistant de l'Iran sassanide.",
           mon52Alt: "Les ruines de pierre du temple du feu Chahar Qapu à Qasr-e Shirin",
           mon52Loc: "Qasr-e Shirin, province de Kermanshah",
+          mon53Tag: "Khouzistan · vers 6800 av. J.-C.",
+          mon53Title: "Tepe Chogha Mish, l'une des premières villes d'Iran",
+          mon53Alt: "L'ancien tertre de Chogha Mish au milieu des champs de la plaine du Khouzistan",
+          mon53Text: "Dans la plaine du Khouzistan, entre Dezful et Shushtar, s'élève un tertre paisible qui est l'un des plus anciens lieux de vie urbaine en Iran ; il y a près de neuf mille ans, des humains y ont bâti des maisons et cuit des poteries. À l'époque pré-élamite, Chogha Mish était l'un des grands centres de cette terre, et l'on y a trouvé des signes des premiers pas de l'humanité vers l'écriture : des sceaux d'argile et des jetons de comptage. Un bol de poterie de ce tertre, orné d'un groupe de musiciens, compte parmi les plus anciennes représentations de la musique au monde.",
+          mon53Loc: "Dezful, province du Khouzistan",
+          mon54Tag: "Téhéran · vers 5000 av. J.-C.",
+          mon54Title: "Cheshmeh Ali et l'ancien tertre de Rey",
+          mon54Alt: "L'ancienne source d'Ali au pied du tertre rocheux de Cheshmeh Ali à Rey",
+          mon54Text: "Au pied d'un tertre rocheux dans la ville de Rey, une source ancienne jaillit de la pierre et apporte la vie à cette terre depuis des milliers d'années. Sur le tertre près de la source, des humains ont bâti des maisons il y a près de sept mille ans et cuit des poteries rouges ornées de figures d'humains, du soleil et d'animaux ; la poterie de Cheshmeh Ali est aujourd'hui célèbre dans les musées du monde. C'est ici que commence la grande ville de Rey, qui fut, aux époques mède, achéménide et sassanide, l'une des plus grandes villes d'Iran.",
+          mon54Loc: "Rey, province de Téhéran",
+          mon55Tag: "Kermanshah · l'époque des Mèdes",
+          mon55Title: "Les tombes rupestres d'Eshaqvand",
+          mon55Alt: "Le relief de l'homme en prière sur la paroi de la tombe rupestre d'Eshaqvand à Harsin",
+          mon55Text: "Dans le village d'Eshaqvand, près de Harsin dans la province de Kermanshah, trois tombes sont creusées dans la montagne ; ce sont parmi les plus anciennes tombes rupestres d'Iran et elles remontent à l'époque des Mèdes. Sur la paroi de la tombe du milieu est sculptée la figure d'un homme en prière, les mains levées et des rameaux de barsom à la main. Ces tombeaux de pierre silencieux sont parmi les premiers signes des rites funéraires des nobles dans les montagnes de l'ouest de l'Iran.",
+          mon55Loc: "Harsin, province de Kermanshah",
+          mon56Tag: "Kermanshah · l'époque des Mèdes",
+          mon56Title: "La tombe rupestre de Dokan-e Davud",
+          mon56Alt: "La tombe rupestre de Dokan-e Davud à Sarpol-e Zahab, Kermanshah",
+          mon56Text: "Près de Sarpol-e Zahab, creusée dans une paroi rocheuse, se trouve une tombe de l'époque des Mèdes que les gens appellent « Dokan-e Davud », la boutique de David. À l'intérieur, une salle à colonnes et l'emplacement du tombeau ; au-dessous, la figure d'un homme en prière en costume mède, des rameaux de barsom à la main, est sculptée dans la pierre. Cette tombe compte parmi les plus anciennes tombes rupestres d'Iran, et sa simplicité comme sa grandeur sont un héritage des jours où les Mèdes bâtissaient le premier empire de l'Iran.",
+          mon56Loc: "Sarpol-e Zahab, province de Kermanshah",
+          mon57Tag: "Hamadan · de l'époque parthe",
+          mon57Title: "Le Lion de pierre de Hamadan",
+          mon57Alt: "La statue du lion de pierre de Hamadan, vestige de l'antique Ecbatane",
+          mon57Text: "Sur une place de Hamadan siège un grand lion de pierre qui garde cette ville depuis plus de deux mille ans. La plupart des chercheurs pensent que cette statue date de l'époque parthe et qu'elle se dressait autrefois à la porte d'Ecbatane, l'ancienne capitale des Mèdes. Le Lion de pierre a subi des dommages au fil des siècles, mais il regarde toujours la ville avec le même calme ancien, et c'est l'un des emblèmes les plus aimés de Hamadan.",
+          mon57Loc: "Hamadan",
+          mon58Tag: "Golestan · sassanide, Ve et VIe siècles apr. J.-C.",
+          mon58Title: "La Grande Muraille de Gorgan, la Muraille rouge",
+          mon58Alt: "Les restes en forme de tertre de la Grande Muraille de Gorgan et de ses forts dans la plaine du Golestan",
+          mon58Text: "Du rivage de la mer Caspienne aux montagnes de l'est du Golestan s'étend une muraille de briques rouges de près de deux cents kilomètres — après la Grande Muraille de Chine, l'une des plus longues murailles défensives du monde antique. Les rois sassanides l'ont bâtie aux Ve et VIe siècles apr. J.-C. pour barrer la route aux raids des nomades du nord ; le long de son tracé se dressaient plus de trente forts et un grand canal où coulait l'eau de la rivière Gorgan. Comme ses briques sont rouges, les gens l'ont appelée la « Muraille rouge », et l'on en voit encore la trace dans la plaine de Gorgan.",
+          mon58Loc: "Gonbad-e Kavus, province du Golestan",
+          mon59Tag: "Khorasan-e Razavi · sassanide, Ve et VIe siècles apr. J.-C.",
+          mon59Title: "Le temple du feu de Bandian à Dargaz et ses stucs",
+          mon59Alt: "La salle aux stucs du temple du feu sassanide de Bandian à Dargaz",
+          mon59Text: "À Dargaz, dans le Khorasan, un temple du feu sassanide est sorti de terre dont le trésor est ses murs : d'étonnants reliefs en stuc montrant les batailles du roi contre ses ennemis, la chasse et les rites anciens, qui, comme une tapisserie de pierre et de plâtre, racontent l'histoire de cette époque. Bandian a été bâti aux Ve et VIe siècles apr. J.-C., et son autel du feu et ses salles sont encore debout. Ce temple du feu compte parmi les plus précieuses découvertes sassanides de l'est de l'Iran, et un grand abri le protège aujourd'hui.",
+          mon59Loc: "Dargaz, province du Khorasan-e Razavi",
+          mon60Tag: "Téhéran · sassanide",
+          mon60Title: "Tappeh Mil et le temple du feu de Bahram à Rey",
+          mon60Alt: "Les vestiges du temple du feu sassanide de Tappeh Mil dans la plaine de Varamin",
+          mon60Text: "Sur une colline de la plaine de Varamin, près de l'antique Rey, se dressent les vestiges d'un temple du feu sassanide que les gens appellent le temple du feu de Bahram, liant son histoire à Bahram Gur, le célèbre roi sassanide. Il possédait autrefois des salles et des iwans aux beaux stucs, et son feu se voyait de loin. Aujourd'hui, ses murs puissants, sur les hauteurs de Tappeh Mil, regardent toujours la plaine de Rey.",
+          mon60Loc: "Varamin, province de Téhéran",
+          mon61Tag: "Yazd · enracinée à l'époque sassanide",
+          mon61Title: "La citadelle Narin de Meybod, la plus grande forteresse de briques de terre d'Iran",
+          mon61Alt: "La citadelle de terre Narin sur une colline dans la ville de Meybod, Yazd",
+          mon61Text: "Sur une colline au cœur de la ville de Meybod siège une puissante forteresse de briques de terre, considérée comme le plus grand bâtiment de terre crue encore debout en Iran. Les racines de la citadelle Narin remontent à l'époque sassanide et, dans les siècles suivants, elle fut reconstruite maintes fois sur les mêmes fondations anciennes. Du haut de ses tours, on voit le vieux tissu de Meybod et l'antique route de Rey à Kerman — une route le long de laquelle les caravanes sont passées devant cette forteresse pendant mille ans.",
+          mon61Loc: "Meybod, province de Yazd",
+          mon62Tag: "Yazd · sassanide",
+          mon62Title: "Le château de Saryazd, le grenier au trésor du désert",
+          mon62Alt: "Les chambres voûtées en terre du château sassanide de Saryazd à Mehriz",
+          mon62Text: "Dans le village de Saryazd, près de Mehriz dans la province de Yazd, se dresse un château sassanide dont le rôle n'était ni la royauté ni la guerre : c'était le trésor et le grenier du peuple. Le château compte trois étages et des centaines de chambres voûtées ; lors des attaques ennemies, les gens des environs y déposaient leur nourriture, leurs biens et leurs trésors et en fermaient la porte. Deux murs solides et un fossé tout autour ont gardé ce grand grenier du désert pendant des siècles.",
+          mon62Loc: "Mehriz, province de Yazd",
+          mon63Tag: "Fars · sassanide",
+          mon63Title: "Le château d'Izadkhast, la cité de pierre du Fars",
+          mon63Alt: "Le château et la vieille ville d'Izadkhast sur sa colline rocheuse à Abadeh, Fars",
+          mon63Text: "Dans le nord du Fars, une ville ancienne s'est élevée sur une unique colline rocheuse, ses maisons étagées les unes sur les autres ; Izadkhast, l'une des premières villes-forteresses sassanides de cette terre. Son château, son temple du feu et ses maisons de terre tiennent dans un seul grand rocher, et de son sommet on voit la plaine d'Abadeh. Izadkhast se trouvait sur l'ancienne route d'Ispahan à Shiraz, et pendant des siècles les caravanes se sont reposées à l'ombre de ses murs.",
+          mon63Loc: "Abadeh, province du Fars",
+          mon64Tag: "Lorestan · racines sassanides",
+          mon64Title: "Le château de Falak-ol-Aflak, vestige de Shapurkhast",
+          mon64Alt: "Le château de Falak-ol-Aflak sur une colline à Khorramabad, Lorestan",
+          mon64Text: "Sur une colline au cœur de Khorramabad se dresse un château aux hautes tours dont les fondations remontent à la ville sassanide de « Shapurkhast », la ville bâtie par Shapur Ier le Sassanide. Le bâtiment actuel de Falak-ol-Aflak a été reconstruit dans les siècles suivants sur la même base ancienne, et ses hautes tours veillent toujours sur la ville. Aujourd'hui, le château abrite un musée des vestiges du Lorestan, et le château lui-même est considéré comme le symbole éternel de Khorramabad.",
+          mon64Loc: "Khorramabad, province du Lorestan",
           monCredits: "Crédits photo des nouvelles images de cette section, de Wikimedia Commons : <a href=\"https://commons.wikimedia.org/wiki/File:Estakhr_Darafsh_(55).JPG\" target=\"_blank\" rel=\"noopener\">Istakhr</a>, par Darafsh Kaviani · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Zahhak_castle.jpg\" target=\"_blank\" rel=\"noopener\">Château de Zahhak</a>, par Mechadavid · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Qaleh_Dokhtar_Firuzabad_by_HADI_01.jpg\" target=\"_blank\" rel=\"noopener\">Qaleh Dokhtar</a>, par HADI · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Darabgerd-01-by_HADI.jpg\" target=\"_blank\" rel=\"noopener\">Darabgerd</a>, par HADI · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Naqsh-e_Rajab_01.jpg\" target=\"_blank\" rel=\"noopener\">Naqsh-e Rajab</a>, par Bernard Gagnon · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:001125-TaqKasra-Iraq-IMG_7914-2.jpg\" target=\"_blank\" rel=\"noopener\">Taq Kasra</a>, par Safa.daneshvar · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Kul-e_Farah_Darafsh_(10).JPG\" target=\"_blank\" rel=\"noopener\">Kul-e Farah</a>, par Darafsh Kaviani · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Shahr-e_Yeri_Historical_Site_2019-09-18_01.jpg\" target=\"_blank\" rel=\"noopener\">Shahr Yeri</a>, par Reza Khanbabaei · CC BY 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:معبد_برد_نشانده_1.jpg\" target=\"_blank\" rel=\"noopener\">Bard-e Neshandeh</a>, par AMIR 121 · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Mehr_Temple_in_Maragheh_2019-07-06_01.jpg\" target=\"_blank\" rel=\"noopener\">Mithraeum de Varjoy</a>, par Amir Sadeghi · CC BY 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Ancient_City_of_Gandhi_Shapour_02.jpg\" target=\"_blank\" rel=\"noopener\">Gundeshapur</a>, par Alireza.heydear · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Dezful_Old_Bridge_01.jpg\" target=\"_blank\" rel=\"noopener\">Pont de Dezful</a>, par Alireza.heydear · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Sasanian_statue_of_Shapur_I_in_Shapur_Cave,_Fars_Province.jpg\" target=\"_blank\" rel=\"noopener\">Grotte de Chapour</a>, par Tesiyeyodish · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:آتشکده_آذرفرنبغ_کاریان.jpg\" target=\"_blank\" rel=\"noopener\">Temple du feu de Kariyan</a>, par Vahhiidd · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Ganj_Dareh_site.jpg\" target=\"_blank\" rel=\"noopener\">Ganj Dareh</a>, par Masdf98 · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Anubanini_Rock_Relief_1.jpg\" target=\"_blank\" rel=\"noopener\">Anubanini</a>, par Koorosh Nozad Tehrani · CC BY-SA 2.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Grabgewölbe_Haft_Tepe.JPG\" target=\"_blank\" rel=\"noopener\">Haft Tepe</a>, par Rainer Fischer · CC BY-SA 3.0 — <a href=\"https://commons.wikimedia.org/wiki/File:دهانه_غلامان.jpg\" target=\"_blank\" rel=\"noopener\">Dahaneh-ye Gholaman</a>, par Majid malaki · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:ستونهای_باقی_مانده_از_معبد_خورهه_-_01.jpg\" target=\"_blank\" rel=\"noopener\">Khurheh</a>, par Arash Ghafari · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:Madaktu_06.jpg\" target=\"_blank\" rel=\"noopener\">Seymareh</a>, par Siamak Kargar · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:بنای_چهارقاپی.jpg\" target=\"_blank\" rel=\"noopener\">Chahar Qapu</a>, par Ali Heidari · CC BY-SA 4.0 — <a href=\"https://commons.wikimedia.org/wiki/File:کوه_خواجه_پانوراما.jpg\" target=\"_blank\" rel=\"noopener\">Mont Khwaja</a>, par Ahmad.abbasi.m · CC BY-SA 4.0",
           invKicker: "Le génie iranien, il y a des milliers d'années",
           invTitle: "Inventions et innovations de l'Iran préislamique",
@@ -9497,6 +9788,28 @@
           cp32Name: "Le tapis-tableau",
           cp32Alt: "Peinture miniature d'une tisserande au métier vertical d'un tapis-tableau, tissant un visage, avec des écheveaux colorés près d'elle",
           cp32Text: "Le « tapis-tableau » est le plus haut sommet du tapis pictural : une image complète — un visage, un paysage ou une peinture célèbre — tissée sur un métier vertical, nœud par nœud, avec une chaîne et une trame très fines, jusqu'à être prise de loin pour une peinture. La tisserande de tapis-tableau reste des mois derrière le métier et, avec des centaines de couleurs et une patience étonnante, construit la lumière et l'ombre à coups de nœuds. Cet art aussi est enraciné avant tout à Tabriz et en Azerbaïdjan, et chaque tapis-tableau porte la signature de la main et du cœur de sa tisserande. Et pour nous, cette carte a une autre couleur : Elnaz, la fondatrice de Mehr Iran Dokht, a elle-même tissé des tapis-tableaux pendant ses années de vie en Iran et posé toutes choses sur le métier — c'est pourquoi Mehr Iran Dokht est si attaché à l'artisanat des femmes d'Iran.",
+          cpRealPazyryk: "Le véritable tapis de Pazyryk, au musée de l'Ermitage",
+          cpRealPazyrykAlt: "Le véritable tapis de Pazyryk, au musée de l'Ermitage",
+          cpRealArdabil: "Le véritable tapis d'Ardabil, déployé au Victoria and Albert Museum, Londres",
+          cpRealArdabilAlt: "Le véritable tapis d'Ardabil, déployé au Victoria and Albert Museum, Londres",
+          cpRealTabriz: "Un véritable tapis de Tabriz",
+          cpRealTabrizAlt: "Un véritable tapis de Tabriz",
+          cpRealKashan: "Un véritable tapis de Kachan en soie, au Metropolitan Museum of Art",
+          cpRealKashanAlt: "Un véritable tapis de Kachan en soie, au Metropolitan Museum of Art",
+          cpRealIsfahan: "Un véritable tapis d'Ispahan de l'époque safavide",
+          cpRealIsfahanAlt: "Un véritable tapis d'Ispahan de l'époque safavide",
+          cpRealQom: "Un véritable tapis de Qom",
+          cpRealQomAlt: "Un véritable tapis de Qom",
+          cpRealGabbeh: "Un véritable gabbeh luri",
+          cpRealGabbehAlt: "Un véritable gabbeh luri",
+          cpRealQashqai: "Un véritable tapis qashqai",
+          cpRealQashqaiAlt: "Un véritable tapis qashqai",
+          cpRealTurkmen: "Un véritable tapis turkmène aux güls Tekke",
+          cpRealTurkmenAlt: "Un véritable tapis turkmène aux güls Tekke",
+          cpRealBaluch: "Un véritable tapis de prière baloutche",
+          cpRealBaluchAlt: "Un véritable tapis de prière baloutche",
+          cpRealTableau: "Un véritable tapis pictural (tableau) de Kirman, tissé vers 1900",
+          cpRealTableauAlt: "Un véritable tapis pictural (tableau) de Kirman, tissé vers 1900",
           navHistory: "L'Iran depuis le début",
           histAria: "L'Iran depuis le début",
           histKicker: "L'histoire de l'Iran ancien",
