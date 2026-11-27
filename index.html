@@ -558,6 +558,7 @@
       main > [data-view="festivals-guide"],
       main > [data-view="monuments"], main > [data-view="peoples"],
       main > [data-view="peoples-customs"],
+      main > [data-view="carpets"],
       main > [data-view="inventions"],
       main > [data-view="creatures"],
       main > [data-view="heroes"],
@@ -652,6 +653,11 @@
         background: var(--accent); color: var(--accent-ink);
         display: grid; place-items: center; opacity: .45;
       }
+      .voice-stop {
+        width: 36px; height: 36px; border-radius: 999px; flex: none;
+        background: var(--accent); color: var(--accent-ink);
+        display: grid; place-items: center; opacity: .45;
+      }
       .voice-meta { flex: 1; min-width: 0; }
       .voice-meta b { display: block; font-size: .95rem; line-height: 1.5; }
       .voice-meta span { color: var(--ink-soft); font-size: .83rem; display: block; line-height: 1.7; }
@@ -670,6 +676,12 @@
       }
       .voice-box.live .voice-play:hover { transform: scale(1.07); }
       .voice-box.live .voice-play:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+      .voice-box.live .voice-stop {
+        border: none; cursor: pointer; opacity: 1; font: inherit; padding: 0;
+        transition: transform .15s ease;
+      }
+      .voice-box.live .voice-stop:hover { transform: scale(1.07); }
+      .voice-box.live .voice-stop:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
       .voice-badge-live {
         background: var(--accent); color: var(--accent-ink); border-color: transparent;
         direction: ltr; unicode-bidi: embed; font-variant-numeric: tabular-nums;
@@ -692,6 +704,7 @@
       @media (prefers-reduced-motion: reduce) {
         .voice-box.playing .voice-wave i { animation: none; }
         .voice-box.live .voice-play { transition: none; }
+        .voice-box.live .voice-stop { transition: none; }
       }
       @media (max-width: 760px) {
         .voice-box { flex-wrap: wrap; }
@@ -1440,6 +1453,7 @@
         <a href="#monuments" data-view-link="monuments" data-i18n="navMonuments">یادگارهای باستانی ایران</a>
         <a href="#peoples" class="has-new" data-view-link="peoples"><span data-i18n="navPeoples">اقوام ایرانی</span><span class="new-badge inline attn" data-new-for="peoples" data-i18n="newBadge">تازه</span></a>
         <a href="#peoples-customs" class="has-new" data-view-link="peoples-customs"><span data-i18n="navPeoplesCustoms">رسوم کهن اقوام ایرانی</span><span class="new-badge inline attn" data-new-for="peoples-customs" data-i18n="newBadge">تازه</span></a>
+        <a href="#carpets" class="has-new" data-view-link="carpets"><span data-i18n="navCarpets">فرش‌های ایران</span><span class="new-badge inline attn" data-new-for="carpets" data-i18n="newBadge">تازه</span></a>
         <a href="#inventions" class="has-new" data-view-link="inventions"><span data-i18n="navInventions">اختراعات ایران باستان</span><span class="new-badge inline attn" data-new-for="inventions" data-i18n="newBadge">تازه</span></a>
         <a href="#creatures" class="has-new" data-view-link="creatures"><span data-i18n="navCreatures">موجودات افسانه‌ای</span><span class="new-badge inline attn" data-new-for="creatures" data-i18n="newBadge">تازه</span></a>
         <a href="#heroes" class="has-new" data-view-link="heroes"><span data-i18n="navHeroes">دلیران و جنگاوران</span><span class="new-badge inline attn" data-new-for="heroes" data-i18n="newBadge">تازه</span></a>
@@ -1494,6 +1508,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop15" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -2070,6 +2085,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop8" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -2097,6 +2113,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop9" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -2123,6 +2140,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop11" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -3546,6 +3564,209 @@
         </div>
       </section>
 
+      <section class="heritage" id="carpets" data-view="carpets" aria-label="Carpets of Iran">
+        <div class="heritage-head">
+          <span class="kicker" data-i18n="cpKicker">هنر جاودانه‌ی دست‌های ایرانی</span>
+          <h2 data-i18n="cpTitle">فرش‌های ایران — <em>از پازیریک تا تابلوفرش</em></h2>
+          <p data-i18n="cpIntro">فرش دست‌باف، کهن‌ترین و نام‌آورترین هنر ایران است؛ هنری که دست‌کم دو هزار و پانصد سال پیشینه دارد و از کاخ شاهان تا چادر ایل‌ها، همیشه زیر پای ایرانیان بوده است. هر شهر و هر ایل این سرزمین، فرش خود را با رنگ و طرح و بافتی ویژه می‌بافد؛ چنان‌که از روی نقش و رنگ یک فرش می‌توان زادگاهش را شناخت. در این بخش، نخست به سراغ قدمت و تاریخ فرش ایران می‌رویم؛ سپس فرش‌های نامدار هر دیار را می‌شناسیم و در پایان با طرح‌های نامدار و هنر تابلوفرش آشنا می‌شویم.</p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-pazyryk.webp" data-i18n-alt="cp1Alt" alt="نگاره‌ی مینیاتوری فرش کهن پازیریک با زمینه‌ی سرخ و ردیف گوزن‌ها و سواران بر حاشیه‌اش، در آرامگاهی یخ‌زده در کوهستان" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp1Tag">کهن‌ترین فرش جهان · حدود ۲۵۰۰ سال پیش</span>
+            <h3 data-i18n="cp1Name">فرش پازیریک</h3>
+            <p data-i18n="cp1Text">کهن‌ترین فرش گره‌باف جهان که تا امروز بر جای مانده، در سال ۱۹۴۹ میلادی از آرامگاهی یخ‌زده در دره‌ی پازیریک، در کوه‌های آلتای سیبری، پیدا شد. این فرش نزدیک به دو هزار و پانصد سال قدمت دارد و به روزگار هخامنشیان می‌رسد؛ یخ و سرمای گور، آن را از گزند روزگار نگه داشته و امروز در موزه‌ی ارمیتاژ نگهداری می‌شود. زمینه‌اش سرخ است و بر حاشیه‌هایش ردیف گوزن‌ها و سواران نقش بسته‌اند؛ نقش‌هایی که بسیاری از پژوهشگران آن‌ها را هم‌خانواده‌ی هنر ایران کهن می‌دانند، هرچند خاستگاه درست این فرش هنوز جای گفت‌وگوست. همین یک فرش نشان می‌دهد که هنر فرش‌بافی در آن روزگار، از پیش هنری پخته و استادانه بوده است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-baharestan.webp" data-i18n-alt="cp2Alt" alt="نگاره‌ی مینیاتوری فرش افسانه‌ای بهارستان در کاخ تیسفون، با نقش باغی پر از جوی و درخت و گل و شاه ساسانی بر تخت" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp2Tag">روزگار ساسانی</span>
+            <h3 data-i18n="cp2Name">فرش بهارستان؛ بهار خسرو</h3>
+            <p data-i18n="cp2Text">در کاخ خسرو، شاه ساسانی، در تیسفون فرشی افسانه‌ای گسترده بود که «بهارستان» یا «بهار خسرو» خوانده می‌شد. این فرش بزرگ را از ابریشم و تارهای زر و سیم بافته و با گوهرها آراسته بودند؛ نقشش باغی بهشتی بود با جوی‌ها و درختان و گل‌ها، چنان‌که شاه در دل زمستان نیز بهاری همیشگی زیر پا داشت. پس از فروپاشی شاهنشاهی ساسانی، این گنجینه‌ی بی‌مانند به دست فاتحان افتاد و آن را پاره‌پاره کردند و میان خود بخش کردند؛ از همین رو از بهارستان جز نامی درخشان در کتاب‌های تاریخ چیزی بر جای نمانده است. بهارستان نشانه‌ی آن است که فرش در ایران کهن تنها زیرانداز نبود؛ گنجینه‌ای شاهانه و نماد باغ و بهشت بود.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-ardabil.webp" data-i18n-alt="cp3Alt" alt="نگاره‌ی مینیاتوری فرش بزرگ اردبیل با ترنج خورشیدمانند در میان و دو چراغ در دو سو، بر زمینه‌ی نیلی در آرامگاهی صفوی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp3Tag">روزگار صفوی · ۹۴۶ هجری</span>
+            <h3 data-i18n="cp3Name">فرش اردبیل و روزگار صفوی</h3>
+            <p data-i18n="cp3Text">روزگار صفوی عصر طلایی فرش ایران است؛ شاهان صفوی، به‌ویژه شاه عباس بزرگ، کارگاه‌های شاهانه برپا کردند و فرش ایران را به اوج زیبایی و بافت رساندند. نام‌آورترین یادگار آن روزگار «فرش اردبیل» است که برای آرامگاه شیخ صفی‌الدین اردبیلی، نیای شاهان صفوی، بافته شد و در خود فرش، تاریخ پایان بافتش — سال ۹۴۶ هجری، برابر ۱۵۳۹ میلادی — و نام «مقصود کاشانی» گره خورده است؛ از همین رو کهن‌ترین فرش تاریخ‌دار جهان شمرده می‌شود. این فرش بسیار بزرگ، با نزدیک به بیست‌وشش میلیون گره، ترنجی بزرگ چون خورشید در میان دارد و دو چراغ در دو سویش نقش بسته است؛ امروز یکی از جفت آن در موزه‌ی ویکتوریا و آلبرت لندن و دیگری در موزه‌ی لس‌آنجلس نگهداری می‌شود.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-qajar.webp" data-i18n-alt="cp4Alt" alt="نگاره‌ی مینیاتوری کارگاه بزرگ فرش‌بافی روزگار قاجار با دارهای بسیار و بافندگان و تاجرانی که فرش‌ها را برای سفر بار می‌بندند" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp4Tag">از قاجار تا امروز</span>
+            <h3 data-i18n="cp4Name">از قاجار تا امروز</h3>
+            <p data-i18n="cp4Text">در روزگار قاجار، فرش ایران راهی بازارهای جهان شد؛ بازرگانان تبریزی و کمپانی‌های بیگانه در شهرهایی چون اراک و تبریز و کرمان کارگاه‌های بزرگ برپا کردند و فرش ایران به خانه‌های اروپا و آمریکا راه یافت. در سده‌ی بیستم نیز، با همه‌ی فراز و نشیب‌ها، بافندگان ایرانی این هنر را زنده نگه داشتند و امروز فرش دست‌باف ایران هنوز نام‌آورترین فرش جهان است. مهارت فرش‌بافی سنتی کاشان و فارس در سال ۲۰۱۰ میلادی در فهرست میراث فرهنگی ناملموس یونسکو جای گرفت؛ نشانی از اینکه فرش ایران گنجینه‌ای برای همه‌ی جهان است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-tabriz.webp" data-i18n-alt="cp5Alt" alt="نگاره‌ی مینیاتوری فرش تبریز با لچک و ترنج ظریف و رنگ‌های هماهنگ، در کارگاهی کهن با دارهای بزرگ" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp5Tag">آذربایجان خاوری</span>
+            <h3 data-i18n="cp5Name">تبریز</h3>
+            <p data-i18n="cp5Text">تبریز از کهن‌ترین و بزرگ‌ترین کانون‌های فرش‌بافی جهان است و فرشش به بافت استوار و ریزبافی و رنگ‌های هماهنگ شناخته می‌شود. طرح‌های لچک و ترنج، هراتی و شاه‌عباسی در فرش تبریز فراوان است و گاه چله‌اش ابریشم و نقش‌هایش چون نگارگری ظریف‌اند. فرش‌های تبریز در اندازه‌های بزرگ، با پشم مرغوب و گاه ابریشم بافته می‌شوند و هم در ایران و هم در بازار جهان خواستاران بسیار دارند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-kashan.webp" data-i18n-alt="cp6Alt" alt="نگاره‌ی مینیاتوری فرش کاشان با زمینه‌ی سرخ لاکی و ترنج شاه‌عباسی نیلی و گل‌های ظریف" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp6Tag">ایران مرکزی</span>
+            <h3 data-i18n="cp6Name">کاشان</h3>
+            <p data-i18n="cp6Text">کاشان از دیرباز شهر ابریشم و فرش‌های نفیس بوده است؛ فرش‌های «محتشم» کاشان با پشم نرم و براق و زمینه‌ی سرخ لاکی و نیلی و ترنج‌های شاه‌عباسی، از شاهکارهای فرش ایران‌اند. کاشان فرش ابریشم بسیار ظریف هم می‌بافد و مهارت فرش‌بافی سنتی‌اش در فهرست میراث جهانی یونسکو ثبت شده است. رنگ‌های کاشان — سرخ، نیلی، کرم و سبز — هماهنگی و شکوهی شاهانه به فرش می‌دهند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-isfahan.webp" data-i18n-alt="cp7Alt" alt="نگاره‌ی مینیاتوری فرش بسیار ظریف اصفهان با گل‌های شاه‌عباسی پیچان بر زمینه‌ی کرم و حاشیه‌ی نیلی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp7Tag">ایران مرکزی</span>
+            <h3 data-i18n="cp7Name">اصفهان</h3>
+            <p data-i18n="cp7Text">فرش اصفهان را از ظریف‌ترین فرش‌های جهان می‌دانند؛ گره‌های بسیار ریز بر چله‌ی ابریشم، با نقش‌های شاه‌عباسی و گل‌های پیچان بر زمینه‌ی کرم، نیلی یا سرخ. کارگاه‌های نام‌آوری چون صیرفیان، نام اصفهان را در جهان بلندآوازه کرده‌اند. فرش اصفهان بیشتر نگاره‌ای هنری است تا زیرانداز؛ هر گرهش با حوصله و دقتی کم‌مانند زده می‌شود و بهایش نیز از گران‌ترین‌هاست.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-qom.webp" data-i18n-alt="cp8Alt" alt="نگاره‌ی مینیاتوری فرش ابریشم قم با درخشش نرم و رنگ‌های روشن و طرح باغی پرگل" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp8Tag">فرش ابریشم</span>
+            <h3 data-i18n="cp8Name">قم</h3>
+            <p data-i18n="cp8Text">فرش قم بیشتر از ابریشم خالص بافته می‌شود و به نرمی و درخشش و ریزبافی شگفتش شناخته می‌شود. بافت فرش در قم پیشینه‌ای کهن ندارد و در سده‌ی بیستم رونق گرفت؛ اما در همین زمان کوتاه، با طرح‌های باغی و لچک و ترنج و رنگ‌های روشن و زنده، جایگاهی بلند یافت. فرش ابریشم قم چنان لطیف است که چون پارچه‌ای گران‌بها تا می‌شود و بیشتر برای زینت و کلکسیون خریده می‌شود.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-kerman.webp" data-i18n-alt="cp9Alt" alt="نگاره‌ی مینیاتوری فرش کرمان با گل‌های ریز پرکار و بوته‌های رنگین بر زمینه‌ی سرخ لاکی و کرم" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp9Tag">جنوب خاوری ایران</span>
+            <h3 data-i18n="cp9Name">کرمان</h3>
+            <p data-i18n="cp9Text">فرش کرمان به گل‌های ریز و پرکار و طرح‌های بوته‌ای و «توری» شناخته می‌شود؛ زمینه‌ی سرخ لاکی و کرم با گل‌هایی به رنگ‌های گوناگون. فرش‌های «گل‌فرنگ» و «درختی» کرمان نام‌آورند و فرش‌های راور کرمان از بهترین‌ها شمرده می‌شوند. بافت کرمان نرم و لطیف است و رنگش پس از سال‌ها کهنه‌شدن، زیبایی و ارزشی بیشتر می‌یابد؛ از همین رو فرش کهنه‌ی کرمان خواستار فراوان دارد.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-yazd.webp" data-i18n-alt="cp10Alt" alt="نگاره‌ی مینیاتوری فرش یزد با لچک و ترنج و طرح هراتی بر زمینه‌ی سرخ و نیلی، کنار بادگیرهای شهر کویری" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp10Tag">ایران مرکزی</span>
+            <h3 data-i18n="cp10Name">یزد</h3>
+            <p data-i18n="cp10Text">یزد همسایه‌ی کرمان است و فرشش به فرش کرمان شباهت دارد؛ اما بافتی درشت‌تر و استوارتر و بهایی کمتر. طرح‌های یزد بیشتر لچک و ترنج و هراتی‌اند بر زمینه‌های سرخ و کرم و نیلی. فرش یزد برای زندگی روزمره ساخته می‌شود؛ پشمش خوب و بافتش محکم است و سال‌ها زیر پا دوام می‌آورد. شهر یزد خود گنجینه‌ای از هنرهای کهن است و فرشش نیز از همین ریشه آب می‌خورد.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-nain.webp" data-i18n-alt="cp11Alt" alt="نگاره‌ی مینیاتوری فرش نائین با زمینه‌ی کرم روشن و گل‌های شاه‌عباسی نیلی و آبی و برجستگی‌های ابریشمی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp11Tag">ایران مرکزی</span>
+            <h3 data-i18n="cp11Name">نائین</h3>
+            <p data-i18n="cp11Text">نائین شهری کوچک در دل کویر است که فرشش جهان را گرفته است؛ زمینه‌ی کرم و سپید با نقش‌های شاه‌عباسی و گل‌های پیچان به رنگ نیلی و آبی روشن، و گل‌هایی که با ابریشم برجسته بافته می‌شوند. ریزی بافت نائین را با «لا» می‌سنجند؛ هرچه لا کمتر، فرش ریزتر و گران‌تر. کارگاه حبیبیان نام نائین را بلند کرد و امروز «نائین» نشانی از ظرافت و روشنی و آرامش در فرش ایران است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-heriz.webp" data-i18n-alt="cp12Alt" alt="نگاره‌ی مینیاتوری فرش هریس با ترنج بزرگ زاویه‌دار و نقش‌های هندسی و رنگ‌های سرخ روناسی و نیلی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp12Tag">آذربایجان خاوری</span>
+            <h3 data-i18n="cp12Name">هریس</h3>
+            <p data-i18n="cp12Text">هریس از روستاهای آذربایجان خاوری است و فرشش به ترنج‌های بزرگ و زاویه‌دار و نقش‌های هندسی و رنگ‌های تند گیاهی — سرخ روناسی و نیلی و قهوه‌ای — شناخته می‌شود. فرش هریس زمخت و بسیار بادوام است؛ بافتی روستایی و بی‌پیرایه که نقش‌هایش از ذهن بافنده می‌تراود و هیچ دو فرشش یکسان نیست. این فرش‌های درشت و پررنگ، گرمای خانه‌های روستایی شمال باختر ایران را به هر خانه‌ای می‌برند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-mashhad.webp" data-i18n-alt="cp13Alt" alt="نگاره‌ی مینیاتوری فرش بزرگ مشهد با زمینه‌ی سرخ تیره و ترنج شاه‌عباسی و حاشیه‌های پهن، در تالاری بزرگ" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp13Tag">خراسان</span>
+            <h3 data-i18n="cp13Name">مشهد</h3>
+            <p data-i18n="cp13Text">مشهد و خراسان از کانون‌های بزرگ فرش‌بافی ایران‌اند؛ فرش مشهد بیشتر بزرگ‌پارچه است با زمینه‌ی سرخ تیره و ترنج‌های شاه‌عباسی و حاشیه‌های پهن. پشم خراسان نرم و براق است و فرش مشهد به گرمی و استواری شناخته می‌شود. کارگاه عمواغلی در روزگار گذشته نام مشهد را بلندآوازه کرد. فرش‌های خراسان، از مشهد تا بیرجند و کاشمر، رنگ‌هایی ژرف و بافتی استوار دارند و برای تالارها و خانه‌های بزرگ ساخته می‌شوند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-sarouk.webp" data-i18n-alt="cp14Alt" alt="نگاره‌ی مینیاتوری فرش ساروق با گل‌های پراکنده و بوته‌های ظریف بر زمینه‌ی سرخ و نیلی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp14Tag">ایران مرکزی</span>
+            <h3 data-i18n="cp14Name">اراک و ساروق</h3>
+            <p data-i18n="cp14Text">اراک، یا سلطان‌آباد کهن، در روزگار قاجار از بزرگ‌ترین کانون‌های صادرات فرش ایران بود. نام‌آورترین فرش این دیار «ساروق» است؛ با گل‌های پراکنده و بوته‌های ظریف بر زمینه‌ی سرخ و نیلی و بافتی نرم و فشرده. «فراهان» نیز از فرش‌های ارجمند همین سرزمین است با طرح هراتی ریز و منظم. فرش ساروق چنان در آمریکا پسندیده شد که گونه‌ای از آن به «ساروق آمریکایی» نام گرفت.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-bijar.webp" data-i18n-alt="cp15Alt" alt="نگاره‌ی مینیاتوری فرش بیجار با طرح ماهی درهم فشرده بر زمینه‌ی نیلی و بافنده‌ای کرد سر دار" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp15Tag">کردستان</span>
+            <h3 data-i18n="cp15Name">بیجار و سنندج</h3>
+            <p data-i18n="cp15Text">بیجار را «فرش آهنین ایران» خوانده‌اند؛ دوپوده و چنان فشرده و سنگین بافته می‌شود که تا کردنش دشوار است و عمری بسیار دراز دارد. طرح نامدار بیجار، هراتی یا ماهی درهم است بر زمینه‌های سرخ و نیلی. سنندج، یا سنه، همسایه‌ی بیجار است و فرشی یک‌پوده و ریزبافت با طرح هراتی بسیار ظریف می‌بافد؛ نام «گره سنه» در جهان از همین شهر آمده است. فرش‌های کردی بیجار و سنندج، استواری و ظرافت را با هم دارند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-gabbeh.webp" data-i18n-alt="cp16Alt" alt="نگاره‌ی مینیاتوری گبه‌ی کلفت ایلی با نقش‌های ساده‌ی بز و درخت و ستاره و چادرهای ایل در کوهستان" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp16Tag">ایل‌های جنوب و باختر</span>
+            <h3 data-i18n="cp16Name">گبه</h3>
+            <p data-i18n="cp16Text">گبه فرش ایل‌هاست؛ زیراندازی کلفت و درشت‌بافت با پرز بلند که ایل‌های جنوب و باختر ایران — قشقایی و لر و بختیاری — برای زندگی کوچ‌نشینی خود می‌بافند. نقش گبه ساده و بی‌پیرایه است؛ بز و درخت و آدمک و ستاره، هرچه در ذهن بافنده است، با رنگ‌های گیاهی و پشم دست‌ریس. گبه نقشه و الگو ندارد؛ قصه‌ی زندگی ایل است که بر دار می‌نشیند و از همین رو هر گبه‌ای یگانه و بی‌همتاست.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-qashqai.webp" data-i18n-alt="cp17Alt" alt="نگاره‌ی مینیاتوری زن قشقایی سر دار زمینی با فرشی رنگین و نقش‌های هندسی و جانوران، کنار چادر ایل" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp17Tag">ایل قشقایی · فارس</span>
+            <h3 data-i18n="cp17Name">قشقایی</h3>
+            <p data-i18n="cp17Text">ایل قشقایی در سرزمین فارس کوچ می‌کند و زنانش بر دارهای زمینی، فرش‌هایی می‌بافند که از زنده‌ترین و رنگین‌ترین فرش‌های ایران‌اند. نقش‌های هندسی و جانوران و آدم‌ها و ستاره‌ها با رنگ‌های سرخ و نیلی و زرد گیاهی، بی‌نقشه و از بر، بر فرش می‌نشینند. فرش قشقایی سراسر پشم است و بافتی استوار دارد؛ شور و آزادی زندگی ایل را می‌توان در هر گرهش دید. گلیم و گبه‌ی قشقایی نیز در جهان نام‌آور است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-bakhtiari.webp" data-i18n-alt="cp18Alt" alt="نگاره‌ی مینیاتوری فرش باغی بختیاری با خانه‌خانه‌هایی پر از درخت و گل و پرنده بر زمینه‌ی نیلی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp18Tag">چهارمحال و بختیاری</span>
+            <h3 data-i18n="cp18Name">بختیاری</h3>
+            <p data-i18n="cp18Text">فرش بختیاری را بیشتر در چهارمحال می‌بافند و نامدارترین طرحش «باغی» یا «خشتی» است؛ فرش به خانه‌خانه‌هایی بخش می‌شود و در هر خانه، درخت و گل و پرنده و جانوری نقش می‌بندد؛ باغی که هیچ‌گاه خزان ندارد. فرش بختیاری دوپوده و بسیار بادوام است و رنگ‌هایش — سرخ و نیلی و سبز و زرد — از گیاهان کوهستان گرفته می‌شود. این فرش‌ها کار دست زنان و مردان روستاها و ایل بختیاری‌اند و گرما و سادگی زندگی کوهستان را دارند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-turkmen.webp" data-i18n-alt="cp19Alt" alt="نگاره‌ی مینیاتوری فرش ترکمن با زمینه‌ی سرخ تیره و ردیف گل‌های هشت‌گوش طایفه‌ای و اسب‌های ترکمن" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp19Tag">ترکمن‌صحرا</span>
+            <h3 data-i18n="cp19Name">ترکمن</h3>
+            <p data-i18n="cp19Text">فرش ترکمن را از دور می‌توان شناخت؛ زمینه‌ی سرخ تیره و نقش‌های هندسی هشت‌گوش که «گل» خوانده می‌شوند و نشان هر طایفه‌اند — گل تکه، گل ساریق و گل یموت. بافت ترکمن ریز و فشرده و سراسر پشم است و رنگ سرخش گرمای صحرای ترکمن را دارد. هر طایفه گل ویژه‌ی خود را نسل‌به‌نسل نگه داشته است؛ از همین رو فرش ترکمن شناسنامه‌ی ایل است و خواندن گل‌هایش، خواندن تاریخ طایفه‌هاست.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-baluch.webp" data-i18n-alt="cp20Alt" alt="نگاره‌ی مینیاتوری جانماز بلوچ با رنگ‌های قهوه‌ای و شتری و لوزی‌های هندسی، در صحرایی با نخل و شتر" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp20Tag">بلوچستان</span>
+            <h3 data-i18n="cp20Name">بلوچ</h3>
+            <p data-i18n="cp20Text">فرش بلوچ بیشتر کوچک‌پارچه و جانمازی است؛ با رنگ‌های تیره و گرم — قهوه‌ای و شتری و سرخ تیره و نیلی — و نقش‌های هندسی ریز و لوزی‌های پی‌درپی. بلوچ‌ها فرش را از پشم گوسفند و گاه موی بز و پشم شتر می‌بافند و بافتش سبک و نرم و همراه زندگی کوچ و صحراست. سادگی و وقار فرش بلوچ، آیینه‌ی زندگی مردمان سخت‌کوش جنوب خاور ایران است؛ مردمانی که هنرشان در سوزن‌دوزی و فرش هر دو می‌درخشد.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-shahsavan.webp" data-i18n-alt="cp21Alt" alt="نگاره‌ی مینیاتوری بافته‌ی سوماک شاهسون با نقش‌های هندسی درشت و رنگ‌های زنده و خورجین‌های آویخته بر اسب" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp21Tag">آذربایجان و اردبیل</span>
+            <h3 data-i18n="cp21Name">شاهسون</h3>
+            <p data-i18n="cp21Text">شاهسون‌ها ایل‌های کوچ‌روی آذربایجان و اردبیل‌اند و هنر نامدارشان «سوماک»بافی است؛ بافتی تخت و بی‌پرز با نقش‌های هندسی درشت و رنگ‌های زنده که از آن مفرش و خورجین و روانداز اسب می‌سازند. گلیم‌های شاهسون نیز با نقش‌های بزرگ و جسورانه و رنگ‌های سرخ و نیلی و کرم شناخته می‌شوند. بافته‌های شاهسون پرشور و آفتابی‌اند؛ چون خود ایل، آزاد و بی‌پیرایه و پر از نشانه‌های کهن کوچ‌نشینی.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-varamin.webp" data-i18n-alt="cp22Alt" alt="نگاره‌ی مینیاتوری فرش ورامین با طرح میناخانی — شبکه‌ی گل‌های چهارپر — بر زمینه‌ی نیلی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp22Tag">نزدیک تهران</span>
+            <h3 data-i18n="cp22Name">ورامین</h3>
+            <p data-i18n="cp22Text">ورامین، در نزدیکی تهران، از دیرباز کانون بافت هم روستاییان نشسته و هم ایل‌های کوچنده بوده و فرشش آمیزه‌ای از هر دو جهان است. طرح نامدار ورامین «میناخانی» است؛ شبکه‌ای از گل‌های چهارپر که چون باغی منظم سراسر فرش را می‌پوشاند. فرش ورامین زمینه‌ی نیلی یا سرخ دارد و بافتش میانه و استوار است. نزدیکی به پایتخت، فرش ورامین را از دیرباز به بازارهای بزرگ پیوند داده است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-lachak.webp" data-i18n-alt="cp23Alt" alt="نگاره‌ی مینیاتوری نمونه‌ی طرح لچک و ترنج؛ ترنج خورشیدمانند در میان و چهار لچک آراسته در گوشه‌ها" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp23Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp23Name">لچک و ترنج</h3>
+            <p data-i18n="cp23Text">کهن‌ترین و نامدارترین آرایش فرش ایران «لچک و ترنج» است؛ ترنجی بزرگ و خورشیدمانند در میان فرش می‌درخشد و چهار «لچک»، یا گوشه‌های آراسته، در چهار کنج آن می‌نشینند. این آرایش را به نگاره‌ی باغ و حوض مانند کرده‌اند؛ ترنج، حوض میان باغ است و لچک‌ها گوشه‌های باغ. از روزگار صفوی تا امروز، بیشتر فرش‌های شهری ایران — از تبریز تا کاشان و اصفهان — بر همین آرایش استوارند و شکوه و نظم باغ ایرانی را زیر پا می‌گسترانند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-afshan.webp" data-i18n-alt="cp24Alt" alt="نگاره‌ی مینیاتوری نمونه‌ی طرح افشان؛ گل‌ها و پیچک‌های پراکنده در سراسر زمینه بی‌ترنج، با پرندگان کوچک میان گل‌ها" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp24Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp24Name">افشان</h3>
+            <p data-i18n="cp24Text">در طرح «افشان»، خبری از ترنج میان نیست؛ گل‌ها و بوته‌ها و شاخه‌های پیچان، آزاد و پراکنده، سراسر زمینه‌ی فرش را پوشانده‌اند؛ گویی کسی مشتی گل بر فرش افشانده است. افشان از آسوده‌ترین و شاعرانه‌ترین طرح‌هاست و زمینه را به باغی بی‌مرز بدل می‌کند. این طرح در فرش‌های کاشان و تبریز و کرمان فراوان دیده می‌شود و گاه جانوران و پرندگان کوچک نیز میان گل‌هایش پنهان‌اند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-shahabbasi.webp" data-i18n-alt="cp25Alt" alt="نگاره‌ی مینیاتوری گل بزرگ شاه‌عباسی با برگ‌های ختایی و پیچک‌های اسلیمی بر زمینه‌ی نیلی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp25Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp25Name">شاه‌عباسی</h3>
+            <p data-i18n="cp25Text">«شاه‌عباسی» نام گل‌های بزرگ و آراسته‌ای است که در کارگاه‌های دربار شاه عباس بزرگ پدید آمد و نشانه‌ی عصر طلایی فرش ایران شد. این گل‌های خیالی و پرپیچ‌وخم، با برگ‌های ختایی و بوته‌های اسلیمی، بر زمینه‌ی فرش‌های اصفهان و کاشان و نائین می‌رقصند. طرح شاه‌عباسی گاه با ترنج میان همراه است و گاه افشان و پراکنده؛ اما هر جا باشد، شکوه و نازک‌کاری دربار صفوی را با خود دارد.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-herati.webp" data-i18n-alt="cp26Alt" alt="نگاره‌ی مینیاتوری طرح هراتی؛ گل کوچکی در میان چهار برگ ماهی‌مانند، تکرارشده در سراسر زمینه" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp26Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp26Name">هراتی (ماهی درهم)</h3>
+            <p data-i18n="cp26Text">طرح «هراتی» از کهن‌ترین نقش‌های فرش خاورزمین است؛ گلی کوچک در میان که چهار برگ خمیده — چون چهار ماهی — گرد آن چرخیده‌اند و این نقش بارها و بارها در سراسر فرش تکرار می‌شود. از همین روست که آن را «ماهی درهم» نیز خوانده‌اند؛ گویی ماهیانی در برکه‌ای آرام گرد گلی می‌گردند. هراتی طرح نامدار بیجار و سنندج و فراهان است و ریتم آرام و بی‌پایانش، فرش را به آبی زلال و جنبنده بدل می‌کند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-boteh.webp" data-i18n-alt="cp27Alt" alt="نگاره‌ی مینیاتوری ردیف بته‌جقه‌های خمیده‌ی رنگین، با بته‌ی مادر و بچه در میان" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp27Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp27Name">بته‌جقه</h3>
+            <p data-i18n="cp27Text">«بته‌جقه» از دوست‌داشتنی‌ترین نقش‌های ایران است؛ بوته‌ای خمیده چون شعله‌ی آتش یا سرو سرافکنده یا قطره‌ای آب که نوکش به سویی خم شده است. بته را نشانه‌ی فروتنی و زندگی و جاودانگی دانسته‌اند و گونه‌ی «مادر و بچه»‌ی آن — بته‌ای بزرگ با بته‌ای کوچک در دل — نماد زایش و پیوستگی نسل‌هاست. بته‌جقه از فرش به شال ترمه و پارچه و جامه راه یافته و امروز در سراسر جهان شناخته شده است و ریشه‌اش از ایران است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-golfarang.webp" data-i18n-alt="cp28Alt" alt="نگاره‌ی مینیاتوری دسته‌گل‌های رز و صدتومانی گل‌فرنگ با رنگ‌های طبیعی بر زمینه‌ی کرم فرش" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp28Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp28Name">گل‌فرنگ</h3>
+            <p data-i18n="cp28Text">«گل‌فرنگ» یعنی گل فرنگی؛ دسته‌گل‌های طبیعی و پررنگ چون رز و صدتومانی که در روزگار قاجار، با رفت‌وآمد ایران و اروپا، بر فرش‌های ایران نشستند. این گل‌ها با گل‌های خیالی و سنتی ایران تفاوت دارند؛ سایه‌روشن و برجستگی دارند و چون نگاره‌های اروپایی، زنده و واقعی‌اند. گل‌فرنگ را بیش از همه در فرش‌های کرمان و بیجار می‌توان دید؛ جایی که بافنده‌ی ایرانی، گل بیگانه را با ذوق خود درآمیخت و از آن طرحی تازه و دلنشین ساخت.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-derakhti.webp" data-i18n-alt="cp29Alt" alt="نگاره‌ی مینیاتوری طرح درختی؛ سرو بلند و درخت زندگی پرگل و پرپرنده در میان فرش" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp29Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp29Name">درختی</h3>
+            <p data-i18n="cp29Text">در طرح «درختی»، درخت قهرمان فرش است؛ سرو سرافراز، بید مجنون، یا درخت زندگی با شاخه‌هایی پر از گل و پرنده و میوه. درخت در فرهنگ ایران نماد زندگی و جاودانگی و پیوند زمین و آسمان است و بر فرش، باغی همیشه‌سبز می‌سازد. گاه درختی تنها در میان فرش ایستاده و گاه ردیف درختان، سراسر زمینه را پوشانده‌اند. فرش‌های درختی کرمان و قم و تبریز نام‌آورند و برخی از آن‌ها با گلدان و حوض و پرندگان، نگاره‌ای کامل از باغ ایرانی‌اند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-kheshti.webp" data-i18n-alt="cp30Alt" alt="نگاره‌ی مینیاتوری طرح خشتی؛ خانه‌خانه‌های چهارگوش با درخت و گل و پرنده در هر خانه" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp30Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp30Name">خشتی</h3>
+            <p data-i18n="cp30Text">در طرح «خشتی»، روی فرش به خانه‌خانه‌های چهارگوش بخش می‌شود و در هر خانه، نگاره‌ای جدا می‌نشیند؛ درختی، گلی، پرنده‌ای یا جانوری. نامدارترین خشتی‌ها فرش‌های «باغی» بختیاری‌اند که هر خانه‌شان دریچه‌ای به باغی دیگر است. این آرایش را به باغ‌های چهارباغ ایران مانند کرده‌اند؛ باغ‌هایی که با جوی‌ها به چهار بخش می‌شدند. خشتی طرحی پرقصه است؛ هر خانه‌اش داستانی جدا دارد و چشم بیننده از خانه‌ای به خانه‌ی دیگر سفر می‌کند.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-tasviri.webp" data-i18n-alt="cp31Alt" alt="نگاره‌ی مینیاتوری فرش تصویری با صحنه‌ی شکارگاه و شاه و پهلوانان، آویخته بر دیوار کارگاه تبریز" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp31Tag">طرح‌های نامدار</span>
+            <h3 data-i18n="cp31Name">تصویری</h3>
+            <p data-i18n="cp31Text">فرش «تصویری» فرشی است که چون تابلوی نقاشی بافته می‌شود؛ چهره‌ی شاهان و پهلوانان، داستان‌های شاهنامه، شکارگاه‌ها و نگاره‌های تاریخی با هزاران گره رنگی بر دار جان می‌گیرند. این هنر از روزگار قاجار رونق گرفت و کانون بزرگش تبریز است؛ جایی که استادان بافنده، نقشه‌های بسیار ریز و پیچیده را ماه‌ها و گاه سال‌ها می‌بافند. فرش تصویری را بیشتر بر دیوار می‌آویزند تا زیر پا بیندازند؛ اوج پیوند فرش‌بافی و نگارگری ایران است.</p>
+          </article>
+          <article class="story-card">
+            <figure class="card-fig"><img draggable="false" src="assets/carpet-tableau.webp" data-i18n-alt="cp32Alt" alt="نگاره‌ی مینیاتوری زن بافنده پشت دار ایستاده‌ی تابلوفرش، سرگرم بافتن چهره‌ای بر دار با کلاف‌های رنگی" loading="lazy" /></figure>
+            <span class="tag" data-i18n="cp32Tag">کارت ویژه · هنر بافنده</span>
+            <h3 data-i18n="cp32Name">تابلوفرش</h3>
+            <p data-i18n="cp32Text">«تابلوفرش» بلندترین قله‌ی فرش تصویری است؛ تصویری کامل — چهره، منظره یا نگاره‌ای نامدار — که بر دار ایستاده، گره‌به‌گره و با چله و پودی بسیار ظریف بافته می‌شود تا از دور، نقاشی پنداشته شود. بافنده‌ی تابلوفرش ماه‌ها پشت دار می‌نشیند و با صدها رنگ و صبری شگفت، نور و سایه را با گره می‌سازد. این هنر نیز بیش از همه در تبریز و آذربایجان ریشه دارد و هر تابلوفرش، امضای دست و دل بافنده‌اش است. و برای ما این کارت رنگی دیگر دارد: الناز، بنیان‌گذار مهر ایران دخت، در سال‌های زندگی در ایران خود تابلوفرش می‌بافت و همه‌چیز بر دار می‌نشاند؛ از همین روست که مهر ایران دخت به هنر دست زنان ایران چنین دلبسته است.</p>
+          </article>
+        </div>
+        <p class="heritage-note" data-i18n="cpCredits">نگاره‌های این بخش، نقاشی‌های مینیاتوری به سبک نگارگری ایرانی‌اند که برای همین سایت ساخته شده‌اند.</p>
+      </section>
+
       <section class="heritage" id="inventions" data-view="inventions" aria-label="Inventions of ancient Iran">
         <div class="heritage-head">
           <span class="kicker" data-i18n="invKicker">نبوغ ایرانی، هزاران سال پیش</span>
@@ -4161,6 +4382,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop1" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4193,6 +4415,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop2" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4226,6 +4449,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop3" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4258,6 +4482,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop4" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4291,6 +4516,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop6" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4329,6 +4555,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop7" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4358,6 +4585,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop10" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4387,6 +4615,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop12" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4421,6 +4650,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop13" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4455,6 +4685,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop14" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -4666,6 +4897,7 @@
               <svg class="ic-play" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>
               <svg class="ic-pause" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" hidden><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
             </button>
+            <button type="button" class="voice-stop" id="voiceStop5" aria-label="توقف خوانش"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg></button>
             <div class="voice-meta">
               <b data-i18n="voiceTitle">با صدای خودم بشنو</b>
               <span data-i18n="voiceTextLive">این بخش را با صدای خودم خوانده‌ام؛ دکمه‌ی پخش را بزن و با صدای من گوش بده.</span>
@@ -6144,6 +6376,7 @@
           navMonuments: "Ancient Monuments",
           navPeoples: "Peoples of Iran",
           navPeoplesCustoms: "Ancient customs of Iran's peoples",
+          navCarpets: "Carpets of Iran",
           navInventions: "Inventions of Ancient Iran",
           navCreatures: "Mythical Creatures",
           navHeroes: "Heroes & Warriors",
@@ -7114,6 +7347,138 @@
           pc24Name: "Achomi (Larestani)",
           pc24Text: "The Achomi (Larestani) people of southern Fars and Hormozgan speak an heir of old Persian; their life turns on the sea — launching new lenj boats, port festivals with ney-anban music, spicy fish dishes and Shahani dates.",
           pc24Alt: "Miniature painting of a wooden lenj boat being launched at a southern port, with a ney-anban musician",
+          cpKicker: "The timeless art of Iranian hands",
+          cpTitle: "Carpets of Iran — <em>from Pazyryk to the tableau carpet</em>",
+          cpIntro: "The handwoven carpet is Iran's oldest and most famous art — an art at least two thousand five hundred years old that has always lain beneath Iranian feet, from the palaces of kings to the tents of the tribes. Every city and every tribe of this land weaves its own carpet with its own colours, designs and weave, so that from a carpet's pattern and colours you can tell where it was born. In this section we first visit the age and history of the Iranian carpet, then meet the famous carpets of each region, and at the end the celebrated designs and the art of the tableau carpet.",
+          cpCredits: "The illustrations in this section are miniature paintings in the Iranian negargari style, made for this site.",
+          cp1Tag: "The world's oldest carpet · about 2,500 years ago",
+          cp1Name: "The Pazyryk Carpet",
+          cp1Alt: "Miniature painting of the ancient Pazyryk carpet with a red ground and rows of deer and horsemen along its border, in a frozen tomb in the mountains",
+          cp1Text: "The oldest knotted carpet in the world that survives to this day was found in 1949 in a frozen tomb in the Pazyryk valley, in the Altai mountains of Siberia. This carpet is nearly two thousand five hundred years old and dates to the Achaemenid age; the ice and cold of the grave kept it safe from the harm of time, and today it is kept in the Hermitage Museum. Its ground is red, and along its borders run rows of deer and horsemen — motifs many scholars consider kin to the art of ancient Iran, though the carpet's exact origin is still debated. This single carpet shows that in those days carpet weaving was already a mature and masterful art.",
+          cp2Tag: "The Sasanian age",
+          cp2Name: "The Baharestan Carpet; the Spring of Khosrow",
+          cp2Alt: "Miniature painting of the legendary Baharestan carpet in the palace of Ctesiphon, patterned as a garden of streams, trees and flowers, with the Sasanian king on his throne",
+          cp2Text: "In the palace of Khosrow, the Sasanian king, at Ctesiphon, lay a legendary carpet called 'Baharestan' or 'the Spring of Khosrow'. This great carpet was woven of silk and threads of gold and silver and adorned with gems; its design was a heavenly garden of streams, trees and flowers, so that even in the depths of winter the king had an eternal spring beneath his feet. After the fall of the Sasanian Empire this matchless treasure fell into the hands of the conquerors, who cut it to pieces and divided it among themselves; that is why of Baharestan nothing remains but a shining name in the history books. Baharestan shows that in ancient Iran a carpet was not merely a floor covering — it was a royal treasure and a symbol of the garden and of paradise.",
+          cp3Tag: "The Safavid age · 946 AH",
+          cp3Name: "The Ardabil Carpet and the Safavid Age",
+          cp3Alt: "Miniature painting of the great Ardabil carpet with a sun-like medallion at its centre and two lamps at either end, on an indigo ground in a Safavid shrine",
+          cp3Text: "The Safavid age is the golden age of the Iranian carpet; the Safavid shahs, above all Shah Abbas the Great, set up royal workshops and raised Iran's carpets to the height of beauty and weaving. The most famous relic of that age is the 'Ardabil Carpet', woven for the shrine of Sheikh Safi al-Din Ardabili, ancestor of the Safavid kings; knotted into the carpet itself are the date of its completion — the year 946 AH, equal to 1539 CE — and the name 'Maqsud of Kashan', which is why it is counted the oldest dated carpet in the world. This very large carpet, with nearly twenty-six million knots, holds a great medallion like a sun at its centre, with two lamps woven at its two ends; today one of the pair is kept in the Victoria and Albert Museum in London and the other in the Los Angeles museum.",
+          cp4Tag: "From the Qajars to today",
+          cp4Name: "From the Qajar Age to Today",
+          cp4Alt: "Miniature painting of a great carpet workshop of the Qajar age with many looms and weavers, and merchants packing carpets for the journey",
+          cp4Text: "In the Qajar age, Iran's carpets found their way to the markets of the world; Tabrizi merchants and foreign companies set up great workshops in cities such as Arak, Tabriz and Kerman, and the Iranian carpet entered the homes of Europe and America. In the twentieth century too, through all its ups and downs, Iranian weavers kept this art alive, and today the handwoven carpet of Iran is still the most famous carpet in the world. The traditional carpet-weaving skills of Kashan and Fars were placed on UNESCO's list of the Intangible Cultural Heritage of Humanity in 2010 — a sign that Iran's carpet is a treasure for the whole world.",
+          cp5Tag: "East Azerbaijan",
+          cp5Name: "Tabriz",
+          cp5Alt: "Miniature painting of a Tabriz carpet with a fine medallion-and-corner design and harmonious colours, in an old workshop with great looms",
+          cp5Text: "Tabriz is one of the oldest and greatest carpet-weaving centres in the world, and its carpets are known for their sturdy weave, fine knotting and harmonious colours. Medallion-and-corner, Herati and Shah Abbasi designs abound in Tabriz carpets, and sometimes the warp is silk and the motifs as fine as miniature painting. Tabriz carpets are woven in large sizes, with fine wool and sometimes silk, and are much sought after both in Iran and in world markets.",
+          cp6Tag: "Central Iran",
+          cp6Name: "Kashan",
+          cp6Alt: "Miniature painting of a Kashan carpet with a lacquer-red ground, an indigo Shah Abbasi medallion and delicate flowers",
+          cp6Text: "Kashan has long been a city of silk and fine carpets; the 'Mohtasham' carpets of Kashan, with their soft, lustrous wool, lacquer-red and indigo grounds and Shah Abbasi medallions, are among the masterpieces of the Iranian carpet. Kashan also weaves very fine silk carpets, and its traditional weaving skill is inscribed on UNESCO's World Heritage list. Kashan's colours — red, indigo, cream and green — give the carpet a royal harmony and splendour.",
+          cp7Tag: "Central Iran",
+          cp7Name: "Isfahan",
+          cp7Alt: "Miniature painting of a very fine Isfahan carpet with curling Shah Abbasi flowers on a cream ground and an indigo border",
+          cp7Text: "The Isfahan carpet is counted among the finest carpets in the world: very fine knots on a silk warp, with Shah Abbasi motifs and curling flowers on a cream, indigo or red ground. Famous workshops such as Seirafian have carried Isfahan's name high in the world. An Isfahan carpet is more a work of art than a floor covering; every knot is tied with rare patience and precision, and its price is among the highest.",
+          cp8Tag: "Silk carpets",
+          cp8Name: "Qom",
+          cp8Alt: "Miniature painting of a Qom silk carpet with a soft sheen, bright colours and a flower-filled garden design",
+          cp8Text: "Qom carpets are mostly woven of pure silk and are known for their softness, sheen and astonishing fineness. Carpet weaving in Qom has no ancient past and flourished in the twentieth century; yet in that short time, with garden and medallion designs and bright, lively colours, it won a high place. Qom silk is so delicate that it folds like a precious cloth, and is bought mostly for adornment and collections.",
+          cp9Tag: "South-eastern Iran",
+          cp9Name: "Kerman",
+          cp9Alt: "Miniature painting of a Kerman carpet with fine, busy flowers and colourful shrubs on lacquer-red and cream grounds",
+          cp9Text: "The Kerman carpet is known for its fine, busy flowers, shrub designs and lace-like patterns, on lacquer-red and cream grounds with flowers of many colours. Kerman's 'Gol Farang' and 'Derakhti' carpets are famous, and the carpets of Ravar in Kerman are counted among the best. Kerman's weave is soft and delicate, and its colours grow more beautiful and valuable with age; that is why old Kerman carpets are much in demand.",
+          cp10Tag: "Central Iran",
+          cp10Name: "Yazd",
+          cp10Alt: "Miniature painting of a Yazd carpet with medallion-and-corner and Herati designs on red and indigo grounds, beside the windcatchers of the desert city",
+          cp10Text: "Yazd is Kerman's neighbour and its carpet resembles Kerman's, but with a coarser, sturdier weave and a lower price. Yazd's designs are mostly medallion-and-corner and Herati, on red, cream and indigo grounds. The Yazd carpet is made for everyday life; its wool is good and its weave strong, and it lasts for years underfoot. The city of Yazd is itself a treasury of ancient arts, and its carpet drinks from the same root.",
+          cp11Tag: "Central Iran",
+          cp11Name: "Nain",
+          cp11Alt: "Miniature painting of a Nain carpet with a light cream ground, indigo and blue Shah Abbasi flowers and silk highlights",
+          cp11Text: "Nain is a small city in the heart of the desert whose carpet has taken the world: a cream and white ground with Shah Abbasi motifs and curling flowers in indigo and light blue, and flowers highlighted in silk. Nain's fineness is measured in 'la' — the lower the la, the finer and dearer the carpet. The Habibian workshop raised Nain's name, and today 'Nain' is a sign of delicacy, brightness and calm in the Iranian carpet.",
+          cp12Tag: "East Azerbaijan",
+          cp12Name: "Heriz",
+          cp12Alt: "Miniature painting of a Heriz carpet with a great angular medallion, geometric motifs and madder-red and indigo colours",
+          cp12Text: "Heriz is a district of East Azerbaijan whose carpet is known for its great angular medallions, geometric motifs and bold plant colours — madder red, indigo and brown. The Heriz carpet is rough-textured and extremely durable; a village weave, unadorned, whose motifs flow from the weaver's mind, so that no two are alike. These coarse, richly coloured carpets carry the warmth of the village homes of north-western Iran into any house.",
+          cp13Tag: "Khorasan",
+          cp13Name: "Mashhad",
+          cp13Alt: "Miniature painting of a great Mashhad carpet with a deep red ground, a Shah Abbasi medallion and wide borders, in a grand hall",
+          cp13Text: "Mashhad and Khorasan are among Iran's great carpet-weaving centres; the Mashhad carpet is mostly large in size, with a deep red ground, Shah Abbasi medallions and wide borders. Khorasan wool is soft and lustrous, and the Mashhad carpet is known for warmth and sturdiness. The Amoghli workshop made Mashhad's name famous in past days. The carpets of Khorasan, from Mashhad to Birjand and Kashmar, have deep colours and a firm weave and are made for halls and large houses.",
+          cp14Tag: "Central Iran",
+          cp14Name: "Arak and Sarouk",
+          cp14Alt: "Miniature painting of a Sarouk carpet with scattered flowers and delicate shrubs on red and indigo grounds",
+          cp14Text: "Arak — old Sultanabad — was in the Qajar age one of the greatest export centres of the Iranian carpet. The most famous carpet of this land is 'Sarouk', with scattered flowers and delicate shrubs on red and indigo grounds and a soft, dense weave. 'Farahan' too is a prized carpet of this land, with a fine, orderly Herati design. The Sarouk carpet was so loved in America that one kind of it came to be called the 'American Sarouk'.",
+          cp15Tag: "Kurdistan",
+          cp15Name: "Bijar and Sanandaj",
+          cp15Alt: "Miniature painting of a Bijar carpet with a dense entwined-fish pattern on an indigo ground, and a Kurdish weaver at her loom",
+          cp15Text: "Bijar has been called 'the iron carpet of Iran'; it is woven double-wefted, so dense and heavy that folding it is difficult and its life is very long. Bijar's famous design is the Herati, or entwined fish, on red and indigo grounds. Sanandaj — Senneh — is Bijar's neighbour and weaves a single-wefted, finely knotted carpet with a very delicate Herati design; the name 'Senneh knot' known in the world comes from this very city. The Kurdish carpets of Bijar and Sanandaj hold sturdiness and delicacy together.",
+          cp16Tag: "Tribes of the south and west",
+          cp16Name: "Gabbeh",
+          cp16Alt: "Miniature painting of a thick tribal gabbeh with simple motifs of goat, tree and star, and tribal tents in the mountains",
+          cp16Text: "The gabbeh is the carpet of the tribes: a thick, coarse-woven floor covering with a long pile, woven by the tribes of southern and western Iran — Qashqai, Lur and Bakhtiari — for their nomadic life. The gabbeh's motifs are simple and unadorned — goat, tree, little figures and stars, whatever is in the weaver's mind — in plant colours and hand-spun wool. The gabbeh has no pattern or template; it is the story of tribal life set upon the loom, and that is why every gabbeh is unique and matchless.",
+          cp17Tag: "The Qashqai tribe · Fars",
+          cp17Name: "Qashqai",
+          cp17Alt: "Miniature painting of a Qashqai woman at a ground loom with a colourful carpet of geometric motifs and animals, beside the tribe's tent",
+          cp17Text: "The Qashqai tribe migrates through the land of Fars, and its women weave on ground looms carpets that are among the most lively and colourful in Iran. Geometric motifs, animals, people and stars, in plant colours of red, indigo and yellow, sit upon the carpet without a pattern, from memory. The Qashqai carpet is all wool with a sturdy weave; the passion and freedom of tribal life can be seen in every knot. Qashqai kilims and gabbehs are also famous in the world.",
+          cp18Tag: "Chaharmahal and Bakhtiari",
+          cp18Name: "Bakhtiari",
+          cp18Alt: "Miniature painting of a Bakhtiari garden carpet with panel after panel of tree, flower and bird on an indigo ground",
+          cp18Text: "Bakhtiari carpets are woven mostly in Chaharmahal, and their most famous design is the 'garden' or 'kheshti': the carpet is divided into panel after panel, and in each panel a tree, flower, bird or animal takes shape — a garden that never knows autumn. The Bakhtiari carpet is double-wefted and very durable, and its colours — red, indigo, green and yellow — are taken from the plants of the mountains. These carpets are the work of the women and men of the Bakhtiari villages and tribe, and hold the warmth and simplicity of mountain life.",
+          cp19Tag: "Turkmen Sahra",
+          cp19Name: "Turkmen",
+          cp19Alt: "Miniature painting of a Turkmen carpet with a deep red ground and rows of octagonal tribal guls, with Turkmen horses",
+          cp19Text: "A Turkmen carpet can be known from afar: a deep red ground and octagonal geometric motifs called 'gul' that are the emblem of each clan — the Tekke gul, the Saryk gul and the Yomut gul. The Turkmen weave is fine, dense and all wool, and its red holds the warmth of the Turkmen desert. Each clan has kept its own gul from generation to generation; that is why the Turkmen carpet is the tribe's identity card, and reading its guls is reading the history of the clans.",
+          cp20Tag: "Baluchestan",
+          cp20Name: "Baluch",
+          cp20Alt: "Miniature painting of a Baluch prayer rug in brown and camel tones with geometric lozenges, in a desert with palms and a camel",
+          cp20Text: "Baluch carpets are mostly small pieces and prayer rugs, in dark, warm colours — brown, camel, deep red and indigo — with fine geometric motifs and row upon row of lozenges. The Baluch weave their carpets from sheep's wool and sometimes goat hair and camel wool, and the weave is light and soft, a companion to life on the move and in the desert. The simplicity and dignity of the Baluch carpet mirror the life of the hard-working people of south-eastern Iran — people whose art shines in both needlework and carpet.",
+          cp21Tag: "Azerbaijan and Ardabil",
+          cp21Name: "Shahsavan",
+          cp21Alt: "Miniature painting of a Shahsavan sumak weaving with bold geometric motifs and vivid colours, and saddlebags hung upon a horse",
+          cp21Text: "The Shahsavans are nomadic tribes of Azerbaijan and Ardabil, and their famous art is sumak weaving: a flat weave without pile, with bold geometric motifs and lively colours, from which they make mafrash, saddlebags and horse covers. Shahsavan kilims too are known for their large, daring motifs in red, indigo and cream. Shahsavan weavings are passionate and sunny — like the tribe itself, free, unadorned and full of the ancient signs of nomadic life.",
+          cp22Tag: "Near Tehran",
+          cp22Name: "Varamin",
+          cp22Alt: "Miniature painting of a Varamin carpet with the Minakhani design — a lattice of four-petalled flowers — on an indigo ground",
+          cp22Text: "Varamin, near Tehran, has long been a weaving centre for both settled villagers and migrating tribes, and its carpet is a blend of both worlds. Varamin's famous design is 'Minakhani': a lattice of four-petalled flowers that covers the whole carpet like an orderly garden. The Varamin carpet has an indigo or red ground and a weave of middling fineness and firm. Its closeness to the capital has long tied the Varamin carpet to the great markets.",
+          cp23Tag: "Celebrated designs",
+          cp23Name: "Medallion and Corner (Lachak-o-Toranj)",
+          cp23Alt: "Miniature painting of an example of the medallion-and-corner design: a sun-like medallion at the centre and four adorned corners",
+          cp23Text: "The oldest and most famous layout of the Iranian carpet is 'lachak-o-toranj' — medallion and corner: a great sun-like medallion shines at the carpet's centre, and four 'lachak', or adorned corners, sit at its four corners. This layout has been likened to the picture of a garden and its pool: the medallion is the pool at the garden's heart, and the corners are the garden's corners. From the Safavid age to today, most urban carpets of Iran — from Tabriz to Kashan and Isfahan — rest on this layout, spreading the splendour and order of the Iranian garden beneath the feet.",
+          cp24Tag: "Celebrated designs",
+          cp24Name: "Afshan",
+          cp24Alt: "Miniature painting of an example of the afshan design: flowers and tendrils scattered across the whole ground with no medallion, small birds hidden among the flowers",
+          cp24Text: "In the 'afshan' design there is no central medallion: flowers, shrubs and curling stems, free and scattered, cover the carpet's whole ground — as if someone had strewn a handful of flowers across it. Afshan is among the most restful and poetic of designs and turns the ground into a boundless garden. This design is seen often in the carpets of Kashan, Tabriz and Kerman, and sometimes small animals and birds hide among its flowers.",
+          cp25Tag: "Celebrated designs",
+          cp25Name: "Shah Abbasi",
+          cp25Alt: "Miniature painting of a great Shah Abbasi flower with khatayi leaves and arabesque tendrils on an indigo ground",
+          cp25Text: "'Shah Abbasi' is the name of the great, adorned flowers that arose in the court workshops of Shah Abbas the Great and became the emblem of the golden age of the Iranian carpet. These fanciful, curling flowers, with khatayi leaves and arabesque shrubs, dance across the grounds of the carpets of Isfahan, Kashan and Nain. The Shah Abbasi design sometimes comes with a central medallion and sometimes scattered, afshan-style; but wherever it is, it carries with it the splendour and fine workmanship of the Safavid court.",
+          cp26Tag: "Celebrated designs",
+          cp26Name: "Herati (Entwined Fish)",
+          cp26Alt: "Miniature painting of the Herati design: a small flower at the centre of four fish-like leaves, repeated across the whole ground",
+          cp26Text: "The 'Herati' design is among the oldest motifs of the Eastern carpet: a small flower at the centre, around which four curved leaves — like four fish — have turned, and this motif repeats again and again across the whole carpet. That is why it is also called 'mahi darham', the entwined fish — as if fish were circling a flower in a calm pool. Herati is the famous design of Bijar, Sanandaj and Farahan, and its calm, endless rhythm turns the carpet into clear, moving water.",
+          cp27Tag: "Celebrated designs",
+          cp27Name: "Boteh Jegheh (Paisley)",
+          cp27Alt: "Miniature painting of rows of colourful bent boteh jegheh motifs, with a mother-and-child boteh among them",
+          cp27Text: "'Boteh jegheh' is among Iran's most beloved motifs: a bent shrub like a flame of fire, or a bowed cypress, or a drop of water whose tip has bent to one side. The boteh has been taken as a sign of humility, life and eternity, and its 'mother and child' kind — a great boteh with a small boteh in its heart — is a symbol of birth and the continuity of generations. From the carpet, boteh jegheh found its way to the termeh shawl, to cloth and to dress, and today it is known throughout the world — and its root is Iran.",
+          cp28Tag: "Celebrated designs",
+          cp28Name: "Gol Farang",
+          cp28Alt: "Miniature painting of Gol Farang bouquets of roses and peonies in natural colours on a cream carpet ground",
+          cp28Text: "'Gol Farang' means 'the European flower': bouquets of natural, richly coloured flowers such as roses and peonies that in the Qajar age, with the coming and going between Iran and Europe, settled upon Iran's carpets. These flowers differ from Iran's fanciful, traditional blooms; they have shading and relief and, like European paintings, are alive and real. Gol Farang is seen above all in the carpets of Kerman and Bijar, where the Iranian weaver blended the foreign flower with her own taste and made from it a new and delightful design.",
+          cp29Tag: "Celebrated designs",
+          cp29Name: "Derakhti (Tree)",
+          cp29Alt: "Miniature painting of the derakhti design: a tall cypress and a flowering, bird-filled tree of life at the carpet's centre",
+          cp29Text: "In the 'derakhti' design, the tree is the carpet's hero: the upright cypress, the weeping willow, or the tree of life with branches full of flowers, birds and fruit. In Iranian culture the tree is a symbol of life, eternity and the bond between earth and sky, and on the carpet it makes an evergreen garden. Sometimes a single tree stands at the carpet's centre and sometimes rows of trees cover the whole ground. The derakhti carpets of Kerman, Qom and Tabriz are famous, and some of them, with vase, pool and birds, are a complete picture of the Iranian garden.",
+          cp30Tag: "Celebrated designs",
+          cp30Name: "Kheshti (Panelled)",
+          cp30Alt: "Miniature painting of the kheshti design: square panels with a tree, flower or bird in each panel",
+          cp30Text: "In the 'kheshti' design, the carpet's face is divided into square panels, and in each panel sits a separate picture — a tree, a flower, a bird or an animal. The most famous kheshtis are the 'garden' carpets of Bakhtiari, each of whose panels is a window onto another garden. This layout has been likened to the chaharbagh gardens of Iran, gardens divided into four parts by streams. Kheshti is a design full of stories; each panel has its own tale, and the viewer's eye travels from panel to panel.",
+          cp31Tag: "Celebrated designs",
+          cp31Name: "Pictorial",
+          cp31Alt: "Miniature painting of a pictorial carpet with a hunting scene of king and heroes, hung on the wall of a Tabriz workshop",
+          cp31Text: "The 'pictorial' carpet is a carpet woven like a painting: the faces of kings and heroes, the stories of the Shahnameh, hunting grounds and historical scenes come alive on the loom with thousands of coloured knots. This art flourished from the Qajar age, and its great centre is Tabriz, where master weavers weave very fine, complex patterns over months and sometimes years. The pictorial carpet is hung on the wall more than it is laid underfoot; it is the highest meeting of carpet weaving and Iranian miniature painting.",
+          cp32Tag: "Special card · the weaver's art",
+          cp32Name: "The Tableau Carpet",
+          cp32Alt: "Miniature painting of a woman weaver at the upright loom of a tableau carpet, weaving a face, with coloured skeins beside her",
+          cp32Text: "The 'tableau carpet' is the highest peak of the pictorial carpet: a complete picture — a face, a landscape or a famous painting — woven on an upright loom, knot by knot, with a very fine warp and weft, until from a distance it is taken for a painting. The tableau weaver sits for months behind the loom and, with hundreds of colours and astonishing patience, builds light and shade out of knots. This art too is rooted above all in Tabriz and Azerbaijan, and every tableau carpet bears the signature of its weaver's hand and heart. And for us this card has another colour: Elnaz, the founder of Mehr Iran Dokht, in her years of life in Iran wove tableau carpets herself and set everything upon the loom — which is why Mehr Iran Dokht is so devoted to the handcraft of Iran's women.",
           navHistory: "Iran from the Beginning",
           histAria: "Iran from the beginning",
           histKicker: "The history of ancient Iran",
@@ -8015,6 +8380,7 @@
           navMonuments: "Monuments anciens",
           navPeoples: "Peuples d'Iran",
           navPeoplesCustoms: "Coutumes anciennes des peuples d'Iran",
+          navCarpets: "Les tapis d'Iran",
           navInventions: "Inventions de l'Iran antique",
           navCreatures: "Créatures légendaires",
           navHeroes: "Héros et guerriers",
@@ -8985,6 +9351,138 @@
           pc24Name: "Achomis (Larestanis)",
           pc24Text: "Les Achomis (Larestanis) du sud du Fars et d'Hormozgan parlent un héritier du vieux perse ; leur vie tourne autour de la mer — lancement des lenjs, fêtes portuaires au ney-anban, poissons épicés et dattes Shahani.",
           pc24Alt: "Peinture miniature du lancement d'un lenj en bois dans un port du Sud, avec un musicien au ney-anban",
+          cpKicker: "L'art intemporel des mains iraniennes",
+          cpTitle: "Les tapis d'Iran — <em>de Pazyryk au tapis-tableau</em>",
+          cpIntro: "Le tapis tissé main est l'art le plus ancien et le plus célèbre de l'Iran — un art vieux d'au moins deux mille cinq cents ans, toujours présent sous les pieds des Iraniens, des palais des rois aux tentes des tribus. Chaque ville et chaque tribu de ce pays tisse son propre tapis, avec ses couleurs, ses motifs et son tissage, si bien qu'à la vue d'un tapis on peut deviner sa terre natale. Dans cette section, nous visitons d'abord l'âge et l'histoire du tapis iranien, puis les tapis célèbres de chaque région, et enfin les motifs renommés et l'art du tapis-tableau.",
+          cpCredits: "Les illustrations de cette partie sont des peintures miniatures dans le style de la négârgari iranienne, réalisées pour ce site.",
+          cp1Tag: "Le plus vieux tapis du monde · il y a environ 2 500 ans",
+          cp1Name: "Le tapis de Pazyryk",
+          cp1Alt: "Peinture miniature du tapis ancien de Pazyryk, au fond rouge et aux rangées de cerfs et de cavaliers sur sa bordure, dans une tombe gelée en montagne",
+          cp1Text: "Le plus vieux tapis noué du monde parvenu jusqu'à nous a été découvert en 1949 dans une tombe gelée de la vallée de Pazyryk, dans les montagnes de l'Altaï, en Sibérie. Ce tapis a près de deux mille cinq cents ans et remonte à l'époque achéménide ; la glace et le froid de la tombe l'ont gardé des atteintes du temps, et il est aujourd'hui conservé au musée de l'Ermitage. Son fond est rouge, et le long de ses bordures courent des rangées de cerfs et de cavaliers — des motifs que beaucoup de chercheurs rattachent à l'art de l'Iran ancien, même si l'origine exacte de ce tapis reste débattue. Ce seul tapis montre qu'en ce temps-là, l'art du tissage était déjà un art mûr et magistral.",
+          cp2Tag: "L'époque sassanide",
+          cp2Name: "Le tapis Baharestan ; le Printemps de Khosrow",
+          cp2Alt: "Peinture miniature du légendaire tapis Baharestan dans le palais de Ctésiphon, au motif de jardin plein de ruisseaux, d'arbres et de fleurs, avec le roi sassanide sur son trône",
+          cp2Text: "Dans le palais de Khosrow, le roi sassanide, à Ctésiphon, s'étendait un tapis légendaire nommé « Baharestan » ou « Printemps de Khosrow ». Ce grand tapis était tissé de soie et de fils d'or et d'argent, orné de gemmes ; son motif était un jardin paradisiaque de ruisseaux, d'arbres et de fleurs, si bien qu'au cœur de l'hiver le roi avait un printemps éternel sous les pieds. Après la chute de l'Empire sassanide, ce trésor sans pareil tomba aux mains des vainqueurs, qui le découpèrent et se le partagèrent ; c'est pourquoi du Baharestan il ne reste qu'un nom éclatant dans les livres d'histoire. Le Baharestan montre que dans l'Iran ancien, le tapis n'était pas un simple couvre-sol : c'était un trésor royal, symbole du jardin et du paradis.",
+          cp3Tag: "L'époque safavide · 946 de l'Hégire",
+          cp3Name: "Le tapis d'Ardabil et l'époque safavide",
+          cp3Alt: "Peinture miniature du grand tapis d'Ardabil, au médaillon pareil au soleil en son centre et aux deux lampes à ses extrémités, sur fond indigo dans un sanctuaire safavide",
+          cp3Text: "L'époque safavide est l'âge d'or du tapis iranien ; les shahs safavides, surtout Shah Abbas le Grand, fondèrent des ateliers royaux et portèrent le tapis d'Iran au sommet de la beauté et du tissage. Le vestige le plus célèbre de cette époque est le « tapis d'Ardabil », tissé pour le sanctuaire de Cheikh Safi al-Din d'Ardabil, ancêtre des rois safavides ; dans le tapis même sont noués la date de son achèvement — l'an 946 de l'Hégire, soit 1539 — et le nom de « Maqsud de Kashan », ce qui en fait le plus vieux tapis daté du monde. Ce très grand tapis, de près de vingt-six millions de nœuds, porte en son centre un grand médaillon pareil au soleil, avec deux lampes tissées à ses deux extrémités ; aujourd'hui, l'un de la paire est conservé au Victoria and Albert Museum de Londres et l'autre au musée de Los Angeles.",
+          cp4Tag: "Des Qajars à nos jours",
+          cp4Name: "Des Qajars à nos jours",
+          cp4Alt: "Peinture miniature d'un grand atelier de tapis de l'époque qajare, avec de nombreux métiers et tisserands, et des marchands emballant les tapis pour le voyage",
+          cp4Text: "À l'époque qajare, le tapis d'Iran gagna les marchés du monde ; les marchands de Tabriz et les compagnies étrangères fondèrent de grands ateliers dans des villes comme Arak, Tabriz et Kerman, et le tapis iranien entra dans les maisons d'Europe et d'Amérique. Au vingtième siècle aussi, à travers bien des hauts et des bas, les tisserands iraniens gardèrent cet art vivant, et aujourd'hui le tapis tissé main d'Iran reste le plus célèbre du monde. Les savoir-faire traditionnels du tapis de Kashan et du Fars ont été inscrits en 2010 sur la liste du patrimoine culturel immatériel de l'UNESCO — signe que le tapis d'Iran est un trésor pour le monde entier.",
+          cp5Tag: "Azerbaïdjan oriental",
+          cp5Name: "Tabriz",
+          cp5Alt: "Peinture miniature d'un tapis de Tabriz au fin médaillon et aux coins ornés, aux couleurs harmonieuses, dans un vieil atelier aux grands métiers",
+          cp5Text: "Tabriz est l'un des plus anciens et des plus grands centres de tissage du monde, et son tapis est connu pour son tissage solide, son nouage fin et ses couleurs harmonieuses. Les motifs à médaillon et coins, Herati et Shah Abbasi abondent dans les tapis de Tabriz ; parfois la chaîne est de soie et les motifs aussi fins qu'une miniature. Les tapis de Tabriz se tissent en grandes dimensions, en laine fine et parfois en soie, et sont très recherchés en Iran comme sur les marchés du monde.",
+          cp6Tag: "Iran central",
+          cp6Name: "Kashan",
+          cp6Alt: "Peinture miniature d'un tapis de Kashan au fond rouge laque, au médaillon Shah Abbasi indigo et aux fleurs délicates",
+          cp6Text: "Kashan est depuis longtemps une ville de soie et de tapis précieux ; les tapis « Mohtasham » de Kashan, à la laine douce et lustrée, aux fonds rouge laque et indigo et aux médaillons Shah Abbasi, comptent parmi les chefs-d'œuvre du tapis iranien. Kashan tisse aussi de très fins tapis de soie, et son savoir-faire traditionnel est inscrit au patrimoine mondial de l'UNESCO. Les couleurs de Kashan — rouge, indigo, crème et vert — donnent au tapis une harmonie et une splendeur royales.",
+          cp7Tag: "Iran central",
+          cp7Name: "Ispahan",
+          cp7Alt: "Peinture miniature d'un tapis très fin d'Ispahan, aux fleurs Shah Abbasi enroulées sur fond crème et à la bordure indigo",
+          cp7Text: "Le tapis d'Ispahan compte parmi les plus fins du monde : des nœuds très serrés sur une chaîne de soie, des motifs Shah Abbasi et des fleurs enroulées sur fond crème, indigo ou rouge. Des ateliers renommés comme Seirafian ont porté haut le nom d'Ispahan dans le monde. Le tapis d'Ispahan est davantage une œuvre d'art qu'un couvre-sol ; chaque nœud est fait avec une patience et une précision rares, et son prix est parmi les plus élevés.",
+          cp8Tag: "Tapis de soie",
+          cp8Name: "Qom",
+          cp8Alt: "Peinture miniature d'un tapis de soie de Qom, au doux éclat, aux couleurs claires et au motif de jardin fleuri",
+          cp8Text: "Les tapis de Qom sont le plus souvent tissés de soie pure et sont connus pour leur douceur, leur éclat et leur finesse étonnante. Le tissage à Qom n'a pas un passé ancien et a prospéré au vingtième siècle ; mais en ce court temps, avec ses motifs de jardin et de médaillon et ses couleurs claires et vives, il a conquis une place élevée. La soie de Qom est si délicate qu'elle se plie comme une étoffe précieuse, et on l'achète surtout pour l'ornement et les collections.",
+          cp9Tag: "Sud-est de l'Iran",
+          cp9Name: "Kerman",
+          cp9Alt: "Peinture miniature d'un tapis de Kerman aux fleurs fines et abondantes et aux arbustes colorés sur fonds rouge laque et crème",
+          cp9Text: "Le tapis de Kerman est connu pour ses fleurs fines et abondantes, ses motifs d'arbustes et ses dessins « en dentelle », sur fonds rouge laque et crème aux fleurs de maintes couleurs. Les tapis « Gol Farang » et « Derakhti » de Kerman sont célèbres, et les tapis de Ravar, à Kerman, comptent parmi les meilleurs. Le tissage de Kerman est doux et délicat, et ses couleurs gagnent en beauté et en valeur avec l'âge ; c'est pourquoi les vieux tapis de Kerman sont très demandés.",
+          cp10Tag: "Iran central",
+          cp10Name: "Yazd",
+          cp10Alt: "Peinture miniature d'un tapis de Yazd à médaillon et coins et au motif Herati sur fonds rouge et indigo, près des badgirs de la ville désertique",
+          cp10Text: "Yazd est la voisine de Kerman et son tapis ressemble à celui de Kerman, mais avec un tissage plus gros, plus solide et un prix moindre. Les motifs de Yazd sont surtout le médaillon à coins et le Herati, sur fonds rouge, crème et indigo. Le tapis de Yazd est fait pour la vie quotidienne ; sa laine est bonne, son tissage robuste, et il dure des années sous les pieds. La ville de Yazd est elle-même un trésor d'arts anciens, et son tapis puise à la même source.",
+          cp11Tag: "Iran central",
+          cp11Name: "Naïn",
+          cp11Alt: "Peinture miniature d'un tapis de Naïn au fond crème clair, aux fleurs Shah Abbasi indigo et bleues et aux reflets de soie",
+          cp11Text: "Naïn est une petite ville au cœur du désert dont le tapis a conquis le monde : un fond crème et blanc, des motifs Shah Abbasi et des fleurs enroulées en indigo et bleu clair, et des fleurs rehaussées de soie. La finesse de Naïn se mesure en « la » : plus le la est bas, plus le tapis est fin et cher. L'atelier Habibian a fait la renommée de Naïn, et aujourd'hui « Naïn » est un signe de délicatesse, de clarté et de calme dans le tapis iranien.",
+          cp12Tag: "Azerbaïdjan oriental",
+          cp12Name: "Heriz",
+          cp12Alt: "Peinture miniature d'un tapis de Heriz au grand médaillon anguleux, aux motifs géométriques et aux couleurs rouge garance et indigo",
+          cp12Text: "Heriz est un district de l'Azerbaïdjan oriental dont le tapis est connu pour ses grands médaillons anguleux, ses motifs géométriques et ses couleurs végétales franches — rouge garance, indigo et brun. Le tapis de Heriz est rugueux et d'une durabilité extrême ; un tissage villageois sans apprêt, dont les motifs jaillissent de l'esprit de la tisserande, si bien qu'il n'y en a pas deux pareils. Ces tapis épais et hauts en couleur apportent dans toute maison la chaleur des foyers villageois du nord-ouest de l'Iran.",
+          cp13Tag: "Khorasan",
+          cp13Name: "Mashhad",
+          cp13Alt: "Peinture miniature d'un grand tapis de Mashhad au fond rouge profond, au médaillon Shah Abbasi et aux larges bordures, dans une grande salle",
+          cp13Text: "Mashhad et le Khorasan comptent parmi les grands centres du tapis iranien ; le tapis de Mashhad est le plus souvent de grande taille, au fond rouge profond, aux médaillons Shah Abbasi et aux larges bordures. La laine du Khorasan est douce et lustrée, et le tapis de Mashhad est connu pour sa chaleur et sa solidité. L'atelier Amoghli a rendu le nom de Mashhad célèbre autrefois. Les tapis du Khorasan, de Mashhad à Birjand et Kashmar, ont des couleurs profondes et un tissage ferme, et sont faits pour les salles et les grandes maisons.",
+          cp14Tag: "Iran central",
+          cp14Name: "Arak et Sarouk",
+          cp14Alt: "Peinture miniature d'un tapis Sarouk aux fleurs éparses et aux arbustes délicats sur fonds rouge et indigo",
+          cp14Text: "Arak — l'ancien Sultanabad — fut à l'époque qajare l'un des plus grands centres d'exportation du tapis iranien. Le tapis le plus célèbre de cette terre est le « Sarouk », aux fleurs éparses et aux arbustes délicats sur fonds rouge et indigo, au tissage doux et dense. Le « Farahan » est aussi un tapis prisé de cette terre, au motif Herati fin et régulier. Le tapis Sarouk plut tant en Amérique qu'une de ses variétés reçut le nom de « Sarouk américain ».",
+          cp15Tag: "Kurdistan",
+          cp15Name: "Bijar et Sanandaj",
+          cp15Alt: "Peinture miniature d'un tapis de Bijar au motif dense des poissons entrelacés sur fond indigo, avec une tisserande kurde à son métier",
+          cp15Text: "Bijar a été surnommé « le tapis de fer de l'Iran » ; il est tissé à double trame, si dense et si lourd qu'on peine à le plier et que sa vie est très longue. Le motif célèbre de Bijar est le Herati, ou poissons entrelacés, sur fonds rouge et indigo. Sanandaj — Senneh — est la voisine de Bijar et tisse un tapis à simple trame, finement noué, au motif Herati très délicat ; le nom de « nœud Senneh » connu dans le monde vient de cette ville même. Les tapis kurdes de Bijar et de Sanandaj unissent solidité et délicatesse.",
+          cp16Tag: "Tribus du Sud et de l'Ouest",
+          cp16Name: "Gabbeh",
+          cp16Alt: "Peinture miniature d'un épais gabbeh tribal aux motifs simples de chèvre, d'arbre et d'étoile, avec les tentes de la tribu en montagne",
+          cp16Text: "Le gabbeh est le tapis des tribus : un couvre-sol épais, au tissage grossier et au long velours, que tissent les tribus du sud et de l'ouest de l'Iran — Qashqais, Lurs et Bakhtiaris — pour leur vie nomade. Les motifs du gabbeh sont simples et sans apprêt — chèvre, arbre, petits personnages et étoiles, tout ce qui habite l'esprit de la tisserande — en couleurs végétales et laine filée main. Le gabbeh n'a ni patron ni modèle ; c'est le récit de la vie tribale posé sur le métier, et c'est pourquoi chaque gabbeh est unique et sans pareil.",
+          cp17Tag: "Tribu Qashqai · Fars",
+          cp17Name: "Qashqai",
+          cp17Alt: "Peinture miniature d'une femme qashqai à son métier au sol, avec un tapis coloré aux motifs géométriques et aux animaux, près de la tente de la tribu",
+          cp17Text: "La tribu Qashqai migre à travers la terre du Fars, et ses femmes tissent sur des métiers au sol des tapis parmi les plus vivants et les plus colorés d'Iran. Motifs géométriques, animaux, personnages et étoiles, en couleurs végétales rouge, indigo et jaune, se posent sur le tapis sans patron, de mémoire. Le tapis qashqai est tout en laine, au tissage solide ; la passion et la liberté de la vie tribale se voient dans chaque nœud. Les kilims et les gabbehs qashqais sont aussi célèbres dans le monde.",
+          cp18Tag: "Chaharmahal et Bakhtiari",
+          cp18Name: "Bakhtiari",
+          cp18Alt: "Peinture miniature d'un tapis-jardin bakhtiari aux panneaux remplis d'arbres, de fleurs et d'oiseaux sur fond indigo",
+          cp18Text: "Les tapis bakhtiaris se tissent surtout dans le Chaharmahal, et leur motif le plus célèbre est le « jardin » ou « kheshti » : le tapis se divise en panneaux, et dans chaque panneau prennent forme un arbre, une fleur, un oiseau ou un animal — un jardin qui ne connaît jamais l'automne. Le tapis bakhtiari est à double trame et très durable, et ses couleurs — rouge, indigo, vert et jaune — viennent des plantes de la montagne. Ces tapis sont l'œuvre des femmes et des hommes des villages et de la tribu bakhtiarie, et gardent la chaleur et la simplicité de la vie montagnarde.",
+          cp19Tag: "Turkmen Sahra",
+          cp19Name: "Turkmène",
+          cp19Alt: "Peinture miniature d'un tapis turkmène au fond rouge profond et aux rangées de guls octogonaux des clans, avec des chevaux turkmènes",
+          cp19Text: "Un tapis turkmène se reconnaît de loin : un fond rouge profond et des motifs géométriques octogonaux appelés « gul », emblème de chaque clan — le gul Tekke, le gul Saryk et le gul Yomut. Le tissage turkmène est fin, dense et tout en laine, et son rouge garde la chaleur du désert turkmène. Chaque clan a gardé son propre gul de génération en génération ; c'est pourquoi le tapis turkmène est la carte d'identité de la tribu, et lire ses guls, c'est lire l'histoire des clans.",
+          cp20Tag: "Baloutchistan",
+          cp20Name: "Baloutche",
+          cp20Alt: "Peinture miniature d'un tapis de prière baloutche aux tons brun et chameau et aux losanges géométriques, dans un désert de palmiers avec un chameau",
+          cp20Text: "Les tapis baloutches sont le plus souvent de petites pièces et des tapis de prière, aux couleurs sombres et chaudes — brun, chameau, rouge profond et indigo — aux motifs géométriques fins et aux losanges alignés. Les Baloutches tissent leurs tapis en laine de mouton, parfois en poil de chèvre et en laine de chameau ; le tissage est léger et doux, compagnon de la vie nomade et du désert. La simplicité et la dignité du tapis baloutche reflètent la vie des gens travailleurs du sud-est de l'Iran — un peuple dont l'art brille dans la broderie comme dans le tapis.",
+          cp21Tag: "Azerbaïdjan et Ardabil",
+          cp21Name: "Shahsavan",
+          cp21Alt: "Peinture miniature d'un tissage sumak shahsavan aux grands motifs géométriques et aux couleurs vives, avec des sacoches suspendues à un cheval",
+          cp21Text: "Les Shahsavans sont des tribus nomades de l'Azerbaïdjan et d'Ardabil, et leur art célèbre est le tissage sumak : un tissage plat sans velours, aux grands motifs géométriques et aux couleurs vives, dont ils font mafrash, sacoches et couvertures de cheval. Les kilims shahsavans sont aussi connus pour leurs grands motifs audacieux en rouge, indigo et crème. Les tissages shahsavans sont passionnés et ensoleillés — comme la tribu elle-même, libres, sans apprêt et pleins des signes anciens de la vie nomade.",
+          cp22Tag: "Près de Téhéran",
+          cp22Name: "Varamin",
+          cp22Alt: "Peinture miniature d'un tapis de Varamin au motif Minakhani — un réseau de fleurs à quatre pétales — sur fond indigo",
+          cp22Text: "Varamin, près de Téhéran, est depuis longtemps un centre de tissage pour les villageois sédentaires comme pour les tribus migrantes, et son tapis est un mélange des deux mondes. Le motif célèbre de Varamin est le « Minakhani » : un réseau de fleurs à quatre pétales qui couvre tout le tapis comme un jardin ordonné. Le tapis de Varamin a un fond indigo ou rouge et un tissage de finesse moyenne et ferme. Sa proximité avec la capitale l'a depuis longtemps lié aux grands marchés.",
+          cp23Tag: "Motifs célèbres",
+          cp23Name: "Médaillon et coins (Lachak-o-Toranj)",
+          cp23Alt: "Peinture miniature d'un exemple du motif médaillon et coins : un médaillon pareil au soleil au centre et quatre coins ornés",
+          cp23Text: "La disposition la plus ancienne et la plus célèbre du tapis iranien est le « lachak-o-toranj », médaillon et coins : un grand médaillon pareil au soleil brille au centre du tapis, et quatre « lachak », ou coins ornés, siègent à ses quatre angles. On a comparé cette disposition à l'image d'un jardin et de son bassin : le médaillon est le bassin au cœur du jardin, et les coins sont les angles du jardin. De l'époque safavide à nos jours, la plupart des tapis citadins d'Iran — de Tabriz à Kashan et Ispahan — reposent sur cette disposition, étendant sous les pieds la splendeur et l'ordre du jardin iranien.",
+          cp24Tag: "Motifs célèbres",
+          cp24Name: "Afshan",
+          cp24Alt: "Peinture miniature d'un exemple du motif afshan : fleurs et rinceaux épars sur tout le fond sans médaillon, petits oiseaux cachés parmi les fleurs",
+          cp24Text: "Dans le motif « afshan », il n'y a pas de médaillon central : fleurs, arbustes et tiges enroulées, libres et épars, couvrent tout le fond du tapis — comme si l'on avait semé une poignée de fleurs sur le tapis. L'afshan est parmi les motifs les plus reposants et les plus poétiques, et il change le fond en un jardin sans frontières. Ce motif se voit souvent dans les tapis de Kashan, de Tabriz et de Kerman, et parfois de petits animaux et des oiseaux se cachent parmi ses fleurs.",
+          cp25Tag: "Motifs célèbres",
+          cp25Name: "Shah Abbasi",
+          cp25Alt: "Peinture miniature d'une grande fleur Shah Abbasi aux feuilles khatayi et aux rinceaux arabesques sur fond indigo",
+          cp25Text: "« Shah Abbasi » est le nom des grandes fleurs ornées nées dans les ateliers de la cour de Shah Abbas le Grand, devenues l'emblème de l'âge d'or du tapis iranien. Ces fleurs imaginaires et enroulées, aux feuilles khatayi et aux arbustes arabesques, dansent sur les fonds des tapis d'Ispahan, de Kashan et de Naïn. Le motif Shah Abbasi s'accompagne parfois d'un médaillon central, parfois il est épars, à la manière afshan ; mais partout où il se trouve, il porte avec lui la splendeur et la finesse de la cour safavide.",
+          cp26Tag: "Motifs célèbres",
+          cp26Name: "Herati (poissons entrelacés)",
+          cp26Alt: "Peinture miniature du motif Herati : une petite fleur au centre de quatre feuilles en forme de poisson, répété sur tout le fond",
+          cp26Text: "Le motif « Herati » est parmi les plus anciens motifs du tapis d'Orient : une petite fleur au centre, autour de laquelle ont tourné quatre feuilles courbes — comme quatre poissons — et ce motif se répète encore et encore sur tout le tapis. C'est pourquoi on l'appelle aussi « mahi darham », les poissons entrelacés — comme si des poissons tournaient autour d'une fleur dans un bassin calme. Le Herati est le motif célèbre de Bijar, de Sanandaj et de Farahan, et son rythme calme et sans fin change le tapis en une eau claire et mouvante.",
+          cp27Tag: "Motifs célèbres",
+          cp27Name: "Boteh Jegheh (paisley)",
+          cp27Alt: "Peinture miniature de rangées de boteh jegheh courbes et colorés, avec un boteh mère et enfant parmi eux",
+          cp27Text: "Le « boteh jegheh » est parmi les motifs les plus aimés d'Iran : un arbuste courbé comme une flamme de feu, ou un cyprès incliné, ou une goutte d'eau dont la pointe s'est pliée d'un côté. On a fait du boteh un signe d'humilité, de vie et d'éternité, et sa forme « mère et enfant » — un grand boteh avec un petit boteh en son cœur — est un symbole de naissance et de continuité des générations. Du tapis, le boteh jegheh est passé au châle termeh, à l'étoffe et au vêtement, et il est aujourd'hui connu dans le monde entier — et sa racine est l'Iran.",
+          cp28Tag: "Motifs célèbres",
+          cp28Name: "Gol Farang",
+          cp28Alt: "Peinture miniature de bouquets Gol Farang de roses et de pivoines aux couleurs naturelles sur fond crème de tapis",
+          cp28Text: "« Gol Farang » signifie « la fleur d'Europe » : des bouquets de fleurs naturelles et riches en couleur, comme les roses et les pivoines, qui à l'époque qajare, avec les allées et venues entre l'Iran et l'Europe, se posèrent sur les tapis d'Iran. Ces fleurs diffèrent des fleurs imaginaires et traditionnelles de l'Iran ; elles ont ombres et relief et, comme les peintures européennes, sont vivantes et réelles. Le Gol Farang se voit surtout dans les tapis de Kerman et de Bijar, où la tisserande iranienne mêla la fleur étrangère à son propre goût et en fit un motif nouveau et charmant.",
+          cp29Tag: "Motifs célèbres",
+          cp29Name: "Derakhti (l'arbre)",
+          cp29Alt: "Peinture miniature du motif derakhti : un grand cyprès et un arbre de vie fleuri et plein d'oiseaux au centre du tapis",
+          cp29Text: "Dans le motif « derakhti », l'arbre est le héros du tapis : le cyprès dressé, le saule pleureur, ou l'arbre de vie aux branches pleines de fleurs, d'oiseaux et de fruits. Dans la culture iranienne, l'arbre est un symbole de vie, d'éternité et du lien entre la terre et le ciel, et sur le tapis il fait un jardin toujours vert. Parfois un arbre seul se dresse au centre du tapis, parfois des rangées d'arbres couvrent tout le fond. Les tapis derakhti de Kerman, de Qom et de Tabriz sont célèbres, et certains d'entre eux, avec vase, bassin et oiseaux, sont une image complète du jardin iranien.",
+          cp30Tag: "Motifs célèbres",
+          cp30Name: "Kheshti (à panneaux)",
+          cp30Alt: "Peinture miniature du motif kheshti : des panneaux carrés avec un arbre, une fleur ou un oiseau dans chaque panneau",
+          cp30Text: "Dans le motif « kheshti », la face du tapis se divise en panneaux carrés, et dans chaque panneau siège une image séparée — un arbre, une fleur, un oiseau ou un animal. Les kheshtis les plus célèbres sont les tapis « jardin » des Bakhtiaris, dont chaque panneau est une fenêtre sur un autre jardin. On a comparé cette disposition aux jardins tchaharbagh d'Iran, divisés en quatre parties par des canaux. Le kheshti est un motif plein d'histoires ; chaque panneau a son propre récit, et l'œil du spectateur voyage de panneau en panneau.",
+          cp31Tag: "Motifs célèbres",
+          cp31Name: "Pictural",
+          cp31Alt: "Peinture miniature d'un tapis pictural avec une scène de chasse de roi et de héros, suspendu au mur d'un atelier de Tabriz",
+          cp31Text: "Le tapis « pictural » est un tapis tissé comme un tableau : les visages des rois et des héros, les récits du Shahnameh, les scènes de chasse et les images historiques prennent vie sur le métier avec des milliers de nœuds colorés. Cet art a fleuri dès l'époque qajare, et son grand centre est Tabriz, où des maîtres tisserands tissent des patrons très fins et complexes pendant des mois, parfois des années. Le tapis pictural se suspend au mur plus qu'il ne se pose sous les pieds ; c'est la plus haute rencontre du tissage de tapis et de la miniature iranienne.",
+          cp32Tag: "Carte spéciale · l'art de la tisserande",
+          cp32Name: "Le tapis-tableau",
+          cp32Alt: "Peinture miniature d'une tisserande au métier vertical d'un tapis-tableau, tissant un visage, avec des écheveaux colorés près d'elle",
+          cp32Text: "Le « tapis-tableau » est le plus haut sommet du tapis pictural : une image complète — un visage, un paysage ou une peinture célèbre — tissée sur un métier vertical, nœud par nœud, avec une chaîne et une trame très fines, jusqu'à être prise de loin pour une peinture. La tisserande de tapis-tableau reste des mois derrière le métier et, avec des centaines de couleurs et une patience étonnante, construit la lumière et l'ombre à coups de nœuds. Cet art aussi est enraciné avant tout à Tabriz et en Azerbaïdjan, et chaque tapis-tableau porte la signature de la main et du cœur de sa tisserande. Et pour nous, cette carte a une autre couleur : Elnaz, la fondatrice de Mehr Iran Dokht, a elle-même tissé des tapis-tableaux pendant ses années de vie en Iran et posé toutes choses sur le métier — c'est pourquoi Mehr Iran Dokht est si attaché à l'artisanat des femmes d'Iran.",
           navHistory: "L'Iran depuis le début",
           histAria: "L'Iran depuis le début",
           histKicker: "L'histoire de l'Iran ancien",
@@ -9831,7 +10329,7 @@
     <script>
       /* ---------- Separate pages: show one section at a time ---------- */
       (function () {
-        var VIEWS = ["avesta", "gathas", "shahnameh", "history", "calendar", "nights", "festivals", "festivals-guide", "monuments", "peoples", "peoples-customs", "inventions", "creatures", "heroes", "schools", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
+        var VIEWS = ["avesta", "gathas", "shahnameh", "history", "calendar", "nights", "festivals", "festivals-guide", "monuments", "peoples", "peoples-customs", "carpets", "inventions", "creatures", "heroes", "schools", "films", "ideas", "app", "home", "support", "contact", "privacy", "books"];
         var panels = document.querySelectorAll("[data-view]");
         var navLinks = document.querySelectorAll("[data-view-link]");
         var current = "home";
@@ -10339,20 +10837,29 @@
           var m = Math.floor(t / 60), s = Math.floor(t % 60);
           return digits(m + ":" + (s < 10 ? "0" : "") + s);
         }
+        var voiceAudios = [];
         function initVoice(cfg) {
           var box = document.getElementById(cfg.box);
           var btn = document.getElementById(cfg.btn);
+          var stopBtn = cfg.stop ? document.getElementById(cfg.stop) : null;
           var audio = document.getElementById(cfg.audio);
           var prog = document.getElementById(cfg.prog);
           var fill = document.getElementById(cfg.fill);
           var timeEl = document.getElementById(cfg.time);
           if (!box || !btn || !audio) return;
+          voiceAudios.push(audio);
+          audio.addEventListener("play", function () {
+            for (var j = 0; j < voiceAudios.length; j++) {
+              if (voiceAudios[j] !== audio) voiceAudios[j].pause();
+            }
+          });
           function lab() { return cfg.labels[lang()] || cfg.labels.fa; }
           function render() {
             var playing = !audio.paused && !audio.ended;
             box.classList.toggle("playing", playing);
             btn.setAttribute("aria-pressed", playing ? "true" : "false");
             btn.setAttribute("aria-label", playing ? lab().pause : lab().play);
+            if (stopBtn) stopBtn.setAttribute("aria-label", lab().stop);
             var icPlay = btn.querySelector(".ic-play");
             var icPause = btn.querySelector(".ic-pause");
             if (icPlay) icPlay.hidden = playing;
@@ -10370,6 +10877,13 @@
             }
             render();
           });
+          if (stopBtn) {
+            stopBtn.addEventListener("click", function () {
+              audio.pause();
+              audio.currentTime = 0;
+              render();
+            });
+          }
           if (prog) {
             prog.addEventListener("click", function (e) {
               var r = prog.getBoundingClientRect();
@@ -10393,168 +10907,171 @@
         }
         /* Tale One (Kiumars) */
         initVoice({
-          box: "voiceKiumars", btn: "voicePlay1", audio: "voiceAudio1",
+          box: "voiceKiumars", btn: "voicePlay1", stop: "voiceStop1", audio: "voiceAudio1",
           prog: "voiceProg1", fill: "voiceFill1", time: "voiceTime1",
           fallbackDur: 132,
           labels: {
-            fa: { play: "پخش خوانش داستان کیومرث با صدای الناز", pause: "ایست خوانش داستان کیومرث" },
-            en: { play: "Play Elnaz's narration of the tale of Kiumars", pause: "Pause the narration of the tale of Kiumars" },
-            fr: { play: "Écouter la narration du conte de Kiumars par Elnaz", pause: "Mettre en pause la narration du conte de Kiumars" }
+            fa: { play: "پخش خوانش داستان کیومرث با صدای الناز", pause: "ایست خوانش داستان کیومرث", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of Kiumars", pause: "Pause the narration of the tale of Kiumars", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de Kiumars par Elnaz", pause: "Mettre en pause la narration du conte de Kiumars", stop: "Arrêter la narration" }
           }
         });
         /* Tale Two (Hushang) */
         initVoice({
-          box: "voiceHushang", btn: "voicePlay2", audio: "voiceAudio2",
+          box: "voiceHushang", btn: "voicePlay2", stop: "voiceStop2", audio: "voiceAudio2",
           prog: "voiceProg2", fill: "voiceFill2", time: "voiceTime2",
           fallbackDur: 115,
           labels: {
-            fa: { play: "پخش خوانش داستان هوشنگ با صدای الناز", pause: "ایست خوانش داستان هوشنگ" },
-            en: { play: "Play Elnaz's narration of the tale of Hushang", pause: "Pause the narration of the tale of Hushang" },
-            fr: { play: "Écouter la narration du conte de Hushang par Elnaz", pause: "Mettre en pause la narration du conte de Hushang" }
+            fa: { play: "پخش خوانش داستان هوشنگ با صدای الناز", pause: "ایست خوانش داستان هوشنگ", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of Hushang", pause: "Pause the narration of the tale of Hushang", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de Hushang par Elnaz", pause: "Mettre en pause la narration du conte de Hushang", stop: "Arrêter la narration" }
           }
         });
         /* Tale Three (Tahmuras) */
         initVoice({
-          box: "voiceTahmuras", btn: "voicePlay3", audio: "voiceAudio3",
+          box: "voiceTahmuras", btn: "voicePlay3", stop: "voiceStop3", audio: "voiceAudio3",
           prog: "voiceProg3", fill: "voiceFill3", time: "voiceTime3",
           fallbackDur: 58,
           labels: {
-            fa: { play: "پخش خوانش داستان طهمورث با صدای الناز", pause: "ایست خوانش داستان طهمورث" },
-            en: { play: "Play Elnaz's narration of the tale of Tahmuras", pause: "Pause the narration of the tale of Tahmuras" },
-            fr: { play: "Écouter la narration du conte de Tahmuras par Elnaz", pause: "Mettre en pause la narration du conte de Tahmuras" }
+            fa: { play: "پخش خوانش داستان طهمورث با صدای الناز", pause: "ایست خوانش داستان طهمورث", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of Tahmuras", pause: "Pause the narration of the tale of Tahmuras", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de Tahmuras par Elnaz", pause: "Mettre en pause la narration du conte de Tahmuras", stop: "Arrêter la narration" }
           }
         });
         /* Tale Four (Jamshid) */
         initVoice({
-          box: "voiceJamshid", btn: "voicePlay4", audio: "voiceAudio4",
+          box: "voiceJamshid", btn: "voicePlay4", stop: "voiceStop4", audio: "voiceAudio4",
           prog: "voiceProg4", fill: "voiceFill4", time: "voiceTime4",
           fallbackDur: 103,
           labels: {
-            fa: { play: "پخش خوانش داستان جمشید با صدای الناز", pause: "ایست خوانش داستان جمشید" },
-            en: { play: "Play Elnaz's narration of the tale of Jamshid", pause: "Pause the narration of the tale of Jamshid" },
-            fr: { play: "Écouter la narration du conte de Jamshid par Elnaz", pause: "Mettre en pause la narration du conte de Jamshid" }
+            fa: { play: "پخش خوانش داستان جمشید با صدای الناز", pause: "ایست خوانش داستان جمشید", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of Jamshid", pause: "Pause the narration of the tale of Jamshid", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de Jamshid par Elnaz", pause: "Mettre en pause la narration du conte de Jamshid", stop: "Arrêter la narration" }
           }
         });
         /* Tale Five (Zahhak and Kaveh) */
         initVoice({
-          box: "voiceZahhak", btn: "voicePlay6", audio: "voiceAudio6",
+          box: "voiceZahhak", btn: "voicePlay6", stop: "voiceStop6", audio: "voiceAudio6",
           prog: "voiceProg6", fill: "voiceFill6", time: "voiceTime6",
           fallbackDur: 255,
           labels: {
-            fa: { play: "پخش خوانش سرگذشت ضحاک و کاوه‌ی آهنگر با صدای الناز", pause: "ایست خوانش سرگذشت ضحاک و کاوه‌ی آهنگر" },
-            en: { play: "Play Elnaz's narration of the tale of Zahhak and Kaveh", pause: "Pause the narration of the tale of Zahhak and Kaveh" },
-            fr: { play: "Écouter la narration du conte de Zahhak et Kaveh par Elnaz", pause: "Mettre en pause la narration du conte de Zahhak et Kaveh" }
+            fa: { play: "پخش خوانش سرگذشت ضحاک و کاوه‌ی آهنگر با صدای الناز", pause: "ایست خوانش سرگذشت ضحاک و کاوه‌ی آهنگر", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of Zahhak and Kaveh", pause: "Pause the narration of the tale of Zahhak and Kaveh", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de Zahhak et Kaveh par Elnaz", pause: "Mettre en pause la narration du conte de Zahhak et Kaveh", stop: "Arrêter la narration" }
           }
         });
         /* Tale Six (Fereydun and his three sons) */
         initVoice({
-          box: "voiceFereydun", btn: "voicePlay7", audio: "voiceAudio7",
+          box: "voiceFereydun", btn: "voicePlay7", stop: "voiceStop7", audio: "voiceAudio7",
           prog: "voiceProg7", fill: "voiceFill7", time: "voiceTime7",
           fallbackDur: 176,
           labels: {
-            fa: { play: "پخش خوانش سرگذشت فریدون و سه پسرش با صدای الناز", pause: "ایست خوانش سرگذشت فریدون و سه پسرش" },
-            en: { play: "Play Elnaz's narration of the tale of Fereydun and his three sons", pause: "Pause the narration of the tale of Fereydun and his three sons" },
-            fr: { play: "Écouter la narration du conte de Fereydun et ses trois fils par Elnaz", pause: "Mettre en pause la narration du conte de Fereydun et ses trois fils" }
+            fa: { play: "پخش خوانش سرگذشت فریدون و سه پسرش با صدای الناز", pause: "ایست خوانش سرگذشت فریدون و سه پسرش", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of Fereydun and his three sons", pause: "Pause the narration of the tale of Fereydun and his three sons", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de Fereydun et ses trois fils par Elnaz", pause: "Mettre en pause la narration du conte de Fereydun et ses trois fils", stop: "Arrêter la narration" }
           }
         });
         /* Tale Seven (Manuchehr and the vengeance for Iraj) */
         initVoice({
-          box: "voiceManuchehr", btn: "voicePlay10", audio: "voiceAudio10",
+          box: "voiceManuchehr", btn: "voicePlay10", stop: "voiceStop10", audio: "voiceAudio10",
           prog: "voiceProg10", fill: "voiceFill10", time: "voiceTime10",
           fallbackDur: 168,
           labels: {
-            fa: { play: "پخش خوانش سرگذشت منوچهر و کین‌خواهی ایرج با صدای الناز", pause: "ایست خوانش سرگذشت منوچهر و کین‌خواهی ایرج" },
-            en: { play: "Play Elnaz's narration of the tale of Manuchehr and the vengeance for Iraj", pause: "Pause the narration of the tale of Manuchehr and the vengeance for Iraj" },
-            fr: { play: "Écouter la narration du conte de Manuchehr et la vengeance d'Iraj par Elnaz", pause: "Mettre en pause la narration du conte de Manuchehr et la vengeance d'Iraj" }
+            fa: { play: "پخش خوانش سرگذشت منوچهر و کین‌خواهی ایرج با صدای الناز", pause: "ایست خوانش سرگذشت منوچهر و کین‌خواهی ایرج", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of Manuchehr and the vengeance for Iraj", pause: "Pause the narration of the tale of Manuchehr and the vengeance for Iraj", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de Manuchehr et la vengeance d'Iraj par Elnaz", pause: "Mettre en pause la narration du conte de Manuchehr et la vengeance d'Iraj", stop: "Arrêter la narration" }
           }
         });
         /* Tale Eight (Zal and Rudabeh) */
         initVoice({
-          box: "voiceZal", btn: "voicePlay12", audio: "voiceAudio12",
+          box: "voiceZal", btn: "voicePlay12", stop: "voiceStop12", audio: "voiceAudio12",
           prog: "voiceProg12", fill: "voiceFill12", time: "voiceTime12",
           fallbackDur: 197,
           labels: {
-            fa: { play: "پخش خوانش سرگذشت زال و رودابه با صدای الناز", pause: "ایست خوانش سرگذشت زال و رودابه" },
-            en: { play: "Play Elnaz's narration of the tale of Zal and Rudabeh", pause: "Pause the narration of the tale of Zal and Rudabeh" },
-            fr: { play: "Écouter la narration du conte de Zal et Rudabeh par Elnaz", pause: "Mettre en pause la narration du conte de Zal et Rudabeh" }
+            fa: { play: "پخش خوانش سرگذشت زال و رودابه با صدای الناز", pause: "ایست خوانش سرگذشت زال و رودابه", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of Zal and Rudabeh", pause: "Pause the narration of the tale of Zal and Rudabeh", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de Zal et Rudabeh par Elnaz", pause: "Mettre en pause la narration du conte de Zal et Rudabeh", stop: "Arrêter la narration" }
           }
         });
         /* Tale Nine (The Birth of Rostam) */
         initVoice({
-          box: "voiceRostamBirth", btn: "voicePlay13", audio: "voiceAudio13",
+          box: "voiceRostamBirth", btn: "voicePlay13", stop: "voiceStop13", audio: "voiceAudio13",
           prog: "voiceProg13", fill: "voiceFill13", time: "voiceTime13",
           fallbackDur: 196,
           labels: {
-            fa: { play: "پخش خوانش سرگذشت زادن رستم با صدای الناز", pause: "ایست خوانش سرگذشت زادن رستم" },
-            en: { play: "Play Elnaz's narration of the tale of the Birth of Rostam", pause: "Pause the narration of the tale of the Birth of Rostam" },
-            fr: { play: "Écouter la narration du conte de la naissance de Rostam par Elnaz", pause: "Mettre en pause la narration du conte de la naissance de Rostam" }
+            fa: { play: "پخش خوانش سرگذشت زادن رستم با صدای الناز", pause: "ایست خوانش سرگذشت زادن رستم", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of the Birth of Rostam", pause: "Pause the narration of the tale of the Birth of Rostam", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte de la naissance de Rostam par Elnaz", pause: "Mettre en pause la narration du conte de la naissance de Rostam", stop: "Arrêter la narration" }
           }
         });
         /* Account Ten (The Seven Labours of Rostam) */
         initVoice({
-          box: "voiceHaftKhan", btn: "voicePlay14", audio: "voiceAudio14",
+          box: "voiceHaftKhan", btn: "voicePlay14", stop: "voiceStop14", audio: "voiceAudio14",
           prog: "voiceProg14", fill: "voiceFill14", time: "voiceTime14",
           fallbackDur: 228,
           labels: {
-            fa: { play: "پخش خوانش سرگذشت هفت‌خان رستم با صدای الناز", pause: "ایست خوانش سرگذشت هفت‌خان رستم" },
-            en: { play: "Play Elnaz's narration of the tale of the Seven Labours of Rostam", pause: "Pause the narration of the tale of the Seven Labours of Rostam" },
-            fr: { play: "Écouter la narration du conte des Sept Épreuves de Rostam par Elnaz", pause: "Mettre en pause la narration du conte des Sept Épreuves de Rostam" }
+            fa: { play: "پخش خوانش سرگذشت هفت‌خان رستم با صدای الناز", pause: "ایست خوانش سرگذشت هفت‌خان رستم", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the tale of the Seven Labours of Rostam", pause: "Pause the narration of the tale of the Seven Labours of Rostam", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du conte des Sept Épreuves de Rostam par Elnaz", pause: "Mettre en pause la narration du conte des Sept Épreuves de Rostam", stop: "Arrêter la narration" }
           }
         });
         /* Night One (Shahrazad and Shahriar) */
         initVoice({
-          box: "voiceShahrazad", btn: "voicePlay8", audio: "voiceAudio8",
+          box: "voiceShahrazad", btn: "voicePlay8", stop: "voiceStop8", audio: "voiceAudio8",
           prog: "voiceProg8", fill: "voiceFill8", time: "voiceTime8",
           fallbackDur: 169,
           labels: {
-            fa: { play: "پخش خوانش شهرزاد و شهریار با صدای الناز", pause: "ایست خوانش شهرزاد و شهریار" },
-            en: { play: "Play Elnaz's narration of Shahrazad and Shahriar", pause: "Pause the narration of Shahrazad and Shahriar" },
-            fr: { play: "Écouter la narration de Shahrazad et Shahriar par Elnaz", pause: "Mettre en pause la narration de Shahrazad et Shahriar" }
+            fa: { play: "پخش خوانش شهرزاد و شهریار با صدای الناز", pause: "ایست خوانش شهرزاد و شهریار", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of Shahrazad and Shahriar", pause: "Pause the narration of Shahrazad and Shahriar", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration de Shahrazad et Shahriar par Elnaz", pause: "Mettre en pause la narration de Shahrazad et Shahriar", stop: "Arrêter la narration" }
           }
         });
         /* Night Two (The Merchant and the Efreet) */
         initVoice({
-          box: "voiceMerchant", btn: "voicePlay9", audio: "voiceAudio9",
+          box: "voiceMerchant", btn: "voicePlay9", stop: "voiceStop9", audio: "voiceAudio9",
           prog: "voiceProg9", fill: "voiceFill9", time: "voiceTime9",
           fallbackDur: 226,
           labels: {
-            fa: { play: "پخش خوانش تاجر و عفریت با صدای الناز", pause: "ایست خوانش تاجر و عفریت" },
-            en: { play: "Play Elnaz's narration of The Merchant and the Efreet", pause: "Pause the narration of The Merchant and the Efreet" },
-            fr: { play: "Écouter la narration du Marchand et l'Éfrit par Elnaz", pause: "Mettre en pause la narration du Marchand et l'Éfrit" }
+            fa: { play: "پخش خوانش تاجر و عفریت با صدای الناز", pause: "ایست خوانش تاجر و عفریت", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of The Merchant and the Efreet", pause: "Pause the narration of The Merchant and the Efreet", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du Marchand et l'Éfrit par Elnaz", pause: "Mettre en pause la narration du Marchand et l'Éfrit", stop: "Arrêter la narration" }
           }
         });
         /* Night Three (The Fisherman and the Jinn) */
         initVoice({
-          box: "voiceFisherman", btn: "voicePlay11", audio: "voiceAudio11",
+          box: "voiceFisherman", btn: "voicePlay11", stop: "voiceStop11", audio: "voiceAudio11",
           prog: "voiceProg11", fill: "voiceFill11", time: "voiceTime11",
           fallbackDur: 227,
           labels: {
-            fa: { play: "پخش خوانش ماهیگیر و جن با صدای الناز", pause: "ایست خوانش ماهیگیر و جن" },
-            en: { play: "Play Elnaz's narration of The Fisherman and the Jinn", pause: "Pause the narration of The Fisherman and the Jinn" },
-            fr: { play: "Écouter la narration du Pêcheur et le Djinn par Elnaz", pause: "Mettre en pause la narration du Pêcheur et le Djinn" }
+            fa: { play: "پخش خوانش ماهیگیر و جن با صدای الناز", pause: "ایست خوانش ماهیگیر و جن", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of The Fisherman and the Jinn", pause: "Pause the narration of The Fisherman and the Jinn", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du Pêcheur et le Djinn par Elnaz", pause: "Mettre en pause la narration du Pêcheur et le Djinn", stop: "Arrêter la narration" }
           }
         });
         /* Avesta Part One (Yasna & the Gathas) */
         initVoice({
-          box: "voiceYasna", btn: "voicePlay5", audio: "voiceAudio5",
+          box: "voiceYasna", btn: "voicePlay5", stop: "voiceStop5", audio: "voiceAudio5",
           prog: "voiceProg5", fill: "voiceFill5", time: "voiceTime5",
           fallbackDur: 107,
           labels: {
-            fa: { play: "پخش خوانش بخش یسنا و گات‌ها با صدای الناز", pause: "ایست خوانش بخش یسنا و گات‌ها" },
-            en: { play: "Play Elnaz's narration of the Yasna and the Gathas", pause: "Pause the narration of the Yasna and the Gathas" },
-            fr: { play: "Écouter la narration du Yasna et des Gathas par Elnaz", pause: "Mettre en pause la narration du Yasna et des Gathas" }
+            fa: { play: "پخش خوانش بخش یسنا و گات‌ها با صدای الناز", pause: "ایست خوانش بخش یسنا و گات‌ها", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the Yasna and the Gathas", pause: "Pause the narration of the Yasna and the Gathas", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration du Yasna et des Gathas par Elnaz", pause: "Mettre en pause la narration du Yasna et des Gathas", stop: "Arrêter la narration" }
           }
         });
         /* History of the Shahnameh */
         initVoice({
-          box: "voiceShahnamehHistory", btn: "voicePlay15", audio: "voiceAudio15",
+          box: "voiceShahnamehHistory", btn: "voicePlay15", stop: "voiceStop15", audio: "voiceAudio15",
           prog: "voiceProg15", fill: "voiceFill15", time: "voiceTime15",
           fallbackDur: 237,
           labels: {
-            fa: { play: "پخش خوانش تاریخ شاهنامه با صدای الناز", pause: "ایست خوانش تاریخ شاهنامه" },
-            en: { play: "Play Elnaz's narration of the History of the Shahnameh", pause: "Pause the narration of the History of the Shahnameh" },
-            fr: { play: "Écouter la narration de l'Histoire du Shahnameh par Elnaz", pause: "Mettre en pause la narration de l'Histoire du Shahnameh" }
+            fa: { play: "پخش خوانش تاریخ شاهنامه با صدای الناز", pause: "ایست خوانش تاریخ شاهنامه", stop: "توقف خوانش" },
+            en: { play: "Play Elnaz's narration of the History of the Shahnameh", pause: "Pause the narration of the History of the Shahnameh", stop: "Stop the narration" },
+            fr: { play: "Écouter la narration de l'Histoire du Shahnameh par Elnaz", pause: "Mettre en pause la narration de l'Histoire du Shahnameh", stop: "Arrêter la narration" }
           }
+        });
+        window.addEventListener("hashchange", function () {
+          for (var k = 0; k < voiceAudios.length; k++) voiceAudios[k].pause();
         });
       })();
     </script>
